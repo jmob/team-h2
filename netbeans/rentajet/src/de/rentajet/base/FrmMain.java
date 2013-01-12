@@ -4,7 +4,20 @@
  */
 package de.rentajet.base;
 
-import de.rentajet.frames.frmKunde;
+import de.rentajet.frames.AnredeInfo;
+import de.rentajet.frames.BenutzerInfo;
+import de.rentajet.frames.BenutzergruppeInfo;
+import de.rentajet.frames.FirmaInfo;
+import de.rentajet.frames.FlugzeugInfo;
+import de.rentajet.frames.FlugzeugkostenInfo;
+import de.rentajet.frames.FlugzeugtypInfo;
+import de.rentajet.frames.KundeInfo;
+import de.rentajet.frames.KundenberaterInfo;
+import de.rentajet.frames.MitarbkundeInfo;
+import de.rentajet.frames.OrtInfo;
+import de.rentajet.frames.StaatInfo;
+import de.rentajet.frames.TriebwerkartInfo;
+import de.rentajet.frames.ZahlungsbedingungInfo;
 import de.rentajet.frames.pnlAnrede;
 import de.rentajet.frames.pnlBenutzer;
 import de.rentajet.frames.pnlBenutzergruppe;
@@ -20,8 +33,7 @@ import de.rentajet.frames.pnlStaat;
 import de.rentajet.frames.pnlTriebwerkart;
 import de.rentajet.frames.pnlZahlungsbedingung;
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import javax.swing.JInternalFrame;
+
 
 /**
  *
@@ -585,45 +597,18 @@ public class FrmMain extends javax.swing.JFrame {
   }//GEN-LAST:event_jMenuBar1ComponentMoved
 
   private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-    pnlAnrede pnlAnrede = new pnlAnrede();
-		H2InternalFrame frmAnrede = new H2InternalFrame( "Anrede" );
-		frmAnrede.add( pnlAnrede, BorderLayout.CENTER );
-		frmAnrede.setVisible( true );
-		jPanel3.add( frmAnrede );
-		
-		try {
-			frmAnrede.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		AnredeInfo anrede = new AnredeInfo();
+		anrede.show( jPanel3 );
   }//GEN-LAST:event_jButton17ActionPerformed
 
   private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-    pnlOrt pnlOrt = new pnlOrt();
-		H2InternalFrame frmOrt = new H2InternalFrame( "Ort" );
-		frmOrt.add( pnlOrt, BorderLayout.CENTER );
-		frmOrt.setVisible( true );
-		jPanel3.add( frmOrt );
-		
-		try {
-			frmOrt.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		OrtInfo ort = new OrtInfo();
+		ort.show( jPanel3 );
   }//GEN-LAST:event_jButton18ActionPerformed
 
   private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-    pnlKunde pnlKunde = new pnlKunde();
-		H2InternalFrame frmKunde = new H2InternalFrame( "Kunde" );
-		frmKunde.add( pnlKunde, BorderLayout.CENTER );
-		frmKunde.setVisible( true );
-		jPanel3.add( frmKunde );
-		
-		try {
-			frmKunde.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		KundeInfo kunde = new KundeInfo();
+		kunde.show( jPanel3 );
   }//GEN-LAST:event_jButton28ActionPerformed
 
   private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -631,161 +616,63 @@ public class FrmMain extends javax.swing.JFrame {
   }//GEN-LAST:event_jMenuItem1ActionPerformed
 
   private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-    pnlStaat pnlStaat = new pnlStaat();
-		H2InternalFrame frmStaat = new H2InternalFrame( "Staat" );
-		frmStaat.add( pnlStaat, BorderLayout.CENTER );
-		frmStaat.setVisible( true );
-		jPanel3.add( frmStaat );
-		
-		try {
-			frmStaat.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		StaatInfo staat = new StaatInfo();
+		staat.show( jPanel3 );
   }//GEN-LAST:event_jButton19ActionPerformed
 
   private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-    pnlFirma pnlFirma = new pnlFirma();
-		H2InternalFrame frmFirma = new H2InternalFrame( "Firma" );
-		frmFirma.add( pnlFirma, BorderLayout.CENTER );
-		frmFirma.setVisible( true );
-		jPanel3.add( frmFirma );
-		
-		try {
-			frmFirma.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		FirmaInfo firma = new FirmaInfo();
+		firma.show( jPanel3 );
   }//GEN-LAST:event_jButton20ActionPerformed
 
   private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-    pnlKundenberater pnlKundenberater = new pnlKundenberater();
-		H2InternalFrame frmKundenberater = new H2InternalFrame( "Kundenberater" );
-		frmKundenberater.add( pnlKundenberater, BorderLayout.CENTER );
-		frmKundenberater.setVisible( true );
-		jPanel3.add( frmKundenberater );
-		
-		try {
-			frmKundenberater.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		KundenberaterInfo kundenberater = new KundenberaterInfo();
+		kundenberater.show( jPanel3 );
   }//GEN-LAST:event_jButton21ActionPerformed
 
   private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
     // TODO add your handling code here:
+		// Flugpersonal erfassen
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-    pnlTriebwerkart pnlTriebwerkart = new pnlTriebwerkart();
-		H2InternalFrame frmTriebwerkart = new H2InternalFrame( "Triebwerkart" );
-		frmTriebwerkart.add( pnlTriebwerkart, BorderLayout.CENTER );
-		frmTriebwerkart.setVisible( true );
-		jPanel3.add( frmTriebwerkart );
-		
-		try {
-			frmTriebwerkart.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		TriebwerkartInfo triebwerkart = new TriebwerkartInfo();
+		triebwerkart.show( jPanel3 );
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    pnlFlugzeugtyp pnlFlugzeugtyp = new pnlFlugzeugtyp();
-		H2InternalFrame frmFlugzeugtyp = new H2InternalFrame( "Flugzeugtyp" );
-		frmFlugzeugtyp.add( pnlFlugzeugtyp, BorderLayout.CENTER );
-		frmFlugzeugtyp.setVisible( true );
-		jPanel3.add( frmFlugzeugtyp );
-		
-		try {
-			frmFlugzeugtyp.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
+		flugzeugtyp.show( jPanel3 );
   }//GEN-LAST:event_jButton25ActionPerformed
 
   private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-    pnlFlugzeug pnlFlugzeug = new pnlFlugzeug();
-		H2InternalFrame frmFlugzeug = new H2InternalFrame( "Flugzeug" );
-		frmFlugzeug.add( pnlFlugzeug, BorderLayout.CENTER );
-		frmFlugzeug.setVisible( true );
-		jPanel3.add( frmFlugzeug );
-		
-		try {
-			frmFlugzeug.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		FlugzeugInfo flugzeug = new FlugzeugInfo();
+		flugzeug.show( jPanel3 );
   }//GEN-LAST:event_jButton26ActionPerformed
 
   private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-    pnlFlugzeugkosten pnlFlugzeugkosten = new pnlFlugzeugkosten();
-		H2InternalFrame frmFlugzeugkosten = new H2InternalFrame( "Flugzeugkosten" );
-		frmFlugzeugkosten.add( pnlFlugzeugkosten, BorderLayout.CENTER );
-		frmFlugzeugkosten.setVisible( true );
-		jPanel3.add( frmFlugzeugkosten );
-		
-		try {
-			frmFlugzeugkosten.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		FlugzeugkostenInfo flugzeugkosten = new FlugzeugkostenInfo();
+		flugzeugkosten.show( jPanel3 );
   }//GEN-LAST:event_jButton27ActionPerformed
 
   private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-    pnlMitarbkunde pnlMitarbkunde = new pnlMitarbkunde();
-		H2InternalFrame frmMitarbkunde = new H2InternalFrame( "Mitarbkunde" );
-		frmMitarbkunde.add( pnlMitarbkunde, BorderLayout.CENTER );
-		frmMitarbkunde.setVisible( true );
-		jPanel3.add( frmMitarbkunde );
-		
-		try {
-			frmMitarbkunde.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		MitarbkundeInfo mitarbkunde = new MitarbkundeInfo();
+		mitarbkunde.show( jPanel3 );
   }//GEN-LAST:event_jButton29ActionPerformed
 
   private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
-    pnlZahlungsbedingung pnlZahlungsbedingung = new pnlZahlungsbedingung();
-		H2InternalFrame frmZahlungsbedingung = new H2InternalFrame( "Zahlungsbedingung" );
-		frmZahlungsbedingung.add( pnlZahlungsbedingung, BorderLayout.CENTER );
-		frmZahlungsbedingung.setVisible( true );
-		jPanel3.add( frmZahlungsbedingung );
-		
-		try {
-			frmZahlungsbedingung.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		ZahlungsbedingungInfo zahlungsbedingung = new ZahlungsbedingungInfo();
+		zahlungsbedingung.show( jPanel3 );
   }//GEN-LAST:event_jButton30ActionPerformed
 
   private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
-    pnlBenutzergruppe pnlBenutzergruppe = new pnlBenutzergruppe();
-		H2InternalFrame frmBenutzergruppe = new H2InternalFrame( "Benutzergruppe" );
-		frmBenutzergruppe.add( pnlBenutzergruppe, BorderLayout.CENTER );
-		frmBenutzergruppe.setVisible( true );
-		jPanel3.add( frmBenutzergruppe );
-		
-		try {
-			frmBenutzergruppe.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		BenutzergruppeInfo benutzergruppe = new BenutzergruppeInfo();
+		benutzergruppe.show( jPanel3 );
   }//GEN-LAST:event_jButton31ActionPerformed
 
   private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
-    pnlBenutzer pnlBenutzer = new pnlBenutzer();
-		H2InternalFrame frmBenutzer = new H2InternalFrame( "Benutzer" );
-		frmBenutzer.add( pnlBenutzer, BorderLayout.CENTER );
-		frmBenutzer.setVisible( true );
-		jPanel3.add( frmBenutzer );
-		
-		try {
-			frmBenutzer.setSelected(true);
-    } 
-		catch (java.beans.PropertyVetoException e) {
-		}
+		BenutzerInfo benutzer = new BenutzerInfo();
+		benutzer.show( jPanel3 );
   }//GEN-LAST:event_jButton32ActionPerformed
 
 	/**
