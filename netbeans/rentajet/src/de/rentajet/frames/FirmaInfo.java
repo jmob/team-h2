@@ -43,5 +43,65 @@ public class FirmaInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}
+	
+	public void setzeAnzeige() {
+		
+	}
+	
+	public void aktualisiereAnzeige() {
+		
+	}
+	
+	public void ersterDatensatz() {
+		
+	}
+	
+	public void vorherigerdatensatz() {
+		
+	}
+	
+	public void naechsterDatensatz() {
+		
+	}
+	
+	public void sucheDatensatz() {
+		
+	}
+	
+	public void speichern() {
+		speichereDB();
+	}
+	
+	public void abbrechen() {
+		
+	}
+	
+	public void loeschen() {
+		
+	}
+	
+	public void aktualisieren() {
+		
+	}
+	
+	public void drucken() {
+		
+	}
+	
+	public void speichereDB() {
+		
+	}
+	
+	public void zeigeArchiv() {
+		
+	}
+	
+	public void ladeDB(){
+		
+	}
+	
+	public void loescheDB(){
+		
+	}
 }
 
