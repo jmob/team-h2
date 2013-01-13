@@ -37,6 +37,10 @@ public class TriebwerkartInfo {
 	public void setzeAnzeige() {
 		
 	}
+	
+	public void leseausAnzeige() {
+		
+	}
 		
 	public void aktualisiereAnzeige() {
 		

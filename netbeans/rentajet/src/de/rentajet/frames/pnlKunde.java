@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.*;
+
 /**
  *
  * @author H.Petersen
@@ -95,14 +97,14 @@ public class pnlKunde extends javax.swing.JPanel {
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel4Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(jLabel7)
-          .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jTextField10))
         .addGap(18, 18, 18)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel8)
           .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(43, Short.MAX_VALUE))
+        .addGap(43, 43, 43))
     );
 
     jTabbedPane1.setName("jtbdpnAnschrift"); // NOI18N
@@ -406,4 +408,131 @@ public class pnlKunde extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField5;
   private javax.swing.JTextField jTextField6;
   // End of variables declaration//GEN-END:variables
+	public void setNummer( int iNummer ) {
+		jTextField10.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField10.getText();
+	}
+
+	public void setAnrede( String sAnrede ) {
+		jComboBox1.setName( sAnrede );
+	}
+	
+	public String getAnrede() {
+		return jComboBox1.getName();
+	}
+
+	public void setMatchcode( String sMatchcode ) {
+		jTextField11.setText( sMatchcode );
+	}
+	
+	public String getMatchcode() {
+		return jTextField11.getText();
+	}
+
+	public void setName1( String sName1 ) {
+		jTextField1.setText( sName1 );
+	}
+	
+	public String getName1() {
+		return jTextField1.getText();
+	}
+
+	public void setName2( String sName2 ) {
+		jTextField2.setText( sName2 );
+	}
+	
+	public String getName2() {
+		return jTextField2.getText();
+	}
+
+	public void setName3( String sName3 ) {
+		jTextField4.setText( sName3 );
+	}
+	
+	public String getName3() {
+		return jTextField3.getText();
+	}
+
+	public void setStrasse( String sStrasse ) {
+		jTextField4.setText( sStrasse );
+	}
+	
+	public String getStrasse() {
+		return jTextField4.getText();
+	}
+
+	public void setPLZ( String sPLZ ) {
+		jTextField5.setText( sPLZ );
+	}
+	
+	public String getPLZ() {
+		return jTextField5.getText();
+	}
+
+	public void setOrt( String sOrt ) {
+		jTextField6.setText( sOrt );
+	}
+	
+	public String getOrt() {
+		return jTextField6.getText();
+	}
+
+	public void setTelefon( String sTelefon ) {
+		jTextField12.setText( sTelefon );
+	}
+	
+	public String getTelefon() {
+		return jTextField12.getText();
+	}
+
+	public void setTelefax( String sTelefax ) {
+		jTextField13.setText( sTelefax );
+	}
+	
+	public String getTelefax() {
+		return jTextField13.getText();
+	}
+
+	public void setMobil( String sMobil ) {
+		jTextField14.setText( sMobil );
+	}
+	
+	public String getMobil() {
+		return jTextField14.getText();
+	}
+
+	public void setGesperrt( boolean bGesperrt ) {
+		jCheckBox1.setSelected( bGesperrt );
+	}
+	
+	public boolean isGesperrt() {
+		return jCheckBox1.isSelected();
+	}
+
+	public void setKreditlimit( double dKreditlimit ) {
+		jTextField15.setText( dKreditlimit + "" );
+	}
+	
+	public String getKreditlimit() {
+		return jTextField15.getText();
+	}
+
+	public void setSteuernummer( String sSteuernummer ) {
+		jTextField16.setText( sSteuernummer );
+	}
+	
+	public String getSteuernummer() {
+		return jTextField16.getText();
+	}
+
+	public void setKundenberater( String sKundenbarater ) {
+		jComboBox2.setName( sKundenbarater );
+	}
+	
+	public String getKundenberater() {
+		return jComboBox2.getName();
+	}
 }

@@ -42,6 +42,10 @@ public class ZahlungsbedingungInfo {
 		
 	}
 	
+	public void leseausAnzeige() {
+		
+	}
+	
 	public void aktualisiereAnzeige() {
 		
 	}

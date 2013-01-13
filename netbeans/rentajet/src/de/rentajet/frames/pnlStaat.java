@@ -161,4 +161,44 @@ public class pnlStaat extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField4;
   private javax.swing.JTextField jTextField5;
   // End of variables declaration//GEN-END:variables
+
+	public void setNummer( int iNummer ) {
+		jTextField1.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField1.getText();
+	}
+	
+	public void setBezeichnung( String sBezeichnung ) {
+		jTextField2.setText( sBezeichnung );
+	}
+	
+	public String getBezeichnung() {
+		return jTextField2.getText();
+	}
+	
+	public void setLaendercode( String sLaendercode ) {
+		jTextField3.setText( sLaendercode );
+	}
+	
+	public String getLaendercode() {
+		return jTextField3.getText();
+	}
+
+	public void setPostKuerzel( String sPostKuerzel ) {
+		jTextField4.setText( sPostKuerzel );
+	}
+	
+	public String getPostKuerzel() {
+		return jTextField4.getText();
+	}
+	
+	public void setPostName( String sPostName ) {
+		jTextField5.setText( sPostName );
+	}
+	
+	public String getPostName() {
+		return jTextField5.getText();
+	}
 }

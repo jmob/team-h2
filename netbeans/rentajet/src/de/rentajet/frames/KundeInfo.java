@@ -11,11 +11,13 @@ import javax.swing.JPanel;
  */
 public class KundeInfo {
 	private pnlKunde pnlKunde;
+	
+	//DB Variablen
 	private int iID;
 	private int iNummer;
 	private int iAnredeID;
 	private int iOrtID;
-	private int KundenberaterID;
+	private int iKundenberaterID;
 	private String sMatchcode;
 	private String sName1;
 	private String sName2;
@@ -27,6 +29,12 @@ public class KundeInfo {
 	private String sSteuernummer;
 	private boolean bGesperrt;
 	private double dKreditlimit;
+	
+	//Sonstige Variablen
+	private String sPLZ;
+	private String sOrt;
+	private String sAnrede;
+	private String sKundenberater;
 		
 	public KundeInfo() {
 		pnlKunde = new pnlKunde();
@@ -45,7 +53,41 @@ public class KundeInfo {
 	}
 	
 	public void setzeAnzeige() {
-		
+		pnlKunde.setNummer( iNummer );
+		pnlKunde.setAnrede( sAnrede );
+		pnlKunde.setMatchcode( sMatchcode );
+		pnlKunde.setName1( sName1 );
+		pnlKunde.setName2( sName2 );
+		pnlKunde.setName3( sName3 );
+		pnlKunde.setStrasse( sStrasse );
+		pnlKunde.setPLZ( sPLZ );
+		pnlKunde.setOrt( sOrt );
+		pnlKunde.setTelefon( sTelefon );
+		pnlKunde.setTelefax( sTelefax );
+		pnlKunde.setMobil( sMobil );
+		pnlKunde.setKundenberater( sKundenberater );
+		pnlKunde.setKreditlimit( dKreditlimit );
+		pnlKunde.setSteuernummer( sSteuernummer );
+		pnlKunde.setGesperrt( bGesperrt );
+	}
+	
+	public void leseausAnzeige() {
+//		iNummer = pnlKunde.getNummer();
+		sAnrede = pnlKunde.getAnrede();
+		sMatchcode = pnlKunde.getMatchcode();
+		sName1 = pnlKunde.getName1();
+		sName2 = pnlKunde.getName2();
+		sName3 = pnlKunde.getName3();
+		sStrasse = pnlKunde.getStrasse();
+		sPLZ = pnlKunde.getPLZ();
+		sOrt = pnlKunde.getOrt();
+		sTelefon = pnlKunde.getTelefon();
+		sTelefax = pnlKunde.getTelefax();
+		sMobil = pnlKunde.getMobil();
+		sKundenberater = pnlKunde.getKundenberater();
+//		dKreditlimit = pnlKunde.getKreditlimit();
+		sSteuernummer = pnlKunde.getSteuernummer();
+		bGesperrt = pnlKunde.isGesperrt();		
 	}
 	
 	public void aktualisiereAnzeige() {
@@ -69,6 +111,7 @@ public class KundeInfo {
 	}
 	
 	public void speichern() {
+		leseausAnzeige();
 		speichereDB();
 	}
 	

@@ -125,4 +125,20 @@ public class pnlBenutzergruppe extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField1;
   private javax.swing.JTextField jTextField2;
   // End of variables declaration//GEN-END:variables
+
+	public void setNummer( int iNummer ) {
+		jTextField1.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField1.getText();
+	}
+	
+	public void setBezeichnung( String sBezeichnung ) {
+		jTextField2.setText( sBezeichnung );
+	}
+	
+	public String getBezeichnung() {
+		return jTextField2.getText();
+	}
 }

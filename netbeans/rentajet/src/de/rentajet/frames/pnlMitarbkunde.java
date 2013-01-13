@@ -248,4 +248,75 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField7;
   private javax.swing.JTextField jTextField8;
   // End of variables declaration//GEN-END:variables
+	public void setNummer( int iNummer ) {
+		jTextField1.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField1.getText();
+	}
+
+	public void setKundennummer( int iKundennummer ) {
+		jTextField3.setText( iKundennummer + "" );
+	}
+	
+	public String getKundennummer() {
+		return jTextField3.getText();
+	} 
+	
+	public void setAnrede( String sAnrede ) {
+		jComboBox1.setName( sAnrede );
+	}
+	
+	public String getAnrede() {
+		return jComboBox1.getName();
+	}
+
+	public void setNachname( String sNachname ) {
+		jTextField2.setText( sNachname );
+	}
+	
+	public String getNachname() {
+		return jTextField2.getText();
+	}
+
+	public void setVorname( String sVorname ) {
+		jTextField4.setText( sVorname );
+	}
+	
+	public String getVorname() {
+		return jTextField4.getText();
+	}
+
+	public void setInfo( String sInfo ) {
+		jTextField5.setText( sInfo );
+	}
+	
+	public String getInfo() {
+		return jTextField5.getText();
+	}
+
+	public void setTelefon( String sTelefon ) {
+		jTextField6.setText( sTelefon );
+	}
+	
+	public String getTelefon() {
+		return jTextField6.getText();
+	}
+
+	public void setTelefax( String sTelefax ) {
+		jTextField7.setText( sTelefax );
+	}
+	
+	public String getTelefax() {
+		return jTextField7.getText();
+	}
+
+	public void setMobil( String sMobil ) {
+		jTextField8.setText( sMobil );
+	}
+	
+	public String getMobil() {
+		return jTextField8.getText();
+	}
 }

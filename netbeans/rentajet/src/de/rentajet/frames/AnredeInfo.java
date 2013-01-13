@@ -38,6 +38,10 @@ public class AnredeInfo {
 		
 	}
 	
+	public void leseausAnzeige() {
+		
+	}
+	
 	public void aktualisiereAnzeige() {
 		
 	}

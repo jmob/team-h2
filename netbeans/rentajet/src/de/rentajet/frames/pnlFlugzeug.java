@@ -154,4 +154,36 @@ public class pnlFlugzeug extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField2;
   private javax.swing.JTextField jTextField3;
   // End of variables declaration//GEN-END:variables
+
+	public void setNummer( int iNummer ) {
+		jTextField1.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField1.getText();
+	}
+	
+	public void setBezeichnung( String sBezeichnung ) {
+		jTextField2.setText( sBezeichnung );
+	}
+	
+	public String getBezeichnung() {
+		return jTextField2.getText();
+	}
+	
+	public void setFlugzeugtyp( String sFlugzeugtyp ) {
+		jComboBox1.setName( sFlugzeugtyp );
+	}
+	
+	public String getFlugzeugtyp() {
+		return jComboBox1.getName();
+	}
+	
+	public void setFoto( String sFoto ) {
+		jTextField3.setText( sFoto );
+	}
+	
+	public String getFoto() {
+		return jTextField3.getText();
+	}
 }

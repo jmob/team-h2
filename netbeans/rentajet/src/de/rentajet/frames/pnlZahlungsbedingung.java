@@ -182,4 +182,52 @@ public class pnlZahlungsbedingung extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField4;
   private javax.swing.JTextField jTextField5;
   // End of variables declaration//GEN-END:variables
+	public void setNummer( int iNummer ) {
+		jTextField1.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField1.getText();
+	}
+	
+	public void setBezeichnung( String sBezeichnung ) {
+		jTextField2.setText( sBezeichnung );
+	}
+	
+	public String getBezeichnung() {
+		return jTextField2.getText();
+	}
+		
+	public void setBelegtext( String sBelegtext ) {
+		jTextArea1.setText( sBelegtext );
+	}
+	
+	public String getBelegtext() {
+		return jTextArea1.getText();
+	}
+	
+	public void setValuta( String sValuta ) {
+		jTextField3.setText( sValuta );
+	}
+	
+	public String getValuta() {
+		return jTextField3.getText();
+	}
+	
+	public void setSkontoValuta( String sSkontoValuta ) {
+		jTextField4.setText( sSkontoValuta );
+	}
+	
+	public String getSkontoValuta() {
+		return jTextField4.getText();
+	}
+	
+	public void setSkontosatz( int iSkontosatz ) {
+		jTextField5.setText( iSkontosatz + "" );
+	}
+	
+	public String getSkontosatz() {
+		return jTextField5.getText();
+	}
+
 }

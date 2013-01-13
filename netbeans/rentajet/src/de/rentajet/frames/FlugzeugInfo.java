@@ -40,6 +40,10 @@ public class FlugzeugInfo {
 		
 	}
 	
+	public void leseausAnzeige() {
+		
+	}
+	
 	public void aktualisiereAnzeige() {
 		
 	}

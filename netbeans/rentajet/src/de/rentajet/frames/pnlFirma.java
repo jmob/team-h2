@@ -322,4 +322,107 @@ public class pnlFirma extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField8;
   private javax.swing.JTextField jTextField9;
   // End of variables declaration//GEN-END:variables
+	public void setBezeichnung( String sBezeichnung ) {
+		jTextField4.setText( sBezeichnung );
+	}
+	
+	public String getBezeichnung() {
+		return jTextField4.getText();
+	}
+
+	public void setName1( String sName1 ) {
+		jTextField5.setText( sName1 );
+	}
+	
+	public String getName1() {
+		return jTextField5.getText();
+	}
+
+	public void setName2( String sName2 ) {
+		jTextField6.setText( sName2 );
+	}
+	
+	public String getName2() {
+		return jTextField6.getText();
+	}
+
+	public void setName3( String sName3 ) {
+		jTextField7.setText( sName3 );
+	}
+	
+	public String getName3() {
+		return jTextField7.getText();
+	}
+
+	public void setStrasse( String sStrasse ) {
+		jTextField8.setText( sStrasse );
+	}
+	
+	public String getStrasse() {
+		return jTextField8.getText();
+	}
+
+	public void setPLZ( String sPLZ ) {
+		jTextField9.setText( sPLZ );
+	}
+	
+	public String getPLZ() {
+		return jTextField9.getText();
+	}
+
+	public void setOrt( String sOrt ) {
+		jTextField10.setText( sOrt );
+	}
+	
+	public String getOrt() {
+		return jTextField10.getText();
+	}
+
+	public void setTelefon( String sTelefon ) {
+		jTextField11.setText( sTelefon );
+	}
+	
+	public String getTelefon() {
+		return jTextField11.getText();
+	}
+
+	public void setTelefax( String sTelefax ) {
+		jTextField12.setText( sTelefax );
+	}
+	
+	public String getTelefax() {
+		return jTextField12.getText();
+	}
+
+	public void setBetriebsnummer( String sBetriebsnummer ) {
+		jTextField2.setText( sBetriebsnummer );
+	}
+	
+	public String getBetriebsnummer() {
+		return jTextField2.getText();
+	}
+
+	public void setSteuernummer( String sSteuernummer ) {
+		jTextField1.setText( sSteuernummer );
+	}
+	
+	public String getSteuernummer() {
+		return jTextField11.getText();
+	}
+
+	public void setUSTIdentNummer( String sUSTIdentNummer ) {
+		jTextField3.setText( sUSTIdentNummer );
+	}
+	
+	public String getUSTIdentNummer() {
+		return jTextField3.getText();
+	}
+	
+	public void setLogo( String sLogo ) {
+		jTextField13.setText( sLogo );
+	}
+	
+	public String getLogo() {
+		return jTextField13.getText();
+	}
 }

@@ -46,6 +46,10 @@ public class FlugzeugtypInfo {
 		
 	}
 	
+	public void leseausAnzeige() {
+		
+	}
+	
 	public void aktualisiereAnzeige() {
 		
 	}

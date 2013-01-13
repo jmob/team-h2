@@ -138,4 +138,28 @@ public class pnlOrt extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField2;
   private javax.swing.JTextField jTextField3;
   // End of variables declaration//GEN-END:variables
+
+	public void setPLZ( int iPLZ ) {
+		jTextField1.setText( iPLZ + "" );
+	}
+	
+	public String getPLZ() {
+		return jTextField1.getText();
+	}
+	
+	public void setBezeichnung( String sBezeichnung ) {
+		jTextField2.setText( sBezeichnung );
+	}
+	
+	public String getBezeichnung() {
+		return jTextField2.getText();
+	}
+	
+	public void setStaat( String sStaat ) {
+		jTextField3.setText( sStaat );
+	}
+	
+	public String getStaat() {
+		return jTextField3.getText();
+	}
 }

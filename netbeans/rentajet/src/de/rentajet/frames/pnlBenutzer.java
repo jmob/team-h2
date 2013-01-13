@@ -222,4 +222,68 @@ public class pnlBenutzer extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField4;
   private javax.swing.JTextField jTextField5;
   // End of variables declaration//GEN-END:variables
+	public void setNummer( int iNummer ) {
+		jTextField3.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField3.getText();
+	}
+
+	public void setNachname( String sNachname ) {
+		jTextField4.setText( sNachname );
+	}
+	
+	public String getNachname() {
+		return jTextField4.getText();
+	}
+
+	public void setVorname( String sVorname ) {
+		jTextField1.setText( sVorname );
+	}
+	
+	public String getVorname() {
+		return jTextField1.getText();
+	}
+
+	public void setInitialen( String sInitialen ) {
+		jTextField2.setText( sInitialen );
+	}
+	
+	public String getInitialen() {
+		return jTextField2.getText();
+	}
+
+	public void setLogin( String sLogin ) {
+		jTextField5.setText( sLogin );
+	}
+	
+	public String getLogin() {
+		return jTextField5.getText();
+	}
+
+	public void setPasswort( String sPasswort ) {
+		jPasswordField1.setText( sPasswort );
+	}
+	
+	public String getPasswort() {
+		return jPasswordField1.getText();
+	}
+
+	public void setBenutzergruppe( String sBenutzergruppe ) {
+		jComboBox1.setName( sBenutzergruppe );
+	}
+	
+	public String getBenutzergruppe() {
+		return jComboBox1.getName();
+	}
+
+	public void setGesperrt( boolean bGesperrt ) {
+		jCheckBox1.setSelected( bGesperrt );
+	}
+	
+	public boolean isGesperrt() {
+		return jCheckBox1.isSelected();
+	}
+
 }

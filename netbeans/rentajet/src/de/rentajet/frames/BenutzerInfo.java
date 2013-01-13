@@ -44,6 +44,10 @@ public class BenutzerInfo {
 		
 	}
 	
+	public void leseausAnzeige() {
+		
+	}
+	
 	public void aktualisiereAnzeige() {
 		
 	}

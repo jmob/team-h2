@@ -43,6 +43,10 @@ public class FlugzeugkostenInfo {
 		
 	}
 	
+	public void leseausAnzeige() {
+		
+	}
+	
 	public void aktualisiereAnzeige() {
 		
 	}

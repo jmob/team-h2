@@ -229,4 +229,76 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField8;
   private javax.swing.JTextField jTextField9;
   // End of variables declaration//GEN-END:variables
+
+	public void setNummer( int iNummer ) {
+		jTextField1.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField1.getText();
+	}
+	
+	public void setBezeichnung( String sBezeichnung ) {
+		jTextField2.setText( sBezeichnung );
+	}
+	
+	public String getBezeichnung() {
+		return jTextField2.getText();
+	}
+	
+	public void setHersteller( String sHersteller ) {
+		jTextField3.setText( sHersteller );
+	}
+	
+	public String getHersteller() {
+		return jTextField3.getText();
+	}
+	
+	public void setFlightcrew( int iFlightcrew ) {
+		jTextField4.setText( iFlightcrew + "" );
+	}
+	
+	public String getFlightcrew() {
+		return jTextField4.getText();
+	}
+	
+	public void setCabincrew( int iCabincrew ) {
+		jTextField5.setText( iCabincrew + "" );
+	}
+	
+	public String getCabincrew() {
+		return jTextField5.getText();
+	}
+	
+	public void setReichweite( int iReichweite ) {
+		jTextField6.setText( iReichweite + "" );
+	}
+	
+	public String getReichweite() {
+		return jTextField6.getText();
+	}
+	
+	public void setSitzplaetze( int iSitzplaetze ) {
+		jTextField7.setText( iSitzplaetze + "" );
+	}
+	
+	public String getSitzplaetze() {
+		return jTextField7.getText();
+	}
+	
+	public void setReisegeschwindigkeit( int iReisegeschwindigkeit ) {
+		jTextField8.setText( iReisegeschwindigkeit + "" );
+	}
+	
+	public String getReisegeschwindigkeit() {
+		return jTextField8.getText();
+	}
+	
+	public void setTriebwerkart( String sTriebwerkart ) {
+		jTextField9.setText( sTriebwerkart );
+	}
+	
+	public String getTriebwerkart() {
+		return jTextField9.getText();
+	}
 }

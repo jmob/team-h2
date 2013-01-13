@@ -202,4 +202,60 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField6;
   private javax.swing.JTextField jTextField7;
   // End of variables declaration//GEN-END:variables
+
+	public void setNummer( int iNummer ) {
+		jTextField1.setText( iNummer + "" );
+	}
+	
+	public String getNummer() {
+		return jTextField1.getText();
+	}
+	
+	public void setBezeichnung( String sBezeichnung ) {
+		jTextField2.setText( sBezeichnung );
+	}
+	
+	public String getBezeichnung() {
+		return jTextField2.getText();
+	}
+	
+	public void setFlugzeugnummer( int iFlugzeugnummer ) {
+		jTextField3.setText( iFlugzeugnummer + "" );
+	}
+	
+	public String getFlugzeugnummer() {
+		return jTextField3.getText();
+	}
+	
+	public void setFixkosten( double dFixkosten ) {
+		jTextField4.setText( dFixkosten + "" );
+	}
+	
+	public String getFixkosten() {
+		return jTextField4.getText();
+	}
+	
+	public void setRentabilitaetStd( int iRentabilitaetStd ) {
+		jTextField6.setText( iRentabilitaetStd + "" );
+	}
+	
+	public String getRentabilitaetStd() {
+		return jTextField6.getText();
+	}
+	
+	public void setFixkostenStd( int iFixkostenStd ) {
+		jTextField5.setText( iFixkostenStd + "" );
+	}
+	
+	public String getFixkostenStd() {
+		return jTextField5.getText();
+	}
+	
+	public void setStundensatz( double dStundensatz ) {
+		jTextField7.setText( dStundensatz + "" );
+	}
+	
+	public String getStundensatz() {
+		return jTextField7.getText();
+	}
 }
