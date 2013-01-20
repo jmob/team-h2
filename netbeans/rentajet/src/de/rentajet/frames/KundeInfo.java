@@ -1,7 +1,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
-import de.rentajet.uti.*
+import de.rentajet.uti.*;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
