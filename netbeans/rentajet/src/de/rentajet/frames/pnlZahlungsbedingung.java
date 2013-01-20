@@ -206,24 +206,24 @@ public class pnlZahlungsbedingung extends javax.swing.JPanel {
 		return jTextArea1.getText();
 	}
 	
-	public void setValuta( String sValuta ) {
-		jTextField3.setText( sValuta );
+	public void setValuta( int iValuta ) {
+		jTextField3.setText( iValuta + "" );
 	}
 	
 	public String getValuta() {
 		return jTextField3.getText();
 	}
 	
-	public void setSkontoValuta( String sSkontoValuta ) {
-		jTextField4.setText( sSkontoValuta );
+	public void setSkontoValuta( int iSkontoValuta ) {
+		jTextField4.setText( iSkontoValuta + "" );
 	}
 	
 	public String getSkontoValuta() {
 		return jTextField4.getText();
 	}
 	
-	public void setSkontosatz( int iSkontosatz ) {
-		jTextField5.setText( iSkontosatz + "" );
+	public void setSkontosatz( double dSkontosatz ) {
+		jTextField5.setText( dSkontosatz + "" );
 	}
 	
 	public String getSkontosatz() {

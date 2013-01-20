@@ -256,13 +256,17 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
 		return jTextField1.getText();
 	}
 
-	public void setKundennummer( int iKundennummer ) {
+	public void setKundenummer( int iKundennummer ) {
 		jTextField3.setText( iKundennummer + "" );
 	}
 	
-	public String getKundennummer() {
+	public String getKundenummer() {
 		return jTextField3.getText();
 	} 
+	
+	public void setKunde( String sKunde ) {
+		jLabel7.setName( sKunde );
+	}
 	
 	public void setAnrede( String sAnrede ) {
 		jComboBox1.setName( sAnrede );

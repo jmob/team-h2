@@ -294,11 +294,19 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
 		return jTextField8.getText();
 	}
 	
+	public void setTriebwerke( int iTriebwerke ) {
+		jTextField9.setText( iTriebwerke + "" );
+	}
+	
+	public String getTriebwerke() {
+		return jTextField9.getText();
+	}
+	
 	public void setTriebwerkart( String sTriebwerkart ) {
-		jTextField9.setText( sTriebwerkart );
+		jComboBox1.setName( sTriebwerkart );
 	}
 	
 	public String getTriebwerkart() {
-		return jTextField9.getText();
+		return jComboBox1.getName();
 	}
 }

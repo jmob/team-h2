@@ -53,12 +53,12 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
     jLabel2.setText("Bezeichnung");
 
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel3.setText("Flugzeug");
+    jLabel3.setText("Flugzeugtyp");
 
     jButton1.setText("...");
 
     jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel8.setText("**Flugzeug**");
+    jLabel8.setText("**Flugzeugtyp**");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -219,12 +219,16 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
 		return jTextField2.getText();
 	}
 	
-	public void setFlugzeugnummer( int iFlugzeugnummer ) {
-		jTextField3.setText( iFlugzeugnummer + "" );
+	public void setFlugzeugtypnummer( int iFlugzeugtypnummer ) {
+		jTextField3.setText( iFlugzeugtypnummer + "" );
 	}
 	
-	public String getFlugzeugnummer() {
+	public String getFlugzeugtypnummer() {
 		return jTextField3.getText();
+	}
+	
+	public void setFlugzeugtyp( String sFlugzeugtyp ) {
+		jLabel8.setText( sFlugzeugtyp );
 	}
 	
 	public void setFixkosten( double dFixkosten ) {
@@ -243,8 +247,8 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
 		return jTextField6.getText();
 	}
 	
-	public void setFixkostenStd( int iFixkostenStd ) {
-		jTextField5.setText( iFixkostenStd + "" );
+	public void setFixkostenStd( double dFixkostenStd ) {
+		jTextField5.setText( dFixkostenStd + "" );
 	}
 	
 	public String getFixkostenStd() {
