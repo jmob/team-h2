@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -60,15 +61,15 @@ public class FlugzeugtypInfo {
 	}
 	
 	private void leseausAnzeige() {
-//		iNummer = pnlFlugzeugtyp.getNummer();
+		iNummer = Util.statischStringNachInt( pnlFlugzeugtyp.getNummer() );
 		sBezeichnung = pnlFlugzeugtyp.getBezeichnung();
 		sHersteller = pnlFlugzeugtyp.getHersteller();
-//		iFlightcrew = pnlFlugzeugtyp.getFlightcrew();
-//		iCabincrew = pnlFlugzeugtyp.getCabincrew();
-//		iRechweite = pnlFlugzeugtyp.getReichweite();
-//		iSitzplaetze = pnlFlugzeugtyp.getSitzplaetze();
-//		iReisegeschwindigkeit = pnlFlugzeugtyp.getReisegeschwindigkeit();
-//		iTriebwerke = pnlFlugzeugtyp.getTriebwerke();
+		iFlightcrew = Util.statischStringNachInt( pnlFlugzeugtyp.getFlightcrew() );
+		iCabincrew = Util.statischStringNachInt( pnlFlugzeugtyp.getCabincrew() );
+		iRechweite = Util.statischStringNachInt( pnlFlugzeugtyp.getReichweite() );
+		iSitzplaetze = Util.statischStringNachInt( pnlFlugzeugtyp.getSitzplaetze() );
+		iReisegeschwindigkeit = Util.statischStringNachInt( pnlFlugzeugtyp.getReisegeschwindigkeit() );
+		iTriebwerke = Util.statischStringNachInt( pnlFlugzeugtyp.getTriebwerke() );
 		sTriebwerkart = pnlFlugzeugtyp.getTriebwerkart();
 	}
 	

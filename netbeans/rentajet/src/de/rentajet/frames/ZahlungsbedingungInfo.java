@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -51,12 +52,12 @@ public class ZahlungsbedingungInfo {
 	}
 	
 	private void leseausAnzeige() {
-//		iNummer = pnlZahlungsbedingung.getNummer();
+		iNummer = Util.statischStringNachInt( pnlZahlungsbedingung.getNummer() );
 		sBezeichnung = pnlZahlungsbedingung.getBezeichnung();
 		sBelegtext = pnlZahlungsbedingung.getBelegtext();
-//		iValuta = pnlZahlungsbedingung.getValuta();
-//		iSkontoValuta = pnlZahlungsbedingung.getSkontoValuta();
-//		dSkontosatz = pnlZahlungsbedingung.getSkontosatz();
+		iValuta = Util.statischStringNachInt( pnlZahlungsbedingung.getValuta() );
+		iSkontoValuta = Util.statischStringNachInt( pnlZahlungsbedingung.getSkontoValuta() );
+		dSkontosatz = Util.statischStringNachDouble( pnlZahlungsbedingung.getSkontosatz(), 1);
 	}
 	
 	

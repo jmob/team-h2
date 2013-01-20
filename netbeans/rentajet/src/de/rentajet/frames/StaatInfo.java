@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -48,7 +49,7 @@ public class StaatInfo {
 	}
 	
 	private void leseausAnzeige() {
-//		iNummer = pnlStaat.getNummer();
+		iNummer = Util.statischStringNachInt( pnlStaat.getNummer() );
 		sBezeichnung = pnlStaat.getBezeichnung();
 		sLaendercode = pnlStaat.getLaendercode();
 		sPostKuerzel = pnlStaat.getPostKuerzel();

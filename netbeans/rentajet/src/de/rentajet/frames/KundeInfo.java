@@ -1,6 +1,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.uti.*
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -72,7 +73,7 @@ public class KundeInfo {
 	}
 	
 	private void leseausAnzeige() {
-//		iNummer = pnlKunde.getNummer();
+		iNummer = Util.statischStringNachInt( pnlKunde.getNummer() );
 		sAnrede = pnlKunde.getAnrede();
 		sMatchcode = pnlKunde.getMatchcode();
 		sName1 = pnlKunde.getName1();
@@ -85,7 +86,7 @@ public class KundeInfo {
 		sTelefax = pnlKunde.getTelefax();
 		sMobil = pnlKunde.getMobil();
 		sKundenberater = pnlKunde.getKundenberater();
-//		dKreditlimit = pnlKunde.getKreditlimit();
+		dKreditlimit = Util.statischStringNachDouble( pnlKunde.getKreditlimit(), 2 );
 		sSteuernummer = pnlKunde.getSteuernummer();
 		bGesperrt = pnlKunde.isGesperrt();		
 	}

@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -57,13 +58,13 @@ public class FlugzeugkostenInfo {
 	}
 	
 	private void leseausAnzeige() {
-//		iNummer = pnlFlugzeugkosten.getNummer();
+		iNummer = Util.statischStringNachInt( pnlFlugzeugkosten.getNummer() );
 		sBezeichnung = pnlFlugzeugkosten.getBezeichnung();
-//		dFixkosten = pnlFlugzeugkosten.getFixkosten();
-//		iRentabilitaetStd = pnlFlugzeugkosten.getRentabilitaetStd();
-//		dFixkostenStd = pnlFlugzeugkosten.getFixkostenStd();
-//		dStundensatz = pnlFlugzeugkosten.getStundensatz();
-//		iFlugzeugtypnummer = pnlFlugzeugkosten.getFlugzeugtypnummer();
+		dFixkosten = Util.statischStringNachDouble( pnlFlugzeugkosten.getFixkosten(), 2 );
+		iRentabilitaetStd = Util.statischStringNachInt( pnlFlugzeugkosten.getRentabilitaetStd() );
+		dFixkostenStd = Util.statischStringNachDouble( pnlFlugzeugkosten.getFixkostenStd(), 2 );
+		dStundensatz = Util.statischStringNachDouble( pnlFlugzeugkosten.getStundensatz(), 2 );
+		iFlugzeugtypnummer = Util.statischStringNachInt( pnlFlugzeugkosten.getFlugzeugtypnummer() );
 	}
 	
 	private void aktualisiereAnzeige() {

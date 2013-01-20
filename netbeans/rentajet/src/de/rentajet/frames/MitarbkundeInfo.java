@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -60,9 +61,9 @@ public class MitarbkundeInfo {
 	}
 	
 	private void leseausAnzeige() {
-//		iNummer = pnlMitarbkunde.getNummer();
+		iNummer = Util.statischStringNachInt( pnlMitarbkunde.getNummer() );
 		sAnrede = pnlMitarbkunde.getAnrede();
-//		iKundenummer = pnlMitarbkunde.getKundenummer();
+		iKundenummer = Util.statischStringNachInt( pnlMitarbkunde.getKundenummer() );
 		sVorname = pnlMitarbkunde.getVorname();
 		sNachname = pnlMitarbkunde.getNachname();
 		sInfo = pnlMitarbkunde.getInfo();

@@ -108,6 +108,11 @@ public class pnlKunde extends javax.swing.JPanel {
     );
 
     jTabbedPane1.setName("jtbdpnAnschrift"); // NOI18N
+    jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        jTabbedPane1MousePressed(evt);
+      }
+    });
 
     jPanel5.setName("pnlAnschrift"); // NOI18N
 
@@ -271,6 +276,11 @@ public class pnlKunde extends javax.swing.JPanel {
     jTabbedPane1.addTab("Kommunikation", jPanel6);
 
     jPanel7.setName("pnlAllgemein"); // NOI18N
+    jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mousePressed(java.awt.event.MouseEvent evt) {
+        jPanel7MousePressed(evt);
+      }
+    });
 
     jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel18.setText("Kundenberater");
@@ -365,10 +375,19 @@ public class pnlKunde extends javax.swing.JPanel {
         .addGap(21, 21, 21)
         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap(16, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jTabbedPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MousePressed
+    
+  }//GEN-LAST:event_jTabbedPane1MousePressed
+
+  private void jPanel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MousePressed
+    jTabbedPane1.setSelectedIndex( 1 );
+  }//GEN-LAST:event_jPanel7MousePressed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JCheckBox jCheckBox1;

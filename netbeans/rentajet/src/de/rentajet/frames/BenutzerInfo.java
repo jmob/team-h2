@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -56,7 +57,7 @@ public class BenutzerInfo {
 	}
 	
 	private void leseausAnzeige() {
-//		iNummer = pnlBenutzer.getNummer();
+		iNummer = Util.statischStringNachInt( pnlBenutzer.getNummer() );
 		sVorname = pnlBenutzer.getVorname();
 		sNachname = pnlBenutzer.getNachname();
 		sInitialen = pnlBenutzer.getInitialen();

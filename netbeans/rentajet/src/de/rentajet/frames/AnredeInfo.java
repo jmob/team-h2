@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -42,7 +43,7 @@ public class AnredeInfo {
 	}
 	
 	private void leseausAnzeige() {
-//		iNummer = pnlAnrede.getNummer();
+		iNummer = Util.statischStringNachInt( pnlAnrede.getNummer() );
 		sBezeichnung = pnlAnrede.getBezeichnung();
 	}
 	
