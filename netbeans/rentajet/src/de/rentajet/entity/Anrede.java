@@ -90,7 +90,7 @@ public class Anrede implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Anrede[ id=" + id + " ]";
+		return "de.rentajet.entity.Anrede[ id=" + id + " ]";
 	}
 	
 }

@@ -208,7 +208,7 @@ public class Firma implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Firma[ id=" + id + " ]";
+		return "de.rentajet.entity.Firma[ id=" + id + " ]";
 	}
 	
 }

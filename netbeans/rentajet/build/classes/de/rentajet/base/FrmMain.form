@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JMenu" name="jMenu3">
       <Properties>
@@ -51,6 +51,29 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jMenuItem13"/>
       </Properties>
+    </Component>
+    <Component class="javax.persistence.EntityManager" name="rentajetPUEntityManager">
+      <Properties>
+        <Property name="persistenceUnit" type="java.lang.String" value="rentajetPU"/>
+      </Properties>
+    </Component>
+    <Component class="javax.persistence.Query" name="benutzerQuery">
+      <Properties>
+        <Property name="query" type="java.lang.String" value="SELECT b FROM Benutzer b"/>
+        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
+          <ComponentRef name="rentajetPUEntityManager"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="java.util.List" name="benutzerList">
+      <Properties>
+        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
+          <ComponentRef name="benutzerQuery"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;de.rentajet.entity.Benutzer&gt;"/>
+      </AuxValues>
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <Events>
@@ -653,6 +676,55 @@
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                      <BorderConstraints direction="Center"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="jTable1">
+                      <BindingProperties>
+                        <BindingProperty name="elements" source="benutzerList" target="jTable1" targetPath="elements" updateStrategy="0" immediately="false">
+                          <Subbinding sourcePath="${id}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
+                          </Subbinding>
+                          <Subbinding sourcePath="${nummer}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
+                          </Subbinding>
+                          <Subbinding sourcePath="${vorname}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                          </Subbinding>
+                          <Subbinding sourcePath="${nachname}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                          </Subbinding>
+                          <Subbinding sourcePath="${initialen}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                          </Subbinding>
+                          <Subbinding sourcePath="${login}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                          </Subbinding>
+                          <Subbinding sourcePath="${passwort}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                          </Subbinding>
+                          <Subbinding sourcePath="${gesperrt}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Boolean.class"/>
+                          </Subbinding>
+                          <Subbinding sourcePath="${benutzergruppeID}">
+                            <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
+                          </Subbinding>
+                        </BindingProperty>
+                      </BindingProperties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>

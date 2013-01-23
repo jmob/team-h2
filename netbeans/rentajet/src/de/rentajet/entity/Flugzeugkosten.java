@@ -145,7 +145,7 @@ public class Flugzeugkosten implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Flugzeugkosten[ id=" + id + " ]";
+		return "de.rentajet.entity.Flugzeugkosten[ id=" + id + " ]";
 	}
 	
 }

@@ -167,7 +167,7 @@ public class Mitarbkunde implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Mitarbkunde[ id=" + id + " ]";
+		return "de.rentajet.entity.Mitarbkunde[ id=" + id + " ]";
 	}
 	
 }

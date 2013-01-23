@@ -1,5 +1,5 @@
 # NetBeans specific #
-nbproject/private/
+/netbeans/rentajet/nbproject/private/
 build/
 nbbuild/
 dist/

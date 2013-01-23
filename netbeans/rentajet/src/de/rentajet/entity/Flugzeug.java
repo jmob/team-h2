@@ -119,7 +119,7 @@ public class Flugzeug implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Flugzeug[ id=" + id + " ]";
+		return "de.rentajet.entity.Flugzeug[ id=" + id + " ]";
 	}
 	
 }

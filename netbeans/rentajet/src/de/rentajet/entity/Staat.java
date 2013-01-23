@@ -123,7 +123,7 @@ public class Staat implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Staat[ id=" + id + " ]";
+		return "de.rentajet.entity.Staat[ id=" + id + " ]";
 	}
 	
 }

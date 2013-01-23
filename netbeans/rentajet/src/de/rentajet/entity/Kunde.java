@@ -234,7 +234,7 @@ public class Kunde implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Kunde[ id=" + id + " ]";
+		return "de.rentajet.entity.Kunde[ id=" + id + " ]";
 	}
 	
 }

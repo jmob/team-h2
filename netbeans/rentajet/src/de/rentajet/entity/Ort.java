@@ -101,7 +101,7 @@ public class Ort implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Ort[ id=" + id + " ]";
+		return "de.rentajet.entity.Ort[ id=" + id + " ]";
 	}
 	
 }

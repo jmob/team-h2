@@ -167,7 +167,7 @@ public class Kundenberater implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Kundenberater[ id=" + id + " ]";
+		return "de.rentajet.entity.Kundenberater[ id=" + id + " ]";
 	}
 	
 }

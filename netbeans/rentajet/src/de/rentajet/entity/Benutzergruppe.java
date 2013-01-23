@@ -101,7 +101,7 @@ public class Benutzergruppe implements Serializable {
 
 	@Override
 	public String toString() {
-		return "teamh2_db_entity_classes.Benutzergruppe[ id=" + id + " ]";
+		return "de.rentajet.entity.Benutzergruppe[ id=" + id + " ]";
 	}
 	
 }

@@ -43,6 +43,7 @@ public class FrmMain extends javax.swing.JFrame {
 	@SuppressWarnings({"unchecked", "deprecation"})
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
+    bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
     jMenu3 = new javax.swing.JMenu();
     jMenuBar2 = new javax.swing.JMenuBar();
@@ -51,6 +52,9 @@ public class FrmMain extends javax.swing.JFrame {
     jMenu6 = new javax.swing.JMenu();
     jMenu9 = new javax.swing.JMenu();
     jMenuItem13 = new javax.swing.JMenuItem();
+    rentajetPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("rentajetPU").createEntityManager();
+    benutzerQuery = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT b FROM Benutzer b");
+    benutzerList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : benutzerQuery.getResultList();
     jPanel1 = new javax.swing.JPanel();
     jToolBar1 = new javax.swing.JToolBar();
     jButton1 = new javax.swing.JButton();
@@ -93,6 +97,8 @@ public class FrmMain extends javax.swing.JFrame {
     jButton31 = new javax.swing.JButton();
     jButton32 = new javax.swing.JButton();
     jPanel3 = new javax.swing.JPanel();
+    jScrollPane2 = new javax.swing.JScrollPane();
+    jTable1 = new javax.swing.JTable();
     jMenuBar1 = new javax.swing.JMenuBar();
     jMenu1 = new javax.swing.JMenu();
     jMenuItem1 = new javax.swing.JMenuItem();
@@ -406,6 +412,41 @@ public class FrmMain extends javax.swing.JFrame {
 
     jPanel3.setName("pnlFenster"); // NOI18N
     jPanel3.setLayout(new java.awt.BorderLayout());
+
+    org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, benutzerList, jTable1);
+    org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
+    columnBinding.setColumnName("Id");
+    columnBinding.setColumnClass(Integer.class);
+    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nummer}"));
+    columnBinding.setColumnName("Nummer");
+    columnBinding.setColumnClass(Integer.class);
+    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${vorname}"));
+    columnBinding.setColumnName("Vorname");
+    columnBinding.setColumnClass(String.class);
+    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nachname}"));
+    columnBinding.setColumnName("Nachname");
+    columnBinding.setColumnClass(String.class);
+    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${initialen}"));
+    columnBinding.setColumnName("Initialen");
+    columnBinding.setColumnClass(String.class);
+    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${login}"));
+    columnBinding.setColumnName("Login");
+    columnBinding.setColumnClass(String.class);
+    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${passwort}"));
+    columnBinding.setColumnName("Passwort");
+    columnBinding.setColumnClass(String.class);
+    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${gesperrt}"));
+    columnBinding.setColumnName("Gesperrt");
+    columnBinding.setColumnClass(Boolean.class);
+    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${benutzergruppeID}"));
+    columnBinding.setColumnName("Benutzergruppe ID");
+    columnBinding.setColumnClass(Integer.class);
+    bindingGroup.addBinding(jTableBinding);
+
+    jScrollPane2.setViewportView(jTable1);
+
+    jPanel3.add(jScrollPane2, java.awt.BorderLayout.CENTER);
+
     jSplitPane1.setRightComponent(jPanel3);
 
     jPanel1.add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -556,6 +597,8 @@ public class FrmMain extends javax.swing.JFrame {
         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
         .addContainerGap())
     );
+
+    bindingGroup.bind();
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
@@ -743,6 +786,8 @@ public class FrmMain extends javax.swing.JFrame {
 		} );
 	}
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private java.util.List<de.rentajet.entity.Benutzer> benutzerList;
+  private javax.persistence.Query benutzerQuery;
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton10;
   private javax.swing.JButton jButton11;
@@ -810,6 +855,7 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
+  private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JPopupMenu.Separator jSeparator1;
   private javax.swing.JPopupMenu.Separator jSeparator2;
   private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -818,6 +864,9 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JToolBar.Separator jSeparator6;
   private javax.swing.JToolBar.Separator jSeparator7;
   private javax.swing.JSplitPane jSplitPane1;
+  private javax.swing.JTable jTable1;
   private javax.swing.JToolBar jToolBar1;
+  private javax.persistence.EntityManager rentajetPUEntityManager;
+  private org.jdesktop.beansbinding.BindingGroup bindingGroup;
   // End of variables declaration//GEN-END:variables
 }
