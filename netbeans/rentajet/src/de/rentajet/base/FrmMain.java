@@ -15,6 +15,7 @@ import de.rentajet.frames.KundeInfo;
 import de.rentajet.frames.KundenberaterInfo;
 import de.rentajet.frames.MitarbkundeInfo;
 import de.rentajet.frames.OrtInfo;
+import de.rentajet.frames.PersonalkostenInfo;
 import de.rentajet.frames.StaatInfo;
 import de.rentajet.frames.TriebwerkartInfo;
 import de.rentajet.frames.ZahlungsbedingungInfo;
@@ -301,7 +302,7 @@ public class FrmMain extends javax.swing.JFrame {
     });
     jPanel5.add(jButton21);
 
-    jButton22.setText("Flugpersonal");
+    jButton22.setText("Personalkosten");
     jButton22.setToolTipText("");
     jButton22.setName("btnFlugpersonal"); // NOI18N
     jButton22.addActionListener(new java.awt.event.ActionListener() {
@@ -642,8 +643,8 @@ public class FrmMain extends javax.swing.JFrame {
   }//GEN-LAST:event_jButton21ActionPerformed
 
   private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-    // TODO add your handling code here:
-		// Flugpersonal erfassen
+		PersonalkostenInfo personalkosten = new PersonalkostenInfo();
+		personalkosten.show( jPanel3 );
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
