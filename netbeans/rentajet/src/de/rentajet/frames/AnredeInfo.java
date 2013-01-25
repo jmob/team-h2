@@ -54,6 +54,10 @@ public class AnredeInfo {
 	}
 	
 	public void ersterDatensatz() {
+		JOptionPane.showMessageDialog(
+			null, "Erster Datensatz", "Yippi", 
+			JOptionPane.OK_OPTION
+		);	
 		ersterDatensatzDB();
 		setzeAnzeige();
 	}

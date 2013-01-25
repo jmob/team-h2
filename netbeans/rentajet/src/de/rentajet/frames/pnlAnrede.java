@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.base.MainInfo;
+
 /**
  *
  * @author Petersen
@@ -31,6 +33,12 @@ public class pnlAnrede extends javax.swing.JPanel {
     jLabel2 = new javax.swing.JLabel();
     jTextField1 = new javax.swing.JTextField();
     jTextField2 = new javax.swing.JTextField();
+
+    addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusGained(java.awt.event.FocusEvent evt) {
+        formFocusGained(evt);
+      }
+    });
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel1.setText("Nummer");
@@ -86,6 +94,12 @@ public class pnlAnrede extends javax.swing.JPanel {
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+    MainInfo main = new MainInfo();
+		main.setFrame( "Anrede" );
+  }//GEN-LAST:event_formFocusGained
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;

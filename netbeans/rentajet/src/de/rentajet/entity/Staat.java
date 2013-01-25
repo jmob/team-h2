@@ -4,8 +4,6 @@
  */
 package de.rentajet.entity;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -14,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -33,8 +30,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Staat.findByPostKuerzel", query = "SELECT s FROM Staat s WHERE s.postKuerzel = :postKuerzel"),
 	@NamedQuery(name = "Staat.findByPostName", query = "SELECT s FROM Staat s WHERE s.postName = :postName")})
 public class Staat implements Serializable {
-	@Transient
-	private PropertyChangeSupport changeSupport = new PropertyChangeSupport( this );
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
@@ -63,9 +58,7 @@ public class Staat implements Serializable {
 	}
 
 	public void setId( Integer id ) {
-		Integer oldId = this.id;
 		this.id = id;
-		changeSupport.firePropertyChange( "id", oldId, id );
 	}
 
 	public Integer getNummer() {
@@ -73,9 +66,7 @@ public class Staat implements Serializable {
 	}
 
 	public void setNummer( Integer nummer ) {
-		Integer oldNummer = this.nummer;
 		this.nummer = nummer;
-		changeSupport.firePropertyChange( "nummer", oldNummer, nummer );
 	}
 
 	public String getBezeichnung() {
@@ -83,9 +74,7 @@ public class Staat implements Serializable {
 	}
 
 	public void setBezeichnung( String bezeichnung ) {
-		String oldBezeichnung = this.bezeichnung;
 		this.bezeichnung = bezeichnung;
-		changeSupport.firePropertyChange( "bezeichnung", oldBezeichnung, bezeichnung );
 	}
 
 	public String getLaendercode() {
@@ -93,9 +82,7 @@ public class Staat implements Serializable {
 	}
 
 	public void setLaendercode( String laendercode ) {
-		String oldLaendercode = this.laendercode;
 		this.laendercode = laendercode;
-		changeSupport.firePropertyChange( "laendercode", oldLaendercode, laendercode );
 	}
 
 	public String getPostKuerzel() {
@@ -103,9 +90,7 @@ public class Staat implements Serializable {
 	}
 
 	public void setPostKuerzel( String postKuerzel ) {
-		String oldPostKuerzel = this.postKuerzel;
 		this.postKuerzel = postKuerzel;
-		changeSupport.firePropertyChange( "postKuerzel", oldPostKuerzel, postKuerzel );
 	}
 
 	public String getPostName() {
@@ -113,9 +98,7 @@ public class Staat implements Serializable {
 	}
 
 	public void setPostName( String postName ) {
-		String oldPostName = this.postName;
 		this.postName = postName;
-		changeSupport.firePropertyChange( "postName", oldPostName, postName );
 	}
 
 	@Override
@@ -141,14 +124,6 @@ public class Staat implements Serializable {
 	@Override
 	public String toString() {
 		return "de.rentajet.entity.Staat[ id=" + id + " ]";
-	}
-
-	public void addPropertyChangeListener( PropertyChangeListener listener ) {
-		changeSupport.addPropertyChangeListener( listener );
-	}
-
-	public void removePropertyChangeListener( PropertyChangeListener listener ) {
-		changeSupport.removePropertyChangeListener( listener );
 	}
 	
 }

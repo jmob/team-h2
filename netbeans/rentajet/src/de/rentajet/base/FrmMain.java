@@ -27,11 +27,14 @@ import javax.swing.UIManager;
  * @author Petersen
  */
 public class FrmMain extends javax.swing.JFrame {
+	
+	private MainInfo main;
 
 	/**
 	 * Creates new form FrmMain
 	 */
 	public FrmMain() {
+		main = new MainInfo();
 		initComponents();
 	}
 
@@ -172,6 +175,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton3.setName("btnErster"); // NOI18N
     jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton3.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton3ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton3);
 
     jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/vcrback_24st.gif"))); // NOI18N
@@ -208,6 +216,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton8.setName("btnSpeichern"); // NOI18N
     jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton8ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton8);
 
     jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/erase2_24st.gif"))); // NOI18N
@@ -747,6 +760,14 @@ public class FrmMain extends javax.swing.JFrame {
 			e.printStackTrace(); 
 		}
   }//GEN-LAST:event_jRadioButtonMenuItem5ActionPerformed
+
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    main.speichern();
+  }//GEN-LAST:event_jButton8ActionPerformed
+
+  private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    main.ersterDatensatz();
+  }//GEN-LAST:event_jButton3ActionPerformed
 
 	/**
 	 * @param args the command line arguments

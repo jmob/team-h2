@@ -45,6 +45,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	}
 	
 	public String getNummer() {
+		return "";
 //		return jTextField1.getText();
 	}
 }
