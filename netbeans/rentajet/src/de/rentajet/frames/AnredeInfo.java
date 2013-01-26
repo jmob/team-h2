@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.MainInfo;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
@@ -19,12 +20,15 @@ public class AnredeInfo {
 	private int iID;
 	private int iNummer;
 	private String sBezeichnung;
+	private MainInfo main;
 	
 	public AnredeInfo() {
-		
+
 	}
 	
 	public void show( JPanel pnlMain ) {
+		main = new MainInfo();
+		main.setFrame( "Anrede" );
 		pnlAnrede = new pnlAnrede();
 		H2InternalFrame frmAnrede = new H2InternalFrame( "Anrede" );
 		frmAnrede.add( pnlAnrede, BorderLayout.CENTER );
@@ -54,6 +58,7 @@ public class AnredeInfo {
 	}
 	
 	public void ersterDatensatz() {
+		main.setFrame( "Anrede" );
 		JOptionPane.showMessageDialog(
 			null, "Erster Datensatz", "Yippi", 
 			JOptionPane.OK_OPTION

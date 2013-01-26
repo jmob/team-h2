@@ -96,8 +96,7 @@ public class pnlAnrede extends javax.swing.JPanel {
   }// </editor-fold>//GEN-END:initComponents
 
   private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-    MainInfo main = new MainInfo();
-		main.setFrame( "Anrede" );
+
   }//GEN-LAST:event_formFocusGained
 
   // Variables declaration - do not modify//GEN-BEGIN:variables

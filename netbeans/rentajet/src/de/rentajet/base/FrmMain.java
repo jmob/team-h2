@@ -19,6 +19,7 @@ import de.rentajet.frames.PersonalkostenInfo;
 import de.rentajet.frames.StaatInfo;
 import de.rentajet.frames.TriebwerkartInfo;
 import de.rentajet.frames.ZahlungsbedingungInfo;
+import javax.swing.ButtonGroup;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -36,8 +37,23 @@ public class FrmMain extends javax.swing.JFrame {
 	public FrmMain() {
 		main = new MainInfo();
 		initComponents();
+		erstelleButtonGroup();
 	}
 
+	private void erstelleButtonGroup() {
+		bg = new ButtonGroup();
+		bg.add( jRadioButtonMenuItem1 );
+		bg.add( jRadioButtonMenuItem2 );
+		bg.add( jRadioButtonMenuItem3 );
+		bg.add( jRadioButtonMenuItem4 );
+		bg.add( jRadioButtonMenuItem5 );
+		bg.add( jRadioButtonMenuItem6 );
+		bg.add( jRadioButtonMenuItem7 );
+		bg.add( jRadioButtonMenuItem8 );
+		bg.add( jRadioButtonMenuItem9 );
+		bg.add( jRadioButtonMenuItem10 );
+		bg.add( jRadioButtonMenuItem11 );
+	}
 	/**
 	 * This method is called from within the constructor to initialize the form.
 	 * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,6 +143,13 @@ public class FrmMain extends javax.swing.JFrame {
     jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
     jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
     jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
+    jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
+    jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();
+    jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();
+    jRadioButtonMenuItem8 = new javax.swing.JRadioButtonMenuItem();
+    jRadioButtonMenuItem9 = new javax.swing.JRadioButtonMenuItem();
+    jRadioButtonMenuItem10 = new javax.swing.JRadioButtonMenuItem();
+    jRadioButtonMenuItem11 = new javax.swing.JRadioButtonMenuItem();
     jMenu8 = new javax.swing.JMenu();
     jMenuItem14 = new javax.swing.JMenuItem();
     jMenuItem15 = new javax.swing.JMenuItem();
@@ -580,6 +603,62 @@ public class FrmMain extends javax.swing.JFrame {
     });
     jMenu10.add(jRadioButtonMenuItem5);
 
+    jRadioButtonMenuItem4.setText("Hippo L&F");
+    jRadioButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jRadioButtonMenuItem4ActionPerformed(evt);
+      }
+    });
+    jMenu10.add(jRadioButtonMenuItem4);
+
+    jRadioButtonMenuItem6.setText("Kunststoff L&F");
+    jRadioButtonMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jRadioButtonMenuItem6ActionPerformed(evt);
+      }
+    });
+    jMenu10.add(jRadioButtonMenuItem6);
+
+    jRadioButtonMenuItem7.setText("Liquid L&F");
+    jRadioButtonMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jRadioButtonMenuItem7ActionPerformed(evt);
+      }
+    });
+    jMenu10.add(jRadioButtonMenuItem7);
+
+    jRadioButtonMenuItem8.setText("Next L&F");
+    jRadioButtonMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jRadioButtonMenuItem8ActionPerformed(evt);
+      }
+    });
+    jMenu10.add(jRadioButtonMenuItem8);
+
+    jRadioButtonMenuItem9.setText("NimROD L&F");
+    jRadioButtonMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jRadioButtonMenuItem9ActionPerformed(evt);
+      }
+    });
+    jMenu10.add(jRadioButtonMenuItem9);
+
+    jRadioButtonMenuItem10.setText("PSG L&F");
+    jRadioButtonMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jRadioButtonMenuItem10ActionPerformed(evt);
+      }
+    });
+    jMenu10.add(jRadioButtonMenuItem10);
+
+    jRadioButtonMenuItem11.setText("Squareness L&F");
+    jRadioButtonMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jRadioButtonMenuItem11ActionPerformed(evt);
+      }
+    });
+    jMenu10.add(jRadioButtonMenuItem11);
+
     jMenu7.add(jMenu10);
 
     jMenuBar1.add(jMenu7);
@@ -706,10 +785,6 @@ public class FrmMain extends javax.swing.JFrame {
 				"javax.swing.plaf.metal.MetalLookAndFeel"
 			);
 			SwingUtilities.updateComponentTreeUI( this );
-			jRadioButtonMenuItem1.setSelected( true );
-			jRadioButtonMenuItem2.setSelected( false );
-			jRadioButtonMenuItem3.setSelected( false );
-			jRadioButtonMenuItem5.setSelected( false );
 		} catch( Exception e ) { 
 			e.printStackTrace(); 
 		}
@@ -722,10 +797,6 @@ public class FrmMain extends javax.swing.JFrame {
 				"com.sun.java.swing.plaf.motif.MotifLookAndFeel"
 			);
 			SwingUtilities.updateComponentTreeUI( this );
-			jRadioButtonMenuItem1.setSelected( false );
-			jRadioButtonMenuItem2.setSelected( true );
-			jRadioButtonMenuItem3.setSelected( false );
-			jRadioButtonMenuItem5.setSelected( false );
 		} catch( Exception e ) { 
 			e.printStackTrace(); 
 		}
@@ -736,11 +807,6 @@ public class FrmMain extends javax.swing.JFrame {
 			UIManager.setLookAndFeel(  
 				"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
 			);
-			SwingUtilities.updateComponentTreeUI( this );
-			jRadioButtonMenuItem1.setSelected( false );
-			jRadioButtonMenuItem2.setSelected( false );
-			jRadioButtonMenuItem3.setSelected( true );
-			jRadioButtonMenuItem5.setSelected( false );
 		} catch( Exception e ) { 
 			e.printStackTrace(); 
 		}
@@ -752,10 +818,6 @@ public class FrmMain extends javax.swing.JFrame {
 				"javax.swing.plaf.nimbus.NimbusLookAndFeel"
 			);
 			SwingUtilities.updateComponentTreeUI( this );
-			jRadioButtonMenuItem1.setSelected( false );
-			jRadioButtonMenuItem2.setSelected( false );
-			jRadioButtonMenuItem3.setSelected( false );
-			jRadioButtonMenuItem5.setSelected( true );
 		} catch( Exception e ) { 
 			e.printStackTrace(); 
 		}
@@ -768,6 +830,83 @@ public class FrmMain extends javax.swing.JFrame {
   private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     main.ersterDatensatz();
   }//GEN-LAST:event_jButton3ActionPerformed
+
+  private void jRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem4ActionPerformed
+    try {  
+			UIManager.setLookAndFeel(  
+				"se.diod.hippo.plaf.HippoLookAndFeel"
+			);
+			SwingUtilities.updateComponentTreeUI( this );
+		} catch( Exception e ) { 
+			e.printStackTrace(); 
+		}
+  }//GEN-LAST:event_jRadioButtonMenuItem4ActionPerformed
+
+  private void jRadioButtonMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem6ActionPerformed
+    try {  
+			UIManager.setLookAndFeel(  
+				"com.incors.plaf.kunststoff.KunststoffLookAndFeel"
+			);
+			SwingUtilities.updateComponentTreeUI( this );
+		} catch( Exception e ) { 
+			e.printStackTrace(); 
+		}
+  }//GEN-LAST:event_jRadioButtonMenuItem6ActionPerformed
+
+  private void jRadioButtonMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem7ActionPerformed
+    try {  
+			UIManager.setLookAndFeel(  
+				"com.birosoft.liquid.LiquidLookAndFeel"
+			);
+			SwingUtilities.updateComponentTreeUI( this );
+		} catch( Exception e ) { 
+			e.printStackTrace(); 
+		}
+  }//GEN-LAST:event_jRadioButtonMenuItem7ActionPerformed
+
+  private void jRadioButtonMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem8ActionPerformed
+    try {  
+			UIManager.setLookAndFeel(  
+				"nextlf.plaf.NextLookAndFeel"
+			);
+			SwingUtilities.updateComponentTreeUI( this );
+		} catch( Exception e ) { 
+			e.printStackTrace(); 
+		}
+  }//GEN-LAST:event_jRadioButtonMenuItem8ActionPerformed
+
+  private void jRadioButtonMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem9ActionPerformed
+    try {  
+			UIManager.setLookAndFeel(  
+				"com.nilo.plaf.nimrod.NimRODLookAndFeel"
+			);
+			SwingUtilities.updateComponentTreeUI( this );
+		} catch( Exception e ) { 
+			e.printStackTrace(); 
+		}
+  }//GEN-LAST:event_jRadioButtonMenuItem9ActionPerformed
+
+  private void jRadioButtonMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem10ActionPerformed
+    try {  
+			UIManager.setLookAndFeel(  
+				"com.pagosoft.plaf.PgsLookAndFeel"
+			);
+			SwingUtilities.updateComponentTreeUI( this );
+		} catch( Exception e ) { 
+			e.printStackTrace(); 
+		}
+  }//GEN-LAST:event_jRadioButtonMenuItem10ActionPerformed
+
+  private void jRadioButtonMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem11ActionPerformed
+    try {  
+			UIManager.setLookAndFeel(  
+				"net.beeger.squareness.SquarenessLookAndFeel"
+			);
+			SwingUtilities.updateComponentTreeUI( this );
+		} catch( Exception e ) { 
+			e.printStackTrace(); 
+		}
+  }//GEN-LAST:event_jRadioButtonMenuItem11ActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -874,9 +1013,16 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel3;
   private javax.swing.JPanel jPanel5;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+  private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem10;
+  private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem11;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
+  private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
+  private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem6;
+  private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem7;
+  private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem8;
+  private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem9;
   private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JPopupMenu.Separator jSeparator1;
   private javax.swing.JPopupMenu.Separator jSeparator2;
@@ -891,4 +1037,5 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.persistence.EntityManager rentajetPUEntityManager;
   private org.jdesktop.beansbinding.BindingGroup bindingGroup;
   // End of variables declaration//GEN-END:variables
+	private ButtonGroup bg;
 }

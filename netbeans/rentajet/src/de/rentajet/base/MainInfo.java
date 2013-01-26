@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
  * @author H.Petersen
  */
 public class MainInfo {
-	private String sFrame;
+	private String sFrame = "";
 	
 	private AnredeInfo anrede;
 	private AuftragInfo auftrag;
