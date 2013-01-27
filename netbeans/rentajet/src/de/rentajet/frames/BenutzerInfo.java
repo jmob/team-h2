@@ -19,6 +19,7 @@ public class BenutzerInfo {
 	private int iID;
 	private int iNummer;
 	private int iBenutzergruppeID;
+	private int iBenutzergruppe;
 	private String sVorname;
 	private String sNachname;
 	private String sInitialen;
@@ -98,15 +99,13 @@ public class BenutzerInfo {
 		this.bGesperrt = bGesperrt;
 	}
 
-	public String getsBenutzergruppe() {
-		return sBenutzergruppe;
+	public int getiBenutzergruppe() {
+		return iBenutzergruppe;
 	}
 
-	public void setsBenutzergruppe( String sBenutzergruppe ) {
-		this.sBenutzergruppe = sBenutzergruppe;
+	public void setiBenutzergruppe( int iBenutzergruppe ) {
+		this.iBenutzergruppe = iBenutzergruppe;
 	}
-	
-	private String sBenutzergruppe;
 	
 	public BenutzerInfo() {
 
@@ -133,7 +132,7 @@ public class BenutzerInfo {
 		pnlBenutzer.setLogin( sLogin );
 		pnlBenutzer.setPasswort( sPasswort );
 		pnlBenutzer.setGesperrt( bGesperrt );
-		pnlBenutzer.setBenutzergruppe( sBenutzergruppe );
+		pnlBenutzer.setBenutzergruppe( iBenutzergruppe );
 	}
 	
 	private void leseausAnzeige() {
@@ -144,7 +143,7 @@ public class BenutzerInfo {
 		sLogin = pnlBenutzer.getLogin();
 		sPasswort = pnlBenutzer.getPasswort();
 		bGesperrt = pnlBenutzer.isGesperrt();
-		sBenutzergruppe = pnlBenutzer.getBenutzergruppe();
+		iBenutzergruppe = Util.statischStringNachInt( pnlBenutzer.getBenutzergruppe() );
 	}
 	
 	private void aktualisiereAnzeige() {
@@ -155,7 +154,7 @@ public class BenutzerInfo {
 		sLogin = "";
 		sPasswort = "";
 		bGesperrt = false;
-		sBenutzergruppe = "";
+		iBenutzergruppe = 0;
 		iBenutzergruppeID = 0;
 		setzeAnzeige();
 	}

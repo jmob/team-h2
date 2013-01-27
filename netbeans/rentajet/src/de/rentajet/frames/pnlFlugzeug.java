@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petersen
@@ -34,10 +36,12 @@ public class pnlFlugzeug extends javax.swing.JPanel {
     jTabbedPane1 = new javax.swing.JTabbedPane();
     jPanel2 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
-    jComboBox1 = new javax.swing.JComboBox();
     jLabel4 = new javax.swing.JLabel();
     jTextField3 = new javax.swing.JTextField();
     jButton1 = new javax.swing.JButton();
+    jTextField4 = new javax.swing.JTextField();
+    jButton2 = new javax.swing.JButton();
+    jLabel5 = new javax.swing.JLabel();
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel2.setText("Nummer");
@@ -83,6 +87,16 @@ public class pnlFlugzeug extends javax.swing.JPanel {
 
     jButton1.setText("...");
 
+    jButton2.setText("...");
+    jButton2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2ActionPerformed(evt);
+      }
+    });
+
+    jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel5.setText(" ");
+
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
@@ -94,12 +108,17 @@ public class pnlFlugzeug extends javax.swing.JPanel {
           .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addGroup(jPanel2Layout.createSequentialGroup()
             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 0, Short.MAX_VALUE)))
+            .addGap(0, 0, Short.MAX_VALUE))
+          .addGroup(jPanel2Layout.createSequentialGroup()
+            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         .addContainerGap())
     );
     jPanel2Layout.setVerticalGroup(
@@ -108,13 +127,15 @@ public class pnlFlugzeug extends javax.swing.JPanel {
         .addContainerGap()
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel1)
-          .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jButton2)
+          .addComponent(jLabel5))
         .addGap(18, 18, 18)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel4)
           .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jButton1))
-        .addContainerGap(137, Short.MAX_VALUE))
+        .addContainerGap(134, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Allgemein", jPanel2);
@@ -136,23 +157,40 @@ public class pnlFlugzeug extends javax.swing.JPanel {
         .addContainerGap()
         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18)
-        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+        .addComponent(jTabbedPane1)
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
+		flugzeugtyp.sucheDatensatz();
+		if( flugzeugtyp.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField4.setText( flugzeugtyp.getiNummer() + "" );
+			jLabel5.setText( flugzeugtyp.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton2ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
-  private javax.swing.JComboBox jComboBox1;
+  private javax.swing.JButton jButton2;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JTabbedPane jTabbedPane1;
   private javax.swing.JTextField jTextField1;
   private javax.swing.JTextField jTextField2;
   private javax.swing.JTextField jTextField3;
+  private javax.swing.JTextField jTextField4;
   // End of variables declaration//GEN-END:variables
 
 	public void setNummer( int iNummer ) {
@@ -171,12 +209,12 @@ public class pnlFlugzeug extends javax.swing.JPanel {
 		return jTextField2.getText();
 	}
 	
-	public void setFlugzeugtyp( String sFlugzeugtyp ) {
-		jComboBox1.setName( sFlugzeugtyp );
+	public void setFlugzeugtyp( int iFlugzeugtyp ) {
+		jTextField4.setText( iFlugzeugtyp + "" );
 	}
 	
 	public String getFlugzeugtyp() {
-		return jComboBox1.getName();
+		return jTextField4.getName();
 	}
 	
 	public void setFoto( String sFoto ) {

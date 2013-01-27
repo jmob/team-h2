@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,11 +12,12 @@ import javax.swing.JOptionPane;
  * @author Petersen
  */
 public class pnlFirma extends javax.swing.JPanel {
-
+	FirmaInfo firma = new FirmaInfo();
 	/**
 	 * Creates new form pnlFirma
 	 */
 	public pnlFirma() {
+		
 		initComponents();
 	}
 
@@ -294,7 +296,7 @@ public class pnlFirma extends javax.swing.JPanel {
   }// </editor-fold>//GEN-END:initComponents
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    // TODO add your handling code here:
+		jTextField13.setText( firma.sucheLogo() );
   }//GEN-LAST:event_jButton2ActionPerformed
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -104,6 +104,8 @@ public class pnlKundenberater extends javax.swing.JPanel {
     jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel6.setText("PLZ / Ort");
 
+    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Firma", "Herr", "Frau", "Doktor" }));
+
     jTextField9.setEditable(false);
 
     jButton1.setText("...");

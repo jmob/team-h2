@@ -14,11 +14,13 @@ import org.eclipse.persistence.jpa.internal.jpql.parser.DateTime;
  * @author Petersen
  */
 public class pnlAuftrag extends javax.swing.JPanel {
+	String[] saFlugzeug;
 
 	/**
 	 * Creates new form pnlAuftrag
 	 */
 	public pnlAuftrag() {
+		ermittleVerfügbarkeitFlugzeug();
 		initComponents();
 		jTextField1.setFocusable( true );
 	}
@@ -478,10 +480,10 @@ public class pnlAuftrag extends javax.swing.JPanel {
     });
 
     jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel21.setText("\"Start\"");
+    jLabel21.setText(" ");
 
     jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel22.setText("\"Ziel\"");
+    jLabel22.setText(" ");
 
     jTextField20.setNextFocusableComponent(jTextField21);
 
@@ -516,7 +518,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 468, Short.MAX_VALUE))
+                .addGap(0, 444, Short.MAX_VALUE))
               .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                   .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
@@ -594,7 +596,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTextField22.setNextFocusableComponent(jButton7);
 
     jLabel29.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel29.setText("jLabel29");
+    jLabel29.setText(" ");
 
     jTextField23.setNextFocusableComponent(jButton8);
 
@@ -607,19 +609,19 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTextField27.setNextFocusableComponent(jButton12);
 
     jLabel31.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel31.setText("jLabel31");
+    jLabel31.setText(" ");
 
     jLabel32.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel32.setText("jLabel32");
+    jLabel32.setText(" ");
 
     jLabel33.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel33.setText("jLabel33");
+    jLabel33.setText(" ");
 
     jLabel34.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel34.setText("jLabel34");
+    jLabel34.setText(" ");
 
     jLabel35.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel35.setText("jLabel35");
+    jLabel35.setText(" ");
 
     jButton7.setText("jButton7");
     jButton7.setNextFocusableComponent(jTextField23);
@@ -706,7 +708,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(395, Short.MAX_VALUE))
+        .addContainerGap(371, Short.MAX_VALUE))
     );
     jPanel4Layout.setVerticalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -769,7 +771,6 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel40.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel40.setText("Catering");
 
-    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
     jComboBox1.setNextFocusableComponent(jTextField29);
 
     jTextField29.setNextFocusableComponent(jTextField31);
@@ -789,7 +790,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     });
 
     jLabel41.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel41.setText("jLabel41");
+    jLabel41.setText(" ");
 
     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
     jPanel5.setLayout(jPanel5Layout);
@@ -816,7 +817,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
             .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        .addContainerGap(424, Short.MAX_VALUE))
+        .addContainerGap(400, Short.MAX_VALUE))
     );
     jPanel5Layout.setVerticalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -998,7 +999,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jTextField46)
           .addComponent(jTextField45)
           .addComponent(jTextField44))
-        .addContainerGap(47, Short.MAX_VALUE))
+        .addContainerGap(23, Short.MAX_VALUE))
     );
     jPanel6Layout.setVerticalGroup(
       jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1081,7 +1082,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTextField51.setEditable(false);
 
     jLabel66.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel66.setText("jLabel66");
+    jLabel66.setText(" ");
 
     jButton14.setText("...");
     jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -1112,7 +1113,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
             .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(378, Short.MAX_VALUE))
+        .addContainerGap(354, Short.MAX_VALUE))
     );
     jPanel7Layout.setVerticalGroup(
       jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1353,6 +1354,16 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		}
   }//GEN-LAST:event_jButton14ActionPerformed
 
+	private void ermittleVerfügbarkeitFlugzeug() {
+		AuftragInfo auftrag = new AuftragInfo();	
+		saFlugzeug = new String[auftrag.holeVerfügbareFlugzeuge().length];
+		saFlugzeug = auftrag.holeVerfügbareFlugzeuge();
+		
+		for( int i = 0; i < saFlugzeug.length; i++ ) {
+			jComboBox1.addItem( saFlugzeug[i] );
+		}
+	}
+	
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton10;

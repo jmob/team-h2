@@ -35,7 +35,7 @@ public class KundeInfo {
 	private String sPLZ;
 	private String sOrt;
 	private String sAnrede;
-	private String sKundenberater;
+	private int iKundenberater;
 
 	public int getiID() {
 		return iID;
@@ -189,13 +189,14 @@ public class KundeInfo {
 		this.sAnrede = sAnrede;
 	}
 
-	public String getsKundenberater() {
-		return sKundenberater;
+	public int getiKundenberater() {
+		return iKundenberater;
 	}
 
-	public void setsKundenberater( String sKundenberater ) {
-		this.sKundenberater = sKundenberater;
+	public void setiKundenberater( int iKundenberater ) {
+		this.iKundenberater = iKundenberater;
 	}
+
 		
 	public KundeInfo() {
 	}
@@ -226,7 +227,7 @@ public class KundeInfo {
 		pnlKunde.setTelefon( sTelefon );
 		pnlKunde.setTelefax( sTelefax );
 		pnlKunde.setMobil( sMobil );
-		pnlKunde.setKundenberater( sKundenberater );
+		pnlKunde.setKundenberater( iKundenberater );
 		pnlKunde.setKreditlimit( dKreditlimit );
 		pnlKunde.setSteuernummer( sSteuernummer );
 		pnlKunde.setGesperrt( bGesperrt );
@@ -245,7 +246,7 @@ public class KundeInfo {
 		sTelefon = pnlKunde.getTelefon();
 		sTelefax = pnlKunde.getTelefax();
 		sMobil = pnlKunde.getMobil();
-		sKundenberater = pnlKunde.getKundenberater();
+		iKundenberater = Util.statischStringNachInt( pnlKunde.getKundenberater() );
 		dKreditlimit = Util.statischStringNachDouble( pnlKunde.getKreditlimit(), 2 );
 		sSteuernummer = pnlKunde.getSteuernummer();
 		bGesperrt = pnlKunde.isGesperrt();		
@@ -264,7 +265,7 @@ public class KundeInfo {
 		sTelefon = "";
 		sTelefax = "";
 		sMobil = "";
-		sKundenberater = "";
+		iKundenberater = 0;
 		dKreditlimit = 0;
 		sSteuernummer = "";
 		bGesperrt = false;

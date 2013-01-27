@@ -25,10 +25,9 @@ public class FlugzeugtypInfo {
 	private int iReisegeschwindigkeit;
 	private int iTriebwerke;
 	private int iTriebwerkartID;
+	private int iTriebwerkart;
 	private String sBezeichnung;
 	private String sHersteller;
-	
-	private String sTriebwerkart;
 
 	public int getiID() {
 		return iID;
@@ -118,13 +117,14 @@ public class FlugzeugtypInfo {
 		this.sHersteller = sHersteller;
 	}
 
-	public String getsTriebwerkart() {
-		return sTriebwerkart;
+	public int getiTriebwerkart() {
+		return iTriebwerkart;
 	}
 
-	public void setsTriebwerkart( String sTriebwerkart ) {
-		this.sTriebwerkart = sTriebwerkart;
+	public void setiTriebwerkart( int iTriebwerkart ) {
+		this.iTriebwerkart = iTriebwerkart;
 	}
+
 	
 	public FlugzeugtypInfo() {
 		
@@ -153,7 +153,7 @@ public class FlugzeugtypInfo {
 		pnlFlugzeugtyp.setSitzplaetze( iSitzplaetze );
 		pnlFlugzeugtyp.setReisegeschwindigkeit( iReisegeschwindigkeit );
 		pnlFlugzeugtyp.setTriebwerke( iTriebwerke );
-		pnlFlugzeugtyp.setTriebwerkart( sTriebwerkart );
+		pnlFlugzeugtyp.setTriebwerkart( iTriebwerkart );
 	}
 	
 	private void leseausAnzeige() {
@@ -166,7 +166,7 @@ public class FlugzeugtypInfo {
 		iSitzplaetze = Util.statischStringNachInt( pnlFlugzeugtyp.getSitzplaetze() );
 		iReisegeschwindigkeit = Util.statischStringNachInt( pnlFlugzeugtyp.getReisegeschwindigkeit() );
 		iTriebwerke = Util.statischStringNachInt( pnlFlugzeugtyp.getTriebwerke() );
-		sTriebwerkart = pnlFlugzeugtyp.getTriebwerkart();
+		iTriebwerkart = Util.statischStringNachInt( pnlFlugzeugtyp.getTriebwerkart() );
 	}
 	
 	private void aktualisiereAnzeige() {
@@ -179,7 +179,7 @@ public class FlugzeugtypInfo {
 		iSitzplaetze = 0;
 		iReisegeschwindigkeit = 0;
 		iTriebwerke = 0;
-		sTriebwerkart = "";
+		iTriebwerkart = 0;
 		iTriebwerkartID = 0;
 		setzeAnzeige();
 	}

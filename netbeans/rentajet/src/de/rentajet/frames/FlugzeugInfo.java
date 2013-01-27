@@ -19,6 +19,7 @@ public class FlugzeugInfo {
 	private int iID;
 	private int iNummer;
 	private int iFlugzeugtypID;
+	private int iFlugzeugtyp;
 	private String sBezeichnung;
 	private String sFoto;
 
@@ -62,16 +63,14 @@ public class FlugzeugInfo {
 		this.sFoto = sFoto;
 	}
 
-	public String getsFlugzeugtyp() {
-		return sFlugzeugtyp;
+	public int getiFlugzeugtyp() {
+		return iFlugzeugtyp;
 	}
 
-	public void setsFlugzeugtyp( String sFlugzeugtyp ) {
-		this.sFlugzeugtyp = sFlugzeugtyp;
+	public void setiFlugzeugtyp( int iFlugzeugtyp ) {
+		this.iFlugzeugtyp = iFlugzeugtyp;
 	}
-	
-	private String sFlugzeugtyp;
-	
+
 	public FlugzeugInfo() {
 		
 	}
@@ -92,21 +91,21 @@ public class FlugzeugInfo {
 	private void setzeAnzeige() {
 		pnlFlugzeug.setNummer( iNummer );
 		pnlFlugzeug.setBezeichnung( sBezeichnung );
-		pnlFlugzeug.setFlugzeugtyp( sFlugzeugtyp );
+		pnlFlugzeug.setFlugzeugtyp( iFlugzeugtyp );
 		pnlFlugzeug.setFoto( sFoto );
 	}
 	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlFlugzeug.getNummer() );
 		sBezeichnung = pnlFlugzeug.getBezeichnung();
-		sFlugzeugtyp = pnlFlugzeug.getBezeichnung();
+		iFlugzeugtyp = Util.statischStringNachInt( pnlFlugzeug.getBezeichnung() );
 		sFoto = pnlFlugzeug.getFoto();
 	}
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
-		sFlugzeugtyp = "";
+		iFlugzeugtyp = 0;
 		sFoto = "";
 		iFlugzeugtypID = 0;
 		setzeAnzeige();

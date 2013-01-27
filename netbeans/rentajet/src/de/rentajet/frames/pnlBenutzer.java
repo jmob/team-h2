@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petersen
@@ -39,8 +41,10 @@ public class pnlBenutzer extends javax.swing.JPanel {
     jLabel6 = new javax.swing.JLabel();
     jTextField1 = new javax.swing.JTextField();
     jTextField2 = new javax.swing.JTextField();
-    jComboBox1 = new javax.swing.JComboBox();
     jCheckBox1 = new javax.swing.JCheckBox();
+    jButton1 = new javax.swing.JButton();
+    jTextField6 = new javax.swing.JTextField();
+    jLabel9 = new javax.swing.JLabel();
     jPanel3 = new javax.swing.JPanel();
     jLabel7 = new javax.swing.JLabel();
     jLabel8 = new javax.swing.JLabel();
@@ -94,6 +98,16 @@ public class pnlBenutzer extends javax.swing.JPanel {
     jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel6.setText("Gesperrt");
 
+    jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
+
+    jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel9.setText(" ");
+
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
@@ -110,10 +124,14 @@ public class pnlBenutzer extends javax.swing.JPanel {
           .addComponent(jTextField1)
           .addComponent(jTextField2)
           .addGroup(jPanel2Layout.createSequentialGroup()
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jCheckBox1))
-            .addGap(0, 113, Short.MAX_VALUE)))
+            .addComponent(jCheckBox1)
+            .addGap(0, 0, Short.MAX_VALUE))
+          .addGroup(jPanel2Layout.createSequentialGroup()
+            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)))
         .addContainerGap())
     );
     jPanel2Layout.setVerticalGroup(
@@ -130,7 +148,9 @@ public class pnlBenutzer extends javax.swing.JPanel {
         .addGap(18, 18, 18)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel5)
-          .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jButton1)
+          .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel9))
         .addGap(18, 18, 18)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel6)
@@ -174,7 +194,7 @@ public class pnlBenutzer extends javax.swing.JPanel {
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel8)
           .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(84, Short.MAX_VALUE))
+        .addContainerGap(87, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Login", jPanel3);
@@ -200,9 +220,24 @@ public class pnlBenutzer extends javax.swing.JPanel {
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    BenutzergruppeInfo benutzergruppe = new BenutzergruppeInfo();
+		benutzergruppe.sucheDatensatz();
+		if( benutzergruppe.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField6.setText( benutzergruppe.getiNummer() + "" );
+			jLabel9.setText( benutzergruppe.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton1ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton jButton1;
   private javax.swing.JCheckBox jCheckBox1;
-  private javax.swing.JComboBox jComboBox1;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
@@ -211,6 +246,7 @@ public class pnlBenutzer extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel6;
   private javax.swing.JLabel jLabel7;
   private javax.swing.JLabel jLabel8;
+  private javax.swing.JLabel jLabel9;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
   private javax.swing.JPanel jPanel3;
@@ -221,6 +257,7 @@ public class pnlBenutzer extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField3;
   private javax.swing.JTextField jTextField4;
   private javax.swing.JTextField jTextField5;
+  private javax.swing.JTextField jTextField6;
   // End of variables declaration//GEN-END:variables
 	public void setNummer( int iNummer ) {
 		jTextField3.setText( iNummer + "" );
@@ -270,12 +307,12 @@ public class pnlBenutzer extends javax.swing.JPanel {
 		return jPasswordField1.getText();
 	}
 
-	public void setBenutzergruppe( String sBenutzergruppe ) {
-		jComboBox1.setName( sBenutzergruppe );
+	public void setBenutzergruppe( int iBenutzergruppe ) {
+		jTextField6.setText( iBenutzergruppe + "" );
 	}
 	
 	public String getBenutzergruppe() {
-		return jComboBox1.getName();
+		return jTextField6.getName();
 	}
 
 	public void setGesperrt( boolean bGesperrt ) {

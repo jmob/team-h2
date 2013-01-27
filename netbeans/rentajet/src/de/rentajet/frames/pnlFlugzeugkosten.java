@@ -65,7 +65,7 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
     });
 
     jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel8.setText("**Flugzeugtyp**");
+    jLabel8.setText(" ");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);

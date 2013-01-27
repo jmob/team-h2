@@ -6,6 +6,8 @@ package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
 import java.awt.BorderLayout;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -94,6 +96,18 @@ public class FirmaInfo {
 	
 	public FirmaInfo() {
 		
+	}
+	
+	public String sucheLogo() {
+		pnlFirma firma = new pnlFirma();
+		JFileChooser chooser = new JFileChooser();
+    int rueckgabeWert = chooser.showOpenDialog(null);
+        
+    if(rueckgabeWert == JFileChooser.APPROVE_OPTION)
+    {
+			return chooser.getSelectedFile().toString();
+    }
+		return "";
 	}
 	
 	public void show( JPanel pnlMain ) {

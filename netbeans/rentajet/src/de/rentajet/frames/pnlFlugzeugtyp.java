@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petersen
@@ -48,7 +50,9 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
     jTextField7 = new javax.swing.JTextField();
     jTextField8 = new javax.swing.JTextField();
     jTextField9 = new javax.swing.JTextField();
-    jComboBox1 = new javax.swing.JComboBox();
+    jTextField10 = new javax.swing.JTextField();
+    jButton1 = new javax.swing.JButton();
+    jLabel11 = new javax.swing.JLabel();
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel1.setText("Nummer");
@@ -111,6 +115,16 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
     jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel10.setText("Triebwerkart");
 
+    jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
+
+    jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel11.setText(" ");
+
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
@@ -128,17 +142,21 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
           .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jTextField3)
+          .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
           .addGroup(jPanel2Layout.createSequentialGroup()
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-              .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-              .addComponent(jTextField6)
-              .addComponent(jTextField7)
-              .addComponent(jTextField8)
-              .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-            .addGap(0, 0, Short.MAX_VALUE))
-          .addComponent(jComboBox1, 0, 236, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(jTextField4)
+              .addComponent(jTextField5)
+              .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+              .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         .addContainerGap())
     );
     jPanel2Layout.setVerticalGroup(
@@ -175,7 +193,9 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
         .addGap(18, 18, 18)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel10)
-          .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jButton1)
+          .addComponent(jLabel11))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -204,10 +224,26 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
 
     jTabbedPane1.getAccessibleContext().setAccessibleName("Allgemein");
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   TriebwerkartInfo triebwerkart = new TriebwerkartInfo();
+		triebwerkart.sucheDatensatz();
+		if( triebwerkart.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField10.setText( triebwerkart.getiNummer() + "" );
+			jLabel11.setText( triebwerkart.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton1ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JComboBox jComboBox1;
+  private javax.swing.JButton jButton1;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel10;
+  private javax.swing.JLabel jLabel11;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
@@ -220,6 +256,7 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
   private javax.swing.JPanel jPanel2;
   private javax.swing.JTabbedPane jTabbedPane1;
   private javax.swing.JTextField jTextField1;
+  private javax.swing.JTextField jTextField10;
   private javax.swing.JTextField jTextField2;
   private javax.swing.JTextField jTextField3;
   private javax.swing.JTextField jTextField4;
@@ -302,11 +339,11 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
 		return jTextField9.getText();
 	}
 	
-	public void setTriebwerkart( String sTriebwerkart ) {
-		jComboBox1.setName( sTriebwerkart );
+	public void setTriebwerkart( int iTriebwerkart ) {
+		jTextField10.setName( iTriebwerkart + "" );
 	}
 	
 	public String getTriebwerkart() {
-		return jComboBox1.getName();
+		return jTextField10.getName();
 	}
 }

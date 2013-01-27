@@ -66,7 +66,6 @@ public class FrmMain extends javax.swing.JFrame {
 	@SuppressWarnings({"unchecked", "deprecation"})
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
-    bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
     jMenu3 = new javax.swing.JMenu();
     jMenuBar2 = new javax.swing.JMenuBar();
@@ -103,7 +102,6 @@ public class FrmMain extends javax.swing.JFrame {
     jButton15 = new javax.swing.JButton();
     jLabel7 = new javax.swing.JLabel();
     jLabel1 = new javax.swing.JLabel();
-    jButton17 = new javax.swing.JButton();
     jButton18 = new javax.swing.JButton();
     jButton19 = new javax.swing.JButton();
     jLabel2 = new javax.swing.JLabel();
@@ -125,8 +123,6 @@ public class FrmMain extends javax.swing.JFrame {
     jButton31 = new javax.swing.JButton();
     jButton32 = new javax.swing.JButton();
     jPanel3 = new javax.swing.JPanel();
-    jScrollPane2 = new javax.swing.JScrollPane();
-    jTable1 = new javax.swing.JTable();
     jMenuBar1 = new javax.swing.JMenuBar();
     jMenu1 = new javax.swing.JMenu();
     jMenuItem1 = new javax.swing.JMenuItem();
@@ -297,7 +293,6 @@ public class FrmMain extends javax.swing.JFrame {
 
     jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jButton15.setText("Auftrag");
-    jButton15.setActionCommand("Auftrag");
     jButton15.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButton15ActionPerformed(evt);
@@ -310,15 +305,6 @@ public class FrmMain extends javax.swing.JFrame {
     jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jLabel1.setText("Stammdaten");
     jPanel5.add(jLabel1);
-
-    jButton17.setText("Anrede");
-    jButton17.setName("btnAnrede"); // NOI18N
-    jButton17.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton17ActionPerformed(evt);
-      }
-    });
-    jPanel5.add(jButton17);
 
     jButton18.setText("Ort");
     jButton18.setName("btnOrt"); // NOI18N
@@ -489,41 +475,6 @@ public class FrmMain extends javax.swing.JFrame {
 
     jPanel3.setName("pnlFenster"); // NOI18N
     jPanel3.setLayout(new java.awt.BorderLayout());
-
-    org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, benutzerList, jTable1);
-    org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
-    columnBinding.setColumnName("Id");
-    columnBinding.setColumnClass(Integer.class);
-    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nummer}"));
-    columnBinding.setColumnName("Nummer");
-    columnBinding.setColumnClass(Integer.class);
-    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${vorname}"));
-    columnBinding.setColumnName("Vorname");
-    columnBinding.setColumnClass(String.class);
-    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nachname}"));
-    columnBinding.setColumnName("Nachname");
-    columnBinding.setColumnClass(String.class);
-    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${initialen}"));
-    columnBinding.setColumnName("Initialen");
-    columnBinding.setColumnClass(String.class);
-    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${login}"));
-    columnBinding.setColumnName("Login");
-    columnBinding.setColumnClass(String.class);
-    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${passwort}"));
-    columnBinding.setColumnName("Passwort");
-    columnBinding.setColumnClass(String.class);
-    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${gesperrt}"));
-    columnBinding.setColumnName("Gesperrt");
-    columnBinding.setColumnClass(Boolean.class);
-    columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${benutzergruppeID}"));
-    columnBinding.setColumnName("Benutzergruppe ID");
-    columnBinding.setColumnClass(Integer.class);
-    bindingGroup.addBinding(jTableBinding);
-
-    jScrollPane2.setViewportView(jTable1);
-
-    jPanel3.add(jScrollPane2, java.awt.BorderLayout.CENTER);
-
     jSplitPane1.setRightComponent(jPanel3);
 
     jPanel1.add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -731,19 +682,12 @@ public class FrmMain extends javax.swing.JFrame {
         .addContainerGap())
     );
 
-    bindingGroup.bind();
-
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
   private void jMenuBar1ComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jMenuBar1ComponentMoved
     // TODO add your handling code here:
   }//GEN-LAST:event_jMenuBar1ComponentMoved
-
-  private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-		AnredeInfo anrede = new AnredeInfo();
-		anrede.show( jPanel3 );
-  }//GEN-LAST:event_jButton17ActionPerformed
 
   private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
 		OrtInfo ort = new OrtInfo();
@@ -1011,7 +955,6 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JButton jButton13;
   private javax.swing.JButton jButton14;
   private javax.swing.JButton jButton15;
-  private javax.swing.JButton jButton17;
   private javax.swing.JButton jButton18;
   private javax.swing.JButton jButton19;
   private javax.swing.JButton jButton2;
@@ -1083,7 +1026,6 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem7;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem8;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem9;
-  private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JPopupMenu.Separator jSeparator1;
   private javax.swing.JPopupMenu.Separator jSeparator2;
   private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -1092,10 +1034,8 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JToolBar.Separator jSeparator6;
   private javax.swing.JToolBar.Separator jSeparator7;
   private javax.swing.JSplitPane jSplitPane1;
-  private javax.swing.JTable jTable1;
   private javax.swing.JToolBar jToolBar1;
   private javax.persistence.EntityManager rentajetPUEntityManager;
-  private org.jdesktop.beansbinding.BindingGroup bindingGroup;
   // End of variables declaration//GEN-END:variables
 	private ButtonGroup bg;
 }

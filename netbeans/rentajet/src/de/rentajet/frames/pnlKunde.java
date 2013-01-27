@@ -64,7 +64,9 @@ public class pnlKunde extends javax.swing.JPanel {
     jTextField15 = new javax.swing.JTextField();
     jTextField16 = new javax.swing.JTextField();
     jCheckBox1 = new javax.swing.JCheckBox();
-    jComboBox2 = new javax.swing.JComboBox();
+    jTextField7 = new javax.swing.JTextField();
+    jButton2 = new javax.swing.JButton();
+    jLabel1 = new javax.swing.JLabel();
 
     setMinimumSize(new java.awt.Dimension(500, 455));
 
@@ -219,7 +221,7 @@ public class pnlKunde extends javax.swing.JPanel {
           .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jButton1))
-        .addContainerGap(57, Short.MAX_VALUE))
+        .addContainerGap(65, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Anschrift", jPanel5);
@@ -276,7 +278,7 @@ public class pnlKunde extends javax.swing.JPanel {
         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel17)
           .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(174, Short.MAX_VALUE))
+        .addContainerGap(182, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Kommunikation", jPanel6);
@@ -311,7 +313,15 @@ public class pnlKunde extends javax.swing.JPanel {
 
     jCheckBox1.setName("jchckbxGesperrt"); // NOI18N
 
-    jComboBox2.setName("jcmbxKundenberater"); // NOI18N
+    jButton2.setText("...");
+    jButton2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2ActionPerformed(evt);
+      }
+    });
+
+    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel1.setText(" ");
 
     javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
     jPanel7.setLayout(jPanel7Layout);
@@ -333,10 +343,17 @@ public class pnlKunde extends javax.swing.JPanel {
               .addComponent(jLabel18)
               .addComponent(jLabel19))
             .addGap(18, 18, 18)
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-              .addComponent(jTextField15)
-              .addComponent(jComboBox2, 0, 215, Short.MAX_VALUE))))
-        .addContainerGap(154, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 145, Short.MAX_VALUE))
+              .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+        .addContainerGap())
     );
     jPanel7Layout.setVerticalGroup(
       jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,7 +361,9 @@ public class pnlKunde extends javax.swing.JPanel {
         .addContainerGap()
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel18)
-          .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jButton2)
+          .addComponent(jLabel1))
         .addGap(18, 18, 18)
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel19)
@@ -357,7 +376,7 @@ public class pnlKunde extends javax.swing.JPanel {
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(jCheckBox1)
           .addComponent(jLabel21))
-        .addContainerGap(135, Short.MAX_VALUE))
+        .addContainerGap(140, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Allgemein", jPanel7);
@@ -382,7 +401,7 @@ public class pnlKunde extends javax.swing.JPanel {
         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(16, Short.MAX_VALUE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
 
@@ -405,13 +424,29 @@ public class pnlKunde extends javax.swing.JPanel {
 		else {
 			jTextField5.setText( ort.getiPLZ() + "" );
 			jTextField6.setText( ort.getsBezeichnung() );
+			
 		}  }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+   KundenberaterInfo kundenberater = new KundenberaterInfo();
+		kundenberater.sucheDatensatz();
+		if( kundenberater.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField7.setText( kundenberater.getiNummer() + "" );
+			jLabel1.setText( kundenberater.getsNachname() );
+		}
+  }//GEN-LAST:event_jButton2ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
+  private javax.swing.JButton jButton2;
   private javax.swing.JCheckBox jCheckBox1;
   private javax.swing.JComboBox jComboBox1;
-  private javax.swing.JComboBox jComboBox2;
+  private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel11;
   private javax.swing.JLabel jLabel12;
@@ -445,6 +480,7 @@ public class pnlKunde extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField4;
   private javax.swing.JTextField jTextField5;
   private javax.swing.JTextField jTextField6;
+  private javax.swing.JTextField jTextField7;
   // End of variables declaration//GEN-END:variables
 	public void setNummer( int iNummer ) {
 		jTextField10.setText( iNummer + "" );
@@ -566,11 +602,11 @@ public class pnlKunde extends javax.swing.JPanel {
 		return jTextField16.getText();
 	}
 
-	public void setKundenberater( String sKundenbarater ) {
-		jComboBox2.setName( sKundenbarater );
+	public void setKundenberater( int iKundenbarater ) {
+		jTextField7.setText( iKundenbarater + "" );
 	}
 	
 	public String getKundenberater() {
-		return jComboBox2.getName();
+		return jTextField7.getName();
 	}
 }

@@ -70,7 +70,7 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
     });
 
     jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel7.setText("**Kunde**");
+    jLabel7.setText(" ");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -122,6 +122,8 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
     jLabel9.setText("Vorname");
 
     jLabel10.setText("Info");
+
+    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Firma", "Herr", "Frau", "Doktor" }));
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);

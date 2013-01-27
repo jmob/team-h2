@@ -135,4 +135,9 @@ public class AuftragInfo {
 	public void letzterDatensatzDB() {
 		
 	}
+	
+	public String[] holeVerfügbareFlugzeuge() {
+		// Verfügbarkeitsprüfung
+		return new String[] { "1. Flugzeug", "2. Flugzeug", "3. Flugzeug" };   
+	}
 }
