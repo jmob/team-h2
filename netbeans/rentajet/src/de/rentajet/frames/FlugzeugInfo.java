@@ -21,6 +21,54 @@ public class FlugzeugInfo {
 	private int iFlugzeugtypID;
 	private String sBezeichnung;
 	private String sFoto;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public int getiFlugzeugtypID() {
+		return iFlugzeugtypID;
+	}
+
+	public void setiFlugzeugtypID( int iFlugzeugtypID ) {
+		this.iFlugzeugtypID = iFlugzeugtypID;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public String getsFoto() {
+		return sFoto;
+	}
+
+	public void setsFoto( String sFoto ) {
+		this.sFoto = sFoto;
+	}
+
+	public String getsFlugzeugtyp() {
+		return sFlugzeugtyp;
+	}
+
+	public void setsFlugzeugtyp( String sFlugzeugtyp ) {
+		this.sFlugzeugtyp = sFlugzeugtyp;
+	}
 	
 	private String sFlugzeugtyp;
 	

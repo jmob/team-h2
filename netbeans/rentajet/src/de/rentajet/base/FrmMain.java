@@ -5,9 +5,12 @@
 package de.rentajet.base;
 
 import de.rentajet.frames.AnredeInfo;
+import de.rentajet.frames.AuftragInfo;
 import de.rentajet.frames.BenutzerInfo;
 import de.rentajet.frames.BenutzergruppeInfo;
+import de.rentajet.frames.CateringInfo;
 import de.rentajet.frames.FirmaInfo;
+import de.rentajet.frames.FlughafenInfo;
 import de.rentajet.frames.FlugzeugInfo;
 import de.rentajet.frames.FlugzeugkostenInfo;
 import de.rentajet.frames.FlugzeugtypInfo;
@@ -96,6 +99,9 @@ public class FrmMain extends javax.swing.JFrame {
     jSplitPane1 = new javax.swing.JSplitPane();
     jPanel2 = new javax.swing.JPanel();
     jPanel5 = new javax.swing.JPanel();
+    jLabel6 = new javax.swing.JLabel();
+    jButton15 = new javax.swing.JButton();
+    jLabel7 = new javax.swing.JLabel();
     jLabel1 = new javax.swing.JLabel();
     jButton17 = new javax.swing.JButton();
     jButton18 = new javax.swing.JButton();
@@ -104,11 +110,13 @@ public class FrmMain extends javax.swing.JFrame {
     jButton20 = new javax.swing.JButton();
     jButton21 = new javax.swing.JButton();
     jButton22 = new javax.swing.JButton();
+    jButton13 = new javax.swing.JButton();
     jLabel3 = new javax.swing.JLabel();
     jButton24 = new javax.swing.JButton();
     jButton25 = new javax.swing.JButton();
     jButton26 = new javax.swing.JButton();
     jButton27 = new javax.swing.JButton();
+    jButton14 = new javax.swing.JButton();
     jLabel4 = new javax.swing.JLabel();
     jButton28 = new javax.swing.JButton();
     jButton29 = new javax.swing.JButton();
@@ -280,7 +288,23 @@ public class FrmMain extends javax.swing.JFrame {
     jPanel2.setName("pnlMenu"); // NOI18N
     jPanel2.setLayout(new java.awt.BorderLayout());
 
-    jPanel5.setLayout(new java.awt.GridLayout(25, 1));
+    jPanel5.setLayout(new java.awt.GridLayout(26, 1));
+
+    jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel6.setText("Auftragserfassung");
+    jPanel5.add(jLabel6);
+
+    jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    jButton15.setText("Auftrag");
+    jButton15.setActionCommand("Auftrag");
+    jButton15.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton15ActionPerformed(evt);
+      }
+    });
+    jPanel5.add(jButton15);
+    jPanel5.add(jLabel7);
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -348,6 +372,14 @@ public class FrmMain extends javax.swing.JFrame {
     });
     jPanel5.add(jButton22);
 
+    jButton13.setText("Catering");
+    jButton13.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton13ActionPerformed(evt);
+      }
+    });
+    jPanel5.add(jButton13);
+
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jLabel3.setText("Flugzeuge");
@@ -389,6 +421,14 @@ public class FrmMain extends javax.swing.JFrame {
       }
     });
     jPanel5.add(jButton27);
+
+    jButton14.setText("Flughafen");
+    jButton14.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton14ActionPerformed(evt);
+      }
+    });
+    jPanel5.add(jButton14);
 
     jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jLabel4.setText("Kunden");
@@ -687,7 +727,7 @@ public class FrmMain extends javax.swing.JFrame {
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
         .addContainerGap())
     );
 
@@ -908,6 +948,21 @@ public class FrmMain extends javax.swing.JFrame {
 		}
   }//GEN-LAST:event_jRadioButtonMenuItem11ActionPerformed
 
+  private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+		CateringInfo catering = new CateringInfo();
+		catering.show( jPanel3 );
+  }//GEN-LAST:event_jButton13ActionPerformed
+
+  private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+		FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.show( jPanel3 );
+  }//GEN-LAST:event_jButton14ActionPerformed
+
+  private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+		AuftragInfo auftrag = new AuftragInfo();
+		auftrag.show( jPanel3 );
+  }//GEN-LAST:event_jButton15ActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -953,6 +1008,9 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JButton jButton10;
   private javax.swing.JButton jButton11;
   private javax.swing.JButton jButton12;
+  private javax.swing.JButton jButton13;
+  private javax.swing.JButton jButton14;
+  private javax.swing.JButton jButton15;
   private javax.swing.JButton jButton17;
   private javax.swing.JButton jButton18;
   private javax.swing.JButton jButton19;
@@ -981,6 +1039,8 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JLabel jLabel3;
   private javax.swing.JLabel jLabel4;
   private javax.swing.JLabel jLabel5;
+  private javax.swing.JLabel jLabel6;
+  private javax.swing.JLabel jLabel7;
   private javax.swing.JMenu jMenu1;
   private javax.swing.JMenu jMenu10;
   private javax.swing.JMenu jMenu2;

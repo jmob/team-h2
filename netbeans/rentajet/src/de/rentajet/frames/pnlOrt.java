@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petersen
@@ -78,6 +80,11 @@ public class pnlOrt extends javax.swing.JPanel {
     jLabel3.setText("Staat");
 
     jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
@@ -126,6 +133,20 @@ public class pnlOrt extends javax.swing.JPanel {
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    StaatInfo staat = new StaatInfo();
+		staat.sucheDatensatz();
+		if( staat.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField3.setText( staat.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton1ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JLabel jLabel1;

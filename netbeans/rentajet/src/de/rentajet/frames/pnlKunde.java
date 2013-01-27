@@ -151,10 +151,16 @@ public class pnlKunde extends javax.swing.JPanel {
     jTextField5.setToolTipText("");
     jTextField5.setName("jtxtfldPLZ"); // NOI18N
 
+    jTextField6.setEditable(false);
     jTextField6.setName("jtxtfldOrt"); // NOI18N
 
     jButton1.setText("...");
     jButton1.setName("jbtnOrt"); // NOI18N
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
     jPanel5.setLayout(jPanel5Layout);
@@ -387,6 +393,19 @@ public class pnlKunde extends javax.swing.JPanel {
   private void jPanel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MousePressed
     jTabbedPane1.setSelectedIndex( 1 );
   }//GEN-LAST:event_jPanel7MousePressed
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    OrtInfo ort = new OrtInfo();
+		ort.sucheDatensatz();
+		if( ort.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField5.setText( ort.getiPLZ() + "" );
+			jTextField6.setText( ort.getsBezeichnung() );
+		}  }//GEN-LAST:event_jButton1ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

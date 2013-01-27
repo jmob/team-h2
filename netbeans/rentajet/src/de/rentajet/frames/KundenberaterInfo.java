@@ -30,6 +30,110 @@ public class KundenberaterInfo {
 	private String sAnrede;
 	private String sOrt;
 	private String sPLZ;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public int getiAnredeID() {
+		return iAnredeID;
+	}
+
+	public void setiAnredeID( int iAnredeID ) {
+		this.iAnredeID = iAnredeID;
+	}
+
+	public int getiOrtID() {
+		return iOrtID;
+	}
+
+	public void setiOrtID( int iOrtID ) {
+		this.iOrtID = iOrtID;
+	}
+
+	public String getsVorname() {
+		return sVorname;
+	}
+
+	public void setsVorname( String sVorname ) {
+		this.sVorname = sVorname;
+	}
+
+	public String getsNachname() {
+		return sNachname;
+	}
+
+	public void setsNachname( String sNachname ) {
+		this.sNachname = sNachname;
+	}
+
+	public String getsStrasse() {
+		return sStrasse;
+	}
+
+	public void setsStrasse( String sStrasse ) {
+		this.sStrasse = sStrasse;
+	}
+
+	public String getsTelefon() {
+		return sTelefon;
+	}
+
+	public void setsTelefon( String sTelefon ) {
+		this.sTelefon = sTelefon;
+	}
+
+	public String getsTelefax() {
+		return sTelefax;
+	}
+
+	public void setsTelefax( String sTelefax ) {
+		this.sTelefax = sTelefax;
+	}
+
+	public String getsMobil() {
+		return sMobil;
+	}
+
+	public void setsMobil( String sMobil ) {
+		this.sMobil = sMobil;
+	}
+
+	public String getsAnrede() {
+		return sAnrede;
+	}
+
+	public void setsAnrede( String sAnrede ) {
+		this.sAnrede = sAnrede;
+	}
+
+	public String getsOrt() {
+		return sOrt;
+	}
+
+	public void setsOrt( String sOrt ) {
+		this.sOrt = sOrt;
+	}
+
+	public String getsPLZ() {
+		return sPLZ;
+	}
+
+	public void setsPLZ( String sPLZ ) {
+		this.sPLZ = sPLZ;
+	}
 	
 	public KundenberaterInfo() {
 		

@@ -22,6 +22,46 @@ public class OrtInfo {
 	private String sBezeichnung;
 	
 	private String sStaat;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiPLZ() {
+		return iPLZ;
+	}
+
+	public void setiPLZ( int iPLZ ) {
+		this.iPLZ = iPLZ;
+	}
+
+	public int getiStaatID() {
+		return iStaatID;
+	}
+
+	public void setiStaatID( int iStaatID ) {
+		this.iStaatID = iStaatID;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public String getsStaat() {
+		return sStaat;
+	}
+
+	public void setsStaat( String sStaat ) {
+		this.sStaat = sStaat;
+	}
 	
 	public OrtInfo() {
 		

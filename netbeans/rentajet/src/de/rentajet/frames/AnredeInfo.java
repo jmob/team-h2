@@ -21,6 +21,30 @@ public class AnredeInfo {
 	private int iNummer;
 	private String sBezeichnung;
 	private MainInfo main;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
 	
 	public AnredeInfo() {
 

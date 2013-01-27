@@ -16,6 +16,7 @@ import javax.swing.JPanel;
  */
 public class MitarbkundeInfo {
 	private pnlMitarbkunde pnlMitarbkunde;
+	private int iID;
 	private int iNummer;
 	private int iAnredeID;
 	private int iKundeID;
@@ -29,6 +30,110 @@ public class MitarbkundeInfo {
 	private String sAnrede;
 	private int iKundenummer;
 	private String sKunde;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public int getiAnredeID() {
+		return iAnredeID;
+	}
+
+	public void setiAnredeID( int iAnredeID ) {
+		this.iAnredeID = iAnredeID;
+	}
+
+	public int getiKundeID() {
+		return iKundeID;
+	}
+
+	public void setiKundeID( int iKundeID ) {
+		this.iKundeID = iKundeID;
+	}
+
+	public String getsVorname() {
+		return sVorname;
+	}
+
+	public void setsVorname( String sVorname ) {
+		this.sVorname = sVorname;
+	}
+
+	public String getsNachname() {
+		return sNachname;
+	}
+
+	public void setsNachname( String sNachname ) {
+		this.sNachname = sNachname;
+	}
+
+	public String getsTelefon() {
+		return sTelefon;
+	}
+
+	public void setsTelefon( String sTelefon ) {
+		this.sTelefon = sTelefon;
+	}
+
+	public String getsTelefax() {
+		return sTelefax;
+	}
+
+	public void setsTelefax( String sTelefax ) {
+		this.sTelefax = sTelefax;
+	}
+
+	public String getsMobil() {
+		return sMobil;
+	}
+
+	public void setsMobil( String sMobil ) {
+		this.sMobil = sMobil;
+	}
+
+	public String getsInfo() {
+		return sInfo;
+	}
+
+	public void setsInfo( String sInfo ) {
+		this.sInfo = sInfo;
+	}
+
+	public String getsAnrede() {
+		return sAnrede;
+	}
+
+	public void setsAnrede( String sAnrede ) {
+		this.sAnrede = sAnrede;
+	}
+
+	public int getiKundenummer() {
+		return iKundenummer;
+	}
+
+	public void setiKundenummer( int iKundenummer ) {
+		this.iKundenummer = iKundenummer;
+	}
+
+	public String getsKunde() {
+		return sKunde;
+	}
+
+	public void setsKunde( String sKunde ) {
+		this.sKunde = sKunde;
+	}
 	
 	public MitarbkundeInfo() {
 		

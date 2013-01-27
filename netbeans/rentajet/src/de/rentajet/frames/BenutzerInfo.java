@@ -25,6 +25,86 @@ public class BenutzerInfo {
 	private String sLogin;
 	private String sPasswort;
 	private boolean bGesperrt;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public int getiBenutzergruppeID() {
+		return iBenutzergruppeID;
+	}
+
+	public void setiBenutzergruppeID( int iBenutzergruppeID ) {
+		this.iBenutzergruppeID = iBenutzergruppeID;
+	}
+
+	public String getsVorname() {
+		return sVorname;
+	}
+
+	public void setsVorname( String sVorname ) {
+		this.sVorname = sVorname;
+	}
+
+	public String getsNachname() {
+		return sNachname;
+	}
+
+	public void setsNachname( String sNachname ) {
+		this.sNachname = sNachname;
+	}
+
+	public String getsInitialen() {
+		return sInitialen;
+	}
+
+	public void setsInitialen( String sInitialen ) {
+		this.sInitialen = sInitialen;
+	}
+
+	public String getsLogin() {
+		return sLogin;
+	}
+
+	public void setsLogin( String sLogin ) {
+		this.sLogin = sLogin;
+	}
+
+	public String getsPasswort() {
+		return sPasswort;
+	}
+
+	public void setsPasswort( String sPasswort ) {
+		this.sPasswort = sPasswort;
+	}
+
+	public boolean isbGesperrt() {
+		return bGesperrt;
+	}
+
+	public void setbGesperrt( boolean bGesperrt ) {
+		this.bGesperrt = bGesperrt;
+	}
+
+	public String getsBenutzergruppe() {
+		return sBenutzergruppe;
+	}
+
+	public void setsBenutzergruppe( String sBenutzergruppe ) {
+		this.sBenutzergruppe = sBenutzergruppe;
+	}
 	
 	private String sBenutzergruppe;
 	

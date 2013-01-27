@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petersen
@@ -61,6 +63,11 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
     jLabel3.setText("Kunde");
 
     jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
     jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel7.setText("**Kunde**");
@@ -222,6 +229,21 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    KundeInfo kunde = new KundeInfo();
+		kunde.sucheDatensatz();
+		if( kunde.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField3.setText( kunde.getiNummer() + "" );
+			jLabel7.setText( kunde.getsMatchcode() );
+		}
+  }//GEN-LAST:event_jButton1ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JComboBox jComboBox1;

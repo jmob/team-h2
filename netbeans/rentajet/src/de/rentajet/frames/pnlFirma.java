@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petersen
@@ -166,7 +168,14 @@ public class pnlFirma extends javax.swing.JPanel {
     jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel9.setText("PLZ / Ort");
 
+    jTextField10.setEditable(false);
+
     jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
     jPanel3.setLayout(jPanel3Layout);
@@ -287,6 +296,20 @@ public class pnlFirma extends javax.swing.JPanel {
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_jButton2ActionPerformed
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    OrtInfo ort = new OrtInfo();
+		ort.sucheDatensatz();
+		if( ort.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField9.setText( ort.getiPLZ() + "" );
+			jTextField10.setText( ort.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton1ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

@@ -24,7 +24,39 @@ public class FlughafenInfo {
 	public FlughafenInfo() {
 		
 	}
-	
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public String getsKuerzel() {
+		return sKuerzel;
+	}
+
+	public void setsKuerzel( String sKuerzel ) {
+		this.sKuerzel = sKuerzel;
+	}
+
 	public void show( JPanel pnlMain ) {
 		pnlFlughafen = new pnlFlughafen();
 		H2InternalFrame frmFlughafen = new H2InternalFrame( "Flughafen" );

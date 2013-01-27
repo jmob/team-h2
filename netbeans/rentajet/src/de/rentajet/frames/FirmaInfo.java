@@ -31,6 +31,66 @@ public class FirmaInfo {
 	
 	private String sOrt;
 	private String sPLZ;
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public void setiOrtID( int iOrtID ) {
+		this.iOrtID = iOrtID;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public void setsName1( String sName1 ) {
+		this.sName1 = sName1;
+	}
+
+	public void setsName2( String sName2 ) {
+		this.sName2 = sName2;
+	}
+
+	public void setsName3( String sName3 ) {
+		this.sName3 = sName3;
+	}
+
+	public void setsStrasse( String sStrasse ) {
+		this.sStrasse = sStrasse;
+	}
+
+	public void setsSteuernummer( String sSteuernummer ) {
+		this.sSteuernummer = sSteuernummer;
+	}
+
+	public void setsBetriebsnummer( String sBetriebsnummer ) {
+		this.sBetriebsnummer = sBetriebsnummer;
+	}
+
+	public void setsUSTIdentNummer( String sUSTIdentNummer ) {
+		this.sUSTIdentNummer = sUSTIdentNummer;
+	}
+
+	public void setsTelefon( String sTelefon ) {
+		this.sTelefon = sTelefon;
+	}
+
+	public void setsTelefax( String sTelefax ) {
+		this.sTelefax = sTelefax;
+	}
+
+	public void setsLogo( String sLogo ) {
+		this.sLogo = sLogo;
+	}
+
+	public void setsOrt( String sOrt ) {
+		this.sOrt = sOrt;
+	}
+
+	public void setsPLZ( String sPLZ ) {
+		this.sPLZ = sPLZ;
+	}
 	
 	public FirmaInfo() {
 		

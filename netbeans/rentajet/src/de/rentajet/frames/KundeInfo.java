@@ -36,6 +36,166 @@ public class KundeInfo {
 	private String sOrt;
 	private String sAnrede;
 	private String sKundenberater;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public int getiAnredeID() {
+		return iAnredeID;
+	}
+
+	public void setiAnredeID( int iAnredeID ) {
+		this.iAnredeID = iAnredeID;
+	}
+
+	public int getiOrtID() {
+		return iOrtID;
+	}
+
+	public void setiOrtID( int iOrtID ) {
+		this.iOrtID = iOrtID;
+	}
+
+	public int getiKundenberaterID() {
+		return iKundenberaterID;
+	}
+
+	public void setiKundenberaterID( int iKundenberaterID ) {
+		this.iKundenberaterID = iKundenberaterID;
+	}
+
+	public String getsMatchcode() {
+		return sMatchcode;
+	}
+
+	public void setsMatchcode( String sMatchcode ) {
+		this.sMatchcode = sMatchcode;
+	}
+
+	public String getsName1() {
+		return sName1;
+	}
+
+	public void setsName1( String sName1 ) {
+		this.sName1 = sName1;
+	}
+
+	public String getsName2() {
+		return sName2;
+	}
+
+	public void setsName2( String sName2 ) {
+		this.sName2 = sName2;
+	}
+
+	public String getsName3() {
+		return sName3;
+	}
+
+	public void setsName3( String sName3 ) {
+		this.sName3 = sName3;
+	}
+
+	public String getsStrasse() {
+		return sStrasse;
+	}
+
+	public void setsStrasse( String sStrasse ) {
+		this.sStrasse = sStrasse;
+	}
+
+	public String getsTelefon() {
+		return sTelefon;
+	}
+
+	public void setsTelefon( String sTelefon ) {
+		this.sTelefon = sTelefon;
+	}
+
+	public String getsTelefax() {
+		return sTelefax;
+	}
+
+	public void setsTelefax( String sTelefax ) {
+		this.sTelefax = sTelefax;
+	}
+
+	public String getsMobil() {
+		return sMobil;
+	}
+
+	public void setsMobil( String sMobil ) {
+		this.sMobil = sMobil;
+	}
+
+	public String getsSteuernummer() {
+		return sSteuernummer;
+	}
+
+	public void setsSteuernummer( String sSteuernummer ) {
+		this.sSteuernummer = sSteuernummer;
+	}
+
+	public boolean isbGesperrt() {
+		return bGesperrt;
+	}
+
+	public void setbGesperrt( boolean bGesperrt ) {
+		this.bGesperrt = bGesperrt;
+	}
+
+	public double getdKreditlimit() {
+		return dKreditlimit;
+	}
+
+	public void setdKreditlimit( double dKreditlimit ) {
+		this.dKreditlimit = dKreditlimit;
+	}
+
+	public String getsPLZ() {
+		return sPLZ;
+	}
+
+	public void setsPLZ( String sPLZ ) {
+		this.sPLZ = sPLZ;
+	}
+
+	public String getsOrt() {
+		return sOrt;
+	}
+
+	public void setsOrt( String sOrt ) {
+		this.sOrt = sOrt;
+	}
+
+	public String getsAnrede() {
+		return sAnrede;
+	}
+
+	public void setsAnrede( String sAnrede ) {
+		this.sAnrede = sAnrede;
+	}
+
+	public String getsKundenberater() {
+		return sKundenberater;
+	}
+
+	public void setsKundenberater( String sKundenberater ) {
+		this.sKundenberater = sKundenberater;
+	}
 		
 	public KundeInfo() {
 	}

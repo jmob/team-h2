@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petersen
@@ -102,7 +104,14 @@ public class pnlKundenberater extends javax.swing.JPanel {
     jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel6.setText("PLZ / Ort");
 
+    jTextField9.setEditable(false);
+
     jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
@@ -217,10 +226,25 @@ public class pnlKundenberater extends javax.swing.JPanel {
         .addContainerGap()
         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18)
-        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+        .addComponent(jTabbedPane1)
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    OrtInfo ort = new OrtInfo();
+		ort.sucheDatensatz();
+		if( ort.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField8.setText( ort.getiPLZ() + "" );
+			jTextField9.setText( ort.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton1ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JComboBox jComboBox1;

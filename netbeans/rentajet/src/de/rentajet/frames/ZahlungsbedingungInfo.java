@@ -24,6 +24,62 @@ public class ZahlungsbedingungInfo {
 	private String sBezeichnung;
 	private String sBelegtext;
 
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public int getiValuta() {
+		return iValuta;
+	}
+
+	public void setiValuta( int iValuta ) {
+		this.iValuta = iValuta;
+	}
+
+	public int getiSkontoValuta() {
+		return iSkontoValuta;
+	}
+
+	public void setiSkontoValuta( int iSkontoValuta ) {
+		this.iSkontoValuta = iSkontoValuta;
+	}
+
+	public double getdSkontosatz() {
+		return dSkontosatz;
+	}
+
+	public void setdSkontosatz( double dSkontosatz ) {
+		this.dSkontosatz = dSkontosatz;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public String getsBelegtext() {
+		return sBelegtext;
+	}
+
+	public void setsBelegtext( String sBelegtext ) {
+		this.sBelegtext = sBelegtext;
+	}
+
 	public ZahlungsbedingungInfo() {
 		
 	}

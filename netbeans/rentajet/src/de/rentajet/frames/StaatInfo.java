@@ -22,6 +22,54 @@ public class StaatInfo {
 	private String sLaendercode;
 	private String sPostKuerzel;
 	private String sPostName;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public String getsLaendercode() {
+		return sLaendercode;
+	}
+
+	public void setsLaendercode( String sLaendercode ) {
+		this.sLaendercode = sLaendercode;
+	}
+
+	public String getsPostKuerzel() {
+		return sPostKuerzel;
+	}
+
+	public void setsPostKuerzel( String sPostKuerzel ) {
+		this.sPostKuerzel = sPostKuerzel;
+	}
+
+	public String getsPostName() {
+		return sPostName;
+	}
+
+	public void setsPostName( String sPostName ) {
+		this.sPostName = sPostName;
+	}
 	
 	public StaatInfo() {
 		

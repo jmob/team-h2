@@ -28,6 +28,86 @@ public class FlugzeugkostenInfo {
 	
 	private int iFlugzeugtypnummer;
 	private String sFlugzeugtyp;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public int getiFlugzeugtypID() {
+		return iFlugzeugtypID;
+	}
+
+	public void setiFlugzeugtypID( int iFlugzeugtypID ) {
+		this.iFlugzeugtypID = iFlugzeugtypID;
+	}
+
+	public int getiRentabilitaetStd() {
+		return iRentabilitaetStd;
+	}
+
+	public void setiRentabilitaetStd( int iRentabilitaetStd ) {
+		this.iRentabilitaetStd = iRentabilitaetStd;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public double getdFixkosten() {
+		return dFixkosten;
+	}
+
+	public void setdFixkosten( double dFixkosten ) {
+		this.dFixkosten = dFixkosten;
+	}
+
+	public double getdFixkostenStd() {
+		return dFixkostenStd;
+	}
+
+	public void setdFixkostenStd( double dFixkostenStd ) {
+		this.dFixkostenStd = dFixkostenStd;
+	}
+
+	public double getdStundensatz() {
+		return dStundensatz;
+	}
+
+	public void setdStundensatz( double dStundensatz ) {
+		this.dStundensatz = dStundensatz;
+	}
+
+	public int getiFlugzeugtypnummer() {
+		return iFlugzeugtypnummer;
+	}
+
+	public void setiFlugzeugtypnummer( int iFlugzeugtypnummer ) {
+		this.iFlugzeugtypnummer = iFlugzeugtypnummer;
+	}
+
+	public String getsFlugzeugtyp() {
+		return sFlugzeugtyp;
+	}
+
+	public void setsFlugzeugtyp( String sFlugzeugtyp ) {
+		this.sFlugzeugtyp = sFlugzeugtyp;
+	}
 	
 	public FlugzeugkostenInfo() {
 		

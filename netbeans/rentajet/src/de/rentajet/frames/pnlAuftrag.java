@@ -4,6 +4,11 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.entity.Kundenberater;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import org.eclipse.persistence.jpa.internal.jpql.parser.DateTime;
+
 /**
  *
  * @author Petersen
@@ -15,6 +20,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	 */
 	public pnlAuftrag() {
 		initComponents();
+		jTextField1.setFocusable( true );
 	}
 
 	/**
@@ -180,7 +186,14 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel3.setText("Vorg. Art");
 
+    jTextField1.setNextFocusableComponent(jTextField2);
+
+    jTextField2.setNextFocusableComponent(jTextField3);
+
+    jTextField3.setNextFocusableComponent(jTextField5);
+
     jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jCheckBox1.setSelected(true);
     jCheckBox1.setText("Angebot");
 
     jCheckBox2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -264,9 +277,30 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel10.setText("PLZ / Ort");
 
+    jTextField5.setNextFocusableComponent(jButton1);
+
     jButton1.setText("...");
+    jButton1.setNextFocusableComponent(jTextField6);
+
+    jTextField6.setNextFocusableComponent(jTextField7);
+
+    jTextField7.setNextFocusableComponent(jTextField8);
+
+    jTextField8.setNextFocusableComponent(jTextField9);
+
+    jTextField9.setNextFocusableComponent(jTextField10);
+
+    jTextField10.setNextFocusableComponent(jButton2);
+
+    jTextField11.setEditable(false);
 
     jButton2.setText("...");
+    jButton2.setNextFocusableComponent(jTextField12);
+    jButton2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2ActionPerformed(evt);
+      }
+    });
 
     jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel12.setText("Kontaktperson");
@@ -277,12 +311,32 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel14.setText("Name");
 
+    jTextField12.setNextFocusableComponent(jButton3);
+
+    jTextField13.setNextFocusableComponent(jTextField14);
+
+    jTextField14.setNextFocusableComponent(jTextField15);
+
     jButton3.setText("...");
+    jButton3.setNextFocusableComponent(jTextField13);
+    jButton3.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton3ActionPerformed(evt);
+      }
+    });
 
     jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel11.setText("Berater");
 
+    jTextField15.setNextFocusableComponent(jButton4);
+
     jButton4.setText("...");
+    jButton4.setNextFocusableComponent(jPanel3);
+    jButton4.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton4ActionPerformed(evt);
+      }
+    });
 
     jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel15.setText("\"Name\"");
@@ -382,6 +436,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addContainerGap(15, Short.MAX_VALUE))
     );
 
+    jPanel3.setNextFocusableComponent(jTextField16);
+
     jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel16.setText("Datum / Uhrzeit");
 
@@ -397,9 +453,29 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel20.setText("Anzahl Personen");
 
+    jTextField16.setNextFocusableComponent(jTextField17);
+
+    jTextField17.setNextFocusableComponent(jTextField18);
+
+    jTextField18.setNextFocusableComponent(jButton5);
+
     jButton5.setText("...");
+    jButton5.setNextFocusableComponent(jTextField19);
+    jButton5.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton5ActionPerformed(evt);
+      }
+    });
+
+    jTextField19.setNextFocusableComponent(jButton6);
 
     jButton6.setText("...");
+    jButton6.setNextFocusableComponent(jTextField20);
+    jButton6.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton6ActionPerformed(evt);
+      }
+    });
 
     jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel21.setText("\"Start\"");
@@ -407,8 +483,14 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel22.setText("\"Ziel\"");
 
+    jTextField20.setNextFocusableComponent(jTextField21);
+
+    jTextField21.setNextFocusableComponent(jTextField28);
+
     jLabel30.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel30.setText("Stops");
+
+    jTextField28.setNextFocusableComponent(jPanel4);
 
     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
     jPanel3.setLayout(jPanel3Layout);
@@ -489,6 +571,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTabbedPane1.addTab("Auftrag", jPanel3);
 
     jPanel4.setEnabled(false);
+    jPanel4.setNextFocusableComponent(jTextField22);
 
     jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel23.setText("1. Stop");
@@ -508,8 +591,20 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel28.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel28.setText("6. Stop");
 
+    jTextField22.setNextFocusableComponent(jButton7);
+
     jLabel29.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel29.setText("jLabel29");
+
+    jTextField23.setNextFocusableComponent(jButton8);
+
+    jTextField24.setNextFocusableComponent(jButton9);
+
+    jTextField25.setNextFocusableComponent(jButton10);
+
+    jTextField26.setNextFocusableComponent(jButton11);
+
+    jTextField27.setNextFocusableComponent(jButton12);
 
     jLabel31.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel31.setText("jLabel31");
@@ -527,16 +622,52 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel35.setText("jLabel35");
 
     jButton7.setText("jButton7");
+    jButton7.setNextFocusableComponent(jTextField23);
+    jButton7.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton7ActionPerformed(evt);
+      }
+    });
 
     jButton8.setText("...");
+    jButton8.setNextFocusableComponent(jTextField24);
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton8ActionPerformed(evt);
+      }
+    });
 
     jButton9.setText("...");
+    jButton9.setNextFocusableComponent(jTextField25);
+    jButton9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton9ActionPerformed(evt);
+      }
+    });
 
     jButton10.setText("...");
+    jButton10.setNextFocusableComponent(jTextField26);
+    jButton10.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton10ActionPerformed(evt);
+      }
+    });
 
     jButton11.setText("...");
+    jButton11.setNextFocusableComponent(jTextField27);
+    jButton11.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton11ActionPerformed(evt);
+      }
+    });
 
     jButton12.setText("...");
+    jButton12.setNextFocusableComponent(jPanel5);
+    jButton12.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton12ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
     jPanel4.setLayout(jPanel4Layout);
@@ -621,6 +752,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jTabbedPane1.addTab("Zwischenstops", jPanel4);
 
+    jPanel5.setNextFocusableComponent(jComboBox1);
+
     jLabel36.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel36.setText("Flugzeug");
 
@@ -637,10 +770,23 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel40.setText("Catering");
 
     jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+    jComboBox1.setNextFocusableComponent(jTextField29);
+
+    jTextField29.setNextFocusableComponent(jTextField31);
 
     jTextField30.setEditable(false);
 
+    jTextField31.setNextFocusableComponent(jTextField32);
+
+    jTextField32.setNextFocusableComponent(jButton13);
+
     jButton13.setText("...");
+    jButton13.setNextFocusableComponent(jPanel6);
+    jButton13.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton13ActionPerformed(evt);
+      }
+    });
 
     jLabel41.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel41.setText("jLabel41");
@@ -702,6 +848,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jTabbedPane1.addTab("Flug", jPanel5);
 
+    jPanel6.setNextFocusableComponent(jPanel7);
+
     jLabel42.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel42.setText("Flug");
 
@@ -721,7 +869,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel47.setText("pro Std.");
 
     jLabel48.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel48.setText("Stück");
+    jLabel48.setText("pro Stück");
 
     jLabel49.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel49.setText("pro Pers.");
@@ -731,6 +879,16 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jLabel51.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel51.setText("pro Pers.");
+
+    jTextField33.setEditable(false);
+
+    jTextField34.setEditable(false);
+
+    jTextField35.setEditable(false);
+
+    jTextField36.setEditable(false);
+
+    jTextField37.setEditable(false);
 
     jLabel52.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel52.setText("gesamt");
@@ -747,6 +905,16 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel56.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel56.setText("gesamt");
 
+    jTextField38.setEditable(false);
+
+    jTextField39.setEditable(false);
+
+    jTextField40.setEditable(false);
+
+    jTextField41.setEditable(false);
+
+    jTextField42.setEditable(false);
+
     jLabel57.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel57.setText("Netto");
 
@@ -757,13 +925,20 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel59.setText("%");
 
     jLabel60.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel60.setText("MWSt. 19 %");
+    jLabel60.setText("MwSt. 19 %");
 
     jLabel61.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
     jLabel61.setText("Brutto");
 
     jTextField43.setText("0.0");
 
+    jTextField44.setEditable(false);
+
+    jTextField45.setEditable(false);
+
+    jTextField46.setEditable(false);
+
+    jTextField47.setEditable(false);
     jTextField47.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
     javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -782,7 +957,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+          .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -823,7 +998,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jTextField46)
           .addComponent(jTextField45)
           .addComponent(jTextField44))
-        .addContainerGap(50, Short.MAX_VALUE))
+        .addContainerGap(47, Short.MAX_VALUE))
     );
     jPanel6Layout.setVerticalGroup(
       jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -883,6 +1058,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jTabbedPane1.addTab("Kosten", jPanel6);
 
+    jPanel7.setNextFocusableComponent(jTextField48);
+
     jLabel62.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel62.setText("Zahlungsbed.");
 
@@ -895,10 +1072,23 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel65.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel65.setText("Skontosatz");
 
+    jTextField48.setNextFocusableComponent(jButton14);
+
+    jTextField49.setEditable(false);
+
+    jTextField50.setEditable(false);
+
+    jTextField51.setEditable(false);
+
     jLabel66.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel66.setText("jLabel66");
 
     jButton14.setText("...");
+    jButton14.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton14ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
     jPanel7.setLayout(jPanel7Layout);
@@ -928,11 +1118,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
       jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel7Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(jLabel62)
-          .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(jLabel66)
-          .addComponent(jButton14))
+          .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addComponent(jLabel62)
+            .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jButton14)))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel63)
@@ -958,7 +1149,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
       .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jTabbedPane1)
+        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         .addContainerGap())
     );
     layout.setVerticalGroup(
@@ -974,6 +1165,194 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jTabbedPane1.getAccessibleContext().setAccessibleName("");
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.sucheDatensatz();
+		if( flughafen.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField18.setText( flughafen.getiNummer() + "" );
+			jLabel21.setText( flughafen.getsKuerzel() + " - " + flughafen.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton5ActionPerformed
+
+  private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.sucheDatensatz();
+		if( flughafen.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField19.setText( flughafen.getiNummer() + "" );
+			jLabel22.setText( flughafen.getsKuerzel() + " - " + flughafen.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton6ActionPerformed
+
+  private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    MitarbkundeInfo mitrarbKunde = new MitarbkundeInfo();
+		mitrarbKunde.sucheDatensatz();
+		if( mitrarbKunde.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField12.setText( mitrarbKunde.getiNummer() + "" );
+			jTextField13.setText( mitrarbKunde.getsVorname() );
+			jTextField14.setText( mitrarbKunde.getsNachname() );
+			jTextField15.setFocusable( true );
+		}	
+  }//GEN-LAST:event_jButton3ActionPerformed
+
+  private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    KundenberaterInfo kundenberater = new KundenberaterInfo();
+		kundenberater.sucheDatensatz();
+		if( kundenberater.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {	
+			jTextField15.setText( kundenberater.getiNummer() + "" );
+			jLabel15.setText( kundenberater.getsNachname() );
+		}	
+  }//GEN-LAST:event_jButton4ActionPerformed
+
+  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    OrtInfo ort = new OrtInfo();
+		ort.sucheDatensatz();
+		if( ort.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField10.setText( ort.getiPLZ() + "" );
+			jTextField11.setText( ort.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton2ActionPerformed
+
+  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.sucheDatensatz();
+		if( flughafen.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField22.setText( flughafen.getiNummer() + "" );
+			jLabel29.setText( flughafen.getsKuerzel() + " - " + flughafen.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton7ActionPerformed
+
+  private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.sucheDatensatz();
+		if( flughafen.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField23.setText( flughafen.getiNummer() + "" );
+			jLabel31.setText( flughafen.getsKuerzel() + " - " + flughafen.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton8ActionPerformed
+
+  private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.sucheDatensatz();
+		if( flughafen.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField24.setText( flughafen.getiNummer() + "" );
+			jLabel32.setText( flughafen.getsKuerzel() + " - " + flughafen.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton9ActionPerformed
+
+  private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.sucheDatensatz();
+		if( flughafen.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField25.setText( flughafen.getiNummer() + "" );
+			jLabel33.setText( flughafen.getsKuerzel() + " - " + flughafen.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton10ActionPerformed
+
+  private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.sucheDatensatz();
+		if( flughafen.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField26.setText( flughafen.getiNummer() + "" );
+			jLabel34.setText( flughafen.getsKuerzel() + " - " + flughafen.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton11ActionPerformed
+
+  private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    FlughafenInfo flughafen = new FlughafenInfo();
+		flughafen.sucheDatensatz();
+		if( flughafen.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField27.setText( flughafen.getiNummer() + "" );
+			jLabel35.setText( flughafen.getsKuerzel() + " - " + flughafen.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton12ActionPerformed
+
+  private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    CateringInfo catering = new CateringInfo();
+		catering.sucheDatensatz();
+		if( catering.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField32.setText( catering.getiNummer() + "" );
+			jLabel41.setText( catering.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton13ActionPerformed
+
+  private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    ZahlungsbedingungInfo zahlungsbedingung = new ZahlungsbedingungInfo();
+		zahlungsbedingung.sucheDatensatz();
+		if( zahlungsbedingung.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField48.setText( zahlungsbedingung.getiNummer() + "" );
+			jLabel66.setText( zahlungsbedingung.getsBezeichnung() );
+			jTextField49.setText( zahlungsbedingung.getiValuta() + "" );
+			jTextField50.setText( zahlungsbedingung.getiSkontoValuta() + "" );
+			jTextField51.setText( zahlungsbedingung.getdSkontosatz() + "" );
+		}
+  }//GEN-LAST:event_jButton14ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton10;
@@ -1122,11 +1501,451 @@ public class pnlAuftrag extends javax.swing.JPanel {
   // End of variables declaration//GEN-END:variables
 
 	public void setNummer( int iNummer ) {
-//		jTextField1.setText( iNummer + "" );
+		jTextField1.setText( iNummer + "" );
 	}
 	
 	public String getNummer() {
-		return "";
-//		return jTextField1.getText();
+		return jTextField1.getText();
 	}
+
+	public void setDatum( Date dtDatum ) {
+		jTextField2.setText( dtDatum + "" );
+	}
+	
+	public String getDatum() {
+		return jTextField2.getText();
+	}
+
+	public void setVorgArt( int iVorgArt ) {
+		jTextField3.setText( iVorgArt + "" );
+	}
+	
+	public String getVorgArt() {
+		return jTextField3.getText();
+	}
+
+	public void setRechnungsdatum( Date dtRechnungsdatum ) {
+		jTextField4.setText( dtRechnungsdatum + "" );
+	}
+	
+	public String getRechnungsdatum() {
+		return jTextField4.getText();
+	}
+
+	public void setKunde( int iKunde ) {
+		jTextField5.setText( iKunde + "" );
+	}
+	
+	public String getKunde() {
+		return jTextField5.getText();
+	}
+
+	public void setName1( String sName1 ) {
+		jTextField6.setText( sName1 );
+	}
+	
+	public String getName1() {
+		return jTextField6.getText();
+	}
+
+	public void setName2( String sName2 ) {
+		jTextField7.setText( sName2 );
+	}
+	
+	public String getName2() {
+		return jTextField7.getText();
+	}
+
+	public void setName3( String sName3 ) {
+		jTextField8.setText( sName3 );
+	}
+	
+	public String getName3() {
+		return jTextField8.getText();
+	}
+
+	public void setStrasse( String sStrasse ) {
+		jTextField9.setText( sStrasse );
+	}
+	
+	public String getStrasse() {
+		return jTextField9.getText();
+	}
+
+	public void setPLZ( int iPLZ ) {
+		jTextField10.setText( iPLZ + "" );
+	}
+	
+	public String getPLZ() {
+		return jTextField10.getText();
+	}
+
+	public void setOrt( String sOrt ) {
+		jTextField11.setText( sOrt );
+	}
+	
+	public String getOrt() {
+		return jTextField11.getText();
+	}
+
+	public void setMitarbKunde( int iMitarbKunde ) {
+		jTextField12.setText( iMitarbKunde + "" );
+	}
+	
+	public String getMitarbKunde() {
+		return jTextField12.getText();
+	}
+
+	public void setMitarbKundeVorname( String sMitarbKundeVorname ) {
+		jTextField13.setText( sMitarbKundeVorname );
+	}
+	
+	public String getMitarbKundeVorname() {
+		return jTextField13.getText();
+	}
+
+	public void setMitarbKundeName( String sMitarbKundeName ) {
+		jTextField14.setText( sMitarbKundeName );
+	}
+	
+	public String getMitarbKundeName() {
+		return jTextField14.getText();
+	}
+
+	public void setKundenberater( int iKundenberater ) {
+		jTextField15.setText( iKundenberater + "" );
+	}
+	
+	public String getKundenberater() {
+		return jTextField15.getText();
+	}
+
+	public void setFlugdatum( Date dtFlugdatum ) {
+		jTextField16.setText( dtFlugdatum + "" );
+	}
+	
+	public String getFlugdatum() {
+		return jTextField16.getText();
+	}
+
+	public void setUhrzeitStd( int iUhrzeitStd ) {
+		jTextField17.setText( iUhrzeitStd + "" );
+	}
+	
+	public String getUhrzeit() {
+		return jTextField17.getText();
+	}
+
+	public void setStart( int iStart ) {
+		jTextField18.setText( iStart + "" );
+	}
+	
+	public String getStart() {
+		return jTextField18.getText();
+	}
+	
+	public void setStartBez( String sStartBez) {
+		jLabel21.setText( sStartBez );
+	}
+
+	public void setZiel( int iZiel ) {
+		jTextField19.setText( iZiel + "" );
+	}
+	
+	public String getZiel() {
+		return jTextField19.getText();
+	}
+	
+	public void setZielBez( String sZielBez) {
+		jLabel22.setText( sZielBez );
+	}
+	
+	public void setKilometer( int iKilometer ) {
+		jTextField20.setText( iKilometer + "" );
+	}
+	
+	public String getKilometer() {
+		return jTextField20.getText();
+	}
+
+	public void setPersonen( int iPersonen ) {
+		jTextField21.setText( iPersonen + "" );
+	}
+	
+	public String getPersonen() {
+		return jTextField21.getText();
+	}
+
+	public void setStops( int iStops ) {
+		jTextField28.setText( iStops + "" );
+	}
+	
+	public String getStops() {
+		return jTextField28.getText();
+	}
+
+	public void setErsterStop( int iErsterStop ) {
+		jTextField22.setText( iErsterStop + "" );
+	}
+	
+	public String getErsterStop() {
+		return jTextField22.getText();
+	}
+	
+	public void setErsterStopBez( String sErsterStopBez) {
+		jLabel29.setText( sErsterStopBez );
+	}
+	
+	public void setZweiterStop( int iZweiterStop ) {
+		jTextField23.setText( iZweiterStop + "" );
+	}
+	
+	public String getZweiterStop() {
+		return jTextField23.getText();
+	}
+	
+	public void setZweiterStopBez( String sZweiterStopBez) {
+		jLabel31.setText( sZweiterStopBez );
+	}
+	
+	public void setDritterStop( int iDritterStop ) {
+		jTextField24.setText( iDritterStop + "" );
+	}
+	
+	public String getDritterStop() {
+		return jTextField24.getText();
+	}
+	
+	public void setDritterStopBez( String sDritterStopBez) {
+		jLabel32.setText( sDritterStopBez );
+	}
+	
+	public void setVierterStop( int iVierterStop ) {
+		jTextField25.setText( iVierterStop + "" );
+	}
+	
+	public String getVierterStop() {
+		return jTextField25.getText();
+	}
+	
+	public void setVierterStopBez( String sVierterStopBez) {
+		jLabel33.setText( sVierterStopBez );
+	}
+	
+	public void setFuenfterStop( int iFuenfterStop ) {
+		jTextField26.setText( iFuenfterStop + "" );
+	}
+	
+	public String getFuenfterStop() {
+		return jTextField26.getText();
+	}
+	
+	public void setFuenfterStopBez( String sFuenfterStopBez) {
+		jLabel34.setText( sFuenfterStopBez );
+	}
+	
+	public void setSechsterStop( int iSechsterStop ) {
+		jTextField27.setText( iSechsterStop + "" );
+	}
+	
+	public String getSechsterStop() {
+		return jTextField27.getText();
+	}
+	
+	public void setSechsterStopBez( String sSechsterStopBez) {
+		jLabel35.setText( sSechsterStopBez );
+	}
+	
+	public void setFlugzeit( int iFlugzeit ) {
+		jTextField29.setText( iFlugzeit + "" );
+	}
+	
+	public String getFlugzeit() {
+		return jTextField29.getText();
+	}
+
+	public void setFlightcrew( int iFlightcrew ) {
+		jTextField30.setText( iFlightcrew + "" );
+	}
+	
+	public String getFlightcrew() {
+		return jTextField30.getText();
+	}
+
+	public void setCabincrew( int iCabincrew ) {
+		jTextField31.setText( iCabincrew + "" );
+	}
+	
+	public String getCabincrew() {
+		return jTextField31.getText();
+	}
+
+	public void setCatering( int iCatering ) {
+		jTextField32.setText( iCatering + "" );
+	}
+	
+	public String getCatering() {
+		return jTextField32.getText();
+	}
+
+	public void setCateringBez( String sCateringBez) {
+		jLabel41.setText( sCateringBez );
+	}
+
+	public void setKostenFlug( double dKostenFlug ) {
+		jTextField33.setText( dKostenFlug + "" );
+	}
+	
+	public String getKostenFlug() {
+		return jTextField33.getText();
+	}
+
+	public void setKostenStop( double dKostenStop ) {
+		jTextField34.setText( dKostenStop + "" );
+	}
+	
+	public String getKostenStop() {
+		return jTextField34.getText();
+	}
+
+	public void setKostenFlightcrew( double dKostenFlightcrew ) {
+		jTextField35.setText( dKostenFlightcrew + "" );
+	}
+	
+	public String getKostenFlightcrew() {
+		return jTextField35.getText();
+	}
+
+	public void setKostenCabincrew( double dKostenCabincrew ) {
+		jTextField36.setText( dKostenCabincrew + "" );
+	}
+	
+	public String getKostenCabincrew() {
+		return jTextField36.getText();
+	}
+
+	public void setKostenCatering( double dKostenCatering ) {
+		jTextField37.setText( dKostenCatering + "" );
+	}
+	
+	public String getKostenCatering() {
+		return jTextField37.getText();
+	}
+
+	public void setKostenFlugGesamt( double dKostenFlugGesamt ) {
+		jTextField38.setText( dKostenFlugGesamt + "" );
+	}
+	
+	public String getKostenFlugGesamt() {
+		return jTextField38.getText();
+	}
+
+	public void setKostenStopGesamt( double dKostenStopGesamt ) {
+		jTextField39.setText( dKostenStopGesamt + "" );
+	}
+	
+	public String getKostenStopGesamt() {
+		return jTextField39.getText();
+	}
+
+	public void setKostenFlightcrewGesamt( double dKostenFlightcrewGesamt ) {
+		jTextField40.setText( dKostenFlightcrewGesamt + "" );
+	}
+	
+	public String getKostenFlightcrewGesamt() {
+		return jTextField40.getText();
+	}
+
+	public void setKostenCabincrewGesamt( double dKostenCabincrewGesamt ) {
+		jTextField41.setText( dKostenCabincrewGesamt + "" );
+	}
+	
+	public String getKostenCabincrewGesamt() {
+		return jTextField41.getText();
+	}
+
+	public void setKostenCateringGesamt( double dKostenCateringGesamt ) {
+		jTextField42.setText( dKostenCateringGesamt + "" );
+	}
+	
+	public String getKostenCateringGesamt() {
+		return jTextField42.getText();
+	}
+	
+	public void setNetto( double dNetto ) {
+		jTextField44.setText( dNetto + "" );
+	}
+	
+	public String getNetto() {
+		return jTextField44.getText();
+	}
+
+	public void setRabattProzent( double dRabattProzent ) {
+		jTextField43.setText( dRabattProzent + "" );
+	}
+	
+	public String getRabattProzent() {
+		return jTextField43.getText();
+	}
+
+	public void setRabatt( double dRabatt ) {
+		jTextField45.setText( dRabatt + "" );
+	}
+	
+	public String getRabatt() {
+		return jTextField45.getText();
+	}
+
+	public void setMwSt( double dMwSt ) {
+		jTextField46.setText( dMwSt + "" );
+	}
+	
+	public String getMwSt() {
+		return jTextField46.getText();
+	}
+
+	public void setBrutto( double dBrutto ) {
+		jTextField47.setText( dBrutto + "" );
+	}
+	
+	public String getBrutto() {
+		return jTextField47.getText();
+	}
+
+	public void setZahlungsbedingung( int iZahlungsbedingung ) {
+		jTextField48.setText( iZahlungsbedingung + "" );
+	}
+	
+	public void setZahlungsbedingungBez( String sZahlungsbedingungBez ) {
+		jLabel66.setText( sZahlungsbedingungBez );
+	}
+		
+	public String getZahlungsbedingung() {
+		return jTextField48.getText();
+	}
+
+	public void setValuta( int iValuta ) {
+		jTextField49.setText( iValuta + "" );
+	}
+	
+	public String getValuta() {
+		return jTextField49.getText();
+	}
+
+	public void setSkontoValuta( int iSkontoValuta ) {
+		jTextField50.setText( iSkontoValuta + "" );
+	}
+	
+	public String getSkontoValuta() {
+		return jTextField50.getText();
+	}
+
+	public void setSkontosatz( double dSkontosatz ) {
+		jTextField51.setText( dSkontosatz + "" );
+	}
+	
+	public String getSkontosatz() {
+		return jTextField51.getText();
+	}
+
 }

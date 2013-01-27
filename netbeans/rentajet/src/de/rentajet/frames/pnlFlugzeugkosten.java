@@ -4,6 +4,8 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Petersen
@@ -56,6 +58,11 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
     jLabel3.setText("Flugzeugtyp");
 
     jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
     jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel8.setText("**Flugzeugtyp**");
@@ -181,6 +188,21 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
+		flugzeugtyp.sucheDatensatz();
+		if( flugzeugtyp.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField3.setText( flugzeugtyp.getiNummer() + "" );
+			jLabel8.setText( flugzeugtyp.getsBezeichnung() );
+		}
+  }//GEN-LAST:event_jButton1ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JLabel jLabel1;

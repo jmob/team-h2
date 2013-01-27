@@ -29,6 +29,102 @@ public class FlugzeugtypInfo {
 	private String sHersteller;
 	
 	private String sTriebwerkart;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public int getiFlightcrew() {
+		return iFlightcrew;
+	}
+
+	public void setiFlightcrew( int iFlightcrew ) {
+		this.iFlightcrew = iFlightcrew;
+	}
+
+	public int getiCabincrew() {
+		return iCabincrew;
+	}
+
+	public void setiCabincrew( int iCabincrew ) {
+		this.iCabincrew = iCabincrew;
+	}
+
+	public int getiRechweite() {
+		return iRechweite;
+	}
+
+	public void setiRechweite( int iRechweite ) {
+		this.iRechweite = iRechweite;
+	}
+
+	public int getiSitzplaetze() {
+		return iSitzplaetze;
+	}
+
+	public void setiSitzplaetze( int iSitzplaetze ) {
+		this.iSitzplaetze = iSitzplaetze;
+	}
+
+	public int getiReisegeschwindigkeit() {
+		return iReisegeschwindigkeit;
+	}
+
+	public void setiReisegeschwindigkeit( int iReisegeschwindigkeit ) {
+		this.iReisegeschwindigkeit = iReisegeschwindigkeit;
+	}
+
+	public int getiTriebwerke() {
+		return iTriebwerke;
+	}
+
+	public void setiTriebwerke( int iTriebwerke ) {
+		this.iTriebwerke = iTriebwerke;
+	}
+
+	public int getiTriebwerkartID() {
+		return iTriebwerkartID;
+	}
+
+	public void setiTriebwerkartID( int iTriebwerkartID ) {
+		this.iTriebwerkartID = iTriebwerkartID;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public String getsHersteller() {
+		return sHersteller;
+	}
+
+	public void setsHersteller( String sHersteller ) {
+		this.sHersteller = sHersteller;
+	}
+
+	public String getsTriebwerkart() {
+		return sTriebwerkart;
+	}
+
+	public void setsTriebwerkart( String sTriebwerkart ) {
+		this.sTriebwerkart = sTriebwerkart;
+	}
 	
 	public FlugzeugtypInfo() {
 		

@@ -21,6 +21,46 @@ public class CateringInfo {
 	private String sBezeichnung;
 	private double dPreis;
 	private String sBeschreibung;
+
+	public int getiID() {
+		return iID;
+	}
+
+	public void setiID( int iID ) {
+		this.iID = iID;
+	}
+
+	public int getiNummer() {
+		return iNummer;
+	}
+
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public void setsBezeichnung( String sBezeichnung ) {
+		this.sBezeichnung = sBezeichnung;
+	}
+
+	public double getdPreis() {
+		return dPreis;
+	}
+
+	public void setdPreis( double dPreis ) {
+		this.dPreis = dPreis;
+	}
+
+	public String getsBeschreibung() {
+		return sBeschreibung;
+	}
+
+	public void setsBeschreibung( String sBeschreibung ) {
+		this.sBeschreibung = sBeschreibung;
+	}
 	
 	public CateringInfo() {
 		
