@@ -7,9 +7,11 @@ package de.rentajet.base;
 public class AplctnMain {
 	public AplctnMain() {
 		try {
-			FrmMain frame = new FrmMain();
+			Login_jframe frame = new Login_jframe();
+			//FrmMain frame = new FrmMain();
 			frame.setLocation( 190, 170 );
-			frame.setSize( 1024, 800 );
+			//frame.setSize( 1024, 800 );
+			frame.setSize( 672, 546 );
 			frame.setVisible( true );
 		}
 		catch (Exception ex) {
