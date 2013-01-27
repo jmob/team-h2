@@ -99,7 +99,6 @@ public class FirmaInfo {
 	}
 	
 	public String sucheLogo() {
-		pnlFirma firma = new pnlFirma();
 		JFileChooser chooser = new JFileChooser();
     int rueckgabeWert = chooser.showOpenDialog(null);
         

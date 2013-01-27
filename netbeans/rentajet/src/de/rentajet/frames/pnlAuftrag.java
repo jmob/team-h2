@@ -20,9 +20,9 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	 * Creates new form pnlAuftrag
 	 */
 	public pnlAuftrag() {
-		ermittleVerfügbarkeitFlugzeug();
 		initComponents();
-		jTextField1.setFocusable( true );
+		ermittleVerfügbarkeitFlugzeug();
+		setNextFocusableComponent( jTextField1 );
 	}
 
 	/**
@@ -1359,8 +1359,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		saFlugzeug = new String[auftrag.holeVerfügbareFlugzeuge().length];
 		saFlugzeug = auftrag.holeVerfügbareFlugzeuge();
 		
-		for( int i = 0; i < saFlugzeug.length; i++ ) {
-			jComboBox1.addItem( saFlugzeug[i] );
+    for ( String s : saFlugzeug ) {
+			jComboBox1.addItem( s );
 		}
 	}
 	

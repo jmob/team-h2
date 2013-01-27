@@ -19,6 +19,7 @@ public class AuftragInfo {
 	private int iID;
 	private int iNummer;
 	
+	
 	public AuftragInfo() {
 		
 	}
@@ -138,6 +139,10 @@ public class AuftragInfo {
 	
 	public String[] holeVerfügbareFlugzeuge() {
 		// Verfügbarkeitsprüfung
-		return new String[] { "1. Flugzeug", "2. Flugzeug", "3. Flugzeug" };   
+		String[] sa = new String[3];
+		sa[0] = "1. Flugzeug";
+		sa[1] = "2. Flugzeug";
+		sa[2] = "3. Flugzeug";	
+		return sa;  
 	}
 }

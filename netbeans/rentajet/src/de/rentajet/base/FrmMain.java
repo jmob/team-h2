@@ -186,6 +186,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton1.setName("btnAbmelden"); // NOI18N
     jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton1);
     jToolBar1.add(jSeparator4);
 
@@ -194,6 +199,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton2.setName("btnDrucken"); // NOI18N
     jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton2);
     jToolBar1.add(jSeparator5);
 
@@ -214,6 +224,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton4.setName("btnVorheriger"); // NOI18N
     jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton4.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton4ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton4);
 
     jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/vcrforward_24st.gif"))); // NOI18N
@@ -221,6 +236,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton5.setName("btnNaechster"); // NOI18N
     jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton5.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton5ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton5);
 
     jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/vcrend_24st.gif"))); // NOI18N
@@ -228,6 +248,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton6.setName("btnLetzter"); // NOI18N
     jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton6.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton6ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton6);
 
     jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/row_24st.gif"))); // NOI18N
@@ -235,6 +260,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton7.setName("btnSuche"); // NOI18N
     jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton7.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton7ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton7);
     jToolBar1.add(jSeparator6);
 
@@ -255,6 +285,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton9.setName("btnAbbrechen"); // NOI18N
     jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton9ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton9);
 
     jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/deleterow_24st.gif"))); // NOI18N
@@ -262,6 +297,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton10.setName("btnLöschen"); // NOI18N
     jButton10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton10.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton10ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton10);
 
     jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/partie_24st.gif"))); // NOI18N
@@ -269,6 +309,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton11.setName("btnAktualisieren"); // NOI18N
     jButton11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton11.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton11ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton11);
     jToolBar1.add(jSeparator7);
 
@@ -277,6 +322,11 @@ public class FrmMain extends javax.swing.JFrame {
     jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     jButton12.setName("btnArchiv"); // NOI18N
     jButton12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton12.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton12ActionPerformed(evt);
+      }
+    });
     jToolBar1.add(jButton12);
 
     jPanel1.add(jToolBar1, java.awt.BorderLayout.PAGE_START);
@@ -499,28 +549,58 @@ public class FrmMain extends javax.swing.JFrame {
 
     jMenuItem2.setText("Abbrechen");
     jMenuItem2.setName("mntmAbbrechen"); // NOI18N
+    jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem2ActionPerformed(evt);
+      }
+    });
     jMenu1.add(jMenuItem2);
 
     jMenuItem3.setText("Löschen");
     jMenuItem3.setName("mntmLoeschen"); // NOI18N
+    jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem3ActionPerformed(evt);
+      }
+    });
     jMenu1.add(jMenuItem3);
 
     jMenuItem4.setText("Aktualisieren");
     jMenuItem4.setName("mntmAktualisieren"); // NOI18N
+    jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem4ActionPerformed(evt);
+      }
+    });
     jMenu1.add(jMenuItem4);
     jMenu1.add(jSeparator1);
 
     jMenuItem5.setText("Drucken");
     jMenuItem5.setName("mntmDrucken"); // NOI18N
+    jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem5ActionPerformed(evt);
+      }
+    });
     jMenu1.add(jMenuItem5);
     jMenu1.add(jSeparator2);
 
     jMenuItem6.setText("Abmelden");
     jMenuItem6.setName("mntmAbmelden"); // NOI18N
+    jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem6ActionPerformed(evt);
+      }
+    });
     jMenu1.add(jMenuItem6);
 
     jMenuItem7.setText("Beenden");
     jMenuItem7.setName("mntmBeenden"); // NOI18N
+    jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem7ActionPerformed(evt);
+      }
+    });
     jMenu1.add(jMenuItem7);
 
     jMenuBar1.add(jMenu1);
@@ -530,23 +610,48 @@ public class FrmMain extends javax.swing.JFrame {
 
     jMenuItem8.setText("Suchen");
     jMenuItem8.setName("mntmSuche"); // NOI18N
+    jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem8ActionPerformed(evt);
+      }
+    });
     jMenu2.add(jMenuItem8);
     jMenu2.add(jSeparator3);
 
     jMenuItem9.setText("Erster Datensatz");
     jMenuItem9.setName("mntmErster"); // NOI18N
+    jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem9ActionPerformed(evt);
+      }
+    });
     jMenu2.add(jMenuItem9);
 
     jMenuItem10.setText("Vorheriger Datensatz");
     jMenuItem10.setName("mntmVorheriger"); // NOI18N
+    jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem10ActionPerformed(evt);
+      }
+    });
     jMenu2.add(jMenuItem10);
 
     jMenuItem11.setText("Nächster Datensatz");
     jMenuItem11.setName("mntmNaechster"); // NOI18N
+    jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem11ActionPerformed(evt);
+      }
+    });
     jMenu2.add(jMenuItem11);
 
     jMenuItem12.setText("Letzter Datensatz");
     jMenuItem12.setName("mntmLetzter"); // NOI18N
+    jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem12ActionPerformed(evt);
+      }
+    });
     jMenu2.add(jMenuItem12);
 
     jMenuBar1.add(jMenu2);
@@ -700,7 +805,7 @@ public class FrmMain extends javax.swing.JFrame {
   }//GEN-LAST:event_jButton28ActionPerformed
 
   private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-    // TODO add your handling code here:
+    main.speichern();
   }//GEN-LAST:event_jMenuItem1ActionPerformed
 
   private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
@@ -906,6 +1011,90 @@ public class FrmMain extends javax.swing.JFrame {
 		AuftragInfo auftrag = new AuftragInfo();
 		auftrag.show( jPanel3 );
   }//GEN-LAST:event_jButton15ActionPerformed
+
+  private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    main.drucken();
+  }//GEN-LAST:event_jButton2ActionPerformed
+
+  private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    main.vorherigerdatensatz();
+  }//GEN-LAST:event_jButton4ActionPerformed
+
+  private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+		main.naechsterDatensatz();
+  }//GEN-LAST:event_jButton5ActionPerformed
+
+  private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    main.letzterDatensatz();
+  }//GEN-LAST:event_jButton6ActionPerformed
+
+  private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    main.sucheDatensatz();
+  }//GEN-LAST:event_jButton7ActionPerformed
+
+  private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    main.abbrechen();
+  }//GEN-LAST:event_jButton9ActionPerformed
+
+  private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    main.loeschen();
+  }//GEN-LAST:event_jButton10ActionPerformed
+
+  private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    main.aktualisieren();
+  }//GEN-LAST:event_jButton11ActionPerformed
+
+  private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    main.zeigeArchiv();
+  }//GEN-LAST:event_jButton12ActionPerformed
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    main.abbrechen();
+  }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+  private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    main.loeschen();
+  }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+  private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    main.aktualisieren();
+  }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+  private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    main.drucken();
+  }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+  private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+  private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    System.exit( 0 );
+  }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+  private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    main.sucheDatensatz();
+  }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+  private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    main.ersterDatensatz();
+  }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+  private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    main.vorherigerdatensatz();
+  }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+  private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+    main.naechsterDatensatz();
+  }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+  private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    main.letzterDatensatz();
+  }//GEN-LAST:event_jMenuItem12ActionPerformed
 
 	/**
 	 * @param args the command line arguments

@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author Petersen
  */
 public class pnlFlugzeug extends javax.swing.JPanel {
+	FlugzeugInfo flugzeug = new FlugzeugInfo();
 
 	/**
 	 * Creates new form pnlFlugzeug
@@ -86,6 +88,11 @@ public class pnlFlugzeug extends javax.swing.JPanel {
     jLabel4.setText("Foto");
 
     jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
     jButton2.setText("...");
     jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +182,10 @@ public class pnlFlugzeug extends javax.swing.JPanel {
 			jLabel5.setText( flugzeugtyp.getsBezeichnung() );
 		}
   }//GEN-LAST:event_jButton2ActionPerformed
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    jTextField3.setText( flugzeug.sucheBild() );
+  }//GEN-LAST:event_jButton1ActionPerformed
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

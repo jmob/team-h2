@@ -7,6 +7,7 @@ package de.rentajet.frames;
 import de.rentajet.base.H2InternalFrame;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -70,9 +71,20 @@ public class FlugzeugInfo {
 	public void setiFlugzeugtyp( int iFlugzeugtyp ) {
 		this.iFlugzeugtyp = iFlugzeugtyp;
 	}
-
+	
 	public FlugzeugInfo() {
 		
+	}
+	
+	public String sucheBild() {
+		JFileChooser chooser = new JFileChooser();
+    int rueckgabeWert = chooser.showOpenDialog(null);
+        
+    if(rueckgabeWert == JFileChooser.APPROVE_OPTION)
+    {
+			return chooser.getSelectedFile().toString();
+    }
+		return "";
 	}
 	
 	public void show( JPanel pnlMain ) {

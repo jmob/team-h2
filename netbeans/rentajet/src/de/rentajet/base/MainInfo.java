@@ -130,45 +130,9 @@ public class MainInfo {
 	public void setFrame( String sFrame ) {
 		this.sFrame = sFrame;
 	}
-	
-	
+		
 	public void ersterDatensatz() {
-		if( sFrame.equals( "Anrede" ) )
-			anrede.ersterDatensatz();
-		else if( sFrame.equals( "Auftrag" ) )
-			auftrag.ersterDatensatz();
-		else if( sFrame.equals( "Benutzer" ) )
-			benutzer.ersterDatensatz();
-		else if( sFrame.equals( "Benutzergruppe" ) )
-			benutzergruppe.ersterDatensatz();
-		else if( sFrame.equals( "Catering" ) )
-			catering.ersterDatensatz();
-		else if( sFrame.equals( "Firma" ) )
-			firma.ersterDatensatz();
-		else if( sFrame.equals( "Flughafen" ) )
-			flughafen.ersterDatensatz();
-		else if( sFrame.equals( "Flugzeug" ) )
-			flugzeug.ersterDatensatz();
-		else if( sFrame.equals( "Flugzeugkosten" ) )
-			flugzeugkosten.ersterDatensatz();
-		else if( sFrame.equals( "Flugzeugtyp" ) )
-			flugzeugtyp.ersterDatensatz();
-		else if( sFrame.equals( "Kunde" ) )
-			kunde.ersterDatensatz();
-		else if( sFrame.equals( "Kundenberater" ) )
-			kundenberater.ersterDatensatz();
-		else if( sFrame.equals( "Mitarbkunde" ) )
-			mitarbkunde.ersterDatensatz();
-		else if( sFrame.equals( "Ort" ) )
-			ort.ersterDatensatz();
-		else if( sFrame.equals( "Personalkosten" ) )
-			personalkosten.ersterDatensatz();
-		else if( sFrame.equals( "Staat" ) )
-			staat.ersterDatensatz();
-		else if( sFrame.equals( "Triebwerkart" ) )
-			triebwerkart.ersterDatensatz();
-		else if( sFrame.equals( "Zahlungsbedingung" ) )
-			zahlungsbedingung.ersterDatensatz();
+
 	}
 	
 	public void vorherigerdatensatz() {
