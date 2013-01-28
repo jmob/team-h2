@@ -10,6 +10,9 @@ package de.rentajet.base;
  *
  * @author j.schipplick
  */
+import java.awt.Toolkit;
+import java.awt.*;
+import java.awt.event.WindowEvent;
 import java.sql.*;
 import javax.swing.*;
 public class Login_jframe extends javax.swing.JFrame {
@@ -24,6 +27,10 @@ public class Login_jframe extends javax.swing.JFrame {
 		initComponents();
 		conn=javaconnect.ConnectDb();
 	}
+	public void close(){
+		WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+		}
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -42,7 +49,7 @@ public class Login_jframe extends javax.swing.JFrame {
     cmd_login = new javax.swing.JButton();
     jLabel3 = new javax.swing.JLabel();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     setBackground(new java.awt.Color(255, 255, 255));
     setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -158,9 +165,12 @@ public class Login_jframe extends javax.swing.JFrame {
 			rs=pst.executeQuery();
 			if(rs.next()){
 			JOptionPane.showMessageDialog( null, "Benutzername und Passwort sind korrekt");
+			rs.close();
+			pst.close();
 			//Login_info s= new Login_info();
 			FrmMain s= new FrmMain();
 			s.setVisible(true);
+			close();
 			}
 			else{
 				JOptionPane.showMessageDialog( null, "Benutzername und Passwort sind nicht korrekt");
