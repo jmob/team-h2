@@ -4,11 +4,14 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
+
 /**
  *
  * @author Petersen
  */
 public class pnlStaat extends javax.swing.JPanel {
+	StaatInfo staat = new StaatInfo();
 
 	/**
 	 * Creates new form pnlStaat
@@ -45,6 +48,12 @@ public class pnlStaat extends javax.swing.JPanel {
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel2.setText("Bezeichnung");
+
+    jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField1FocusLost(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -146,6 +155,13 @@ public class pnlStaat extends javax.swing.JPanel {
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+    if( staat.istDatensatzVorhanden( Util.statischStringNachInt( jTextField1.getText())) ) {
+			jTextField1.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField1FocusLost
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;

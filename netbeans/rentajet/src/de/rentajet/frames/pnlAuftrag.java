@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.entity.Kundenberater;
+import de.rentajet.uti.Util;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import org.eclipse.persistence.jpa.internal.jpql.parser.DateTime;
@@ -15,6 +16,7 @@ import org.eclipse.persistence.jpa.internal.jpql.parser.DateTime;
  */
 public class pnlAuftrag extends javax.swing.JPanel {
 	String[] saFlugzeug;
+	AuftragInfo auftrag = new AuftragInfo();
 
 	/**
 	 * Creates new form pnlAuftrag
@@ -189,6 +191,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel3.setText("Vorg. Art");
 
     jTextField1.setNextFocusableComponent(jTextField2);
+    jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField1FocusLost(evt);
+      }
+    });
 
     jTextField2.setNextFocusableComponent(jTextField3);
 
@@ -1353,6 +1360,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			jTextField51.setText( zahlungsbedingung.getdSkontosatz() + "" );
 		}
   }//GEN-LAST:event_jButton14ActionPerformed
+
+  private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+    if( auftrag.istDatensatzVorhanden( Util.statischStringNachInt( jTextField1.getText())) ) {
+			jTextField1.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField1FocusLost
 
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	

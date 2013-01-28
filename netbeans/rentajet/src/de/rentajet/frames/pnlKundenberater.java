@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author Petersen
  */
 public class pnlKundenberater extends javax.swing.JPanel {
+	KundenberaterInfo kundenberater = new KundenberaterInfo();
 
 	/**
 	 * Creates new form pnlKundenberater
@@ -58,6 +60,12 @@ public class pnlKundenberater extends javax.swing.JPanel {
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel2.setText("Nachname");
+
+    jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField4FocusLost(evt);
+      }
+    });
 
     jTextField5.setToolTipText("");
 
@@ -246,6 +254,12 @@ public class pnlKundenberater extends javax.swing.JPanel {
 			jTextField9.setText( ort.getsBezeichnung() );
 		}
   }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+    if( kundenberater.istDatensatzVorhanden( Util.statischStringNachInt( jTextField4.getText())) ) {
+			jTextField4.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField4FocusLost
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

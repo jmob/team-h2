@@ -4,11 +4,14 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
+
 /**
  *
  * @author Petersen
  */
 public class pnlFlughafen extends javax.swing.JPanel {
+	FlughafenInfo flughafen = new FlughafenInfo();
 
 	/**
 	 * Creates new form pnlFlughafen
@@ -68,6 +71,11 @@ public class pnlFlughafen extends javax.swing.JPanel {
     jTabbedPane1.addTab("Allgemein", jPanel1);
 
     jTextField1.setToolTipText("");
+    jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField1FocusLost(evt);
+      }
+    });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -105,6 +113,13 @@ public class pnlFlughafen extends javax.swing.JPanel {
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+    if( flughafen.istDatensatzVorhanden( Util.statischStringNachInt( jTextField1.getText())) ) {
+			jTextField1.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField1FocusLost
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;

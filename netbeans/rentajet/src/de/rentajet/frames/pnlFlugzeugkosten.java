@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author Petersen
  */
 public class pnlFlugzeugkosten extends javax.swing.JPanel {
+	FlugzeugkostenInfo flugzeugkosten = new FlugzeugkostenInfo();
 
 	/**
 	 * Creates new form pnlFlugzeugkosten
@@ -56,6 +58,12 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
 
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel3.setText("Flugzeugtyp");
+
+    jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField1FocusLost(evt);
+      }
+    });
 
     jButton1.setText("...");
     jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +210,12 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
 			jLabel8.setText( flugzeugtyp.getsBezeichnung() );
 		}
   }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+    if( flugzeugkosten.istDatensatzVorhanden( Util.statischStringNachInt( jTextField1.getText())) ) {
+			jTextField1.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField1FocusLost
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

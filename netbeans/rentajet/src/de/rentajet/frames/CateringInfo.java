@@ -185,4 +185,12 @@ public class CateringInfo {
 	public void letzterDatensatzDB() {
 		
 	}
+	
+	public boolean istDatensatzVorhanden( int iNummer ) {
+		//ToDo Abfrage in DB ob Datensatz mit übergebener Nummer vorhanden ist und ggf. Variablen füllen
+		if( iNummer == 10 )
+			return true;
+		else
+			return false;
+	}
 }

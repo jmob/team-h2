@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author Petersen
  */
 public class pnlBenutzer extends javax.swing.JPanel {
+	BenutzerInfo benutzer = new BenutzerInfo();
 
 	/**
 	 * Creates new form pnlBenutzer
@@ -56,6 +58,12 @@ public class pnlBenutzer extends javax.swing.JPanel {
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel2.setText("Nachname");
+
+    jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField3FocusLost(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -234,6 +242,12 @@ public class pnlBenutzer extends javax.swing.JPanel {
 			jLabel9.setText( benutzergruppe.getsBezeichnung() );
 		}
   }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+    if( benutzer.istDatensatzVorhanden( Util.statischStringNachInt( jTextField3.getText())) ) {
+			jTextField3.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField3FocusLost
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

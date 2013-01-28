@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -50,6 +51,12 @@ public class pnlFlugzeug extends javax.swing.JPanel {
 
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel3.setText("Bezeichnung");
+
+    jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField1FocusLost(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -186,6 +193,12 @@ public class pnlFlugzeug extends javax.swing.JPanel {
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     jTextField3.setText( flugzeug.sucheBild() );
   }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+    if( flugzeug.istDatensatzVorhanden( Util.statischStringNachInt( jTextField1.getText())) ) {
+			jTextField1.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField1FocusLost
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

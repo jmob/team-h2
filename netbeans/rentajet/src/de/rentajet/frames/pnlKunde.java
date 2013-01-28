@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
 import javax.swing.*;
 
 /**
@@ -11,6 +12,7 @@ import javax.swing.*;
  * @author H.Petersen
  */
 public class pnlKunde extends javax.swing.JPanel {
+	KundeInfo kunde = new KundeInfo();
 
 	/**
 	 * Creates new form pnlKunde
@@ -77,6 +79,11 @@ public class pnlKunde extends javax.swing.JPanel {
     jLabel8.setText("Matchcode");
 
     jTextField10.setName("jtxtfldNummer"); // NOI18N
+    jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField10FocusLost(evt);
+      }
+    });
 
     jTextField11.setName("jtxtfldMatchcode"); // NOI18N
 
@@ -117,6 +124,8 @@ public class pnlKunde extends javax.swing.JPanel {
     });
 
     jPanel5.setName("pnlAnschrift"); // NOI18N
+
+    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Firma", "Herr", "Frau", "Doktor" }));
 
     jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel9.setText("Name 1");
@@ -440,6 +449,12 @@ public class pnlKunde extends javax.swing.JPanel {
 			jLabel1.setText( kundenberater.getsNachname() );
 		}
   }//GEN-LAST:event_jButton2ActionPerformed
+
+  private void jTextField10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusLost
+    if( kunde.istDatensatzVorhanden( Util.statischStringNachInt( jTextField10.getText())) ) {
+			jTextField10.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField10FocusLost
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;

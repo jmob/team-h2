@@ -145,4 +145,12 @@ public class AuftragInfo {
 		sa[2] = "3. Flugzeug";	
 		return sa;  
 	}
+	
+	public boolean istDatensatzVorhanden( int iNummer ) {
+		//ToDo Abfrage in DB ob Datensatz mit übergebener Nummer vorhanden ist und ggf. Variablen füllen
+		if( iNummer == 10 )
+			return true;
+		else
+			return false;
+	}
 }

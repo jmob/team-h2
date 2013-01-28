@@ -105,6 +105,9 @@
           <Properties>
             <Property name="name" type="java.lang.String" value="jtxtfldNummer" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField10FocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField11">
           <Properties>
@@ -211,7 +214,12 @@
             <Component class="javax.swing.JComboBox" name="jComboBox1">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
+                  <StringArray count="4">
+                    <StringItem index="0" value="Firma"/>
+                    <StringItem index="1" value="Herr"/>
+                    <StringItem index="2" value="Frau"/>
+                    <StringItem index="3" value="Doktor"/>
+                  </StringArray>
                 </Property>
               </Properties>
             </Component>

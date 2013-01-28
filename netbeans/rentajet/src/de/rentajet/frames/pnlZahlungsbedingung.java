@@ -4,11 +4,14 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
+
 /**
  *
  * @author Petersen
  */
 public class pnlZahlungsbedingung extends javax.swing.JPanel {
+	ZahlungsbedingungInfo zahlungsbedingung = new ZahlungsbedingungInfo();
 
 	/**
 	 * Creates new form pnlZahlungsbedingung
@@ -42,6 +45,12 @@ public class pnlZahlungsbedingung extends javax.swing.JPanel {
     jPanel3 = new javax.swing.JPanel();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTextArea1 = new javax.swing.JTextArea();
+
+    jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField1FocusLost(evt);
+      }
+    });
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel1.setText("Nummer");
@@ -164,6 +173,13 @@ public class pnlZahlungsbedingung extends javax.swing.JPanel {
         .addComponent(jTabbedPane1))
     );
   }// </editor-fold>//GEN-END:initComponents
+
+  private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+    if( zahlungsbedingung.istDatensatzVorhanden( Util.statischStringNachInt( jTextField1.getText())) ) {
+			jTextField1.setEnabled( false );
+		}
+  }//GEN-LAST:event_jTextField1FocusLost
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
