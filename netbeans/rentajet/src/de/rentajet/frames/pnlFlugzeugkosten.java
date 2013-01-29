@@ -45,10 +45,10 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
     jLabel5 = new javax.swing.JLabel();
     jLabel6 = new javax.swing.JLabel();
     jLabel7 = new javax.swing.JLabel();
-    jTextField4 = new javax.swing.JTextField();
-    jTextField5 = new javax.swing.JTextField();
-    jTextField6 = new javax.swing.JTextField();
-    jTextField7 = new javax.swing.JTextField();
+    jFormattedTextField1 = new javax.swing.JFormattedTextField();
+    jFormattedTextField2 = new javax.swing.JFormattedTextField();
+    jFormattedTextField3 = new javax.swing.JFormattedTextField();
+    jFormattedTextField4 = new javax.swing.JFormattedTextField();
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel1.setText("Nummer");
@@ -131,6 +131,14 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
     jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel7.setText("Stundensatz");
 
+    jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+
+    jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+
+    jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+
+    jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
@@ -144,32 +152,31 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
           .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jTextField4)
-          .addComponent(jTextField5)
-          .addComponent(jTextField6)
-          .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+          .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+          .addComponent(jFormattedTextField2)
+          .addComponent(jFormattedTextField3)
+          .addComponent(jFormattedTextField4))
         .addContainerGap(161, Short.MAX_VALUE))
     );
     jPanel2Layout.setVerticalGroup(
       jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel2Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-          .addGroup(jPanel2Layout.createSequentialGroup()
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-              .addComponent(jLabel4)
-              .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(18, 18, 18)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-              .addComponent(jLabel6)
-              .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(18, 18, 18)
-            .addComponent(jLabel5))
-          .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel4)
+          .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addGap(18, 18, 18)
-        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel6)
+          .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(18, 18, 18)
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel5)
+          .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(21, 21, 21)
+        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel7)
-          .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -219,6 +226,10 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
+  private javax.swing.JFormattedTextField jFormattedTextField1;
+  private javax.swing.JFormattedTextField jFormattedTextField2;
+  private javax.swing.JFormattedTextField jFormattedTextField3;
+  private javax.swing.JFormattedTextField jFormattedTextField4;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JLabel jLabel3;
@@ -233,10 +244,6 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField1;
   private javax.swing.JTextField jTextField2;
   private javax.swing.JTextField jTextField3;
-  private javax.swing.JTextField jTextField4;
-  private javax.swing.JTextField jTextField5;
-  private javax.swing.JTextField jTextField6;
-  private javax.swing.JTextField jTextField7;
   // End of variables declaration//GEN-END:variables
 
 	public void setNummer( int iNummer ) {
@@ -268,34 +275,34 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
 	}
 	
 	public void setFixkosten( double dFixkosten ) {
-		jTextField4.setText( dFixkosten + "" );
+		jFormattedTextField1.setText( dFixkosten + "" );
 	}
 	
 	public String getFixkosten() {
-		return jTextField4.getText();
+		return jFormattedTextField1.getText();
 	}
 	
 	public void setRentabilitaetStd( int iRentabilitaetStd ) {
-		jTextField6.setText( iRentabilitaetStd + "" );
+		jFormattedTextField3.setText( iRentabilitaetStd + "" );
 	}
 	
 	public String getRentabilitaetStd() {
-		return jTextField6.getText();
+		return jFormattedTextField3.getText();
 	}
 	
 	public void setFixkostenStd( double dFixkostenStd ) {
-		jTextField5.setText( dFixkostenStd + "" );
+		jFormattedTextField2.setText( dFixkostenStd + "" );
 	}
 	
 	public String getFixkostenStd() {
-		return jTextField5.getText();
+		return jFormattedTextField2.getText();
 	}
 	
 	public void setStundensatz( double dStundensatz ) {
-		jTextField7.setText( dStundensatz + "" );
+		jFormattedTextField4.setText( dStundensatz + "" );
 	}
 	
 	public String getStundensatz() {
-		return jTextField7.getText();
+		return jFormattedTextField4.getText();
 	}
 }
