@@ -95,6 +95,9 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTextField28 = new javax.swing.JTextField();
     jFormattedTextField1 = new javax.swing.JFormattedTextField();
     jFormattedTextField2 = new javax.swing.JFormattedTextField();
+    jLabel76 = new javax.swing.JLabel();
+    jFormattedTextField6 = new javax.swing.JFormattedTextField();
+    jFormattedTextField7 = new javax.swing.JFormattedTextField();
     jPanel4 = new javax.swing.JPanel();
     jLabel23 = new javax.swing.JLabel();
     jLabel24 = new javax.swing.JLabel();
@@ -120,6 +123,18 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jButton10 = new javax.swing.JButton();
     jButton11 = new javax.swing.JButton();
     jButton12 = new javax.swing.JButton();
+    jLabel70 = new javax.swing.JLabel();
+    jLabel71 = new javax.swing.JLabel();
+    jLabel72 = new javax.swing.JLabel();
+    jLabel73 = new javax.swing.JLabel();
+    jLabel74 = new javax.swing.JLabel();
+    jLabel75 = new javax.swing.JLabel();
+    jTextField16 = new javax.swing.JTextField();
+    jTextField17 = new javax.swing.JTextField();
+    jTextField43 = new javax.swing.JTextField();
+    jTextField52 = new javax.swing.JTextField();
+    jTextField53 = new javax.swing.JTextField();
+    jTextField54 = new javax.swing.JTextField();
     jPanel5 = new javax.swing.JPanel();
     jLabel36 = new javax.swing.JLabel();
     jLabel37 = new javax.swing.JLabel();
@@ -169,6 +184,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTextField46 = new javax.swing.JTextField();
     jTextField47 = new javax.swing.JTextField();
     jFormattedTextField5 = new javax.swing.JFormattedTextField();
+    jLabel67 = new javax.swing.JLabel();
+    jLabel68 = new javax.swing.JLabel();
+    jTextField2 = new javax.swing.JTextField();
+    jLabel69 = new javax.swing.JLabel();
+    jTextField4 = new javax.swing.JTextField();
     jPanel7 = new javax.swing.JPanel();
     jLabel62 = new javax.swing.JLabel();
     jLabel63 = new javax.swing.JLabel();
@@ -349,7 +369,6 @@ public class pnlAuftrag extends javax.swing.JPanel {
     });
 
     jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel15.setText("\"Name\"");
 
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
@@ -495,10 +514,22 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel30.setText("Stops");
 
     jTextField28.setNextFocusableComponent(jPanel4);
+    jTextField28.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField28FocusLost(evt);
+      }
+    });
 
     jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
     jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
+
+    jLabel76.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel76.setText("bis");
+
+    jFormattedTextField6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
+    jFormattedTextField7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
 
     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
     jPanel3.setLayout(jPanel3Layout);
@@ -532,6 +563,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
                   .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
               .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jFormattedTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))))
           .addGroup(jPanel3Layout.createSequentialGroup()
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -548,7 +585,10 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel16)
           .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel76)
+          .addComponent(jFormattedTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jFormattedTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel17)
@@ -677,6 +717,24 @@ public class pnlAuftrag extends javax.swing.JPanel {
       }
     });
 
+    jLabel70.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel70.setText("Aufenthalt (Std.)");
+
+    jLabel71.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel71.setText("Aufenthalt (Std.)");
+
+    jLabel72.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel72.setText("Aufenthalt (Std.)");
+
+    jLabel73.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel73.setText("Aufenthalt (Std.)");
+
+    jLabel74.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel74.setText("Aufenthalt (Std.)");
+
+    jLabel75.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel75.setText("Aufenthalt (Std.)");
+
     javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
     jPanel4.setLayout(jPanel4Layout);
     jPanel4Layout.setHorizontalGroup(
@@ -714,7 +772,23 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(371, Short.MAX_VALUE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(jLabel70, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+          .addComponent(jLabel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jLabel73, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jLabel74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jLabel75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(jTextField16)
+          .addComponent(jTextField17)
+          .addComponent(jTextField43)
+          .addComponent(jTextField52)
+          .addComponent(jTextField53)
+          .addComponent(jTextField54, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+        .addContainerGap(162, Short.MAX_VALUE))
     );
     jPanel4Layout.setVerticalGroup(
       jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -724,37 +798,49 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jLabel23)
           .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel29)
-          .addComponent(jButton7))
+          .addComponent(jButton7)
+          .addComponent(jLabel70)
+          .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel24)
           .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel31)
-          .addComponent(jButton8))
+          .addComponent(jButton8)
+          .addComponent(jLabel71)
+          .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel25)
           .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel32)
-          .addComponent(jButton9))
+          .addComponent(jButton9)
+          .addComponent(jLabel72)
+          .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel26)
           .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel33)
-          .addComponent(jButton10))
+          .addComponent(jButton10)
+          .addComponent(jLabel73)
+          .addComponent(jTextField52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel27)
           .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel34)
-          .addComponent(jButton11))
+          .addComponent(jButton11)
+          .addComponent(jLabel74)
+          .addComponent(jTextField53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel28)
           .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel35)
-          .addComponent(jButton12))
+          .addComponent(jButton12)
+          .addComponent(jLabel75)
+          .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -858,7 +944,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jPanel6.setNextFocusableComponent(jPanel7);
 
     jLabel42.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel42.setText("Flug");
+    jLabel42.setText("Flug fix");
 
     jLabel43.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel43.setText("Stops");
@@ -948,64 +1034,86 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jFormattedTextField5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00%"))));
 
+    jLabel67.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel67.setText("Flug var");
+
+    jLabel68.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel68.setText("pro Std.");
+
+    jTextField2.setEditable(false);
+
+    jLabel69.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel69.setText("gesamt");
+
+    jTextField4.setEditable(false);
+
     javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
     jPanel6.setLayout(jPanel6Layout);
     jPanel6Layout.setHorizontalGroup(
       jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel6Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-          .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addComponent(jLabel67))
+        .addGap(9, 9, 9)
         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jLabel68, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(jTextField34)
           .addComponent(jTextField35)
           .addComponent(jTextField36)
-          .addComponent(jTextField37, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+          .addComponent(jTextField37)
+          .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
           .addComponent(jTextField33))
-        .addGap(18, 18, 18)
-        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+        .addGap(28, 28, 28)
+        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel69, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+          .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jTextField38)
-          .addComponent(jTextField39)
-          .addComponent(jTextField40)
-          .addComponent(jTextField41)
-          .addComponent(jTextField42, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-        .addGap(38, 38, 38)
-        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jLabel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(jPanel6Layout.createSequentialGroup()
-            .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(jTextField38)
+              .addComponent(jTextField39)
+              .addComponent(jTextField40)
+              .addComponent(jTextField41)
+              .addComponent(jTextField42, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+            .addGap(38, 38, 38)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(jLabel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
+              .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
-          .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jTextField47)
-          .addComponent(jTextField46)
-          .addComponent(jTextField45)
-          .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(30, Short.MAX_VALUE))
+            .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(jTextField47)
+              .addComponent(jTextField46)
+              .addComponent(jTextField45)
+              .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+          .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(20, 20, 20))
     );
     jPanel6Layout.setVerticalGroup(
       jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1017,55 +1125,63 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel52)
           .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-          .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-            .addComponent(jLabel43)
-            .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-            .addComponent(jLabel53)
-            .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addGap(13, 13, 13)
+        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel69)
+          .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel68)
+          .addComponent(jLabel67))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(jPanel6Layout.createSequentialGroup()
             .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+              .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel58)
+              .addComponent(jLabel59))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+              .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel60))
             .addGap(18, 18, 18)
-            .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+              .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel61)))
+          .addComponent(jLabel57)
           .addGroup(jPanel6Layout.createSequentialGroup()
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
               .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel54)
-                .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel57))
-              .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel43)
+                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel54)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+              .addComponent(jLabel49)
+              .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel55))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
               .addComponent(jLabel45)
               .addComponent(jLabel50)
               .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jLabel55)
               .addComponent(jTextField41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jLabel58)
-              .addComponent(jLabel59)
-              .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addComponent(jLabel56))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
               .addComponent(jLabel46)
               .addComponent(jLabel51)
               .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jLabel56)
               .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jLabel60))
-            .addGap(18, 18, 18)
-            .addComponent(jLabel61)))
-        .addContainerGap(19, Short.MAX_VALUE))
+              .addComponent(jLabel53))))
+        .addContainerGap(17, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Kosten", jPanel6);
@@ -1122,20 +1238,19 @@ public class pnlAuftrag extends javax.swing.JPanel {
             .addComponent(jTextField48, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGap(18, 18, 18)
         .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(354, Short.MAX_VALUE))
+        .addContainerGap(346, Short.MAX_VALUE))
     );
     jPanel7Layout.setVerticalGroup(
       jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(jPanel7Layout.createSequentialGroup()
         .addContainerGap()
-        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jLabel66)
-          .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-            .addComponent(jLabel62)
-            .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jButton14)))
+        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel62)
+          .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jButton14)
+          .addComponent(jLabel66))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel63)
@@ -1371,6 +1486,10 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		}
   }//GEN-LAST:event_jTextField1FocusLost
 
+  private void jTextField28FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField28FocusLost
+    setzeAnzeigeStops();
+  }//GEN-LAST:event_jTextField28FocusLost
+
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	
 		saFlugzeug = new String[auftrag.holeVerfügbareFlugzeuge().length];
@@ -1380,6 +1499,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			jComboBox1.addItem( s );
 		}
 	}
+	
+	private void setzeAnzeigeStops() {
+		// TODO: 
+	}
+	
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
@@ -1406,6 +1530,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JFormattedTextField jFormattedTextField3;
   private javax.swing.JFormattedTextField jFormattedTextField4;
   private javax.swing.JFormattedTextField jFormattedTextField5;
+  private javax.swing.JFormattedTextField jFormattedTextField6;
+  private javax.swing.JFormattedTextField jFormattedTextField7;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel10;
   private javax.swing.JLabel jLabel11;
@@ -1469,7 +1595,17 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel64;
   private javax.swing.JLabel jLabel65;
   private javax.swing.JLabel jLabel66;
+  private javax.swing.JLabel jLabel67;
+  private javax.swing.JLabel jLabel68;
+  private javax.swing.JLabel jLabel69;
   private javax.swing.JLabel jLabel7;
+  private javax.swing.JLabel jLabel70;
+  private javax.swing.JLabel jLabel71;
+  private javax.swing.JLabel jLabel72;
+  private javax.swing.JLabel jLabel73;
+  private javax.swing.JLabel jLabel74;
+  private javax.swing.JLabel jLabel75;
+  private javax.swing.JLabel jLabel76;
   private javax.swing.JLabel jLabel8;
   private javax.swing.JLabel jLabel9;
   private javax.swing.JPanel jPanel1;
@@ -1487,8 +1623,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField13;
   private javax.swing.JTextField jTextField14;
   private javax.swing.JTextField jTextField15;
+  private javax.swing.JTextField jTextField16;
+  private javax.swing.JTextField jTextField17;
   private javax.swing.JTextField jTextField18;
   private javax.swing.JTextField jTextField19;
+  private javax.swing.JTextField jTextField2;
   private javax.swing.JTextField jTextField20;
   private javax.swing.JTextField jTextField21;
   private javax.swing.JTextField jTextField22;
@@ -1510,9 +1649,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField37;
   private javax.swing.JTextField jTextField38;
   private javax.swing.JTextField jTextField39;
+  private javax.swing.JTextField jTextField4;
   private javax.swing.JTextField jTextField40;
   private javax.swing.JTextField jTextField41;
   private javax.swing.JTextField jTextField42;
+  private javax.swing.JTextField jTextField43;
   private javax.swing.JTextField jTextField44;
   private javax.swing.JTextField jTextField45;
   private javax.swing.JTextField jTextField46;
@@ -1522,6 +1663,9 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField5;
   private javax.swing.JTextField jTextField50;
   private javax.swing.JTextField jTextField51;
+  private javax.swing.JTextField jTextField52;
+  private javax.swing.JTextField jTextField53;
+  private javax.swing.JTextField jTextField54;
   private javax.swing.JTextField jTextField6;
   private javax.swing.JTextField jTextField7;
   private javax.swing.JTextField jTextField8;
@@ -1648,20 +1792,36 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		return jTextField15.getText();
 	}
 
-	public void setFlugdatum( Date dtFlugdatum ) {
-		jFormattedTextField1.setText( dtFlugdatum + "" );
+	public void setFlugdatum( int iFlugdatum ) {
+		jFormattedTextField1.setText( iFlugdatum + "" );
 	}
 	
 	public String getFlugdatum() {
 		return jFormattedTextField1.getText();
 	}
 
-	public void setUhrzeitStd( int iUhrzeitStd ) {
-		jFormattedTextField2.setText( iUhrzeitStd + "" );
+	public void setUhrzeit( int iUhrzeit ) {
+		jFormattedTextField2.setText( iUhrzeit + "" );
 	}
 	
 	public String getUhrzeit() {
 		return jFormattedTextField2.getText();
+	}
+	
+	public void setFlugdatumEnde( int iFlugdatumEnde ) {
+		jFormattedTextField6.setText( iFlugdatumEnde + "" );
+	}
+	
+	public String getFlugdatumEnde() {
+		return jFormattedTextField6.getText();
+	}
+
+	public void setUhrzeitEnde( int iUhrzeitEnde ) {
+		jFormattedTextField7.setText( iUhrzeitEnde + "" );
+	}
+	
+	public String getUhrzeitEnde() {
+		return jFormattedTextField7.getText();
 	}
 
 	public void setStart( int iStart ) {
@@ -1783,7 +1943,55 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	public void setSechsterStopBez( String sSechsterStopBez) {
 		jLabel35.setText( sSechsterStopBez );
 	}
+
+	public void setErsterStopAufenthalt( int iErsterStopAufenthalt ) {
+		jTextField16.setText( iErsterStopAufenthalt + "" );
+	}
 	
+	public String getErsterStopAufenthalt() {
+		return jTextField16.getText();
+	}
+	
+	public void setZweiterStopAufenthalt( int iZweiterStopAufenthalt ) {
+		jTextField17.setText( iZweiterStopAufenthalt + "" );
+	}
+	
+	public String getZweiterStopAufenthalt() {
+		return jTextField17.getText();
+	}
+
+	public void setDritterStopAufenthalt( int iDritterStopAufenthalt ) {
+		jTextField43.setText( iDritterStopAufenthalt + "" );
+	}
+	
+	public String getDritterStopAufenthalt() {
+		return jTextField43.getText();
+	}
+	
+	public void setVierterStopAufenthalt( int iVierterStopAufenthalt ) {
+		jTextField52.setText( iVierterStopAufenthalt + "" );
+	}
+	
+	public String getVierterStopAufenthalt() {
+		return jTextField52.getText();
+	}
+	
+	public void setFuenfterStopAufenthalt( int iFuenfterStopAufenthalt ) {
+		jTextField53.setText( iFuenfterStopAufenthalt + "" );
+	}
+	
+	public String getFuenfterStopAufenthalt() {
+		return jTextField53.getText();
+	}
+	
+	public void setSechsterStopAufenthalt( int iSechsterStopAufenthalt ) {
+		jTextField54.setText( iSechsterStopAufenthalt + "" );
+	}
+	
+	public String getSechsterStopAufenthalt() {
+		return jTextField54.getText();
+	}
+
 	public void setFlugzeit( int iFlugzeit ) {
 		jTextField29.setText( iFlugzeit + "" );
 	}
@@ -1974,6 +2182,22 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	
 	public String getSkontosatz() {
 		return jTextField51.getText();
+	}
+	
+	public void setKostenFlugVar( double dKostenFlugVar ) {
+		jTextField2.setText( dKostenFlugVar + "" );
+	}
+	
+	public String getKostenFlugVar() {
+		return jTextField2.getText();
+	}
+	
+	public void setKostenFlugVarGesamt( double dKostenFlugVarGesamt ) {
+		jTextField4.setText( dKostenFlugVarGesamt + "" );
+	}
+	
+	public String getKostenFlugVarGesamt() {
+		return jTextField4.getText();
 	}
 
 }
