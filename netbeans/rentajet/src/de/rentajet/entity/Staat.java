@@ -34,9 +34,9 @@ public class Staat implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "Nummer")
-	private Integer nummer;
+	private String nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "Laendercode")
@@ -49,23 +49,23 @@ public class Staat implements Serializable {
 	public Staat() {
 	}
 
-	public Staat( Integer id ) {
+	public Staat( String id ) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
-	public Integer getNummer() {
+	public String getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( Integer nummer ) {
+	public void setNummer( String nummer ) {
 		this.nummer = nummer;
 	}
 

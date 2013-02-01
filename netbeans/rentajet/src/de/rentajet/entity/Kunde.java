@@ -39,15 +39,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Kunde.findByMobil", query = "SELECT k FROM Kunde k WHERE k.mobil = :mobil"),
 	@NamedQuery(name = "Kunde.findByGesperrt", query = "SELECT k FROM Kunde k WHERE k.gesperrt = :gesperrt"),
 	@NamedQuery(name = "Kunde.findByKreditlimit", query = "SELECT k FROM Kunde k WHERE k.kreditlimit = :kreditlimit"),
-	@NamedQuery(name = "Kunde.findBySteuernummer", query = "SELECT k FROM Kunde k WHERE k.steuernummer = :steuernummer")})
+	@NamedQuery(name = "Kunde.findBySteuernummer", query = "SELECT k FROM Kunde k WHERE k.steuernummer = :steuernummer"),
+	@NamedQuery(name = "Kunde.findByMitarbeiter", query = "SELECT k FROM Kunde k WHERE k.mitarbeiter = :mitarbeiter")})
 public class Kunde implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "Nummer")
-	private Integer nummer;
+	private String nummer;
 	@Column(name = "AnredeID")
 	private Integer anredeID;
 	@Column(name = "Matchcode")
@@ -61,9 +62,9 @@ public class Kunde implements Serializable {
 	@Column(name = "Strasse")
 	private String strasse;
 	@Column(name = "OrtID")
-	private Integer ortID;
+	private String ortID;
 	@Column(name = "KundenberaterID")
-	private Integer kundenberaterID;
+	private String kundenberaterID;
 	@Column(name = "Telefon")
 	private Integer telefon;
 	@Column(name = "Telefax")
@@ -76,27 +77,29 @@ public class Kunde implements Serializable {
 	private Integer kreditlimit;
 	@Column(name = "Steuernummer")
 	private BigInteger steuernummer;
+	@Column(name = "Mitarbeiter")
+	private String mitarbeiter;
 
 	public Kunde() {
 	}
 
-	public Kunde( Integer id ) {
+	public Kunde( String id ) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
-	public Integer getNummer() {
+	public String getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( Integer nummer ) {
+	public void setNummer( String nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -148,19 +151,19 @@ public class Kunde implements Serializable {
 		this.strasse = strasse;
 	}
 
-	public Integer getOrtID() {
+	public String getOrtID() {
 		return ortID;
 	}
 
-	public void setOrtID( Integer ortID ) {
+	public void setOrtID( String ortID ) {
 		this.ortID = ortID;
 	}
 
-	public Integer getKundenberaterID() {
+	public String getKundenberaterID() {
 		return kundenberaterID;
 	}
 
-	public void setKundenberaterID( Integer kundenberaterID ) {
+	public void setKundenberaterID( String kundenberaterID ) {
 		this.kundenberaterID = kundenberaterID;
 	}
 
@@ -210,6 +213,14 @@ public class Kunde implements Serializable {
 
 	public void setSteuernummer( BigInteger steuernummer ) {
 		this.steuernummer = steuernummer;
+	}
+
+	public String getMitarbeiter() {
+		return mitarbeiter;
+	}
+
+	public void setMitarbeiter( String mitarbeiter ) {
+		this.mitarbeiter = mitarbeiter;
 	}
 
 	@Override

@@ -28,6 +28,9 @@ public class pnlAnrede extends javax.swing.JPanel {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    rentajetPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("rentajetPU").createEntityManager();
+    anredeQuery = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT a FROM Anrede a");
+    anredeList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : anredeQuery.getResultList();
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
@@ -45,6 +48,12 @@ public class pnlAnrede extends javax.swing.JPanel {
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel2.setText("Bezeichnung");
+
+    jTextField1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1ActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -99,12 +108,19 @@ public class pnlAnrede extends javax.swing.JPanel {
 
   }//GEN-LAST:event_formFocusGained
 
+  private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jTextField1ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private java.util.List<de.rentajet.entity.Anrede> anredeList;
+  private javax.persistence.Query anredeQuery;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JTextField jTextField1;
   private javax.swing.JTextField jTextField2;
+  private javax.persistence.EntityManager rentajetPUEntityManager;
   // End of variables declaration//GEN-END:variables
 
 	public void setNummer( int iNummer ) {
@@ -121,5 +137,9 @@ public class pnlAnrede extends javax.swing.JPanel {
 	
 	public String getBezeichnung() {
 		return jTextField2.getText();
+	}
+
+	String getDdescription() {
+		throw new UnsupportedOperationException( "Not yet implemented" );
 	}
 }

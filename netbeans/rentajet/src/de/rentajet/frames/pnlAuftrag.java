@@ -35,7 +35,15 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	@SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
+    bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+    rentajetPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("rentajetPU").createEntityManager();
+    flugzeugQuery = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT f FROM Flugzeug f");
+    flugzeugList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : flugzeugQuery.getResultList();
+    flugzeugtypQuery = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT f FROM Flugzeugtyp f");
+    flugzeugtypList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : flugzeugtypQuery.getResultList();
+    flugzeugQuery1 = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT f FROM Flugzeug f");
+    flugzeugList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : flugzeugQuery1.getResultList();
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
@@ -613,7 +621,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel30)
           .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(23, Short.MAX_VALUE))
+        .addContainerGap(25, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Auftrag", jPanel3);
@@ -841,7 +849,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jButton12)
           .addComponent(jLabel75)
           .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap(13, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Zwischenstops", jPanel4);
@@ -864,6 +872,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel40.setText("Catering");
 
     jComboBox1.setNextFocusableComponent(jTextField29);
+
+    org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, flugzeugQuery1, org.jdesktop.beansbinding.ObjectProperty.create(), jComboBox1, org.jdesktop.beansbinding.BeanProperty.create("elements"));
+    bindingGroup.addBinding(binding);
+    binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, flugzeugQuery, org.jdesktop.beansbinding.ObjectProperty.create(), jComboBox1, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+    bindingGroup.addBinding(binding);
 
     jTextField29.setNextFocusableComponent(jTextField31);
 
@@ -1181,7 +1194,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
               .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(jLabel53))))
-        .addContainerGap(17, Short.MAX_VALUE))
+        .addContainerGap(19, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Kosten", jPanel6);
@@ -1263,7 +1276,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel65)
           .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(88, Short.MAX_VALUE))
+        .addContainerGap(90, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Bezahlung", jPanel7);
@@ -1291,6 +1304,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
     );
 
     jTabbedPane1.getAccessibleContext().setAccessibleName("");
+
+    bindingGroup.bind();
   }// </editor-fold>//GEN-END:initComponents
 
   private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -1506,6 +1521,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private java.util.List<de.rentajet.entity.Flugzeug> flugzeugList;
+  private java.util.List<de.rentajet.entity.Flugzeug> flugzeugList1;
+  private javax.persistence.Query flugzeugQuery;
+  private javax.persistence.Query flugzeugQuery1;
+  private java.util.List<de.rentajet.entity.Flugzeugtyp> flugzeugtypList;
+  private javax.persistence.Query flugzeugtypQuery;
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton10;
   private javax.swing.JButton jButton11;
@@ -1670,6 +1691,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField7;
   private javax.swing.JTextField jTextField8;
   private javax.swing.JTextField jTextField9;
+  private javax.persistence.EntityManager rentajetPUEntityManager;
+  private org.jdesktop.beansbinding.BindingGroup bindingGroup;
   // End of variables declaration//GEN-END:variables
 
 	public void setNummer( int iNummer ) {

@@ -38,9 +38,9 @@ public class Kundenberater implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "AnredeID")
-	private Integer anredeID;
+	private String anredeID;
 	@Column(name = "Vorname")
 	private String vorname;
 	@Column(name = "Nachname")
@@ -48,7 +48,7 @@ public class Kundenberater implements Serializable {
 	@Column(name = "Strasse")
 	private String strasse;
 	@Column(name = "OrtID")
-	private Integer ortID;
+	private String ortID;
 	@Column(name = "Telefon")
 	private Integer telefon;
 	@Column(name = "Telefax")
@@ -56,28 +56,28 @@ public class Kundenberater implements Serializable {
 	@Column(name = "Mobil")
 	private Integer mobil;
 	@Column(name = "Nummer")
-	private Integer nummer;
+	private String nummer;
 
 	public Kundenberater() {
 	}
 
-	public Kundenberater( Integer id ) {
+	public Kundenberater( String id ) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
-	public Integer getAnredeID() {
+	public String getAnredeID() {
 		return anredeID;
 	}
 
-	public void setAnredeID( Integer anredeID ) {
+	public void setAnredeID( String anredeID ) {
 		this.anredeID = anredeID;
 	}
 
@@ -105,11 +105,11 @@ public class Kundenberater implements Serializable {
 		this.strasse = strasse;
 	}
 
-	public Integer getOrtID() {
+	public String getOrtID() {
 		return ortID;
 	}
 
-	public void setOrtID( Integer ortID ) {
+	public void setOrtID( String ortID ) {
 		this.ortID = ortID;
 	}
 
@@ -137,11 +137,11 @@ public class Kundenberater implements Serializable {
 		this.mobil = mobil;
 	}
 
-	public Integer getNummer() {
+	public String getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( Integer nummer ) {
+	public void setNummer( String nummer ) {
 		this.nummer = nummer;
 	}
 

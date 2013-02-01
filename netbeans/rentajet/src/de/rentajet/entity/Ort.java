@@ -26,32 +26,35 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Ort.findById", query = "SELECT o FROM Ort o WHERE o.id = :id"),
 	@NamedQuery(name = "Ort.findByPlz", query = "SELECT o FROM Ort o WHERE o.plz = :plz"),
 	@NamedQuery(name = "Ort.findByBezeichnung", query = "SELECT o FROM Ort o WHERE o.bezeichnung = :bezeichnung"),
-	@NamedQuery(name = "Ort.findByStaatID", query = "SELECT o FROM Ort o WHERE o.staatID = :staatID")})
+	@NamedQuery(name = "Ort.findByStaatID", query = "SELECT o FROM Ort o WHERE o.staatID = :staatID"),
+	@NamedQuery(name = "Ort.findByNummer", query = "SELECT o FROM Ort o WHERE o.nummer = :nummer")})
 public class Ort implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "PLZ")
 	private Integer plz;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "StaatID")
-	private Integer staatID;
+	private String staatID;
+	@Column(name = "Nummer")
+	private String nummer;
 
 	public Ort() {
 	}
 
-	public Ort( Integer id ) {
+	public Ort( String id ) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
@@ -71,12 +74,20 @@ public class Ort implements Serializable {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public Integer getStaatID() {
+	public String getStaatID() {
 		return staatID;
 	}
 
-	public void setStaatID( Integer staatID ) {
+	public void setStaatID( String staatID ) {
 		this.staatID = staatID;
+	}
+
+	public String getNummer() {
+		return nummer;
+	}
+
+	public void setNummer( String nummer ) {
+		this.nummer = nummer;
 	}
 
 	@Override

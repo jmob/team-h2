@@ -36,13 +36,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Firma.findByBetriebsnummer", query = "SELECT f FROM Firma f WHERE f.betriebsnummer = :betriebsnummer"),
 	@NamedQuery(name = "Firma.findByUSTIdentNummer", query = "SELECT f FROM Firma f WHERE f.uSTIdentNummer = :uSTIdentNummer"),
 	@NamedQuery(name = "Firma.findByTelefon", query = "SELECT f FROM Firma f WHERE f.telefon = :telefon"),
-	@NamedQuery(name = "Firma.findByTelefax", query = "SELECT f FROM Firma f WHERE f.telefax = :telefax")})
+	@NamedQuery(name = "Firma.findByTelefax", query = "SELECT f FROM Firma f WHERE f.telefax = :telefax"),
+	@NamedQuery(name = "Firma.findByNummer", query = "SELECT f FROM Firma f WHERE f.nummer = :nummer")})
 public class Firma implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "Name1")
@@ -54,7 +55,7 @@ public class Firma implements Serializable {
 	@Column(name = "Strasse")
 	private String strasse;
 	@Column(name = "OrtID")
-	private Integer ortID;
+	private String ortID;
 	@Column(name = "Steuernummer")
 	private BigInteger steuernummer;
 	@Column(name = "Betriebsnummer")
@@ -69,24 +70,26 @@ public class Firma implements Serializable {
   @Lob
   @Column(name = "Logo")
 	private byte[] logo;
+	@Column(name = "Nummer")
+	private String nummer;
 
 	public Firma() {
 	}
 
-	public Firma( Integer id ) {
+	public Firma( String id ) {
 		this.id = id;
 	}
 
-	public Firma( Integer id, byte[] logo ) {
+	public Firma( String id, byte[] logo ) {
 		this.id = id;
 		this.logo = logo;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
@@ -130,11 +133,11 @@ public class Firma implements Serializable {
 		this.strasse = strasse;
 	}
 
-	public Integer getOrtID() {
+	public String getOrtID() {
 		return ortID;
 	}
 
-	public void setOrtID( Integer ortID ) {
+	public void setOrtID( String ortID ) {
 		this.ortID = ortID;
 	}
 
@@ -184,6 +187,14 @@ public class Firma implements Serializable {
 
 	public void setLogo( byte[] logo ) {
 		this.logo = logo;
+	}
+
+	public String getNummer() {
+		return nummer;
+	}
+
+	public void setNummer( String nummer ) {
+		this.nummer = nummer;
 	}
 
 	@Override

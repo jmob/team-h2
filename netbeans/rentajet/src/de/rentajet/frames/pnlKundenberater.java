@@ -4,7 +4,11 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.entity.Anrede;
 import de.rentajet.uti.Util;
+import java.awt.Component;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,7 +33,17 @@ public class pnlKundenberater extends javax.swing.JPanel {
 	@SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
+    bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+    rentajetPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("rentajetPU").createEntityManager();
+    anredeQuery = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT a FROM Anrede a");
+    anredeList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : anredeQuery.getResultList();
+    anredeQuery1 = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT a FROM Anrede a");
+    anredeList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : anredeQuery1.getResultList();
+    anredeQuery2 = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT a FROM Anrede a");
+    anredeList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : anredeQuery2.getResultList();
+    anredeQuery3 = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT a FROM Anrede a");
+    anredeList3 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : anredeQuery3.getResultList();
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
@@ -112,7 +126,29 @@ public class pnlKundenberater extends javax.swing.JPanel {
     jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel6.setText("PLZ / Ort");
 
-    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Firma", "Herr", "Frau", "Doktor" }));
+    jComboBox1.setRenderer(new DefaultListCellRenderer() {
+      @Override
+      public Component getListCellRendererComponent(
+        JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+        super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+        if (value instanceof Anrede) {
+          Anrede mec = (Anrede)value;
+          setText(mec.getBezeichnung());
+        }
+        return this;
+      }
+    });
+
+    org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, anredeList3, jComboBox1, "");
+    bindingGroup.addBinding(jComboBoxBinding);
+    org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, anredeList2, org.jdesktop.beansbinding.ObjectProperty.create(), jComboBox1, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+    bindingGroup.addBinding(binding);
+
+    jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jComboBox1ActionPerformed(evt);
+      }
+    });
 
     jTextField9.setEditable(false);
 
@@ -214,7 +250,7 @@ public class pnlKundenberater extends javax.swing.JPanel {
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel9)
           .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(129, Short.MAX_VALUE))
+        .addContainerGap(131, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Kommunikation", jPanel3);
@@ -239,6 +275,8 @@ public class pnlKundenberater extends javax.swing.JPanel {
         .addComponent(jTabbedPane1)
         .addContainerGap())
     );
+
+    bindingGroup.bind();
   }// </editor-fold>//GEN-END:initComponents
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -246,7 +284,7 @@ public class pnlKundenberater extends javax.swing.JPanel {
 		ort.sucheDatensatz();
 		if( ort.getiID() <= 0 )
 			JOptionPane.showMessageDialog(
-				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				null, "Es ist ein Fehler aufgetreten!", "Fehler", 
 				JOptionPane.OK_OPTION
 			);
 		else {
@@ -261,7 +299,19 @@ public class pnlKundenberater extends javax.swing.JPanel {
 		}
   }//GEN-LAST:event_jTextField4FocusLost
 
+  private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jComboBox1ActionPerformed
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private java.util.List<de.rentajet.entity.Anrede> anredeList;
+  private java.util.List<de.rentajet.entity.Anrede> anredeList1;
+  private java.util.List<de.rentajet.entity.Anrede> anredeList2;
+  private java.util.List<de.rentajet.entity.Anrede> anredeList3;
+  private javax.persistence.Query anredeQuery;
+  private javax.persistence.Query anredeQuery1;
+  private javax.persistence.Query anredeQuery2;
+  private javax.persistence.Query anredeQuery3;
   private javax.swing.JButton jButton1;
   private javax.swing.JComboBox jComboBox1;
   private javax.swing.JLabel jLabel1;
@@ -286,6 +336,8 @@ public class pnlKundenberater extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField7;
   private javax.swing.JTextField jTextField8;
   private javax.swing.JTextField jTextField9;
+  private javax.persistence.EntityManager rentajetPUEntityManager;
+  private org.jdesktop.beansbinding.BindingGroup bindingGroup;
   // End of variables declaration//GEN-END:variables
 	public void setNummer( int iNummer ) {
 		jTextField4.setText( iNummer + "" );

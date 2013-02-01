@@ -33,13 +33,13 @@ public class Flugzeug implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "Nummer")
-	private Integer nummer;
+	private String nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "FlugzeugtypID")
-	private Integer flugzeugtypID;
+	private String flugzeugtypID;
 	@Basic(optional = false)
   @Lob
   @Column(name = "Foto")
@@ -48,28 +48,28 @@ public class Flugzeug implements Serializable {
 	public Flugzeug() {
 	}
 
-	public Flugzeug( Integer id ) {
+	public Flugzeug( String id ) {
 		this.id = id;
 	}
 
-	public Flugzeug( Integer id, byte[] foto ) {
+	public Flugzeug( String id, byte[] foto ) {
 		this.id = id;
 		this.foto = foto;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
-	public Integer getNummer() {
+	public String getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( Integer nummer ) {
+	public void setNummer( String nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -81,11 +81,11 @@ public class Flugzeug implements Serializable {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public Integer getFlugzeugtypID() {
+	public String getFlugzeugtypID() {
 		return flugzeugtypID;
 	}
 
-	public void setFlugzeugtypID( Integer flugzeugtypID ) {
+	public void setFlugzeugtypID( String flugzeugtypID ) {
 		this.flugzeugtypID = flugzeugtypID;
 	}
 

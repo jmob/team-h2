@@ -19,15 +19,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author j.schipplick
  */
 @Entity
-@Table(name = "benutzergruppe")
+@Table(name = "flughafen")
 @XmlRootElement
 @NamedQueries({
-	@NamedQuery(name = "Benutzergruppe.findAll", query = "SELECT b FROM Benutzergruppe b"),
-	@NamedQuery(name = "Benutzergruppe.findById", query = "SELECT b FROM Benutzergruppe b WHERE b.id = :id"),
-	@NamedQuery(name = "Benutzergruppe.findByNummer", query = "SELECT b FROM Benutzergruppe b WHERE b.nummer = :nummer"),
-	@NamedQuery(name = "Benutzergruppe.findByBezeichnung", query = "SELECT b FROM Benutzergruppe b WHERE b.bezeichnung = :bezeichnung"),
-	@NamedQuery(name = "Benutzergruppe.findByBenutzerrolle", query = "SELECT b FROM Benutzergruppe b WHERE b.benutzerrolle = :benutzerrolle")})
-public class Benutzergruppe implements Serializable {
+	@NamedQuery(name = "Flughafen.findAll", query = "SELECT f FROM Flughafen f"),
+	@NamedQuery(name = "Flughafen.findById", query = "SELECT f FROM Flughafen f WHERE f.id = :id"),
+	@NamedQuery(name = "Flughafen.findByNummer", query = "SELECT f FROM Flughafen f WHERE f.nummer = :nummer"),
+	@NamedQuery(name = "Flughafen.findByBezeichnung", query = "SELECT f FROM Flughafen f WHERE f.bezeichnung = :bezeichnung"),
+	@NamedQuery(name = "Flughafen.findByKuerzel", query = "SELECT f FROM Flughafen f WHERE f.kuerzel = :kuerzel")})
+public class Flughafen implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
@@ -37,13 +37,13 @@ public class Benutzergruppe implements Serializable {
 	private String nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
-	@Column(name = "Benutzerrolle")
-	private String benutzerrolle;
+	@Column(name = "Kuerzel")
+	private String kuerzel;
 
-	public Benutzergruppe() {
+	public Flughafen() {
 	}
 
-	public Benutzergruppe( String id ) {
+	public Flughafen( String id ) {
 		this.id = id;
 	}
 
@@ -71,12 +71,12 @@ public class Benutzergruppe implements Serializable {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public String getBenutzerrolle() {
-		return benutzerrolle;
+	public String getKuerzel() {
+		return kuerzel;
 	}
 
-	public void setBenutzerrolle( String benutzerrolle ) {
-		this.benutzerrolle = benutzerrolle;
+	public void setKuerzel( String kuerzel ) {
+		this.kuerzel = kuerzel;
 	}
 
 	@Override
@@ -89,10 +89,10 @@ public class Benutzergruppe implements Serializable {
 	@Override
 	public boolean equals( Object object ) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
-		if( !(object instanceof Benutzergruppe) ) {
+		if( !(object instanceof Flughafen) ) {
 			return false;
 		}
-		Benutzergruppe other = (Benutzergruppe) object;
+		Flughafen other = (Flughafen) object;
 		if( (this.id == null && other.id != null) || (this.id != null && !this.id.equals( other.id )) ) {
 			return false;
 		}
@@ -101,7 +101,7 @@ public class Benutzergruppe implements Serializable {
 
 	@Override
 	public String toString() {
-		return "de.rentajet.entity.Benutzergruppe[ id=" + id + " ]";
+		return "de.rentajet.entity.Flughafen[ id=" + id + " ]";
 	}
 	
 }

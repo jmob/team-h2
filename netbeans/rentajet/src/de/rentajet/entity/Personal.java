@@ -19,15 +19,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author j.schipplick
  */
 @Entity
-@Table(name = "benutzergruppe")
+@Table(name = "personal")
 @XmlRootElement
 @NamedQueries({
-	@NamedQuery(name = "Benutzergruppe.findAll", query = "SELECT b FROM Benutzergruppe b"),
-	@NamedQuery(name = "Benutzergruppe.findById", query = "SELECT b FROM Benutzergruppe b WHERE b.id = :id"),
-	@NamedQuery(name = "Benutzergruppe.findByNummer", query = "SELECT b FROM Benutzergruppe b WHERE b.nummer = :nummer"),
-	@NamedQuery(name = "Benutzergruppe.findByBezeichnung", query = "SELECT b FROM Benutzergruppe b WHERE b.bezeichnung = :bezeichnung"),
-	@NamedQuery(name = "Benutzergruppe.findByBenutzerrolle", query = "SELECT b FROM Benutzergruppe b WHERE b.benutzerrolle = :benutzerrolle")})
-public class Benutzergruppe implements Serializable {
+	@NamedQuery(name = "Personal.findAll", query = "SELECT p FROM Personal p"),
+	@NamedQuery(name = "Personal.findById", query = "SELECT p FROM Personal p WHERE p.id = :id"),
+	@NamedQuery(name = "Personal.findByNummer", query = "SELECT p FROM Personal p WHERE p.nummer = :nummer"),
+	@NamedQuery(name = "Personal.findByBezeichnung", query = "SELECT p FROM Personal p WHERE p.bezeichnung = :bezeichnung")})
+public class Personal implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
@@ -37,13 +36,11 @@ public class Benutzergruppe implements Serializable {
 	private String nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
-	@Column(name = "Benutzerrolle")
-	private String benutzerrolle;
 
-	public Benutzergruppe() {
+	public Personal() {
 	}
 
-	public Benutzergruppe( String id ) {
+	public Personal( String id ) {
 		this.id = id;
 	}
 
@@ -71,14 +68,6 @@ public class Benutzergruppe implements Serializable {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public String getBenutzerrolle() {
-		return benutzerrolle;
-	}
-
-	public void setBenutzerrolle( String benutzerrolle ) {
-		this.benutzerrolle = benutzerrolle;
-	}
-
 	@Override
 	public int hashCode() {
 		int hash = 0;
@@ -89,10 +78,10 @@ public class Benutzergruppe implements Serializable {
 	@Override
 	public boolean equals( Object object ) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
-		if( !(object instanceof Benutzergruppe) ) {
+		if( !(object instanceof Personal) ) {
 			return false;
 		}
-		Benutzergruppe other = (Benutzergruppe) object;
+		Personal other = (Personal) object;
 		if( (this.id == null && other.id != null) || (this.id != null && !this.id.equals( other.id )) ) {
 			return false;
 		}
@@ -101,7 +90,7 @@ public class Benutzergruppe implements Serializable {
 
 	@Override
 	public String toString() {
-		return "de.rentajet.entity.Benutzergruppe[ id=" + id + " ]";
+		return "de.rentajet.entity.Personal[ id=" + id + " ]";
 	}
 	
 }

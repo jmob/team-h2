@@ -1,6 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.persistence.EntityManager" name="rentajetPUEntityManager">
+      <Properties>
+        <Property name="persistenceUnit" type="java.lang.String" value="rentajetPU"/>
+      </Properties>
+    </Component>
+    <Component class="javax.persistence.Query" name="anredeQuery">
+      <Properties>
+        <Property name="query" type="java.lang.String" value="SELECT a FROM Anrede a"/>
+        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
+          <ComponentRef name="rentajetPUEntityManager"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="java.util.List" name="anredeList">
+      <Properties>
+        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
+          <ComponentRef name="anredeQuery"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;de.rentajet.entity.Anrede&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.persistence.Query" name="anredeQuery1">
+      <Properties>
+        <Property name="query" type="java.lang.String" value="SELECT a FROM Anrede a"/>
+        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
+          <ComponentRef name="rentajetPUEntityManager"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="java.util.List" name="anredeList1">
+      <Properties>
+        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
+          <ComponentRef name="anredeQuery1"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;de.rentajet.entity.Anrede&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.persistence.Query" name="anredeQuery2">
+      <Properties>
+        <Property name="query" type="java.lang.String" value="SELECT a FROM Anrede a"/>
+        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
+          <ComponentRef name="rentajetPUEntityManager"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="java.util.List" name="anredeList2">
+      <Properties>
+        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
+          <ComponentRef name="anredeQuery2"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;de.rentajet.entity.Anrede&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.persistence.Query" name="anredeQuery3">
+      <Properties>
+        <Property name="query" type="java.lang.String" value="SELECT a FROM Anrede a"/>
+        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
+          <ComponentRef name="rentajetPUEntityManager"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="java.util.List" name="anredeList3">
+      <Properties>
+        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
+          <ComponentRef name="anredeQuery3"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;de.rentajet.entity.Anrede&gt;"/>
+      </AuxValues>
+    </Component>
+  </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -214,17 +293,18 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox1">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value=""/>
-                    <StringItem index="1" value="Firma"/>
-                    <StringItem index="2" value="Herr"/>
-                    <StringItem index="3" value="Frau"/>
-                    <StringItem index="4" value="Doktor"/>
-                  </StringArray>
-                </Property>
-              </Properties>
+              <BindingProperties>
+                <BindingProperty name="elements" source="anredeList3" target="jComboBox1" targetPath="elements" updateStrategy="0" immediately="false">
+                  <Property name="name" type="java.lang.String" value=""/>
+                </BindingProperty>
+                <BindingProperty name="selectedItem" source="anredeList2" target="jComboBox1" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
+              </BindingProperties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jComboBox1.setRenderer(new DefaultListCellRenderer() {&#xa;           @Override&#xa;           public Component getListCellRendererComponent(&#xa;                   JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {&#xa;               super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);&#xa;               if (value instanceof Anrede) {&#xa;                   Anrede mec = (Anrede)value;&#xa;                   setText(mec.getBezeichnung());&#xa;               }&#xa;               return this;&#xa;           }&#xa;       });"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField6">
             </Component>
@@ -294,7 +374,7 @@
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="129" max="32767" attributes="0"/>
+                      <EmptySpace pref="131" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

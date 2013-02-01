@@ -4,7 +4,11 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.frames.AnredeListCellRenderer;
+import de.rentajet.frames.AnredeInfo;
+import de.rentajet.entity.Anrede;
 import de.rentajet.uti.Util;
+import java.awt.Component;
 import javax.swing.*;
 
 /**
@@ -29,7 +33,14 @@ public class pnlKunde extends javax.swing.JPanel {
 	@SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
+    bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+    rentajetPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("rentajetPU").createEntityManager();
+    anredeQuery = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT a FROM Anrede a");
+    anredeList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : anredeQuery.getResultList();
+    anredeQuery1 = java.beans.Beans.isDesignTime() ? null : rentajetPUEntityManager.createQuery("SELECT a FROM Anrede a");
+    anredeList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : anredeQuery1.getResultList();
+    kundeInfo1 = new de.rentajet.frames.KundeInfo();
     jPanel4 = new javax.swing.JPanel();
     jLabel7 = new javax.swing.JLabel();
     jLabel8 = new javax.swing.JLabel();
@@ -125,7 +136,21 @@ public class pnlKunde extends javax.swing.JPanel {
 
     jPanel5.setName("pnlAnschrift"); // NOI18N
 
-    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Firma", "Herr", "Frau", "Doktor" }));
+    jComboBox1.setRenderer(new DefaultListCellRenderer() {
+      @Override
+      public Component getListCellRendererComponent(
+        JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+        super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+        if (value instanceof Anrede) {
+          Anrede mec = (Anrede)value;
+          setText(mec.getBezeichnung());
+        }
+        return this;
+      }
+    });
+
+    org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, anredeList, jComboBox1, "");
+    bindingGroup.addBinding(jComboBoxBinding);
 
     jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel9.setText("Name 1");
@@ -287,7 +312,7 @@ public class pnlKunde extends javax.swing.JPanel {
         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel17)
           .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(182, Short.MAX_VALUE))
+        .addContainerGap(184, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Kommunikation", jPanel6);
@@ -385,7 +410,7 @@ public class pnlKunde extends javax.swing.JPanel {
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(jCheckBox1)
           .addComponent(jLabel21))
-        .addContainerGap(140, Short.MAX_VALUE))
+        .addContainerGap(142, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Allgemein", jPanel7);
@@ -412,6 +437,8 @@ public class pnlKunde extends javax.swing.JPanel {
         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
+
+    bindingGroup.bind();
   }// </editor-fold>//GEN-END:initComponents
 
   private void jTabbedPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MousePressed
@@ -427,7 +454,7 @@ public class pnlKunde extends javax.swing.JPanel {
 		ort.sucheDatensatz();
 		if( ort.getiID() <= 0 )
 			JOptionPane.showMessageDialog(
-				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				null, "Es ist ein Fehler aufgetreten!", "Fehler", 
 				JOptionPane.OK_OPTION
 			);
 		else {
@@ -441,7 +468,7 @@ public class pnlKunde extends javax.swing.JPanel {
 		kundenberater.sucheDatensatz();
 		if( kundenberater.getiID() <= 0 )
 			JOptionPane.showMessageDialog(
-				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				null, "Es ist ein Fehler aufgetreten!", "Fehler", 
 				JOptionPane.OK_OPTION
 			);
 		else {
@@ -457,6 +484,10 @@ public class pnlKunde extends javax.swing.JPanel {
   }//GEN-LAST:event_jTextField10FocusLost
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private java.util.List<de.rentajet.entity.Anrede> anredeList;
+  private java.util.List<de.rentajet.entity.Anrede> anredeList1;
+  private javax.persistence.Query anredeQuery;
+  private javax.persistence.Query anredeQuery1;
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton2;
   private javax.swing.JCheckBox jCheckBox1;
@@ -496,6 +527,9 @@ public class pnlKunde extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField5;
   private javax.swing.JTextField jTextField6;
   private javax.swing.JTextField jTextField7;
+  private de.rentajet.frames.KundeInfo kundeInfo1;
+  private javax.persistence.EntityManager rentajetPUEntityManager;
+  private org.jdesktop.beansbinding.BindingGroup bindingGroup;
   // End of variables declaration//GEN-END:variables
 	public void setNummer( int iNummer ) {
 		jTextField10.setText( iNummer + "" );

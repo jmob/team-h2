@@ -38,9 +38,9 @@ public class Mitarbkunde implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "Nummer")
-	private Integer nummer;
+	private String nummer;
 	@Column(name = "AnredeID")
 	private Integer anredeID;
 	@Column(name = "KundeID")
@@ -61,23 +61,23 @@ public class Mitarbkunde implements Serializable {
 	public Mitarbkunde() {
 	}
 
-	public Mitarbkunde( Integer id ) {
+	public Mitarbkunde( String id ) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
-	public Integer getNummer() {
+	public String getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( Integer nummer ) {
+	public void setNummer( String nummer ) {
 		this.nummer = nummer;
 	}
 

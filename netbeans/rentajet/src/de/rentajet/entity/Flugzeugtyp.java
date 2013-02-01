@@ -39,11 +39,11 @@ public class Flugzeugtyp implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "Nummer")
-	private Integer nummer;
+	private String nummer;
 	@Column(name = "Bezeichnung")
-	private Integer bezeichnung;
+	private String bezeichnung;
 	@Column(name = "Hersteller")
 	private String hersteller;
 	@Column(name = "Flightcrew")
@@ -59,36 +59,36 @@ public class Flugzeugtyp implements Serializable {
 	@Column(name = "Triebwerke")
 	private Integer triebwerke;
 	@Column(name = "TriebwerkartID")
-	private Integer triebwerkartID;
+	private String triebwerkartID;
 
 	public Flugzeugtyp() {
 	}
 
-	public Flugzeugtyp( Integer id ) {
+	public Flugzeugtyp( String id ) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
-	public Integer getNummer() {
+	public String getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( Integer nummer ) {
+	public void setNummer( String nummer ) {
 		this.nummer = nummer;
 	}
 
-	public Integer getBezeichnung() {
+	public String getBezeichnung() {
 		return bezeichnung;
 	}
 
-	public void setBezeichnung( Integer bezeichnung ) {
+	public void setBezeichnung( String bezeichnung ) {
 		this.bezeichnung = bezeichnung;
 	}
 
@@ -148,11 +148,11 @@ public class Flugzeugtyp implements Serializable {
 		this.triebwerke = triebwerke;
 	}
 
-	public Integer getTriebwerkartID() {
+	public String getTriebwerkartID() {
 		return triebwerkartID;
 	}
 
-	public void setTriebwerkartID( Integer triebwerkartID ) {
+	public void setTriebwerkartID( String triebwerkartID ) {
 		this.triebwerkartID = triebwerkartID;
 	}
 

@@ -36,13 +36,13 @@ public class Flugzeugkosten implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
+	private String id;
 	@Column(name = "Nummer")
-	private Integer nummer;
+	private String nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "FlugzeugtypID")
-	private Integer flugzeugtypID;
+	private String flugzeugtypID;
 	@Column(name = "Fixkosten")
 	private Integer fixkosten;
 	@Column(name = "RentabilitaetStd")
@@ -55,23 +55,23 @@ public class Flugzeugkosten implements Serializable {
 	public Flugzeugkosten() {
 	}
 
-	public Flugzeugkosten( Integer id ) {
+	public Flugzeugkosten( String id ) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
-	public Integer getNummer() {
+	public String getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( Integer nummer ) {
+	public void setNummer( String nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -83,11 +83,11 @@ public class Flugzeugkosten implements Serializable {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public Integer getFlugzeugtypID() {
+	public String getFlugzeugtypID() {
 		return flugzeugtypID;
 	}
 
-	public void setFlugzeugtypID( Integer flugzeugtypID ) {
+	public void setFlugzeugtypID( String flugzeugtypID ) {
 		this.flugzeugtypID = flugzeugtypID;
 	}
 

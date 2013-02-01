@@ -164,7 +164,7 @@ public class Login_jframe extends javax.swing.JFrame {
 			
 			rs=pst.executeQuery();
 			if(rs.next()){
-			JOptionPane.showMessageDialog( null, "Benutzername und Passwort sind korrekt");
+			//JOptionPane.showMessageDialog( null, "Benutzername und Passwort sind korrekt");
 			rs.close();
 			pst.close();
 			//Login_info s= new Login_info();

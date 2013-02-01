@@ -31,32 +31,38 @@ public class Anrede implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private Integer id;
-	@Column(name = "Nummer")
-	private Integer nummer;
+	private String id;
+	@Basic(optional = false)
+  @Column(name = "Nummer")
+	private int nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 
 	public Anrede() {
 	}
 
-	public Anrede( Integer id ) {
+	public Anrede( String id ) {
 		this.id = id;
 	}
 
-	public Integer getId() {
+	public Anrede( String id, int nummer ) {
+		this.id = id;
+		this.nummer = nummer;
+	}
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId( Integer id ) {
+	public void setId( String id ) {
 		this.id = id;
 	}
 
-	public Integer getNummer() {
+	public int getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( Integer nummer ) {
+	public void setNummer( int nummer ) {
 		this.nummer = nummer;
 	}
 
