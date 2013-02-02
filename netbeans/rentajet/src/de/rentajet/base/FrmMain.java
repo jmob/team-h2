@@ -18,7 +18,9 @@ import de.rentajet.frames.KundeInfo;
 import de.rentajet.frames.KundenberaterInfo;
 import de.rentajet.frames.MitarbkundeInfo;
 import de.rentajet.frames.OrtInfo;
+import de.rentajet.frames.PersonalInfo;
 import de.rentajet.frames.PersonalkostenInfo;
+import de.rentajet.frames.PersonaltypInfo;
 import de.rentajet.frames.StaatInfo;
 import de.rentajet.frames.TriebwerkartInfo;
 import de.rentajet.frames.ZahlungsbedingungInfo;
@@ -104,9 +106,12 @@ public class FrmMain extends javax.swing.JFrame {
     jLabel1 = new javax.swing.JLabel();
     jButton18 = new javax.swing.JButton();
     jButton19 = new javax.swing.JButton();
+    jButton16 = new javax.swing.JButton();
     jLabel2 = new javax.swing.JLabel();
     jButton20 = new javax.swing.JButton();
     jButton21 = new javax.swing.JButton();
+    jButton17 = new javax.swing.JButton();
+    jButton23 = new javax.swing.JButton();
     jButton22 = new javax.swing.JButton();
     jButton13 = new javax.swing.JButton();
     jLabel3 = new javax.swing.JLabel();
@@ -334,7 +339,7 @@ public class FrmMain extends javax.swing.JFrame {
     jPanel2.setName("pnlMenu"); // NOI18N
     jPanel2.setLayout(new java.awt.BorderLayout());
 
-    jPanel5.setLayout(new java.awt.GridLayout(26, 1));
+    jPanel5.setLayout(new java.awt.GridLayout(28, 1));
 
     jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -375,6 +380,14 @@ public class FrmMain extends javax.swing.JFrame {
     });
     jPanel5.add(jButton19);
 
+    jButton16.setText("Anrede");
+    jButton16.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton16ActionPerformed(evt);
+      }
+    });
+    jPanel5.add(jButton16);
+
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jLabel2.setText("Allgemein");
@@ -397,6 +410,22 @@ public class FrmMain extends javax.swing.JFrame {
       }
     });
     jPanel5.add(jButton21);
+
+    jButton17.setText("Personal");
+    jButton17.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton17ActionPerformed(evt);
+      }
+    });
+    jPanel5.add(jButton17);
+
+    jButton23.setText("Personaltyp");
+    jButton23.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton23ActionPerformed(evt);
+      }
+    });
+    jPanel5.add(jButton23);
 
     jButton22.setText("Personalkosten");
     jButton22.setToolTipText("");
@@ -1096,6 +1125,21 @@ public class FrmMain extends javax.swing.JFrame {
     main.letzterDatensatz();
   }//GEN-LAST:event_jMenuItem12ActionPerformed
 
+  private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+		AnredeInfo anrede = new AnredeInfo();
+		anrede.show( jPanel3 );
+  }//GEN-LAST:event_jButton16ActionPerformed
+
+  private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+		PersonalInfo personal = new PersonalInfo();
+		personal.show( jPanel3 );
+  }//GEN-LAST:event_jButton17ActionPerformed
+
+  private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+		PersonaltypInfo personaltyp = new PersonaltypInfo();
+		personaltyp.show( jPanel3 );
+  }//GEN-LAST:event_jButton23ActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -1144,12 +1188,15 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JButton jButton13;
   private javax.swing.JButton jButton14;
   private javax.swing.JButton jButton15;
+  private javax.swing.JButton jButton16;
+  private javax.swing.JButton jButton17;
   private javax.swing.JButton jButton18;
   private javax.swing.JButton jButton19;
   private javax.swing.JButton jButton2;
   private javax.swing.JButton jButton20;
   private javax.swing.JButton jButton21;
   private javax.swing.JButton jButton22;
+  private javax.swing.JButton jButton23;
   private javax.swing.JButton jButton24;
   private javax.swing.JButton jButton25;
   private javax.swing.JButton jButton26;

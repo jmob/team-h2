@@ -1,6 +1,6 @@
 /*
  * To change this template, choose Tools | Templates
- * and open the template in the editor.  XXXX
+ * and open the template in the editor.
  */
 package de.rentajet.frames;
 
@@ -14,20 +14,19 @@ import javax.swing.JPanel;
  *
  * @author Petersen
  */
-public class PersonalkostenInfo {
-	private pnlPersonalkosten pnlPersonalkosten;
-	private int iPersonaltypID;
+public class PersonalInfo {
+	private pnlPersonal pnlPersonal;
 	private int iID;
 	private int iNummer;
-	private String sBezeichnung;
-	private int iArbeitsstunden;
-	private double dJahresgehalt;
-	private double dStundenlohn;
-	private double dStundensatz;
+	private String sVorname;
+	private String sNachname;
+	private String sTelefon;
+	private String sTelefax;
+	private String sMobil;
+	private String sInfo;
 	
-	private int iPersonaltypnummer;
-	private String sPersonaltyp;
-	
+	private String sAnrede;
+
 	public int getiID() {
 		return iID;
 	}
@@ -44,60 +43,108 @@ public class PersonalkostenInfo {
 		this.iNummer = iNummer;
 	}
 
-	public String getsBezeichnung() {
-		return sBezeichnung;
+	public String getsVorname() {
+		return sVorname;
 	}
 
-	public void setsBezeichnung( String sBezeichnung ) {
-		this.sBezeichnung = sBezeichnung;
+	public void setsVorname( String sVorname ) {
+		this.sVorname = sVorname;
+	}
+
+	public String getsNachname() {
+		return sNachname;
+	}
+
+	public void setsNachname( String sNachname ) {
+		this.sNachname = sNachname;
+	}
+
+	public String getsTelefon() {
+		return sTelefon;
+	}
+
+	public void setsTelefon( String sTelefon ) {
+		this.sTelefon = sTelefon;
+	}
+
+	public String getsTelefax() {
+		return sTelefax;
+	}
+
+	public void setsTelefax( String sTelefax ) {
+		this.sTelefax = sTelefax;
+	}
+
+	public String getsMobil() {
+		return sMobil;
+	}
+
+	public void setsMobil( String sMobil ) {
+		this.sMobil = sMobil;
+	}
+
+	public String getsInfo() {
+		return sInfo;
+	}
+
+	public void setsInfo( String sInfo ) {
+		this.sInfo = sInfo;
+	}
+
+	public String getsAnrede() {
+		return sAnrede;
+	}
+
+	public void setsAnrede( String sAnrede ) {
+		this.sAnrede = sAnrede;
 	}
 	
-	public PersonalkostenInfo() {
+	public PersonalInfo() {
 		
 	}
 	
 	public void show( JPanel pnlMain ) {
-		pnlPersonalkosten = new pnlPersonalkosten();
-		H2InternalFrame frmPersonalkosten = new H2InternalFrame( "Personalkosten" );
-		frmPersonalkosten.add( pnlPersonalkosten, BorderLayout.CENTER );
-		frmPersonalkosten.setVisible( true );
-		pnlMain.add( frmPersonalkosten );
+		pnlPersonal = new pnlPersonal();
+		H2InternalFrame frmMitarbkunde = new H2InternalFrame( "Personal" );
+		frmMitarbkunde.add( pnlPersonal, BorderLayout.CENTER );
+		frmMitarbkunde.setVisible( true );
+		pnlMain.add( frmMitarbkunde );
 		try {
-			frmPersonalkosten.setSelected(true);
+			frmMitarbkunde.setSelected(true);
     } 
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
 	
 	private void setzeAnzeige() {
-		pnlPersonalkosten.setNummer( iNummer );
-		pnlPersonalkosten.setBezeichnung( sBezeichnung );
-		pnlPersonalkosten.setJahresgehalt( dJahresgehalt );
-		pnlPersonalkosten.setArbeitsstunden( iArbeitsstunden );
-		pnlPersonalkosten.setStundenlohn( dStundenlohn );
-		pnlPersonalkosten.setStundensatz( dStundensatz );
-		pnlPersonalkosten.setPersonaltypnummer( iPersonaltypnummer );
-		pnlPersonalkosten.setPersonaltyp( sPersonaltyp );
+		pnlPersonal.setNummer( iNummer );
+		pnlPersonal.setVorname( sVorname );
+		pnlPersonal.setNachname( sNachname );
+		pnlPersonal.setInfo( sInfo );
+		pnlPersonal.setTelefon( sTelefon );
+		pnlPersonal.setTelefax( sTelefax );
+		pnlPersonal.setMobil( sMobil );
 	}
 	
 	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlPersonalkosten.getNummer() );
-		sBezeichnung = pnlPersonalkosten.getBezeichnung();
-		dJahresgehalt = Util.statischStringNachDouble( pnlPersonalkosten.getJahresgehalt(), 2 );
-		iArbeitsstunden = Util.statischStringNachInt( pnlPersonalkosten.getArbeitsstunden() );
-		dStundenlohn = Util.statischStringNachDouble( pnlPersonalkosten.getStundenlohn(), 2 );
-		dStundensatz = Util.statischStringNachDouble( pnlPersonalkosten.getStundensatz(), 2 );
-		iPersonaltypnummer = Util.statischStringNachInt( pnlPersonalkosten.getPersonaltypnummer() );
+		iNummer = Util.statischStringNachInt( pnlPersonal.getNummer() );
+		sVorname = pnlPersonal.getVorname();
+		sNachname = pnlPersonal.getNachname();
+		sInfo = pnlPersonal.getInfo();
+		sTelefon = pnlPersonal.getTelefon();
+		sTelefax = pnlPersonal.getTelefax();
+		sMobil = pnlPersonal.getMobil();
 	}
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
-		sBezeichnung = "";
-		dJahresgehalt = 0;
-		iArbeitsstunden = 0;
-		dStundenlohn = 0;
-		dStundensatz = 0;
-		iPersonaltypnummer = 0;
+		sAnrede = "";
+		sVorname = "";
+		sNachname = "";
+		sInfo = "";
+		sTelefon = "";
+		sTelefax = "";
+		sMobil = "";
 		setzeAnzeige();
 	}
 	

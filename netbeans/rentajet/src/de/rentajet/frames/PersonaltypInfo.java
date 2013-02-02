@@ -1,6 +1,6 @@
 /*
  * To change this template, choose Tools | Templates
- * and open the template in the editor.  XXXX
+ * and open the template in the editor.
  */
 package de.rentajet.frames;
 
@@ -14,20 +14,12 @@ import javax.swing.JPanel;
  *
  * @author Petersen
  */
-public class PersonalkostenInfo {
-	private pnlPersonalkosten pnlPersonalkosten;
-	private int iPersonaltypID;
+public class PersonaltypInfo {
+	private pnlPersonaltyp pnlPersonaltyp;
 	private int iID;
 	private int iNummer;
 	private String sBezeichnung;
-	private int iArbeitsstunden;
-	private double dJahresgehalt;
-	private double dStundenlohn;
-	private double dStundensatz;
-	
-	private int iPersonaltypnummer;
-	private String sPersonaltyp;
-	
+
 	public int getiID() {
 		return iID;
 	}
@@ -51,53 +43,37 @@ public class PersonalkostenInfo {
 	public void setsBezeichnung( String sBezeichnung ) {
 		this.sBezeichnung = sBezeichnung;
 	}
-	
-	public PersonalkostenInfo() {
+
+	public PersonaltypInfo() {
 		
 	}
 	
 	public void show( JPanel pnlMain ) {
-		pnlPersonalkosten = new pnlPersonalkosten();
-		H2InternalFrame frmPersonalkosten = new H2InternalFrame( "Personalkosten" );
-		frmPersonalkosten.add( pnlPersonalkosten, BorderLayout.CENTER );
-		frmPersonalkosten.setVisible( true );
-		pnlMain.add( frmPersonalkosten );
+		pnlPersonaltyp = new pnlPersonaltyp();
+		H2InternalFrame frmFlugzeugtyp = new H2InternalFrame( "Personaltyp" );
+		frmFlugzeugtyp.add( pnlPersonaltyp, BorderLayout.CENTER );
+		frmFlugzeugtyp.setVisible( true );
+		pnlMain.add( frmFlugzeugtyp );
 		try {
-			frmPersonalkosten.setSelected(true);
+			frmFlugzeugtyp.setSelected(true);
     } 
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
 	
 	private void setzeAnzeige() {
-		pnlPersonalkosten.setNummer( iNummer );
-		pnlPersonalkosten.setBezeichnung( sBezeichnung );
-		pnlPersonalkosten.setJahresgehalt( dJahresgehalt );
-		pnlPersonalkosten.setArbeitsstunden( iArbeitsstunden );
-		pnlPersonalkosten.setStundenlohn( dStundenlohn );
-		pnlPersonalkosten.setStundensatz( dStundensatz );
-		pnlPersonalkosten.setPersonaltypnummer( iPersonaltypnummer );
-		pnlPersonalkosten.setPersonaltyp( sPersonaltyp );
+		pnlPersonaltyp.setNummer( iNummer );
+		pnlPersonaltyp.setBezeichnung( sBezeichnung );
 	}
 	
 	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlPersonalkosten.getNummer() );
-		sBezeichnung = pnlPersonalkosten.getBezeichnung();
-		dJahresgehalt = Util.statischStringNachDouble( pnlPersonalkosten.getJahresgehalt(), 2 );
-		iArbeitsstunden = Util.statischStringNachInt( pnlPersonalkosten.getArbeitsstunden() );
-		dStundenlohn = Util.statischStringNachDouble( pnlPersonalkosten.getStundenlohn(), 2 );
-		dStundensatz = Util.statischStringNachDouble( pnlPersonalkosten.getStundensatz(), 2 );
-		iPersonaltypnummer = Util.statischStringNachInt( pnlPersonalkosten.getPersonaltypnummer() );
+		iNummer = Util.statischStringNachInt( pnlPersonaltyp.getNummer() );
+		sBezeichnung = pnlPersonaltyp.getBezeichnung();
 	}
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
-		dJahresgehalt = 0;
-		iArbeitsstunden = 0;
-		dStundenlohn = 0;
-		dStundensatz = 0;
-		iPersonaltypnummer = 0;
 		setzeAnzeige();
 	}
 	

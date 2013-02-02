@@ -5,6 +5,7 @@
 package de.rentajet.frames;
 
 import de.rentajet.uti.Util;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,6 +36,18 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
     jTextField2 = new javax.swing.JTextField();
     jTabbedPane1 = new javax.swing.JTabbedPane();
     jPanel1 = new javax.swing.JPanel();
+    jFormattedTextField4 = new javax.swing.JFormattedTextField();
+    jLabel7 = new javax.swing.JLabel();
+    jLabel6 = new javax.swing.JLabel();
+    jFormattedTextField5 = new javax.swing.JFormattedTextField();
+    jFormattedTextField1 = new javax.swing.JFormattedTextField();
+    jLabel4 = new javax.swing.JLabel();
+    jLabel5 = new javax.swing.JLabel();
+    jFormattedTextField3 = new javax.swing.JFormattedTextField();
+    jButton1 = new javax.swing.JButton();
+    jLabel8 = new javax.swing.JLabel();
+    jTextField3 = new javax.swing.JTextField();
+    jLabel3 = new javax.swing.JLabel();
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel1.setText("Nummer");
@@ -47,18 +60,94 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
       }
     });
 
+    jFormattedTextField4.setEditable(false);
+    jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+
+    jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel7.setText("Stundensatz");
+
+    jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel6.setText("Stundenlohn");
+
+    jFormattedTextField5.setEditable(false);
+    jFormattedTextField5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+    jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+    jFormattedTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jFormattedTextField1FocusLost(evt);
+      }
+    });
+
+    jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel4.setText("Jahresgehalt");
+
+    jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel5.setText("Stunden (Jahr)");
+
+    jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
+    jFormattedTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jFormattedTextField3FocusLost(evt);
+      }
+    });
+
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
     jPanel1Layout.setHorizontalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 375, Short.MAX_VALUE)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+          .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+          .addComponent(jFormattedTextField4)
+          .addComponent(jFormattedTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+          .addComponent(jFormattedTextField5))
+        .addContainerGap(161, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
       jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 188, Short.MAX_VALUE)
+      .addGroup(jPanel1Layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel5))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel4))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel6)
+          .addComponent(jFormattedTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel7))
+        .addContainerGap(30, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Allgemein", jPanel1);
+
+    jButton1.setText("...");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
+
+    jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel8.setText(" ");
+
+    jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel3.setText("Flugzeugtyp");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -69,15 +158,22 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(jTabbedPane1)
           .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-              .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-              .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+              .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jTextField2)
               .addGroup(layout.createSequentialGroup()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-              .addComponent(jTextField2))))
+              .addGroup(layout.createSequentialGroup()
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         .addContainerGap())
     );
     layout.setVerticalGroup(
@@ -92,7 +188,13 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
           .addComponent(jLabel2)
           .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(jTabbedPane1)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel3)
+          .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jButton1)
+          .addComponent(jLabel8))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
@@ -103,13 +205,60 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
 		}
   }//GEN-LAST:event_jTextField1FocusLost
 
+  private void jFormattedTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextField1FocusLost
+    ermittleKostenFix();
+  }//GEN-LAST:event_jFormattedTextField1FocusLost
+
+  private void jFormattedTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextField3FocusLost
+    ermittleKostenFix();
+  }//GEN-LAST:event_jFormattedTextField3FocusLost
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
+    flugzeugtyp.sucheDatensatz();
+    if( flugzeugtyp.getiID() <= 0 )
+    JOptionPane.showMessageDialog(
+      null, "Er ist ein Fehler aufgetreten!", "Fehler",
+      JOptionPane.OK_OPTION
+    );
+    else {
+      jTextField3.setText( flugzeugtyp.getiNummer() + "" );
+      jLabel8.setText( flugzeugtyp.getsBezeichnung() );
+    }
+  }//GEN-LAST:event_jButton1ActionPerformed
+
+	private void ermittleKostenFix() {
+		if( getJahresgehalt().isEmpty() || getArbeitsstunden().isEmpty() ) {
+			setStundenlohn( 0 );
+			setStundensatz( 0 );
+		}
+		else {
+			setStundenlohn( 
+				Util.statischStringNachDouble( getJahresgehalt(), 2 ) / 
+				Util.statischStringNachDouble( getArbeitsstunden(), 2 ) );
+			setStundensatz( Util.statischStringNachDouble( getStundenlohn(), 2 ) * 1.2 );
+		}
+	}
+	
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton jButton1;
+  private javax.swing.JFormattedTextField jFormattedTextField1;
+  private javax.swing.JFormattedTextField jFormattedTextField3;
+  private javax.swing.JFormattedTextField jFormattedTextField4;
+  private javax.swing.JFormattedTextField jFormattedTextField5;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JLabel jLabel6;
+  private javax.swing.JLabel jLabel7;
+  private javax.swing.JLabel jLabel8;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JTabbedPane jTabbedPane1;
   private javax.swing.JTextField jTextField1;
   private javax.swing.JTextField jTextField2;
+  private javax.swing.JTextField jTextField3;
   // End of variables declaration//GEN-END:variables
 
 	public void setNummer( int iNummer ) {
@@ -126,5 +275,50 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
 	
 	public String getBezeichnung() {
 		return jTextField2.getText();
+	}
+	
+	
+	public void setJahresgehalt( double dFixkosten ) {
+		jFormattedTextField1.setText( dFixkosten + "" );
+	}
+	
+	public String getJahresgehalt() {
+		return jFormattedTextField1.getText();
+	}
+	
+	public void setArbeitsstunden( int iRentabilitaetStd ) {
+		jFormattedTextField3.setText( iRentabilitaetStd + "" );
+	}
+	
+	public String getArbeitsstunden() {
+		return jFormattedTextField3.getText();
+	}
+	
+	public void setStundenlohn( double dFixkostenStd ) {
+		jFormattedTextField5.setText( dFixkostenStd + "" );
+	}
+	
+	public String getStundenlohn() {
+		return jFormattedTextField5.getText();
+	}
+	
+	public void setStundensatz( double dStundensatz ) {
+		jFormattedTextField4.setText( dStundensatz + "" );
+	}
+	
+	public String getStundensatz() {
+		return jFormattedTextField4.getText();
+	}
+	
+	public void setPersonaltypnummer( int iPersonaltypnummer ) {
+		jTextField3.setText( iPersonaltypnummer + "" );
+	}
+	
+	public String getPersonaltypnummer() {
+		return jTextField3.getText();
+	}
+	
+	public void setPersonaltyp( String sFlugzeugtyp ) {
+		jLabel8.setText( sFlugzeugtyp );
 	}
 }
