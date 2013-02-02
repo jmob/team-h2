@@ -878,6 +878,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
     binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, flugzeugQuery, org.jdesktop.beansbinding.ObjectProperty.create(), jComboBox1, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
     bindingGroup.addBinding(binding);
 
+    jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jComboBox1ActionPerformed(evt);
+      }
+    });
+
     jTextField29.setNextFocusableComponent(jTextField31);
 
     jTextField30.setEditable(false);
@@ -949,7 +955,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jButton13)
           .addComponent(jLabel41))
-        .addContainerGap(57, Short.MAX_VALUE))
+        .addContainerGap(59, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Flug", jPanel5);
@@ -1505,10 +1511,14 @@ public class pnlAuftrag extends javax.swing.JPanel {
     setzeAnzeigeStops();
   }//GEN-LAST:event_jTextField28FocusLost
 
+  private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    ermittleVerfügbarkeitFlugzeug();
+  }//GEN-LAST:event_jComboBox1ActionPerformed
+
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	
-		saFlugzeug = new String[auftrag.holeVerfügbareFlugzeuge().length];
-		saFlugzeug = auftrag.holeVerfügbareFlugzeuge();
+		saFlugzeug = new String[99];
+		saFlugzeug = auftrag.holeVerfügbareFlugzeuge( getPersonen(), getDatum(), getFlugdatumEnde() );
 		
     for ( String s : saFlugzeug ) {
 			jComboBox1.addItem( s );
@@ -1836,7 +1846,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	}
 	
 	public String getFlugdatumEnde() {
-		return jFormattedTextField6.getText();
+		return jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : jFormattedTextField6.getText() ;
 	}
 
 	public void setUhrzeitEnde( int iUhrzeitEnde ) {

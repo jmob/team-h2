@@ -137,7 +137,7 @@ public class AuftragInfo {
 		
 	}
 	
-	public String[] holeVerfügbareFlugzeuge() {
+	public String[] holeVerfügbareFlugzeuge( String sPersonen, String sDatum, String sFlugdatumEnde ) {
 		// Verfügbarkeitsprüfung
 		String[] sa = new String[3];
 		sa[0] = "1. Flugzeug";
