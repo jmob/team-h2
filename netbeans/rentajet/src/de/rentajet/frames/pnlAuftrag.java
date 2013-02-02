@@ -17,14 +17,15 @@ import org.eclipse.persistence.jpa.internal.jpql.parser.DateTime;
 public class pnlAuftrag extends javax.swing.JPanel {
 	String[] saFlugzeug;
 	AuftragInfo auftrag = new AuftragInfo();
+	FlugzeugInfo flugzeug;
 
 	/**
 	 * Creates new form pnlAuftrag
 	 */
 	public pnlAuftrag() {
 		initComponents();
+		jTextField1.requestFocus();
 		ermittleVerfügbarkeitFlugzeug();
-		setNextFocusableComponent( jTextField1 );
 	}
 
 	/**
@@ -57,6 +58,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jCheckBox4 = new javax.swing.JCheckBox();
     jFormattedTextField3 = new javax.swing.JFormattedTextField();
     jFormattedTextField4 = new javax.swing.JFormattedTextField();
+    jLabel77 = new javax.swing.JLabel();
     jPanel2 = new javax.swing.JPanel();
     jLabel5 = new javax.swing.JLabel();
     jLabel6 = new javax.swing.JLabel();
@@ -218,6 +220,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel3.setText("Vorg. Art");
 
+    jTextField1.setNextFocusableComponent(jFormattedTextField3);
+    jTextField1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1ActionPerformed(evt);
+      }
+    });
     jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
       public void focusLost(java.awt.event.FocusEvent evt) {
         jTextField1FocusLost(evt);
@@ -225,13 +233,20 @@ public class pnlAuftrag extends javax.swing.JPanel {
     });
 
     jTextField3.setNextFocusableComponent(jTextField5);
+    jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField3FocusLost(evt);
+      }
+    });
 
     jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jCheckBox1.setSelected(true);
     jCheckBox1.setText("Angebot");
+    jCheckBox1.setNextFocusableComponent(jCheckBox2);
 
     jCheckBox2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jCheckBox2.setText("Auftragsbestätigung");
+    jCheckBox2.setNextFocusableComponent(jTextField3);
 
     jCheckBox3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jCheckBox3.setText("Gebucht");
@@ -239,11 +254,16 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel4.setText("Rechnungsdatum");
 
+    jCheckBox4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jCheckBox4.setText("Bezahlt");
 
     jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+    jFormattedTextField3.setNextFocusableComponent(jCheckBox1);
 
     jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
+    jLabel77.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel77.setText(" ");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -256,15 +276,20 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
           .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-          .addComponent(jFormattedTextField3))
-        .addGap(27, 27, 27)
-        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addGap(40, 40, 40)
+        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+              .addComponent(jFormattedTextField3))
+            .addGap(27, 27, 27)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+          .addGroup(jPanel1Layout.createSequentialGroup()
+            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -293,7 +318,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel3)
           .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jCheckBox4))
+          .addComponent(jCheckBox4)
+          .addComponent(jLabel77))
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -316,9 +342,19 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel10.setText("PLZ / Ort");
 
     jTextField5.setNextFocusableComponent(jButton1);
+    jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField5FocusLost(evt);
+      }
+    });
 
     jButton1.setText("...");
     jButton1.setNextFocusableComponent(jTextField6);
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1ActionPerformed(evt);
+      }
+    });
 
     jTextField6.setNextFocusableComponent(jTextField7);
 
@@ -522,11 +558,6 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel30.setText("Stops");
 
     jTextField28.setNextFocusableComponent(jPanel4);
-    jTextField28.addFocusListener(new java.awt.event.FocusAdapter() {
-      public void focusLost(java.awt.event.FocusEvent evt) {
-        jTextField28FocusLost(evt);
-      }
-    });
 
     jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
@@ -546,12 +577,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
       .addGroup(jPanel3Layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-          .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+          .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(jPanel3Layout.createSequentialGroup()
@@ -580,9 +611,9 @@ public class pnlAuftrag extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))))
           .addGroup(jPanel3Layout.createSequentialGroup()
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-              .addComponent(jTextField20)
+              .addComponent(jTextField20, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
               .addComponent(jTextField21)
-              .addComponent(jTextField28, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
+              .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(0, 0, Short.MAX_VALUE)))
         .addContainerGap())
     );
@@ -621,7 +652,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel30)
           .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(25, Short.MAX_VALUE))
+        .addContainerGap(24, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Auftrag", jPanel3);
@@ -849,7 +880,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jButton12)
           .addComponent(jLabel75)
           .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(13, Short.MAX_VALUE))
+        .addContainerGap(12, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Zwischenstops", jPanel4);
@@ -881,6 +912,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jComboBox1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jComboBox1ActionPerformed(evt);
+      }
+    });
+    jComboBox1.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jComboBox1FocusLost(evt);
       }
     });
 
@@ -955,7 +991,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jButton13)
           .addComponent(jLabel41))
-        .addContainerGap(59, Short.MAX_VALUE))
+        .addContainerGap(58, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Flug", jPanel5);
@@ -1200,7 +1236,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
               .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(jLabel53))))
-        .addContainerGap(19, Short.MAX_VALUE))
+        .addContainerGap(18, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Kosten", jPanel6);
@@ -1220,6 +1256,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel65.setText("Skontosatz");
 
     jTextField48.setNextFocusableComponent(jButton14);
+    jTextField48.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField48FocusLost(evt);
+      }
+    });
 
     jTextField49.setEditable(false);
 
@@ -1282,7 +1323,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel65)
           .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(90, Short.MAX_VALUE))
+        .addContainerGap(89, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Bezahlung", jPanel7);
@@ -1507,18 +1548,127 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		}
   }//GEN-LAST:event_jTextField1FocusLost
 
-  private void jTextField28FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField28FocusLost
-    setzeAnzeigeStops();
-  }//GEN-LAST:event_jTextField28FocusLost
-
   private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-    ermittleVerfügbarkeitFlugzeug();
+		ermittleVerfügbarkeitFlugzeug();
   }//GEN-LAST:event_jComboBox1ActionPerformed
+
+  private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jTextField1ActionPerformed
+
+  private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+		if( getVorgArt().equals( "1" ) ) {
+			jLabel77.setText( "Einzelflug" );
+			jTabbedPane1.setEnabledAt( 1, false);
+			jLabel30.setVisible( false );
+			jTextField28.setVisible( false );
+			jLabel76.setVisible( false );
+			jFormattedTextField6.setVisible( false );
+			jFormattedTextField7.setVisible( false );
+		}
+		else if( getVorgArt().equals( "2" ) ) {
+			jLabel77.setText( "Flug mit Zwischenstationen");
+			jTabbedPane1.setEnabledAt( 1, true);
+			jLabel30.setVisible( true );
+			jTextField28.setVisible( true );
+			jLabel76.setVisible( false );
+			jFormattedTextField6.setVisible( false );
+			jFormattedTextField7.setVisible( false );
+		}
+		else if( getVorgArt().equals( "3" ) ) {
+			jLabel77.setText( "Zeit Charter" );
+			jTabbedPane1.setEnabledAt( 1, true);
+			jLabel30.setVisible( false );
+			jTextField28.setVisible( false );
+			jLabel76.setVisible( true );
+			jFormattedTextField6.setVisible( true );
+			jFormattedTextField7.setVisible( true );
+		}
+		else if( getVorgArt().isEmpty(  ) ) {
+			return;
+		}
+		else  {
+			JOptionPane.showMessageDialog(
+				null, "Die Vorgangsart ist nicht bekannt", "Fehler", 
+				JOptionPane.OK_OPTION
+			);	
+			jTextField3.setText( "" );
+			jTextField3.requestFocus();
+		}
+  }//GEN-LAST:event_jTextField3FocusLost
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    KundeInfo kunde = new KundeInfo();
+		kunde.sucheDatensatz();
+		if( kunde.getiID() <= 0 )
+			JOptionPane.showMessageDialog(
+				null, "Er ist ein Fehler aufgetreten!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		else {
+			jTextField5.setText( kunde.getiNummer() + "" );
+			jTextField6.setText( kunde.getsName1() );
+			jTextField7.setText( kunde.getsName2() );
+			jTextField8.setText( kunde.getsName3() );
+			jTextField9.setText( kunde.getsStrasse() );
+			jTextField10.setText( kunde.getsPLZ() );
+			jTextField11.setText( kunde.getsOrt() );			
+		}	
+  }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+    KundeInfo kunde = new KundeInfo();
+		if (kunde.istDatensatzVorhanden( Util.statischStringNachInt( getKunde() )) ) {
+			jTextField5.setText( kunde.getiNummer() + "" );
+			jTextField6.setText( kunde.getsName1() );
+			jTextField7.setText( kunde.getsName2() );
+			jTextField8.setText( kunde.getsName3() );
+			jTextField9.setText( kunde.getsStrasse() );
+			jTextField10.setText( kunde.getsPLZ() );
+			jTextField11.setText( kunde.getsOrt() );
+		}
+		else {
+			jTextField5.setText( "" );
+			jTextField5.requestFocus();
+		}
+			
+  }//GEN-LAST:event_jTextField5FocusLost
+
+  private void jComboBox1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox1FocusLost
+    flugzeug = new FlugzeugInfo();
+	
+		if( flugzeug.istDatensatzVorhanden( 1 ) ) { // TODO 
+			FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
+			flugzeugtyp.ermittleFlugzeugtyp( flugzeug.getiFlugzeugtypID() );
+			setFlightcrew( flugzeugtyp.getiFlightcrew() );
+			setCabincrew( flugzeugtyp.getiCabincrew() );
+			ermittleFlugzeit();
+			berechneKosten( flugzeugtyp.getiID() );
+		}
+  }//GEN-LAST:event_jComboBox1FocusLost
+
+  private void jTextField48FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField48FocusLost
+    ZahlungsbedingungInfo zahlungsbedingung = new ZahlungsbedingungInfo();
+		if( zahlungsbedingung.istDatensatzVorhanden( Util.statischStringNachInt( jTextField48.getText() )) ) {
+			setValuta( zahlungsbedingung.getiValuta() );
+			setSkontoValuta( zahlungsbedingung.getiSkontoValuta() );
+			setSkontosatz( zahlungsbedingung.getdSkontosatz() );
+			setZahlungsbedingungBez( zahlungsbedingung.getsBezeichnung() );
+		}
+		else {
+			jTextField48.setText( "" );
+			jTextField48.requestFocus();
+		} 
+			
+		
+  }//GEN-LAST:event_jTextField48FocusLost
 
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	
 		saFlugzeug = new String[99];
-		saFlugzeug = auftrag.holeVerfügbareFlugzeuge( getPersonen(), getFlugdatum(), getFlugdatumEnde() );
+		saFlugzeug = auftrag.holeVerfügbareFlugzeuge( getPersonen(), getFlugdatum(), 
+			jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : getFlugdatumEnde() 
+		);
 		
     for ( String s : saFlugzeug ) {
 			if( !s.isEmpty(  ) )
@@ -1526,10 +1676,17 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		}
 	}
 	
-	private void setzeAnzeigeStops() {
-		// TODO: 
+	private void ermittleFlugzeit() {
+		if( !getKilometer().equals( "0" ) || !getKilometer().isEmpty() ) {
+			FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
+			flugzeugtyp.ermittleFlugzeugtyp( flugzeug.getiFlugzeugtypID() );
+			setFlugzeit( Util.statischStringNachInt( getKilometer()) / flugzeugtyp.getiReisegeschwindigkeit() ) ;
+		}
 	}
 	
+	private void berechneKosten( int iFlugzeugtyp ) {
+		
+	}
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private java.util.List<de.rentajet.entity.Flugzeug> flugzeugList;
@@ -1638,6 +1795,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel74;
   private javax.swing.JLabel jLabel75;
   private javax.swing.JLabel jLabel76;
+  private javax.swing.JLabel jLabel77;
   private javax.swing.JLabel jLabel8;
   private javax.swing.JLabel jLabel9;
   private javax.swing.JPanel jPanel1;
@@ -1847,7 +2005,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	}
 	
 	public String getFlugdatumEnde() {
-		return jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : jFormattedTextField6.getText() ;
+		return jFormattedTextField6.getText() ;
 	}
 
 	public void setUhrzeitEnde( int iUhrzeitEnde ) {

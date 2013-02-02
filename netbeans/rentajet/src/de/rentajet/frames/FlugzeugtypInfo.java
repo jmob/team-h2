@@ -276,4 +276,8 @@ public class FlugzeugtypInfo {
 		else
 			return false;
 	}
+	
+	public void ermittleFlugzeugtyp( int iID ) {
+		
+	}
 }
