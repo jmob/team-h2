@@ -1518,10 +1518,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	
 		saFlugzeug = new String[99];
-		saFlugzeug = auftrag.holeVerfügbareFlugzeuge( getPersonen(), getDatum(), getFlugdatumEnde() );
+		saFlugzeug = auftrag.holeVerfügbareFlugzeuge( getPersonen(), getFlugdatum(), getFlugdatumEnde() );
 		
     for ( String s : saFlugzeug ) {
-			jComboBox1.addItem( s );
+			if( !s.isEmpty(  ) )
+				jComboBox1.addItem( s );
 		}
 	}
 	
