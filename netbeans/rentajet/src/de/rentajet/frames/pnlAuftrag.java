@@ -113,6 +113,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel76 = new javax.swing.JLabel();
     jFormattedTextField6 = new javax.swing.JFormattedTextField();
     jFormattedTextField7 = new javax.swing.JFormattedTextField();
+    jTextField55 = new javax.swing.JTextField();
+    jLabel78 = new javax.swing.JLabel();
     jPanel4 = new javax.swing.JPanel();
     jLabel23 = new javax.swing.JLabel();
     jLabel24 = new javax.swing.JLabel();
@@ -578,6 +580,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jFormattedTextField6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
     jFormattedTextField7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
+    jFormattedTextField7.setNextFocusableComponent(jTextField55);
+
+    jTextField55.setNextFocusableComponent(jTextField18);
+
+    jLabel78.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+    jLabel78.setText("Stunden");
 
     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
     jPanel3.setLayout(jPanel3Layout);
@@ -617,7 +625,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
                 .addComponent(jFormattedTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jFormattedTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel78)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField55, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))))
           .addGroup(jPanel3Layout.createSequentialGroup()
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
               .addComponent(jTextField20, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
@@ -636,7 +648,9 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel76)
           .addComponent(jFormattedTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jFormattedTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jFormattedTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextField55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel78))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel17)
@@ -1658,6 +1672,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			jLabel76.setVisible( false );
 			jFormattedTextField6.setVisible( false );
 			jFormattedTextField7.setVisible( false );
+			jLabel78.setVisible( false );
+			jTextField55.setVisible( false );
 		}
 		else if( getVorgArt().equals( "2" ) ) {
 			jLabel77.setText( "Flug mit Zwischenstationen");
@@ -1667,6 +1683,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			jLabel76.setVisible( false );
 			jFormattedTextField6.setVisible( false );
 			jFormattedTextField7.setVisible( false );
+			jLabel78.setVisible( false );
+			jTextField55.setVisible( false );
 		}
 		else if( getVorgArt().equals( "3" ) ) {
 			jLabel77.setText( "Zeit Charter" );
@@ -1676,6 +1694,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			jLabel76.setVisible( true );
 			jFormattedTextField6.setVisible( true );
 			jFormattedTextField7.setVisible( true );
+			jLabel78.setVisible( true );
+			jTextField55.setVisible( true );
 		}
 		else if( getVorgArt().isEmpty(  ) ) {
 			return;
@@ -1962,9 +1982,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		flugzeugkosten.sucheUeberFlugzeugtyp( iFlugzeugtyp );
 		
 		setKostenFlug( flugzeugkosten.getdFixkostenStd() );
-		setKostenFlugGesamt( flugzeugkosten.getdFixkosten() * Util.statischStringNachDouble( getFlugzeit(), 2));
+		setKostenFlugGesamt( flugzeugkosten.getdFixkosten() * ermittleCharterZeit() );
+		
 		setKostenFlugVar( flugzeugkosten.getdStundensatz() );
 		setKostenFlugVarGesamt( flugzeugkosten.getdStundensatz() * Util.statischStringNachDouble( getFlugzeit(), 2) );
+		
 		setKostenStop( (flugzeugkosten.getdStundensatz() + flugzeugkosten.getdFixkostenStd()) * 0.75 );
 		setKostenStopGesamt( (flugzeugkosten.getdStundensatz() + flugzeugkosten.getdFixkostenStd()) * 0.75 * 
 			Util.statischStringNachDouble( getStops(), 2 ));
@@ -1975,9 +1997,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		personalkosten.sucheUeberPersonaltyp( iPersonaltyp );
 		
 		setKostenFlightcrew( personalkosten.getdStundensatz() );
-		setKostenFlightcrewGesamt( personalkosten.getdStundensatz() * 
-			Util.statischStringNachDouble( getFlugzeit(), 2 ) 
-		);
+		setKostenFlightcrewGesamt( personalkosten.getdStundensatz() * ermittleCharterZeit()	);
 	}
 
 	private void berechneKostenOfficer( int iPersonaltyp ) {
@@ -1989,9 +2009,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			personalkosten.getdStundensatz())
 		);
 		setKostenFlightcrewGesamt( 
-			Util.statischStringNachDouble( getKostenFlightcrew(), 2) * 
-			Util.statischStringNachDouble( getFlugzeit(), 2 ) 
-		);
+			Util.statischStringNachDouble( getKostenFlightcrew(), 2) * ermittleCharterZeit() );
 	}
 	
 	private void berechneKostenFlugbegleiterEins( int iPersonaltyp ) {
@@ -1999,9 +2017,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		personalkosten.sucheUeberPersonaltyp( iPersonaltyp );
 		
 		setKostenFlightcrew( personalkosten.getdStundensatz() );
-		setKostenFlightcrewGesamt( personalkosten.getdStundensatz() * 
-			Util.statischStringNachDouble( getFlugzeit(), 2 ) 
-		);
+		setKostenFlightcrewGesamt( personalkosten.getdStundensatz() * ermittleCharterZeit() );
 	}
 
 	private void berechneKostenFlugbegleiterZwei( int iPersonaltyp ) {
@@ -2060,6 +2076,24 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			Util.statischStringNachDouble( getRabatt(), 2 ) + 
 			Util.statischStringNachDouble( getMwSt(), 2 )
 		);
+	}
+	
+	private int ermittleCharterZeit() {
+		if( getVorgArt().equals( "1" ) )
+			return Util.statischStringNachInt( getFlugzeit() );
+		else if( getVorgArt().equals( "2" ) ) {
+			return Util.statischStringNachInt( getFlugzeit() ) + 
+				Util.statischStringNachInt( getErsterStopAufenthalt() ) +
+				Util.statischStringNachInt( getZweiterStopAufenthalt() ) +
+				Util.statischStringNachInt( getDritterStopAufenthalt() ) +
+				Util.statischStringNachInt( getVierterStopAufenthalt() ) +
+				Util.statischStringNachInt( getFuenfterStopAufenthalt() ) +
+				Util.statischStringNachInt( getSechsterStopAufenthalt() );
+		}
+		else if( getVorgArt().equals( "3" ) ) {
+			return Util.statischStringNachInt( getCharterdauer() );
+		}
+		return 0;
 	}
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2174,6 +2208,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel75;
   private javax.swing.JLabel jLabel76;
   private javax.swing.JLabel jLabel77;
+  private javax.swing.JLabel jLabel78;
   private javax.swing.JLabel jLabel8;
   private javax.swing.JLabel jLabel9;
   private javax.swing.JPanel jPanel1;
@@ -2234,6 +2269,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JTextField jTextField52;
   private javax.swing.JTextField jTextField53;
   private javax.swing.JTextField jTextField54;
+  private javax.swing.JTextField jTextField55;
   private javax.swing.JTextField jTextField6;
   private javax.swing.JTextField jTextField7;
   private javax.swing.JTextField jTextField8;
@@ -2769,5 +2805,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	public String getKostenFlugVarGesamt() {
 		return jTextField4.getText();
 	}
-
+	
+	public void setChaterdauer( int iCharterdauer ) {
+		jTextField55.setText( iCharterdauer + "" );
+	}
+	
+	public String getCharterdauer() {
+		return jTextField55.getText();
+	}
 }

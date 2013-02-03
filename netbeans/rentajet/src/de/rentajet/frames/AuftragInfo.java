@@ -78,6 +78,7 @@ public class AuftragInfo {
 	private double dSkontosatz;
 	private double dKostenFlugVar;
 	private double dKostenFlugVarGesamt;
+	private int iCharterdauer;
 	
 	private int iFlugzeugID;
 	private int iCaptainID;
@@ -628,6 +629,14 @@ public class AuftragInfo {
 	public void setdKostenFlugVarGesamt( double dKostenFlugVarGesamt ) {
 		this.dKostenFlugVarGesamt = dKostenFlugVarGesamt;
 	}
+
+	public int getiCharterdauer() {
+		return iCharterdauer;
+	}
+
+	public void setiCharterdauer( int iCharterdauer ) {
+		this.iCharterdauer = iCharterdauer;
+	}
 	
 	public AuftragInfo() {
 		
@@ -708,6 +717,7 @@ public class AuftragInfo {
 		pnlAuftrag.setSkontosatz( dSkontosatz );
 		pnlAuftrag.setKostenFlugVar( dKostenFlugVar );
 		pnlAuftrag.setKostenFlugVarGesamt( dKostenFlugVarGesamt );
+		pnlAuftrag.setChaterdauer( iCharterdauer );
 		
 //		FlugzeugID
 //		CaptainID
@@ -778,6 +788,7 @@ public class AuftragInfo {
 		dSkontosatz = Util.statischStringNachDouble( pnlAuftrag.getSkontosatz(), 2 );
 		dKostenFlugVar = Util.statischStringNachDouble( pnlAuftrag.getKostenFlugVar(), 2 );
 		dKostenFlugVarGesamt = Util.statischStringNachDouble( pnlAuftrag.getKostenFlugVarGesamt(), 2);
+		iCharterdauer = Util.statischStringNachInt( pnlAuftrag.getCharterdauer() );
 	}
 	
 	private void aktualisiereAnzeige() {
