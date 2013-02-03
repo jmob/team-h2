@@ -16,6 +16,10 @@ import org.eclipse.persistence.jpa.internal.jpql.parser.DateTime;
  */
 public class pnlAuftrag extends javax.swing.JPanel {
 	String[] saFlugzeug;
+	String[] saCaptain;
+	String[] saOfficer;
+	String[] saBegleiterEins;
+	String[] saBegleiterZwei;
 	AuftragInfo auftrag = new AuftragInfo();
 	FlugzeugInfo flugzeug;
 
@@ -158,6 +162,10 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTextField32 = new javax.swing.JTextField();
     jButton13 = new javax.swing.JButton();
     jLabel41 = new javax.swing.JLabel();
+    jComboBox2 = new javax.swing.JComboBox();
+    jComboBox3 = new javax.swing.JComboBox();
+    jComboBox4 = new javax.swing.JComboBox();
+    jComboBox5 = new javax.swing.JComboBox();
     jPanel6 = new javax.swing.JPanel();
     jLabel42 = new javax.swing.JLabel();
     jLabel43 = new javax.swing.JLabel();
@@ -923,8 +931,18 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTextField29.setNextFocusableComponent(jTextField31);
 
     jTextField30.setEditable(false);
+    jTextField30.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField30FocusLost(evt);
+      }
+    });
 
     jTextField31.setNextFocusableComponent(jTextField32);
+    jTextField31.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField31FocusLost(evt);
+      }
+    });
 
     jTextField32.setNextFocusableComponent(jButton13);
 
@@ -938,6 +956,35 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jLabel41.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel41.setText(" ");
+
+    jComboBox2.setEnabled(false);
+    jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jComboBox2ActionPerformed(evt);
+      }
+    });
+
+    jComboBox3.setToolTipText("");
+    jComboBox3.setEnabled(false);
+    jComboBox3.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jComboBox3FocusLost(evt);
+      }
+    });
+
+    jComboBox4.setEnabled(false);
+    jComboBox4.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jComboBox4FocusLost(evt);
+      }
+    });
+
+    jComboBox5.setEnabled(false);
+    jComboBox5.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jComboBox5FocusLost(evt);
+      }
+    });
 
     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
     jPanel5.setLayout(jPanel5Layout);
@@ -961,10 +1008,21 @@ public class pnlAuftrag extends javax.swing.JPanel {
               .addComponent(jTextField30, javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(jTextField29, javax.swing.GroupLayout.Alignment.LEADING))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        .addContainerGap(400, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+              .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                  .addComponent(jComboBox4, javax.swing.GroupLayout.Alignment.LEADING, 0, 130, Short.MAX_VALUE)
+                  .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                  .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .addComponent(jComboBox5, 0, 130, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)))))
+        .addContainerGap(339, Short.MAX_VALUE))
     );
     jPanel5Layout.setVerticalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -980,11 +1038,15 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel38)
-          .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel39)
-          .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel40)
@@ -1641,7 +1703,17 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
 			flugzeugtyp.ermittleFlugzeugtyp( flugzeug.getiFlugzeugtypID() );
 			setFlightcrew( flugzeugtyp.getiFlightcrew() );
+			zeigeFlightcrew();
 			setCabincrew( flugzeugtyp.getiCabincrew() );
+			
+			if( flugzeugtyp.getiCabincrew() == 2 )
+				jTextField31.setEditable( false );
+			
+			zeigeCabincrew();
+			ermittleVerfügbarkeitCaptain();
+			ermittleVerfügbarkeitOfficer();
+			ermittleVerfügbarkeitFlugbegleiterEins();
+			ermittleVerfügbarkeitFlugbegleiterZwei();
 			ermittleFlugzeit();
 			berechneKosten( flugzeugtyp.getiID() );
 		}
@@ -1658,17 +1730,41 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		else {
 			jTextField48.setText( "" );
 			jTextField48.requestFocus();
-		} 
-			
-		
+		} 	
   }//GEN-LAST:event_jTextField48FocusLost
+
+  private void jTextField30FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField30FocusLost
+		zeigeFlightcrew();
+  }//GEN-LAST:event_jTextField30FocusLost
+
+  private void jTextField31FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField31FocusLost
+    zeigeCabincrew();
+  }//GEN-LAST:event_jTextField31FocusLost
+
+  private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    ermittleVerfügbarkeitCaptain();
+  }//GEN-LAST:event_jComboBox2ActionPerformed
+
+  private void jComboBox3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox3FocusLost
+    ermittleVerfügbarkeitOfficer();
+  }//GEN-LAST:event_jComboBox3FocusLost
+
+  private void jComboBox4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox4FocusLost
+    ermittleVerfügbarkeitFlugbegleiterEins();
+  }//GEN-LAST:event_jComboBox4FocusLost
+
+  private void jComboBox5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox5FocusLost
+    ermittleVerfügbarkeitFlugbegleiterZwei();
+  }//GEN-LAST:event_jComboBox5FocusLost
 
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	
 		saFlugzeug = new String[99];
-		saFlugzeug = auftrag.holeVerfügbareFlugzeuge( getPersonen(), getFlugdatum(), 
+		saFlugzeug = auftrag.holeVerfuegbareFlugzeuge( getPersonen(), getFlugdatum(), 
 			jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : getFlugdatumEnde() 
 		);
+		
+		jComboBox1.removeAllItems();
 		
     for ( String s : saFlugzeug ) {
 			if( !s.isEmpty(  ) )
@@ -1676,11 +1772,99 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		}
 	}
 	
+	private void ermittleVerfügbarkeitCaptain() {
+		AuftragInfo auftrag = new AuftragInfo();	
+		saCaptain = new String[99];
+		saCaptain = auftrag.holeVerfuegbareCaptain( getFlugdatum(), 
+			jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : getFlugdatumEnde() 
+		);
+		
+		jComboBox2.removeAllItems();
+		
+    for ( String s : saCaptain ) {
+			if( !s.isEmpty(  ) )
+				jComboBox2.addItem( s );
+		}
+	}
+
+	private void ermittleVerfügbarkeitOfficer() {
+		AuftragInfo auftrag = new AuftragInfo();	
+		saCaptain = new String[99];
+		saCaptain = auftrag.holeVerfuegbareOfficer( getFlugdatum(), 
+			jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : getFlugdatumEnde() 
+		);
+		
+		jComboBox3.removeAllItems();
+		
+    for ( String s : saCaptain ) {
+			if( !s.isEmpty(  ) )
+				jComboBox3.addItem( s );
+		}
+	}
+
+	private void ermittleVerfügbarkeitFlugbegleiterEins() {
+		AuftragInfo auftrag = new AuftragInfo();	
+		saCaptain = new String[99];
+		saCaptain = auftrag.holeVerfuegbareFlugbegleiter( getFlugdatum(), 
+			jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : getFlugdatumEnde() 
+		);
+		
+		jComboBox4.removeAllItems();
+    
+		for ( String s : saCaptain ) {
+			if( !s.isEmpty(  ) )
+				jComboBox4.addItem( s );
+		}
+	}
+	
+	private void ermittleVerfügbarkeitFlugbegleiterZwei() {
+		AuftragInfo auftrag = new AuftragInfo();	
+		saCaptain = new String[99];
+		saCaptain = auftrag.holeVerfuegbareFlugbegleiter( getFlugdatum(), 
+			jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : getFlugdatumEnde() 
+		);
+		
+		jComboBox5.removeAllItems();
+		
+    for ( String s : saCaptain ) {
+			if( !s.isEmpty(  ) )
+				jComboBox5.addItem( s );
+		}
+	}
+
 	private void ermittleFlugzeit() {
 		if( !getKilometer().equals( "0" ) || !getKilometer().isEmpty() ) {
 			FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
 			flugzeugtyp.ermittleFlugzeugtyp( flugzeug.getiFlugzeugtypID() );
 			setFlugzeit( Util.statischStringNachInt( getKilometer()) / flugzeugtyp.getiReisegeschwindigkeit() ) ;
+		}
+	}
+	
+	private void zeigeFlightcrew() {
+		if( Util.statischStringNachInt( getCabincrew() ) >= 1 ) 
+			jComboBox2.setEnabled( true );
+		if( Util.statischStringNachInt( getCabincrew() ) >= 2 ) 
+			jComboBox3.setEnabled( true );
+		if( Util.statischStringNachInt( getCabincrew() ) > 2 ) {
+			jTextField30.setText( "2" );
+			JOptionPane.showMessageDialog(
+				null, "Es können nur maximal 2 Piloten gebucht werden!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
+		}
+	}
+	
+	private void zeigeCabincrew() {
+		if( Util.statischStringNachInt( getCabincrew() ) >= 1 ) 
+			jComboBox4.setEnabled( true );
+		if( Util.statischStringNachInt( getCabincrew() ) >= 2 ) 
+			jComboBox5.setEnabled( true );
+		if( Util.statischStringNachInt( getCabincrew() ) > 2 ) {
+			jTextField31.setText( "2" );
+			JOptionPane.showMessageDialog(
+				null, "Es können nur maximal 2 Flugbegleiter gebucht werden!", "Fehler", 
+				JOptionPane.OK_OPTION
+			);
 		}
 	}
 	
@@ -1714,6 +1898,10 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JCheckBox jCheckBox3;
   private javax.swing.JCheckBox jCheckBox4;
   private javax.swing.JComboBox jComboBox1;
+  private javax.swing.JComboBox jComboBox2;
+  private javax.swing.JComboBox jComboBox3;
+  private javax.swing.JComboBox jComboBox4;
+  private javax.swing.JComboBox jComboBox5;
   private javax.swing.JFormattedTextField jFormattedTextField1;
   private javax.swing.JFormattedTextField jFormattedTextField2;
   private javax.swing.JFormattedTextField jFormattedTextField3;
@@ -1872,8 +2060,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		return jTextField1.getText();
 	}
 
-	public void setDatum( Date dtDatum ) {
-		jFormattedTextField3.setText( dtDatum + "" );
+	public void setDatum( String sDatum ) {
+		jFormattedTextField3.setText( sDatum );
 	}
 	
 	public String getDatum() {
@@ -1888,8 +2076,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		return jTextField3.getText();
 	}
 
-	public void setRechnungsdatum( Date dtRechnungsdatum ) {
-		jFormattedTextField4.setText( dtRechnungsdatum + "" );
+	public void setRechnungsdatum( String sRechnungsdatum ) {
+		jFormattedTextField4.setText( sRechnungsdatum );
 	}
 	
 	public String getRechnungsdatum() {
@@ -1984,32 +2172,32 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		return jTextField15.getText();
 	}
 
-	public void setFlugdatum( int iFlugdatum ) {
-		jFormattedTextField1.setText( iFlugdatum + "" );
+	public void setFlugdatum( String sFlugdatum ) {
+		jFormattedTextField1.setText( sFlugdatum );
 	}
 	
 	public String getFlugdatum() {
 		return jFormattedTextField1.getText();
 	}
 
-	public void setUhrzeit( int iUhrzeit ) {
-		jFormattedTextField2.setText( iUhrzeit + "" );
+	public void setUhrzeit( String sUhrzeit ) {
+		jFormattedTextField2.setText( sUhrzeit );
 	}
 	
 	public String getUhrzeit() {
 		return jFormattedTextField2.getText();
 	}
 	
-	public void setFlugdatumEnde( int iFlugdatumEnde ) {
-		jFormattedTextField6.setText( iFlugdatumEnde + "" );
+	public void setFlugdatumEnde( String sFlugdatumEnde ) {
+		jFormattedTextField6.setText( sFlugdatumEnde );
 	}
 	
 	public String getFlugdatumEnde() {
 		return jFormattedTextField6.getText() ;
 	}
 
-	public void setUhrzeitEnde( int iUhrzeitEnde ) {
-		jFormattedTextField7.setText( iUhrzeitEnde + "" );
+	public void setUhrzeitEnde( String sUhrzeitEnde ) {
+		jFormattedTextField7.setText( sUhrzeitEnde );
 	}
 	
 	public String getUhrzeitEnde() {
