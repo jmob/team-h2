@@ -22,6 +22,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	String[] saBegleiterZwei;
 	AuftragInfo auftrag = new AuftragInfo();
 	FlugzeugInfo flugzeug;
+	PersonalInfo personal;
 
 	/**
 	 * Creates new form pnlAuftrag
@@ -945,6 +946,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     });
 
     jTextField32.setNextFocusableComponent(jButton13);
+    jTextField32.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField32FocusLost(evt);
+      }
+    });
 
     jButton13.setText("...");
     jButton13.setNextFocusableComponent(jPanel6);
@@ -963,9 +969,19 @@ public class pnlAuftrag extends javax.swing.JPanel {
         jComboBox2ActionPerformed(evt);
       }
     });
+    jComboBox2.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jComboBox2FocusLost(evt);
+      }
+    });
 
     jComboBox3.setToolTipText("");
     jComboBox3.setEnabled(false);
+    jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jComboBox3ActionPerformed(evt);
+      }
+    });
     jComboBox3.addFocusListener(new java.awt.event.FocusAdapter() {
       public void focusLost(java.awt.event.FocusEvent evt) {
         jComboBox3FocusLost(evt);
@@ -973,6 +989,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     });
 
     jComboBox4.setEnabled(false);
+    jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jComboBox4ActionPerformed(evt);
+      }
+    });
     jComboBox4.addFocusListener(new java.awt.event.FocusAdapter() {
       public void focusLost(java.awt.event.FocusEvent evt) {
         jComboBox4FocusLost(evt);
@@ -980,6 +1001,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     });
 
     jComboBox5.setEnabled(false);
+    jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jComboBox5ActionPerformed(evt);
+      }
+    });
     jComboBox5.addFocusListener(new java.awt.event.FocusAdapter() {
       public void focusLost(java.awt.event.FocusEvent evt) {
         jComboBox5FocusLost(evt);
@@ -1150,6 +1176,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jTextField47.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
     jFormattedTextField5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00%"))));
+    jFormattedTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jFormattedTextField5FocusLost(evt);
+      }
+    });
 
     jLabel67.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel67.setText("Flug var");
@@ -1715,7 +1746,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
 			ermittleVerfügbarkeitFlugbegleiterEins();
 			ermittleVerfügbarkeitFlugbegleiterZwei();
 			ermittleFlugzeit();
-			berechneKosten( flugzeugtyp.getiID() );
+			berechneKostenFlugzeug( flugzeugtyp.getiID() );
+			berechneKosten();
 		}
   }//GEN-LAST:event_jComboBox1FocusLost
 
@@ -1746,16 +1778,73 @@ public class pnlAuftrag extends javax.swing.JPanel {
   }//GEN-LAST:event_jComboBox2ActionPerformed
 
   private void jComboBox3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox3FocusLost
-    ermittleVerfügbarkeitOfficer();
+     personal = new PersonalInfo();
+	
+		if( personal.istDatensatzVorhanden( 1 ) ) { // TODO 
+			PersonaltypInfo personaltyp = new PersonaltypInfo();
+			personaltyp.ermittlePersonaltyp( personal.getiPersonaltypID() );
+
+			berechneKostenOfficer( personaltyp.getiID() );
+			berechneKosten();
+		}    
   }//GEN-LAST:event_jComboBox3FocusLost
 
   private void jComboBox4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox4FocusLost
-    ermittleVerfügbarkeitFlugbegleiterEins();
+      personal = new PersonalInfo();
+	
+		if( personal.istDatensatzVorhanden( 1 ) ) { // TODO 
+			PersonaltypInfo personaltyp = new PersonaltypInfo();
+			personaltyp.ermittlePersonaltyp( personal.getiPersonaltypID() );
+
+			berechneKostenFlugbegleiterEins( personaltyp.getiID() );
+			berechneKosten();
+		}    
   }//GEN-LAST:event_jComboBox4FocusLost
 
   private void jComboBox5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox5FocusLost
-    ermittleVerfügbarkeitFlugbegleiterZwei();
+    personal = new PersonalInfo();
+	
+		if( personal.istDatensatzVorhanden( 1 ) ) { // TODO 
+			PersonaltypInfo personaltyp = new PersonaltypInfo();
+			personaltyp.ermittlePersonaltyp( personal.getiPersonaltypID() );
+
+			berechneKostenFlugbegleiterZwei( personaltyp.getiID() );
+			berechneKosten();
+		}   
   }//GEN-LAST:event_jComboBox5FocusLost
+
+  private void jTextField32FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField32FocusLost
+    berechneKostenCatering();
+		berechneKosten();
+  }//GEN-LAST:event_jTextField32FocusLost
+
+  private void jFormattedTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextField5FocusLost
+    berechneKosten();
+  }//GEN-LAST:event_jFormattedTextField5FocusLost
+
+  private void jComboBox2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox2FocusLost
+     personal = new PersonalInfo();
+	
+		if( personal.istDatensatzVorhanden( 1 ) ) { // TODO 
+			PersonaltypInfo personaltyp = new PersonaltypInfo();
+			personaltyp.ermittlePersonaltyp( personal.getiPersonaltypID() );
+
+			berechneKostenCaptain( personaltyp.getiID() );
+			berechneKosten();
+		}
+  }//GEN-LAST:event_jComboBox2FocusLost
+
+  private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    ermittleVerfügbarkeitOfficer();
+  }//GEN-LAST:event_jComboBox3ActionPerformed
+
+  private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    ermittleVerfügbarkeitFlugbegleiterEins();
+  }//GEN-LAST:event_jComboBox4ActionPerformed
+
+  private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    ermittleVerfügbarkeitFlugbegleiterZwei();
+  }//GEN-LAST:event_jComboBox5ActionPerformed
 
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	
@@ -1836,7 +1925,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		if( !getKilometer().equals( "0" ) || !getKilometer().isEmpty() ) {
 			FlugzeugtypInfo flugzeugtyp = new FlugzeugtypInfo();
 			flugzeugtyp.ermittleFlugzeugtyp( flugzeug.getiFlugzeugtypID() );
-			setFlugzeit( Util.statischStringNachInt( getKilometer()) / flugzeugtyp.getiReisegeschwindigkeit() ) ;
+			setFlugzeit( (Util.statischStringNachInt( getKilometer()) / flugzeugtyp.getiReisegeschwindigkeit()) );
 		}
 	}
 	
@@ -1868,8 +1957,109 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		}
 	}
 	
-	private void berechneKosten( int iFlugzeugtyp ) {
+	private void berechneKostenFlugzeug( int iFlugzeugtyp ) {
+		FlugzeugkostenInfo flugzeugkosten = new FlugzeugkostenInfo();
+		flugzeugkosten.sucheUeberFlugzeugtyp( iFlugzeugtyp );
 		
+		setKostenFlug( flugzeugkosten.getdFixkostenStd() );
+		setKostenFlugGesamt( flugzeugkosten.getdFixkosten() * Util.statischStringNachDouble( getFlugzeit(), 2));
+		setKostenFlugVar( flugzeugkosten.getdStundensatz() );
+		setKostenFlugVarGesamt( flugzeugkosten.getdStundensatz() * Util.statischStringNachDouble( getFlugzeit(), 2) );
+		setKostenStop( (flugzeugkosten.getdStundensatz() + flugzeugkosten.getdFixkostenStd()) * 0.75 );
+		setKostenStopGesamt( (flugzeugkosten.getdStundensatz() + flugzeugkosten.getdFixkostenStd()) * 0.75 * 
+			Util.statischStringNachDouble( getStops(), 2 ));
+	}
+	
+	private void berechneKostenCaptain( int iPersonaltyp ) {
+		PersonalkostenInfo personalkosten = new PersonalkostenInfo();
+		personalkosten.sucheUeberPersonaltyp( iPersonaltyp );
+		
+		setKostenFlightcrew( personalkosten.getdStundensatz() );
+		setKostenFlightcrewGesamt( personalkosten.getdStundensatz() * 
+			Util.statischStringNachDouble( getFlugzeit(), 2 ) 
+		);
+	}
+
+	private void berechneKostenOfficer( int iPersonaltyp ) {
+		PersonalkostenInfo personalkosten = new PersonalkostenInfo();
+		personalkosten.sucheUeberPersonaltyp( iPersonaltyp );
+		
+		setKostenFlightcrew(
+			(Util.statischStringNachDouble( getKostenFlightcrew(), 2 ) + 
+			personalkosten.getdStundensatz())
+		);
+		setKostenFlightcrewGesamt( 
+			Util.statischStringNachDouble( getKostenFlightcrew(), 2) * 
+			Util.statischStringNachDouble( getFlugzeit(), 2 ) 
+		);
+	}
+	
+	private void berechneKostenFlugbegleiterEins( int iPersonaltyp ) {
+		PersonalkostenInfo personalkosten = new PersonalkostenInfo();
+		personalkosten.sucheUeberPersonaltyp( iPersonaltyp );
+		
+		setKostenFlightcrew( personalkosten.getdStundensatz() );
+		setKostenFlightcrewGesamt( personalkosten.getdStundensatz() * 
+			Util.statischStringNachDouble( getFlugzeit(), 2 ) 
+		);
+	}
+
+	private void berechneKostenFlugbegleiterZwei( int iPersonaltyp ) {
+		PersonalkostenInfo personalkosten = new PersonalkostenInfo();
+		personalkosten.sucheUeberPersonaltyp( iPersonaltyp );
+		
+		setKostenCabincrew( personalkosten.getdStundensatz() );
+		setKostenCabincrewGesamt( Util.statischStringNachDouble( getKostenCabincrewGesamt(), 2) * 2); 
+	}
+
+	private void berechneKostenCatering() {
+		if( !getCatering().isEmpty() ) {
+			CateringInfo catering = new CateringInfo();
+			
+			if( catering.istDatensatzVorhanden( Util.statischStringNachInt( getCatering() ))) {
+				setKostenCatering( catering.getdPreis() );
+				setKostenCateringGesamt( (catering.getdPreis() * Util.statischStringNachDouble( getPersonen(), 2)) );
+			}
+			else {
+				JOptionPane.showMessageDialog(
+					null, "Unbekannte Eingabe!", "Fehler", 
+					JOptionPane.OK_OPTION
+				);
+				jTextField32.setText( "" );
+				jTextField32.requestFocus();
+			}	
+		}		
+	}
+	
+	private void berechneKosten() {
+		setNetto( 
+			Util.statischStringNachDouble( getKostenFlugGesamt(), 2 ) +
+			Util.statischStringNachDouble( getKostenFlugVarGesamt(), 2 ) +
+			Util.statischStringNachDouble( getKostenFlightcrewGesamt(), 2 ) + 
+			Util.statischStringNachDouble( getKostenCabincrewGesamt(), 2 ) +
+			Util.statischStringNachDouble( getKostenStopGesamt(), 2 ) + 
+			Util.statischStringNachDouble( getKostenCabincrewGesamt(), 2 )
+		);
+		
+		if( !getRabattProzent().isEmpty() ) {
+			setRabatt( 
+				Util.statischStringNachDouble( getNetto(), 2) * 
+				Util.statischStringNachDouble( getRabattProzent(), 2) / 100
+			);
+		} 
+		else
+			setRabatt( 0.0 );
+		
+		setMwSt( 
+			Util.statischStringNachDouble( getNetto(), 2 ) - 
+			Util.statischStringNachDouble( getRabatt(), 2 ) * 0.19
+		);
+		
+		setBrutto( 
+			Util.statischStringNachDouble( getNetto(), 2 ) -
+			Util.statischStringNachDouble( getRabatt(), 2 ) + 
+			Util.statischStringNachDouble( getMwSt(), 2 )
+		);
 	}
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables

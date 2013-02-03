@@ -251,4 +251,8 @@ public class FlugzeugkostenInfo {
 		else
 			return false;
 	}
+	
+	public void sucheUeberFlugzeugtyp( int iFlugzeugtypID ) {
+		
+	}
 }

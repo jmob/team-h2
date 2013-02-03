@@ -24,6 +24,15 @@ public class PersonalInfo {
 	private String sTelefax;
 	private String sMobil;
 	private String sInfo;
+	private int iPersonaltypID;
+
+	public int getiPersonaltypID() {
+		return iPersonaltypID;
+	}
+
+	public void setiPersonaltypID( int iPersonaltypID ) {
+		this.iPersonaltypID = iPersonaltypID;
+	}
 	
 	private String sAnrede;
 

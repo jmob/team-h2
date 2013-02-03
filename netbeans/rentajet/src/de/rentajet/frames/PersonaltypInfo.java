@@ -169,4 +169,8 @@ public class PersonaltypInfo {
 		else
 			return false;
 	}
+	
+	public void ermittlePersonaltyp( int iID ) {
+		
+	}
 }

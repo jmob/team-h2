@@ -24,6 +24,38 @@ public class PersonalkostenInfo {
 	private double dJahresgehalt;
 	private double dStundenlohn;
 	private double dStundensatz;
+
+	public int getiArbeitsstunden() {
+		return iArbeitsstunden;
+	}
+
+	public void setiArbeitsstunden( int iArbeitsstunden ) {
+		this.iArbeitsstunden = iArbeitsstunden;
+	}
+
+	public double getdJahresgehalt() {
+		return dJahresgehalt;
+	}
+
+	public void setdJahresgehalt( double dJahresgehalt ) {
+		this.dJahresgehalt = dJahresgehalt;
+	}
+
+	public double getdStundenlohn() {
+		return dStundenlohn;
+	}
+
+	public void setdStundenlohn( double dStundenlohn ) {
+		this.dStundenlohn = dStundenlohn;
+	}
+
+	public double getdStundensatz() {
+		return dStundensatz;
+	}
+
+	public void setdStundensatz( double dStundensatz ) {
+		this.dStundensatz = dStundensatz;
+	}
 	
 	private int iPersonaltypnummer;
 	private String sPersonaltyp;
@@ -192,5 +224,9 @@ public class PersonalkostenInfo {
 			return true;
 		else
 			return false;
+	}
+	
+	public void sucheUeberPersonaltyp( int iPersonaltyp ) {
+		
 	}
 }
