@@ -9,6 +9,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -25,8 +27,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Mitarbkunde.findAll", query = "SELECT m FROM Mitarbkunde m"),
 	@NamedQuery(name = "Mitarbkunde.findById", query = "SELECT m FROM Mitarbkunde m WHERE m.id = :id"),
 	@NamedQuery(name = "Mitarbkunde.findByNummer", query = "SELECT m FROM Mitarbkunde m WHERE m.nummer = :nummer"),
-	@NamedQuery(name = "Mitarbkunde.findByAnredeID", query = "SELECT m FROM Mitarbkunde m WHERE m.anredeID = :anredeID"),
-	@NamedQuery(name = "Mitarbkunde.findByKundeID", query = "SELECT m FROM Mitarbkunde m WHERE m.kundeID = :kundeID"),
 	@NamedQuery(name = "Mitarbkunde.findByVorname", query = "SELECT m FROM Mitarbkunde m WHERE m.vorname = :vorname"),
 	@NamedQuery(name = "Mitarbkunde.findByNachname", query = "SELECT m FROM Mitarbkunde m WHERE m.nachname = :nachname"),
 	@NamedQuery(name = "Mitarbkunde.findByInfo", query = "SELECT m FROM Mitarbkunde m WHERE m.info = :info"),
@@ -38,13 +38,9 @@ public class Mitarbkunde implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
-	@Column(name = "AnredeID")
-	private Integer anredeID;
-	@Column(name = "KundeID")
-	private Integer kundeID;
+	private Integer nummer;
 	@Column(name = "Vorname")
 	private String vorname;
 	@Column(name = "Nachname")
@@ -52,49 +48,39 @@ public class Mitarbkunde implements Serializable {
 	@Column(name = "Info")
 	private String info;
 	@Column(name = "Telefon")
-	private Integer telefon;
+	private String telefon;
 	@Column(name = "Telefax")
-	private Integer telefax;
+	private String telefax;
 	@Column(name = "Mobil")
-	private Integer mobil;
+	private String mobil;
+	@JoinColumn(name = "AnredeID", referencedColumnName = "ID")
+  @ManyToOne
+	private Anrede anredeID;
+	@JoinColumn(name = "KundeID", referencedColumnName = "ID")
+  @ManyToOne
+	private Kunde kundeID;
 
 	public Mitarbkunde() {
 	}
 
-	public Mitarbkunde( String id ) {
+	public Mitarbkunde( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
-	}
-
-	public Integer getAnredeID() {
-		return anredeID;
-	}
-
-	public void setAnredeID( Integer anredeID ) {
-		this.anredeID = anredeID;
-	}
-
-	public Integer getKundeID() {
-		return kundeID;
-	}
-
-	public void setKundeID( Integer kundeID ) {
-		this.kundeID = kundeID;
 	}
 
 	public String getVorname() {
@@ -121,28 +107,44 @@ public class Mitarbkunde implements Serializable {
 		this.info = info;
 	}
 
-	public Integer getTelefon() {
+	public String getTelefon() {
 		return telefon;
 	}
 
-	public void setTelefon( Integer telefon ) {
+	public void setTelefon( String telefon ) {
 		this.telefon = telefon;
 	}
 
-	public Integer getTelefax() {
+	public String getTelefax() {
 		return telefax;
 	}
 
-	public void setTelefax( Integer telefax ) {
+	public void setTelefax( String telefax ) {
 		this.telefax = telefax;
 	}
 
-	public Integer getMobil() {
+	public String getMobil() {
 		return mobil;
 	}
 
-	public void setMobil( Integer mobil ) {
+	public void setMobil( String mobil ) {
 		this.mobil = mobil;
+	}
+
+	public Anrede getAnredeID() {
+		return anredeID;
+	}
+
+	public void setAnredeID( Anrede anredeID ) {
+		this.anredeID = anredeID;
+	}
+
+	public Kunde getKundeID() {
+		return kundeID;
+	}
+
+	public void setKundeID( Kunde kundeID ) {
+		this.kundeID = kundeID;
 	}
 
 	@Override

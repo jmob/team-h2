@@ -10,7 +10,9 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -31,7 +33,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Firma.findByName2", query = "SELECT f FROM Firma f WHERE f.name2 = :name2"),
 	@NamedQuery(name = "Firma.findByName3", query = "SELECT f FROM Firma f WHERE f.name3 = :name3"),
 	@NamedQuery(name = "Firma.findByStrasse", query = "SELECT f FROM Firma f WHERE f.strasse = :strasse"),
-	@NamedQuery(name = "Firma.findByOrtID", query = "SELECT f FROM Firma f WHERE f.ortID = :ortID"),
 	@NamedQuery(name = "Firma.findBySteuernummer", query = "SELECT f FROM Firma f WHERE f.steuernummer = :steuernummer"),
 	@NamedQuery(name = "Firma.findByBetriebsnummer", query = "SELECT f FROM Firma f WHERE f.betriebsnummer = :betriebsnummer"),
 	@NamedQuery(name = "Firma.findByUSTIdentNummer", query = "SELECT f FROM Firma f WHERE f.uSTIdentNummer = :uSTIdentNummer"),
@@ -43,7 +44,7 @@ public class Firma implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "Name1")
@@ -54,8 +55,6 @@ public class Firma implements Serializable {
 	private String name3;
 	@Column(name = "Strasse")
 	private String strasse;
-	@Column(name = "OrtID")
-	private String ortID;
 	@Column(name = "Steuernummer")
 	private BigInteger steuernummer;
 	@Column(name = "Betriebsnummer")
@@ -71,25 +70,28 @@ public class Firma implements Serializable {
   @Column(name = "Logo")
 	private byte[] logo;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
+	@JoinColumn(name = "OrtID", referencedColumnName = "ID")
+  @ManyToOne
+	private Ort ortID;
 
 	public Firma() {
 	}
 
-	public Firma( String id ) {
+	public Firma( Integer id ) {
 		this.id = id;
 	}
 
-	public Firma( String id, byte[] logo ) {
+	public Firma( Integer id, byte[] logo ) {
 		this.id = id;
 		this.logo = logo;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
@@ -131,14 +133,6 @@ public class Firma implements Serializable {
 
 	public void setStrasse( String strasse ) {
 		this.strasse = strasse;
-	}
-
-	public String getOrtID() {
-		return ortID;
-	}
-
-	public void setOrtID( String ortID ) {
-		this.ortID = ortID;
 	}
 
 	public BigInteger getSteuernummer() {
@@ -189,12 +183,20 @@ public class Firma implements Serializable {
 		this.logo = logo;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
+	}
+
+	public Ort getOrtID() {
+		return ortID;
+	}
+
+	public void setOrtID( Ort ortID ) {
+		this.ortID = ortID;
 	}
 
 	@Override

@@ -20,7 +20,7 @@ public class javaconnect {
 	try{
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/teamh2", "root", "1234");
-	JOptionPane.showMessageDialog( null, "Verbindung zur Datenbank ist hergestellt" );
+	//JOptionPane.showMessageDialog( null, "Verbindung zur Datenbank ist hergestellt" );
 	return conn;
 	}catch (Exception e){
 		JOptionPane.showMessageDialog( null, e );

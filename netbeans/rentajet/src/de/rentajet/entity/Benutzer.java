@@ -9,6 +9,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -30,16 +32,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Benutzer.findByInitialen", query = "SELECT b FROM Benutzer b WHERE b.initialen = :initialen"),
 	@NamedQuery(name = "Benutzer.findByLogin", query = "SELECT b FROM Benutzer b WHERE b.login = :login"),
 	@NamedQuery(name = "Benutzer.findByPasswort", query = "SELECT b FROM Benutzer b WHERE b.passwort = :passwort"),
-	@NamedQuery(name = "Benutzer.findByGesperrt", query = "SELECT b FROM Benutzer b WHERE b.gesperrt = :gesperrt"),
-	@NamedQuery(name = "Benutzer.findByBenutzergruppeID", query = "SELECT b FROM Benutzer b WHERE b.benutzergruppeID = :benutzergruppeID")})
+	@NamedQuery(name = "Benutzer.findByGesperrt", query = "SELECT b FROM Benutzer b WHERE b.gesperrt = :gesperrt")})
 public class Benutzer implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
 	@Column(name = "Vorname")
 	private String vorname;
 	@Column(name = "Nachname")
@@ -52,29 +53,30 @@ public class Benutzer implements Serializable {
 	private String passwort;
 	@Column(name = "Gesperrt")
 	private Boolean gesperrt;
-	@Column(name = "BenutzergruppeID")
-	private Integer benutzergruppeID;
+	@JoinColumn(name = "BenutzergruppeID", referencedColumnName = "ID")
+  @ManyToOne
+	private Benutzergruppe benutzergruppeID;
 
 	public Benutzer() {
 	}
 
-	public Benutzer( String id ) {
+	public Benutzer( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -126,11 +128,11 @@ public class Benutzer implements Serializable {
 		this.gesperrt = gesperrt;
 	}
 
-	public Integer getBenutzergruppeID() {
+	public Benutzergruppe getBenutzergruppeID() {
 		return benutzergruppeID;
 	}
 
-	public void setBenutzergruppeID( Integer benutzergruppeID ) {
+	public void setBenutzergruppeID( Benutzergruppe benutzergruppeID ) {
 		this.benutzergruppeID = benutzergruppeID;
 	}
 

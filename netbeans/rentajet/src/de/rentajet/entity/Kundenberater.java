@@ -5,14 +5,19 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -24,11 +29,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
 	@NamedQuery(name = "Kundenberater.findAll", query = "SELECT k FROM Kundenberater k"),
 	@NamedQuery(name = "Kundenberater.findById", query = "SELECT k FROM Kundenberater k WHERE k.id = :id"),
-	@NamedQuery(name = "Kundenberater.findByAnredeID", query = "SELECT k FROM Kundenberater k WHERE k.anredeID = :anredeID"),
 	@NamedQuery(name = "Kundenberater.findByVorname", query = "SELECT k FROM Kundenberater k WHERE k.vorname = :vorname"),
 	@NamedQuery(name = "Kundenberater.findByNachname", query = "SELECT k FROM Kundenberater k WHERE k.nachname = :nachname"),
 	@NamedQuery(name = "Kundenberater.findByStrasse", query = "SELECT k FROM Kundenberater k WHERE k.strasse = :strasse"),
-	@NamedQuery(name = "Kundenberater.findByOrtID", query = "SELECT k FROM Kundenberater k WHERE k.ortID = :ortID"),
 	@NamedQuery(name = "Kundenberater.findByTelefon", query = "SELECT k FROM Kundenberater k WHERE k.telefon = :telefon"),
 	@NamedQuery(name = "Kundenberater.findByTelefax", query = "SELECT k FROM Kundenberater k WHERE k.telefax = :telefax"),
 	@NamedQuery(name = "Kundenberater.findByMobil", query = "SELECT k FROM Kundenberater k WHERE k.mobil = :mobil"),
@@ -38,47 +41,43 @@ public class Kundenberater implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
-	@Column(name = "AnredeID")
-	private String anredeID;
+	private Integer id;
 	@Column(name = "Vorname")
 	private String vorname;
 	@Column(name = "Nachname")
 	private String nachname;
 	@Column(name = "Strasse")
 	private String strasse;
-	@Column(name = "OrtID")
-	private String ortID;
 	@Column(name = "Telefon")
-	private Integer telefon;
+	private String telefon;
 	@Column(name = "Telefax")
-	private Integer telefax;
+	private String telefax;
 	@Column(name = "Mobil")
-	private Integer mobil;
+	private String mobil;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
+	@JoinColumn(name = "AnredeID", referencedColumnName = "ID")
+  @ManyToOne
+	private Anrede anredeID;
+	@JoinColumn(name = "OrtID", referencedColumnName = "ID")
+  @ManyToOne
+	private Ort ortID;
+	@OneToMany(mappedBy = "kundenberaterID")
+	private Collection<Kunde> kundeCollection;
 
 	public Kundenberater() {
 	}
 
-	public Kundenberater( String id ) {
+	public Kundenberater( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
-	}
-
-	public String getAnredeID() {
-		return anredeID;
-	}
-
-	public void setAnredeID( String anredeID ) {
-		this.anredeID = anredeID;
 	}
 
 	public String getVorname() {
@@ -105,44 +104,61 @@ public class Kundenberater implements Serializable {
 		this.strasse = strasse;
 	}
 
-	public String getOrtID() {
-		return ortID;
-	}
-
-	public void setOrtID( String ortID ) {
-		this.ortID = ortID;
-	}
-
-	public Integer getTelefon() {
+	public String getTelefon() {
 		return telefon;
 	}
 
-	public void setTelefon( Integer telefon ) {
+	public void setTelefon( String telefon ) {
 		this.telefon = telefon;
 	}
 
-	public Integer getTelefax() {
+	public String getTelefax() {
 		return telefax;
 	}
 
-	public void setTelefax( Integer telefax ) {
+	public void setTelefax( String telefax ) {
 		this.telefax = telefax;
 	}
 
-	public Integer getMobil() {
+	public String getMobil() {
 		return mobil;
 	}
 
-	public void setMobil( Integer mobil ) {
+	public void setMobil( String mobil ) {
 		this.mobil = mobil;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
+	}
+
+	public Anrede getAnredeID() {
+		return anredeID;
+	}
+
+	public void setAnredeID( Anrede anredeID ) {
+		this.anredeID = anredeID;
+	}
+
+	public Ort getOrtID() {
+		return ortID;
+	}
+
+	public void setOrtID( Ort ortID ) {
+		this.ortID = ortID;
+	}
+
+	@XmlTransient
+	public Collection<Kunde> getKundeCollection() {
+		return kundeCollection;
+	}
+
+	public void setKundeCollection( Collection<Kunde> kundeCollection ) {
+		this.kundeCollection = kundeCollection;
 	}
 
 	@Override

@@ -5,14 +5,17 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,9 +37,9 @@ public class Staat implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "Laendercode")
@@ -45,27 +48,29 @@ public class Staat implements Serializable {
 	private String postKuerzel;
 	@Column(name = "PostName")
 	private String postName;
+	@OneToMany(mappedBy = "staatID")
+	private Collection<Ort> ortCollection;
 
 	public Staat() {
 	}
 
-	public Staat( String id ) {
+	public Staat( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -99,6 +104,15 @@ public class Staat implements Serializable {
 
 	public void setPostName( String postName ) {
 		this.postName = postName;
+	}
+
+	@XmlTransient
+	public Collection<Ort> getOrtCollection() {
+		return ortCollection;
+	}
+
+	public void setOrtCollection( Collection<Ort> ortCollection ) {
+		this.ortCollection = ortCollection;
 	}
 
 	@Override

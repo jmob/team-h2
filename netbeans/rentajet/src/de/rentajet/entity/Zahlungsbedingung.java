@@ -35,40 +35,41 @@ public class Zahlungsbedingung implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "Belegtext")
 	private String belegtext;
 	@Column(name = "Valuta")
-	private String valuta;
+	private Integer valuta;
 	@Column(name = "SkontoValuta")
-	private String skontoValuta;
+	private Integer skontoValuta;
+	// @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
 	@Column(name = "Skontosatz")
-	private Long skontosatz;
+	private Double skontosatz;
 
 	public Zahlungsbedingung() {
 	}
 
-	public Zahlungsbedingung( String id ) {
+	public Zahlungsbedingung( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -88,27 +89,27 @@ public class Zahlungsbedingung implements Serializable {
 		this.belegtext = belegtext;
 	}
 
-	public String getValuta() {
+	public Integer getValuta() {
 		return valuta;
 	}
 
-	public void setValuta( String valuta ) {
+	public void setValuta( Integer valuta ) {
 		this.valuta = valuta;
 	}
 
-	public String getSkontoValuta() {
+	public Integer getSkontoValuta() {
 		return skontoValuta;
 	}
 
-	public void setSkontoValuta( String skontoValuta ) {
+	public void setSkontoValuta( Integer skontoValuta ) {
 		this.skontoValuta = skontoValuta;
 	}
 
-	public Long getSkontosatz() {
+	public Double getSkontosatz() {
 		return skontosatz;
 	}
 
-	public void setSkontosatz( Long skontosatz ) {
+	public void setSkontosatz( Double skontosatz ) {
 		this.skontosatz = skontosatz;
 	}
 

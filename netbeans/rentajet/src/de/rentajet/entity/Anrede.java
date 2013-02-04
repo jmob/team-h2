@@ -5,14 +5,17 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,30 +34,36 @@ public class Anrede implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Basic(optional = false)
   @Column(name = "Nummer")
 	private int nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
+	@OneToMany(mappedBy = "anredeID")
+	private Collection<Mitarbkunde> mitarbkundeCollection;
+	@OneToMany(mappedBy = "anredeID")
+	private Collection<Kundenberater> kundenberaterCollection;
+	@OneToMany(mappedBy = "anredeID")
+	private Collection<Kunde> kundeCollection;
 
 	public Anrede() {
 	}
 
-	public Anrede( String id ) {
+	public Anrede( Integer id ) {
 		this.id = id;
 	}
 
-	public Anrede( String id, int nummer ) {
+	public Anrede( Integer id, int nummer ) {
 		this.id = id;
 		this.nummer = nummer;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
@@ -72,6 +81,33 @@ public class Anrede implements Serializable {
 
 	public void setBezeichnung( String bezeichnung ) {
 		this.bezeichnung = bezeichnung;
+	}
+
+	@XmlTransient
+	public Collection<Mitarbkunde> getMitarbkundeCollection() {
+		return mitarbkundeCollection;
+	}
+
+	public void setMitarbkundeCollection( Collection<Mitarbkunde> mitarbkundeCollection ) {
+		this.mitarbkundeCollection = mitarbkundeCollection;
+	}
+
+	@XmlTransient
+	public Collection<Kundenberater> getKundenberaterCollection() {
+		return kundenberaterCollection;
+	}
+
+	public void setKundenberaterCollection( Collection<Kundenberater> kundenberaterCollection ) {
+		this.kundenberaterCollection = kundenberaterCollection;
+	}
+
+	@XmlTransient
+	public Collection<Kunde> getKundeCollection() {
+		return kundeCollection;
+	}
+
+	public void setKundeCollection( Collection<Kunde> kundeCollection ) {
+		this.kundeCollection = kundeCollection;
 	}
 
 	@Override

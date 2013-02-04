@@ -5,14 +5,19 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -26,35 +31,41 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Ort.findById", query = "SELECT o FROM Ort o WHERE o.id = :id"),
 	@NamedQuery(name = "Ort.findByPlz", query = "SELECT o FROM Ort o WHERE o.plz = :plz"),
 	@NamedQuery(name = "Ort.findByBezeichnung", query = "SELECT o FROM Ort o WHERE o.bezeichnung = :bezeichnung"),
-	@NamedQuery(name = "Ort.findByStaatID", query = "SELECT o FROM Ort o WHERE o.staatID = :staatID"),
 	@NamedQuery(name = "Ort.findByNummer", query = "SELECT o FROM Ort o WHERE o.nummer = :nummer")})
 public class Ort implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "PLZ")
 	private Integer plz;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
-	@Column(name = "StaatID")
-	private String staatID;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
+	@OneToMany(mappedBy = "ortID")
+	private Collection<Kundenberater> kundenberaterCollection;
+	@JoinColumn(name = "StaatID", referencedColumnName = "ID")
+  @ManyToOne
+	private Staat staatID;
+	@OneToMany(mappedBy = "ortID")
+	private Collection<Kunde> kundeCollection;
+	@OneToMany(mappedBy = "ortID")
+	private Collection<Firma> firmaCollection;
 
 	public Ort() {
 	}
 
-	public Ort( String id ) {
+	public Ort( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
@@ -74,20 +85,47 @@ public class Ort implements Serializable {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public String getStaatID() {
-		return staatID;
-	}
-
-	public void setStaatID( String staatID ) {
-		this.staatID = staatID;
-	}
-
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
+	}
+
+	@XmlTransient
+	public Collection<Kundenberater> getKundenberaterCollection() {
+		return kundenberaterCollection;
+	}
+
+	public void setKundenberaterCollection( Collection<Kundenberater> kundenberaterCollection ) {
+		this.kundenberaterCollection = kundenberaterCollection;
+	}
+
+	public Staat getStaatID() {
+		return staatID;
+	}
+
+	public void setStaatID( Staat staatID ) {
+		this.staatID = staatID;
+	}
+
+	@XmlTransient
+	public Collection<Kunde> getKundeCollection() {
+		return kundeCollection;
+	}
+
+	public void setKundeCollection( Collection<Kunde> kundeCollection ) {
+		this.kundeCollection = kundeCollection;
+	}
+
+	@XmlTransient
+	public Collection<Firma> getFirmaCollection() {
+		return firmaCollection;
+	}
+
+	public void setFirmaCollection( Collection<Firma> firmaCollection ) {
+		this.firmaCollection = firmaCollection;
 	}
 
 	@Override

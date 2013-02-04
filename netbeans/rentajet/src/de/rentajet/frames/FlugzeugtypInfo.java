@@ -20,7 +20,7 @@ public class FlugzeugtypInfo {
 	private int iNummer;
 	private int iFlightcrew;
 	private int iCabincrew;
-	private int iRechweite;
+	private int iReichweite;
 	private int iSitzplaetze;
 	private int iReisegeschwindigkeit;
 	private int iTriebwerke;
@@ -61,12 +61,12 @@ public class FlugzeugtypInfo {
 		this.iCabincrew = iCabincrew;
 	}
 
-	public int getiRechweite() {
-		return iRechweite;
+	public int getiReichweite() {
+		return iReichweite;
 	}
 
-	public void setiRechweite( int iRechweite ) {
-		this.iRechweite = iRechweite;
+	public void setiReichweite( int iReichweite ) {
+		this.iReichweite = iReichweite;
 	}
 
 	public int getiSitzplaetze() {
@@ -149,7 +149,7 @@ public class FlugzeugtypInfo {
 		pnlFlugzeugtyp.setHersteller( sHersteller );
 		pnlFlugzeugtyp.setFlightcrew( iFlightcrew );
 		pnlFlugzeugtyp.setCabincrew( iCabincrew );
-		pnlFlugzeugtyp.setReichweite( iRechweite );
+		pnlFlugzeugtyp.setReichweite( iReichweite );
 		pnlFlugzeugtyp.setSitzplaetze( iSitzplaetze );
 		pnlFlugzeugtyp.setReisegeschwindigkeit( iReisegeschwindigkeit );
 		pnlFlugzeugtyp.setTriebwerke( iTriebwerke );
@@ -162,7 +162,7 @@ public class FlugzeugtypInfo {
 		sHersteller = pnlFlugzeugtyp.getHersteller();
 		iFlightcrew = Util.statischStringNachInt( pnlFlugzeugtyp.getFlightcrew() );
 		iCabincrew = Util.statischStringNachInt( pnlFlugzeugtyp.getCabincrew() );
-		iRechweite = Util.statischStringNachInt( pnlFlugzeugtyp.getReichweite() );
+		iReichweite = Util.statischStringNachInt( pnlFlugzeugtyp.getReichweite() );
 		iSitzplaetze = Util.statischStringNachInt( pnlFlugzeugtyp.getSitzplaetze() );
 		iReisegeschwindigkeit = Util.statischStringNachInt( pnlFlugzeugtyp.getReisegeschwindigkeit() );
 		iTriebwerke = Util.statischStringNachInt( pnlFlugzeugtyp.getTriebwerke() );
@@ -175,7 +175,7 @@ public class FlugzeugtypInfo {
 		sHersteller = "";
 		iFlightcrew = 0;
 		iCabincrew = 0;
-		iRechweite = 0;
+		iReichweite = 0;
 		iSitzplaetze = 0;
 		iReisegeschwindigkeit = 0;
 		iTriebwerke = 0;

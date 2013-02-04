@@ -33,9 +33,9 @@ public class Catering implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "Beschreibung")
@@ -46,23 +46,23 @@ public class Catering implements Serializable {
 	public Catering() {
 	}
 
-	public Catering( String id ) {
+	public Catering( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 

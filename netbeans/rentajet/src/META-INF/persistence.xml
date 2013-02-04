@@ -2,25 +2,27 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="rentajetPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>de.rentajet.entity.Flugzeugkosten</class>
-    <class>de.rentajet.entity.Personal</class>
-    <class>de.rentajet.entity.Firma</class>
-    <class>de.rentajet.entity.Kunde</class>
-    <class>de.rentajet.entity.Ort</class>
-    <class>de.rentajet.entity.Catering</class>
-    <class>de.rentajet.entity.Triebwerkartid</class>
-    <class>de.rentajet.entity.Mitarbkunde</class>
-    <class>de.rentajet.entity.Flugzeugtyp</class>
-    <class>de.rentajet.entity.Flugzeug</class>
-    <class>de.rentajet.entity.Anrede</class>
     <class>de.rentajet.entity.Flughafen</class>
-    <class>de.rentajet.entity.Zahlungsbedingung</class>
-    <class>de.rentajet.entity.Benutzergruppe</class>
-    <class>de.rentajet.entity.Auftrag</class>
-    <class>de.rentajet.entity.Benutzer</class>
     <class>de.rentajet.entity.Buchung</class>
-    <class>de.rentajet.entity.Kundenberater</class>
+    <class>de.rentajet.entity.Personaltyp</class>
+    <class>de.rentajet.entity.Auftrag</class>
+    <class>de.rentajet.entity.Flugzeugtyp</class>
+    <class>de.rentajet.entity.Ort</class>
+    <class>de.rentajet.entity.Benutzergruppe</class>
+    <class>de.rentajet.entity.Kunde</class>
+    <class>de.rentajet.entity.Triebwerkartid</class>
+    <class>de.rentajet.entity.Catering</class>
     <class>de.rentajet.entity.Staat</class>
+    <class>de.rentajet.entity.Kundenberater</class>
+    <class>de.rentajet.entity.Flugzeug</class>
+    <class>de.rentajet.entity.Zahlungsbedingung</class>
+    <class>de.rentajet.entity.Benutzer</class>
+    <class>de.rentajet.entity.Personalkosten</class>
+    <class>de.rentajet.entity.Personal</class>
+    <class>de.rentajet.entity.Anrede</class>
+    <class>de.rentajet.entity.Firma</class>
+    <class>de.rentajet.entity.Mitarbkunde</class>
+    <class>de.rentajet.entity.Flugzeugkosten</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/teamh2?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.password" value="1234"/>

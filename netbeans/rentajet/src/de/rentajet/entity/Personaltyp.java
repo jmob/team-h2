@@ -5,29 +5,31 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author j.schipplick
  */
 @Entity
-@Table(name = "flughafen")
+@Table(name = "personaltyp")
 @XmlRootElement
 @NamedQueries({
-	@NamedQuery(name = "Flughafen.findAll", query = "SELECT f FROM Flughafen f"),
-	@NamedQuery(name = "Flughafen.findById", query = "SELECT f FROM Flughafen f WHERE f.id = :id"),
-	@NamedQuery(name = "Flughafen.findByNummer", query = "SELECT f FROM Flughafen f WHERE f.nummer = :nummer"),
-	@NamedQuery(name = "Flughafen.findByBezeichnung", query = "SELECT f FROM Flughafen f WHERE f.bezeichnung = :bezeichnung"),
-	@NamedQuery(name = "Flughafen.findByKuerzel", query = "SELECT f FROM Flughafen f WHERE f.kuerzel = :kuerzel")})
-public class Flughafen implements Serializable {
+	@NamedQuery(name = "Personaltyp.findAll", query = "SELECT p FROM Personaltyp p"),
+	@NamedQuery(name = "Personaltyp.findById", query = "SELECT p FROM Personaltyp p WHERE p.id = :id"),
+	@NamedQuery(name = "Personaltyp.findByNummer", query = "SELECT p FROM Personaltyp p WHERE p.nummer = :nummer"),
+	@NamedQuery(name = "Personaltyp.findByBezeichnung", query = "SELECT p FROM Personaltyp p WHERE p.bezeichnung = :bezeichnung")})
+public class Personaltyp implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
@@ -37,13 +39,15 @@ public class Flughafen implements Serializable {
 	private Integer nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
-	@Column(name = "Kuerzel")
-	private String kuerzel;
+	@OneToMany(mappedBy = "personaltypID")
+	private Collection<Personalkosten> personalkostenCollection;
+	@OneToMany(mappedBy = "personaltypID")
+	private Collection<Personal> personalCollection;
 
-	public Flughafen() {
+	public Personaltyp() {
 	}
 
-	public Flughafen( Integer id ) {
+	public Personaltyp( Integer id ) {
 		this.id = id;
 	}
 
@@ -71,12 +75,22 @@ public class Flughafen implements Serializable {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public String getKuerzel() {
-		return kuerzel;
+	@XmlTransient
+	public Collection<Personalkosten> getPersonalkostenCollection() {
+		return personalkostenCollection;
 	}
 
-	public void setKuerzel( String kuerzel ) {
-		this.kuerzel = kuerzel;
+	public void setPersonalkostenCollection( Collection<Personalkosten> personalkostenCollection ) {
+		this.personalkostenCollection = personalkostenCollection;
+	}
+
+	@XmlTransient
+	public Collection<Personal> getPersonalCollection() {
+		return personalCollection;
+	}
+
+	public void setPersonalCollection( Collection<Personal> personalCollection ) {
+		this.personalCollection = personalCollection;
 	}
 
 	@Override
@@ -89,10 +103,10 @@ public class Flughafen implements Serializable {
 	@Override
 	public boolean equals( Object object ) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
-		if( !(object instanceof Flughafen) ) {
+		if( !(object instanceof Personaltyp) ) {
 			return false;
 		}
-		Flughafen other = (Flughafen) object;
+		Personaltyp other = (Personaltyp) object;
 		if( (this.id == null && other.id != null) || (this.id != null && !this.id.equals( other.id )) ) {
 			return false;
 		}
@@ -101,7 +115,7 @@ public class Flughafen implements Serializable {
 
 	@Override
 	public String toString() {
-		return "de.rentajet.entity.Flughafen[ id=" + id + " ]";
+		return "de.rentajet.entity.Personaltyp[ id=" + id + " ]";
 	}
 	
 }

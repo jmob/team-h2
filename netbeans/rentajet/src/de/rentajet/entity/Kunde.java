@@ -5,15 +5,19 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -26,14 +30,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Kunde.findAll", query = "SELECT k FROM Kunde k"),
 	@NamedQuery(name = "Kunde.findById", query = "SELECT k FROM Kunde k WHERE k.id = :id"),
 	@NamedQuery(name = "Kunde.findByNummer", query = "SELECT k FROM Kunde k WHERE k.nummer = :nummer"),
-	@NamedQuery(name = "Kunde.findByAnredeID", query = "SELECT k FROM Kunde k WHERE k.anredeID = :anredeID"),
 	@NamedQuery(name = "Kunde.findByMatchcode", query = "SELECT k FROM Kunde k WHERE k.matchcode = :matchcode"),
 	@NamedQuery(name = "Kunde.findByName1", query = "SELECT k FROM Kunde k WHERE k.name1 = :name1"),
 	@NamedQuery(name = "Kunde.findByName2", query = "SELECT k FROM Kunde k WHERE k.name2 = :name2"),
 	@NamedQuery(name = "Kunde.findByName3", query = "SELECT k FROM Kunde k WHERE k.name3 = :name3"),
 	@NamedQuery(name = "Kunde.findByStrasse", query = "SELECT k FROM Kunde k WHERE k.strasse = :strasse"),
-	@NamedQuery(name = "Kunde.findByOrtID", query = "SELECT k FROM Kunde k WHERE k.ortID = :ortID"),
-	@NamedQuery(name = "Kunde.findByKundenberaterID", query = "SELECT k FROM Kunde k WHERE k.kundenberaterID = :kundenberaterID"),
 	@NamedQuery(name = "Kunde.findByTelefon", query = "SELECT k FROM Kunde k WHERE k.telefon = :telefon"),
 	@NamedQuery(name = "Kunde.findByTelefax", query = "SELECT k FROM Kunde k WHERE k.telefax = :telefax"),
 	@NamedQuery(name = "Kunde.findByMobil", query = "SELECT k FROM Kunde k WHERE k.mobil = :mobil"),
@@ -46,13 +47,11 @@ public class Kunde implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
-	@Column(name = "AnredeID")
-	private Integer anredeID;
+	private Integer nummer;
 	@Column(name = "Matchcode")
-	private Integer matchcode;
+	private String matchcode;
 	@Column(name = "Name1")
 	private String name1;
 	@Column(name = "Name2")
@@ -61,61 +60,61 @@ public class Kunde implements Serializable {
 	private String name3;
 	@Column(name = "Strasse")
 	private String strasse;
-	@Column(name = "OrtID")
-	private String ortID;
-	@Column(name = "KundenberaterID")
-	private String kundenberaterID;
 	@Column(name = "Telefon")
-	private Integer telefon;
+	private String telefon;
 	@Column(name = "Telefax")
-	private Integer telefax;
+	private String telefax;
 	@Column(name = "Mobil")
-	private Integer mobil;
+	private String mobil;
 	@Column(name = "Gesperrt")
 	private Boolean gesperrt;
+	// @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
 	@Column(name = "Kreditlimit")
-	private Integer kreditlimit;
+	private Double kreditlimit;
 	@Column(name = "Steuernummer")
-	private BigInteger steuernummer;
+	private String steuernummer;
 	@Column(name = "Mitarbeiter")
 	private String mitarbeiter;
+	@OneToMany(mappedBy = "kundeID")
+	private Collection<Mitarbkunde> mitarbkundeCollection;
+	@JoinColumn(name = "OrtID", referencedColumnName = "ID")
+  @ManyToOne
+	private Ort ortID;
+	@JoinColumn(name = "KundenberaterID", referencedColumnName = "ID")
+  @ManyToOne
+	private Kundenberater kundenberaterID;
+	@JoinColumn(name = "AnredeID", referencedColumnName = "ID")
+  @ManyToOne
+	private Anrede anredeID;
 
 	public Kunde() {
 	}
 
-	public Kunde( String id ) {
+	public Kunde( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
-	public Integer getAnredeID() {
-		return anredeID;
-	}
-
-	public void setAnredeID( Integer anredeID ) {
-		this.anredeID = anredeID;
-	}
-
-	public Integer getMatchcode() {
+	public String getMatchcode() {
 		return matchcode;
 	}
 
-	public void setMatchcode( Integer matchcode ) {
+	public void setMatchcode( String matchcode ) {
 		this.matchcode = matchcode;
 	}
 
@@ -151,43 +150,27 @@ public class Kunde implements Serializable {
 		this.strasse = strasse;
 	}
 
-	public String getOrtID() {
-		return ortID;
-	}
-
-	public void setOrtID( String ortID ) {
-		this.ortID = ortID;
-	}
-
-	public String getKundenberaterID() {
-		return kundenberaterID;
-	}
-
-	public void setKundenberaterID( String kundenberaterID ) {
-		this.kundenberaterID = kundenberaterID;
-	}
-
-	public Integer getTelefon() {
+	public String getTelefon() {
 		return telefon;
 	}
 
-	public void setTelefon( Integer telefon ) {
+	public void setTelefon( String telefon ) {
 		this.telefon = telefon;
 	}
 
-	public Integer getTelefax() {
+	public String getTelefax() {
 		return telefax;
 	}
 
-	public void setTelefax( Integer telefax ) {
+	public void setTelefax( String telefax ) {
 		this.telefax = telefax;
 	}
 
-	public Integer getMobil() {
+	public String getMobil() {
 		return mobil;
 	}
 
-	public void setMobil( Integer mobil ) {
+	public void setMobil( String mobil ) {
 		this.mobil = mobil;
 	}
 
@@ -199,19 +182,19 @@ public class Kunde implements Serializable {
 		this.gesperrt = gesperrt;
 	}
 
-	public Integer getKreditlimit() {
+	public Double getKreditlimit() {
 		return kreditlimit;
 	}
 
-	public void setKreditlimit( Integer kreditlimit ) {
+	public void setKreditlimit( Double kreditlimit ) {
 		this.kreditlimit = kreditlimit;
 	}
 
-	public BigInteger getSteuernummer() {
+	public String getSteuernummer() {
 		return steuernummer;
 	}
 
-	public void setSteuernummer( BigInteger steuernummer ) {
+	public void setSteuernummer( String steuernummer ) {
 		this.steuernummer = steuernummer;
 	}
 
@@ -221,6 +204,39 @@ public class Kunde implements Serializable {
 
 	public void setMitarbeiter( String mitarbeiter ) {
 		this.mitarbeiter = mitarbeiter;
+	}
+
+	@XmlTransient
+	public Collection<Mitarbkunde> getMitarbkundeCollection() {
+		return mitarbkundeCollection;
+	}
+
+	public void setMitarbkundeCollection( Collection<Mitarbkunde> mitarbkundeCollection ) {
+		this.mitarbkundeCollection = mitarbkundeCollection;
+	}
+
+	public Ort getOrtID() {
+		return ortID;
+	}
+
+	public void setOrtID( Ort ortID ) {
+		this.ortID = ortID;
+	}
+
+	public Kundenberater getKundenberaterID() {
+		return kundenberaterID;
+	}
+
+	public void setKundenberaterID( Kundenberater kundenberaterID ) {
+		this.kundenberaterID = kundenberaterID;
+	}
+
+	public Anrede getAnredeID() {
+		return anredeID;
+	}
+
+	public void setAnredeID( Anrede anredeID ) {
+		this.anredeID = anredeID;
 	}
 
 	@Override

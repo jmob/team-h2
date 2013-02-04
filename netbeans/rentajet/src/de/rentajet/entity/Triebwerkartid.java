@@ -5,14 +5,17 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,32 +34,34 @@ public class Triebwerkartid implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
+	@OneToMany(mappedBy = "triebwerkartID")
+	private Collection<Flugzeugtyp> flugzeugtypCollection;
 
 	public Triebwerkartid() {
 	}
 
-	public Triebwerkartid( String id ) {
+	public Triebwerkartid( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -66,6 +71,15 @@ public class Triebwerkartid implements Serializable {
 
 	public void setBezeichnung( String bezeichnung ) {
 		this.bezeichnung = bezeichnung;
+	}
+
+	@XmlTransient
+	public Collection<Flugzeugtyp> getFlugzeugtypCollection() {
+		return flugzeugtypCollection;
+	}
+
+	public void setFlugzeugtypCollection( Collection<Flugzeugtyp> flugzeugtypCollection ) {
+		this.flugzeugtypCollection = flugzeugtypCollection;
 	}
 
 	@Override

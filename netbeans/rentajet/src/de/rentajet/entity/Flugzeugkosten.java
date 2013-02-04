@@ -9,6 +9,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -26,7 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Flugzeugkosten.findById", query = "SELECT f FROM Flugzeugkosten f WHERE f.id = :id"),
 	@NamedQuery(name = "Flugzeugkosten.findByNummer", query = "SELECT f FROM Flugzeugkosten f WHERE f.nummer = :nummer"),
 	@NamedQuery(name = "Flugzeugkosten.findByBezeichnung", query = "SELECT f FROM Flugzeugkosten f WHERE f.bezeichnung = :bezeichnung"),
-	@NamedQuery(name = "Flugzeugkosten.findByFlugzeugtypID", query = "SELECT f FROM Flugzeugkosten f WHERE f.flugzeugtypID = :flugzeugtypID"),
 	@NamedQuery(name = "Flugzeugkosten.findByFixkosten", query = "SELECT f FROM Flugzeugkosten f WHERE f.fixkosten = :fixkosten"),
 	@NamedQuery(name = "Flugzeugkosten.findByRentabilitaetStd", query = "SELECT f FROM Flugzeugkosten f WHERE f.rentabilitaetStd = :rentabilitaetStd"),
 	@NamedQuery(name = "Flugzeugkosten.findByFixkostenStd", query = "SELECT f FROM Flugzeugkosten f WHERE f.fixkostenStd = :fixkostenStd"),
@@ -36,42 +37,44 @@ public class Flugzeugkosten implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
-	@Column(name = "FlugzeugtypID")
-	private String flugzeugtypID;
+	// @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
 	@Column(name = "Fixkosten")
-	private Integer fixkosten;
+	private Double fixkosten;
 	@Column(name = "RentabilitaetStd")
 	private Integer rentabilitaetStd;
 	@Column(name = "FixkostenStd")
-	private Integer fixkostenStd;
+	private Double fixkostenStd;
 	@Column(name = "Stundensatz")
-	private Integer stundensatz;
+	private Double stundensatz;
+	@JoinColumn(name = "FlugzeugtypID", referencedColumnName = "ID")
+  @ManyToOne
+	private Flugzeugtyp flugzeugtypID;
 
 	public Flugzeugkosten() {
 	}
 
-	public Flugzeugkosten( String id ) {
+	public Flugzeugkosten( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -83,19 +86,11 @@ public class Flugzeugkosten implements Serializable {
 		this.bezeichnung = bezeichnung;
 	}
 
-	public String getFlugzeugtypID() {
-		return flugzeugtypID;
-	}
-
-	public void setFlugzeugtypID( String flugzeugtypID ) {
-		this.flugzeugtypID = flugzeugtypID;
-	}
-
-	public Integer getFixkosten() {
+	public Double getFixkosten() {
 		return fixkosten;
 	}
 
-	public void setFixkosten( Integer fixkosten ) {
+	public void setFixkosten( Double fixkosten ) {
 		this.fixkosten = fixkosten;
 	}
 
@@ -107,20 +102,28 @@ public class Flugzeugkosten implements Serializable {
 		this.rentabilitaetStd = rentabilitaetStd;
 	}
 
-	public Integer getFixkostenStd() {
+	public Double getFixkostenStd() {
 		return fixkostenStd;
 	}
 
-	public void setFixkostenStd( Integer fixkostenStd ) {
+	public void setFixkostenStd( Double fixkostenStd ) {
 		this.fixkostenStd = fixkostenStd;
 	}
 
-	public Integer getStundensatz() {
+	public Double getStundensatz() {
 		return stundensatz;
 	}
 
-	public void setStundensatz( Integer stundensatz ) {
+	public void setStundensatz( Double stundensatz ) {
 		this.stundensatz = stundensatz;
+	}
+
+	public Flugzeugtyp getFlugzeugtypID() {
+		return flugzeugtypID;
+	}
+
+	public void setFlugzeugtypID( Flugzeugtyp flugzeugtypID ) {
+		this.flugzeugtypID = flugzeugtypID;
 	}
 
 	@Override

@@ -5,14 +5,19 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,24 +37,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Flugzeugtyp.findByReichweite", query = "SELECT f FROM Flugzeugtyp f WHERE f.reichweite = :reichweite"),
 	@NamedQuery(name = "Flugzeugtyp.findBySitzpl\u00e4tze", query = "SELECT f FROM Flugzeugtyp f WHERE f.sitzpl\u00e4tze = :sitzpl\u00e4tze"),
 	@NamedQuery(name = "Flugzeugtyp.findByReisegeschwindigkeit", query = "SELECT f FROM Flugzeugtyp f WHERE f.reisegeschwindigkeit = :reisegeschwindigkeit"),
-	@NamedQuery(name = "Flugzeugtyp.findByTriebwerke", query = "SELECT f FROM Flugzeugtyp f WHERE f.triebwerke = :triebwerke"),
-	@NamedQuery(name = "Flugzeugtyp.findByTriebwerkartID", query = "SELECT f FROM Flugzeugtyp f WHERE f.triebwerkartID = :triebwerkartID")})
+	@NamedQuery(name = "Flugzeugtyp.findByTriebwerke", query = "SELECT f FROM Flugzeugtyp f WHERE f.triebwerke = :triebwerke")})
 public class Flugzeugtyp implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "Hersteller")
 	private String hersteller;
 	@Column(name = "Flightcrew")
-	private String flightcrew;
+	private Integer flightcrew;
 	@Column(name = "Cabincrew")
-	private String cabincrew;
+	private Integer cabincrew;
 	@Column(name = "Reichweite")
 	private Integer reichweite;
 	@Column(name = "Sitzpl\u00e4tze")
@@ -58,29 +62,36 @@ public class Flugzeugtyp implements Serializable {
 	private Integer reisegeschwindigkeit;
 	@Column(name = "Triebwerke")
 	private Integer triebwerke;
-	@Column(name = "TriebwerkartID")
-	private String triebwerkartID;
+	@OneToMany(mappedBy = "flugzeugtypID")
+	private Collection<Flugzeug> flugzeugCollection;
+	@OneToMany(mappedBy = "flugzeugtypID")
+	private Collection<Flugzeugkosten> flugzeugkostenCollection;
+	@OneToMany(mappedBy = "flugzeugtypID")
+	private Collection<Buchung> buchungCollection;
+	@JoinColumn(name = "TriebwerkartID", referencedColumnName = "ID")
+  @ManyToOne
+	private Triebwerkartid triebwerkartID;
 
 	public Flugzeugtyp() {
 	}
 
-	public Flugzeugtyp( String id ) {
+	public Flugzeugtyp( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -100,19 +111,19 @@ public class Flugzeugtyp implements Serializable {
 		this.hersteller = hersteller;
 	}
 
-	public String getFlightcrew() {
+	public Integer getFlightcrew() {
 		return flightcrew;
 	}
 
-	public void setFlightcrew( String flightcrew ) {
+	public void setFlightcrew( Integer flightcrew ) {
 		this.flightcrew = flightcrew;
 	}
 
-	public String getCabincrew() {
+	public Integer getCabincrew() {
 		return cabincrew;
 	}
 
-	public void setCabincrew( String cabincrew ) {
+	public void setCabincrew( Integer cabincrew ) {
 		this.cabincrew = cabincrew;
 	}
 
@@ -148,11 +159,38 @@ public class Flugzeugtyp implements Serializable {
 		this.triebwerke = triebwerke;
 	}
 
-	public String getTriebwerkartID() {
+	@XmlTransient
+	public Collection<Flugzeug> getFlugzeugCollection() {
+		return flugzeugCollection;
+	}
+
+	public void setFlugzeugCollection( Collection<Flugzeug> flugzeugCollection ) {
+		this.flugzeugCollection = flugzeugCollection;
+	}
+
+	@XmlTransient
+	public Collection<Flugzeugkosten> getFlugzeugkostenCollection() {
+		return flugzeugkostenCollection;
+	}
+
+	public void setFlugzeugkostenCollection( Collection<Flugzeugkosten> flugzeugkostenCollection ) {
+		this.flugzeugkostenCollection = flugzeugkostenCollection;
+	}
+
+	@XmlTransient
+	public Collection<Buchung> getBuchungCollection() {
+		return buchungCollection;
+	}
+
+	public void setBuchungCollection( Collection<Buchung> buchungCollection ) {
+		this.buchungCollection = buchungCollection;
+	}
+
+	public Triebwerkartid getTriebwerkartID() {
 		return triebwerkartID;
 	}
 
-	public void setTriebwerkartID( String triebwerkartID ) {
+	public void setTriebwerkartID( Triebwerkartid triebwerkartID ) {
 		this.triebwerkartID = triebwerkartID;
 	}
 

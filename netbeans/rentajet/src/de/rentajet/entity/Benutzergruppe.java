@@ -5,14 +5,17 @@
 package de.rentajet.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,34 +35,36 @@ public class Benutzergruppe implements Serializable {
 	@Id
   @Basic(optional = false)
   @Column(name = "ID")
-	private String id;
+	private Integer id;
 	@Column(name = "Nummer")
-	private String nummer;
+	private Integer nummer;
 	@Column(name = "Bezeichnung")
 	private String bezeichnung;
 	@Column(name = "Benutzerrolle")
 	private String benutzerrolle;
+	@OneToMany(mappedBy = "benutzergruppeID")
+	private Collection<Benutzer> benutzerCollection;
 
 	public Benutzergruppe() {
 	}
 
-	public Benutzergruppe( String id ) {
+	public Benutzergruppe( Integer id ) {
 		this.id = id;
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId( String id ) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getNummer() {
+	public Integer getNummer() {
 		return nummer;
 	}
 
-	public void setNummer( String nummer ) {
+	public void setNummer( Integer nummer ) {
 		this.nummer = nummer;
 	}
 
@@ -77,6 +82,15 @@ public class Benutzergruppe implements Serializable {
 
 	public void setBenutzerrolle( String benutzerrolle ) {
 		this.benutzerrolle = benutzerrolle;
+	}
+
+	@XmlTransient
+	public Collection<Benutzer> getBenutzerCollection() {
+		return benutzerCollection;
+	}
+
+	public void setBenutzerCollection( Collection<Benutzer> benutzerCollection ) {
+		this.benutzerCollection = benutzerCollection;
 	}
 
 	@Override
