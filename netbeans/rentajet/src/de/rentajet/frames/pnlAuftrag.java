@@ -6,6 +6,8 @@ package de.rentajet.frames;
 
 import de.rentajet.entity.Kundenberater;
 import de.rentajet.uti.Util;
+import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import org.eclipse.persistence.jpa.internal.jpql.parser.DateTime;
@@ -15,7 +17,7 @@ import org.eclipse.persistence.jpa.internal.jpql.parser.DateTime;
  * @author Petersen
  */
 public class pnlAuftrag extends javax.swing.JPanel {
-	String[] saFlugzeug;
+	ArrayList<String> saFlugzeug;
 	String[] saCaptain;
 	String[] saOfficer;
 	String[] saBegleiterEins;
@@ -169,6 +171,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jComboBox3 = new javax.swing.JComboBox();
     jComboBox4 = new javax.swing.JComboBox();
     jComboBox5 = new javax.swing.JComboBox();
+    jButton15 = new javax.swing.JButton();
     jPanel6 = new javax.swing.JPanel();
     jLabel42 = new javax.swing.JLabel();
     jLabel43 = new javax.swing.JLabel();
@@ -570,14 +573,14 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jTextField28.setNextFocusableComponent(jPanel4);
 
-    jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+    jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
     jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
 
     jLabel76.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel76.setText("bis");
 
-    jFormattedTextField6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+    jFormattedTextField6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
     jFormattedTextField7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
     jFormattedTextField7.setNextFocusableComponent(jTextField55);
@@ -1026,6 +1029,13 @@ public class pnlAuftrag extends javax.swing.JPanel {
       }
     });
 
+    jButton15.setText("Refresh");
+    jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jButton15MouseClicked(evt);
+      }
+    });
+
     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
     jPanel5.setLayout(jPanel5Layout);
     jPanel5Layout.setHorizontalGroup(
@@ -1039,8 +1049,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
           .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(jPanel5Layout.createSequentialGroup()
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
               .addComponent(jTextField32, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
@@ -1061,8 +1070,13 @@ public class pnlAuftrag extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                   .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                   .addComponent(jComboBox5, 0, 130, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE)))))
-        .addContainerGap(339, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)))
+            .addContainerGap(339, Short.MAX_VALUE))
+          .addGroup(jPanel5Layout.createSequentialGroup()
+            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jButton15)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
     );
     jPanel5Layout.setVerticalGroup(
       jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1070,7 +1084,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addContainerGap()
         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel36)
-          .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jButton15))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel37)
@@ -1093,7 +1108,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jButton13)
           .addComponent(jLabel41))
-        .addContainerGap(58, Short.MAX_VALUE))
+        .addContainerGap(55, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Flug", jPanel5);
@@ -1866,19 +1881,24 @@ public class pnlAuftrag extends javax.swing.JPanel {
     ermittleVerfügbarkeitFlugbegleiterZwei();
   }//GEN-LAST:event_jComboBox5ActionPerformed
 
+  private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+    System.out.println("jButton15MouseClicked");
+    ermittleVerfügbarkeitFlugzeug();
+  }//GEN-LAST:event_jButton15MouseClicked
+
+
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	
-		saFlugzeug = new String[99];
-		saFlugzeug = auftrag.holeVerfuegbareFlugzeuge( getPersonen(), getFlugdatum(), 
-			jFormattedTextField6.isVisible() ? jFormattedTextField1.getText() : getFlugdatumEnde() 
-		);
-		
+		saFlugzeug = auftrag.holeVerfügbareFlugzeuge( getPersonen(), getDatum(), getFlugdatumEnde() );
+		System.out.println(Arrays.toString( saFlugzeug.toArray()) );
 		jComboBox1.removeAllItems();
-		
     for ( String s : saFlugzeug ) {
-			if( !s.isEmpty(  ) )
-				jComboBox1.addItem( s );
+			jComboBox1.addItem( s );
 		}
+	}
+	
+	private void setzeAnzeigeStops() {
+		// TODO: 
 	}
 	
 	private void ermittleVerfügbarkeitCaptain() {
@@ -2109,6 +2129,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private javax.swing.JButton jButton12;
   private javax.swing.JButton jButton13;
   private javax.swing.JButton jButton14;
+  private javax.swing.JButton jButton15;
   private javax.swing.JButton jButton2;
   private javax.swing.JButton jButton3;
   private javax.swing.JButton jButton4;

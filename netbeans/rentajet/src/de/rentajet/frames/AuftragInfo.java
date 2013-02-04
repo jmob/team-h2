@@ -6,14 +6,23 @@ package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
 import de.rentajet.uti.Util;
+import de.rentajet.base.javaconnect;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
 /**
  *
  * @author Petersen
  */
+
+
 public class AuftragInfo {
 	private pnlAuftrag pnlAuftrag;
 	private int iID;
@@ -85,7 +94,11 @@ public class AuftragInfo {
 	private int iOfficerID;
 	private int iFlugbegleiterEinsID;
 	private int iFlugbegleiterZweiID;
+	private final Connection conn;
 
+	public AuftragInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 	public int getiFlugzeugID() {
 		return iFlugzeugID;
 	}
@@ -638,9 +651,6 @@ public class AuftragInfo {
 		this.iCharterdauer = iCharterdauer;
 	}
 	
-	public AuftragInfo() {
-		
-	}
 	
 	public void show( JPanel pnlMain ) {
 		pnlAuftrag = new pnlAuftrag();
@@ -881,13 +891,33 @@ public class AuftragInfo {
 		
 	}
 	
-	public String[] holeVerfuegbareFlugzeuge( String sPersonen, String sDatum, String sFlugdatumEnde ) {
-		// Verfügbarkeitsprüfung
-		String[] sa = new String[3];
-		sa[0] = "1. Flugzeug";
-		sa[1] = "2. Flugzeug";
-		sa[2] = "3. Flugzeug";	
-		return sa;  
+	public ArrayList<String> holeVerfügbareFlugzeuge( String sPersonen, String sDatum, String sFlugdatumEnde ) {
+		
+		System.out.println("holeVerfügbareFlugzeuge " + sPersonen + " " + sDatum + " " + sFlugdatumEnde);
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			PreparedStatement pst = conn.prepareStatement("select flugzeug.Bezeichnung, flugzeug.ID from buchung, flugzeug, flugzeugtyp "
+				+ "where flugzeug.ID=buchung.FlugzeugID and flugzeug.FlugzeugtypID=flugzeugtyp.ID "
+				+ "and flugzeugtyp.Sitzplätze >= ? "
+				+ "and not buchung.BuchungStart = ? "
+				+ "and not buchung.BuchungEnde = ?");
+			
+			pst.setString( 1, sPersonen);
+			pst.setString( 2, sDatum);
+			pst.setString( 3, sFlugdatumEnde);
+			
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				result.add(rs.getString( "Bezeichnung" ) + " (" + rs.getString( "ID") + ")" );
+			}
+		}
+		catch( SQLException ex ) {
+			Logger.getLogger( AuftragInfo.class.getName() ).log( Level.SEVERE, null, ex );
+		}
+		
+		
+		
+		return result;
 	}
 	
 	public String[] holeVerfuegbareCaptain( String sDatum, String sFlugdatumEnde ) {
