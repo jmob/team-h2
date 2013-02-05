@@ -908,7 +908,7 @@ public class AuftragInfo {
 			
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				result.add(rs.getString( "Bezeichnung" ) + " (" + rs.getString( "ID") + ")" );
+				result.add(rs.getString( "ID" ) + rs.getString( "Bezeichnung") );
 			}
 		}
 		catch( SQLException ex ) {
