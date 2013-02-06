@@ -1902,7 +1902,6 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
     //Suche nach Vorname (Name1)
 		try {
-			
 			String sql = "select * from kunde where Name1 = ?";
 			pst=conn.prepareStatement(sql);
 			pst.setString( 1, jTextField5.getText() );
@@ -1916,15 +1915,34 @@ public class pnlAuftrag extends javax.swing.JPanel {
 					jTextField8.setText( add3);
 					String add4= rs.getString("Strasse");
 					jTextField9.setText( add4 );
-			}
-			
+			}		
 		}
 		catch( Exception e ) {
 			JOptionPane.showMessageDialog( null, e);
 		}
 		
+		 //Suche nach Strasse (Strasse)
+		try {
+			String sql = "select * from kunde where Strasse = ?";
+			pst=conn.prepareStatement(sql);
+			pst.setString( 1, jTextField5.getText() );
+			rs = pst.executeQuery();
+			if(rs.next()){
+				String add1= rs.getString("Name1");
+				jTextField6.setText( add1 );
+					String add2= rs.getString("Name2");
+					jTextField7.setText( add2 );
+					String add3= rs.getString("Name3");
+					jTextField8.setText( add3);
+					String add4= rs.getString("Strasse");
+					jTextField9.setText( add4 );
+			}		
+		}
+		catch( Exception e ) {
+			JOptionPane.showMessageDialog( null, e);
+		}
   }//GEN-LAST:event_jTextField5KeyReleased
-
+	   
 
 	private void ermittleVerfügbarkeitFlugzeug() {
 		AuftragInfo auftrag = new AuftragInfo();	
