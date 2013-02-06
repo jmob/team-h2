@@ -123,7 +123,7 @@ public class BenutzerInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
+/*	
 	private void setzeAnzeige() {
 		pnlBenutzer.setNummer( iNummer );
 		pnlBenutzer.setVorname( sVorname );
@@ -251,4 +251,6 @@ public class BenutzerInfo {
 		else
 			return false;
 	}
-}
+	* 
+	* /
+*/}

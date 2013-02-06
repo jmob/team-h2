@@ -4,6 +4,8 @@
  */
 package de.rentajet.entity;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -14,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -34,6 +37,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 	@NamedQuery(name = "Benutzer.findByPasswort", query = "SELECT b FROM Benutzer b WHERE b.passwort = :passwort"),
 	@NamedQuery(name = "Benutzer.findByGesperrt", query = "SELECT b FROM Benutzer b WHERE b.gesperrt = :gesperrt")})
 public class Benutzer implements Serializable {
+	@Transient
+	private PropertyChangeSupport changeSupport = new PropertyChangeSupport( this );
 	private static final long serialVersionUID = 1L;
 	@Id
   @Basic(optional = false)
@@ -69,7 +74,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setId( Integer id ) {
+		Integer oldId = this.id;
 		this.id = id;
+		changeSupport.firePropertyChange( "id", oldId, id );
 	}
 
 	public Integer getNummer() {
@@ -77,7 +84,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setNummer( Integer nummer ) {
+		Integer oldNummer = this.nummer;
 		this.nummer = nummer;
+		changeSupport.firePropertyChange( "nummer", oldNummer, nummer );
 	}
 
 	public String getVorname() {
@@ -85,7 +94,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setVorname( String vorname ) {
+		String oldVorname = this.vorname;
 		this.vorname = vorname;
+		changeSupport.firePropertyChange( "vorname", oldVorname, vorname );
 	}
 
 	public String getNachname() {
@@ -93,7 +104,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setNachname( String nachname ) {
+		String oldNachname = this.nachname;
 		this.nachname = nachname;
+		changeSupport.firePropertyChange( "nachname", oldNachname, nachname );
 	}
 
 	public String getInitialen() {
@@ -101,7 +114,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setInitialen( String initialen ) {
+		String oldInitialen = this.initialen;
 		this.initialen = initialen;
+		changeSupport.firePropertyChange( "initialen", oldInitialen, initialen );
 	}
 
 	public String getLogin() {
@@ -109,7 +124,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setLogin( String login ) {
+		String oldLogin = this.login;
 		this.login = login;
+		changeSupport.firePropertyChange( "login", oldLogin, login );
 	}
 
 	public String getPasswort() {
@@ -117,7 +134,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setPasswort( String passwort ) {
+		String oldPasswort = this.passwort;
 		this.passwort = passwort;
+		changeSupport.firePropertyChange( "passwort", oldPasswort, passwort );
 	}
 
 	public Boolean getGesperrt() {
@@ -125,7 +144,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setGesperrt( Boolean gesperrt ) {
+		Boolean oldGesperrt = this.gesperrt;
 		this.gesperrt = gesperrt;
+		changeSupport.firePropertyChange( "gesperrt", oldGesperrt, gesperrt );
 	}
 
 	public Benutzergruppe getBenutzergruppeID() {
@@ -133,7 +154,9 @@ public class Benutzer implements Serializable {
 	}
 
 	public void setBenutzergruppeID( Benutzergruppe benutzergruppeID ) {
+		Benutzergruppe oldBenutzergruppeID = this.benutzergruppeID;
 		this.benutzergruppeID = benutzergruppeID;
+		changeSupport.firePropertyChange( "benutzergruppeID", oldBenutzergruppeID, benutzergruppeID );
 	}
 
 	@Override
@@ -159,6 +182,14 @@ public class Benutzer implements Serializable {
 	@Override
 	public String toString() {
 		return "de.rentajet.entity.Benutzer[ id=" + id + " ]";
+	}
+
+	public void addPropertyChangeListener( PropertyChangeListener listener ) {
+		changeSupport.addPropertyChangeListener( listener );
+	}
+
+	public void removePropertyChangeListener( PropertyChangeListener listener ) {
+		changeSupport.removePropertyChangeListener( listener );
 	}
 	
 }

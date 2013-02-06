@@ -128,6 +128,7 @@ public class FrmMain extends javax.swing.JFrame {
     jButton31 = new javax.swing.JButton();
     jButton32 = new javax.swing.JButton();
     jPanel3 = new javax.swing.JPanel();
+    jScrollBar1 = new javax.swing.JScrollBar();
     jMenuBar1 = new javax.swing.JMenuBar();
     jMenu1 = new javax.swing.JMenu();
     jMenuItem1 = new javax.swing.JMenuItem();
@@ -554,6 +555,8 @@ public class FrmMain extends javax.swing.JFrame {
 
     jPanel3.setName("pnlFenster"); // NOI18N
     jPanel3.setLayout(new java.awt.BorderLayout());
+    jPanel3.add(jScrollBar1, java.awt.BorderLayout.LINE_START);
+
     jSplitPane1.setRightComponent(jPanel3);
 
     jPanel1.add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -812,7 +815,7 @@ public class FrmMain extends javax.swing.JFrame {
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, Short.MAX_VALUE)
         .addContainerGap())
     );
 
@@ -1262,6 +1265,7 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem7;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem8;
   private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem9;
+  private javax.swing.JScrollBar jScrollBar1;
   private javax.swing.JPopupMenu.Separator jSeparator1;
   private javax.swing.JPopupMenu.Separator jSeparator2;
   private javax.swing.JPopupMenu.Separator jSeparator3;
