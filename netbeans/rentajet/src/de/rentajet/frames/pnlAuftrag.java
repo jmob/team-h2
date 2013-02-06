@@ -4,8 +4,12 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.base.javaconnect;
 import de.rentajet.entity.Kundenberater;
 import de.rentajet.uti.Util;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,6 +29,9 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	AuftragInfo auftrag = new AuftragInfo();
 	FlugzeugInfo flugzeug;
 	PersonalInfo personal;
+	Connection conn=null;
+	ResultSet rs = null;
+	PreparedStatement pst=null;
 
 	/**
 	 * Creates new form pnlAuftrag
@@ -33,6 +40,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		initComponents();
 		jTextField1.requestFocus();
 		ermittleVerfügbarkeitFlugzeug();
+		conn=javaconnect.ConnectDb();
 	}
 
 	/**
@@ -361,6 +369,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
         jTextField5FocusLost(evt);
       }
     });
+    jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+      public void keyReleased(java.awt.event.KeyEvent evt) {
+        jTextField5KeyReleased(evt);
+      }
+    });
 
     jButton1.setText("...");
     jButton1.setNextFocusableComponent(jTextField6);
@@ -678,7 +691,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel30)
           .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(24, Short.MAX_VALUE))
+        .addContainerGap(28, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Auftrag", jPanel3);
@@ -906,7 +919,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
           .addComponent(jButton12)
           .addComponent(jLabel75)
           .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(12, Short.MAX_VALUE))
+        .addContainerGap(16, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Zwischenstops", jPanel4);
@@ -1358,7 +1371,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
               .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(jLabel53))))
-        .addContainerGap(18, Short.MAX_VALUE))
+        .addContainerGap(22, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Kosten", jPanel6);
@@ -1445,7 +1458,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jLabel65)
           .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        .addContainerGap(89, Short.MAX_VALUE))
+        .addContainerGap(93, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Bezahlung", jPanel7);
@@ -1885,6 +1898,32 @@ public class pnlAuftrag extends javax.swing.JPanel {
     System.out.println("jButton15MouseClicked");
     ermittleVerfügbarkeitFlugzeug();
   }//GEN-LAST:event_jButton15MouseClicked
+
+  private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
+    //Suche nach Vorname (Name1)
+		try {
+			
+			String sql = "select * from kunde where Name1 = ?";
+			pst=conn.prepareStatement(sql);
+			pst.setString( 1, jTextField5.getText() );
+			rs = pst.executeQuery();
+			if(rs.next()){
+				String add1= rs.getString("Name1");
+				jTextField6.setText( add1 );
+					String add2= rs.getString("Name2");
+					jTextField7.setText( add2 );
+					String add3= rs.getString("Name3");
+					jTextField8.setText( add3);
+					String add4= rs.getString("Strasse");
+					jTextField9.setText( add4 );
+			}
+			
+		}
+		catch( Exception e ) {
+			JOptionPane.showMessageDialog( null, e);
+		}
+		
+  }//GEN-LAST:event_jTextField5KeyReleased
 
 
 	private void ermittleVerfügbarkeitFlugzeug() {
