@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Petersen
  */
 public class pnlFlugzeugkosten extends javax.swing.JPanel {
-	FlugzeugkostenInfo flugzeugkosten = new FlugzeugkostenInfo();
+	FlugzeugkostenInfo main = new FlugzeugkostenInfo();
 
 	/**
 	 * Creates new form pnlFlugzeugkosten
@@ -49,6 +49,21 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
     jFormattedTextField3 = new javax.swing.JFormattedTextField();
     jFormattedTextField4 = new javax.swing.JFormattedTextField();
     jFormattedTextField5 = new javax.swing.JFormattedTextField();
+    jToolBar1 = new javax.swing.JToolBar();
+    jButton17 = new javax.swing.JButton();
+    jSeparator5 = new javax.swing.JToolBar.Separator();
+    jButton18 = new javax.swing.JButton();
+    jButton19 = new javax.swing.JButton();
+    jButton20 = new javax.swing.JButton();
+    jButton21 = new javax.swing.JButton();
+    jButton22 = new javax.swing.JButton();
+    jSeparator6 = new javax.swing.JToolBar.Separator();
+    jButton23 = new javax.swing.JButton();
+    jButton24 = new javax.swing.JButton();
+    jButton25 = new javax.swing.JButton();
+    jButton26 = new javax.swing.JButton();
+    jSeparator7 = new javax.swing.JToolBar.Separator();
+    jButton27 = new javax.swing.JButton();
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel1.setText("Nummer");
@@ -189,10 +204,147 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabel7))
-        .addContainerGap(35, Short.MAX_VALUE))
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("Allgemein", jPanel2);
+
+    jToolBar1.setRollover(true);
+
+    jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/drucker_24st.gif"))); // NOI18N
+    jButton17.setFocusable(false);
+    jButton17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton17.setName("btnDrucken"); // NOI18N
+    jButton17.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton17.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton17ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton17);
+    jToolBar1.add(jSeparator5);
+
+    jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/vcrbegin_24st.gif"))); // NOI18N
+    jButton18.setFocusable(false);
+    jButton18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton18.setName("btnErster"); // NOI18N
+    jButton18.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton18.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton18ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton18);
+
+    jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/vcrback_24st.gif"))); // NOI18N
+    jButton19.setFocusable(false);
+    jButton19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton19.setName("btnVorheriger"); // NOI18N
+    jButton19.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton19.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton19ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton19);
+
+    jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/vcrforward_24st.gif"))); // NOI18N
+    jButton20.setFocusable(false);
+    jButton20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton20.setName("btnNaechster"); // NOI18N
+    jButton20.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton20.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton20ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton20);
+
+    jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/vcrend_24st.gif"))); // NOI18N
+    jButton21.setFocusable(false);
+    jButton21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton21.setName("btnLetzter"); // NOI18N
+    jButton21.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton21.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton21ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton21);
+
+    jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/row_24st.gif"))); // NOI18N
+    jButton22.setFocusable(false);
+    jButton22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton22.setName("btnSuche"); // NOI18N
+    jButton22.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton22.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton22ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton22);
+    jToolBar1.add(jSeparator6);
+
+    jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/save_24st.gif"))); // NOI18N
+    jButton23.setFocusable(false);
+    jButton23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton23.setName("btnSpeichern"); // NOI18N
+    jButton23.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton23.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton23ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton23);
+
+    jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/erase2_24st.gif"))); // NOI18N
+    jButton24.setFocusable(false);
+    jButton24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton24.setName("btnAbbrechen"); // NOI18N
+    jButton24.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton24.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton24ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton24);
+
+    jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/deleterow_24st.gif"))); // NOI18N
+    jButton25.setFocusable(false);
+    jButton25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton25.setName("btnLöschen"); // NOI18N
+    jButton25.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton25.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton25ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton25);
+
+    jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/partie_24st.gif"))); // NOI18N
+    jButton26.setFocusable(false);
+    jButton26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton26.setName("btnAktualisieren"); // NOI18N
+    jButton26.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton26.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton26ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton26);
+    jToolBar1.add(jSeparator7);
+
+    jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de/rentajet/bilder/24/st/schrank1_24st.gif"))); // NOI18N
+    jButton27.setFocusable(false);
+    jButton27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    jButton27.setName("btnArchiv"); // NOI18N
+    jButton27.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+    jButton27.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton27ActionPerformed(evt);
+      }
+    });
+    jToolBar1.add(jButton27);
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -204,14 +356,16 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
           .addComponent(jTabbedPane1)
           .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addContainerGap())
+      .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addContainerGap()
+        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addGap(18, 18, 18)
-        .addComponent(jTabbedPane1)
+        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
@@ -231,7 +385,7 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton1ActionPerformed
 
   private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
-    if( flugzeugkosten.istDatensatzVorhanden( Util.statischStringNachInt( jTextField1.getText())) ) {
+    if( main.istDatensatzVorhanden( Util.statischStringNachInt( jTextField1.getText())) ) {
 			jTextField1.setEnabled( false );
 		}
   }//GEN-LAST:event_jTextField1FocusLost
@@ -243,6 +397,50 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
   private void jFormattedTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFormattedTextField3FocusLost
     ermittleKostenFix();
   }//GEN-LAST:event_jFormattedTextField3FocusLost
+
+  private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    main.drucken();
+  }//GEN-LAST:event_jButton17ActionPerformed
+
+  private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    main.ersterDatensatz();
+  }//GEN-LAST:event_jButton18ActionPerformed
+
+  private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    main.vorherigerdatensatz();
+  }//GEN-LAST:event_jButton19ActionPerformed
+
+  private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    main.naechsterDatensatz();
+  }//GEN-LAST:event_jButton20ActionPerformed
+
+  private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    main.letzterDatensatz();
+  }//GEN-LAST:event_jButton21ActionPerformed
+
+  private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+    main.sucheDatensatz();
+  }//GEN-LAST:event_jButton22ActionPerformed
+
+  private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    main.speichern();
+  }//GEN-LAST:event_jButton23ActionPerformed
+
+  private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+    main.abbrechen();
+  }//GEN-LAST:event_jButton24ActionPerformed
+
+  private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+    main.loeschen();
+  }//GEN-LAST:event_jButton25ActionPerformed
+
+  private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+    main.aktualisieren();
+  }//GEN-LAST:event_jButton26ActionPerformed
+
+  private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    main.zeigeArchiv();
+  }//GEN-LAST:event_jButton27ActionPerformed
 
 	private void ermittleKostenFix() {
 		if( getFixkosten().isEmpty() || getRentabilitaetStd().isEmpty() ) {
@@ -257,6 +455,17 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
+  private javax.swing.JButton jButton17;
+  private javax.swing.JButton jButton18;
+  private javax.swing.JButton jButton19;
+  private javax.swing.JButton jButton20;
+  private javax.swing.JButton jButton21;
+  private javax.swing.JButton jButton22;
+  private javax.swing.JButton jButton23;
+  private javax.swing.JButton jButton24;
+  private javax.swing.JButton jButton25;
+  private javax.swing.JButton jButton26;
+  private javax.swing.JButton jButton27;
   private javax.swing.JFormattedTextField jFormattedTextField1;
   private javax.swing.JFormattedTextField jFormattedTextField3;
   private javax.swing.JFormattedTextField jFormattedTextField4;
@@ -271,10 +480,14 @@ public class pnlFlugzeugkosten extends javax.swing.JPanel {
   private javax.swing.JLabel jLabel8;
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPanel jPanel2;
+  private javax.swing.JToolBar.Separator jSeparator5;
+  private javax.swing.JToolBar.Separator jSeparator6;
+  private javax.swing.JToolBar.Separator jSeparator7;
   private javax.swing.JTabbedPane jTabbedPane1;
   private javax.swing.JTextField jTextField1;
   private javax.swing.JTextField jTextField2;
   private javax.swing.JTextField jTextField3;
+  private javax.swing.JToolBar jToolBar1;
   // End of variables declaration//GEN-END:variables
 
 	public void setNummer( int iNummer ) {
