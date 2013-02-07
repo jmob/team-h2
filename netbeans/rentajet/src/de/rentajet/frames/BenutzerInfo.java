@@ -39,7 +39,7 @@ public class BenutzerInfo {
 	//ResultSet rs = null;
 	//PreparedStatement pst=null;
 	
-		public BenutzerInfo() {
+	public BenutzerInfo() {
 		conn=javaconnect.ConnectDb();
 	}
 
@@ -123,11 +123,6 @@ public class BenutzerInfo {
 		this.iBenutzergruppe = iBenutzergruppe;
 	}
 	
-/*	public BenutzerInfo() {
-
-	}
-*/
-	
 	public void show( JPanel pnlMain ) {
 		pnlBenutzer = new pnlBenutzer();
 		H2InternalFrame frmBenutzer = new H2InternalFrame( "Benutzer" );
@@ -140,17 +135,6 @@ public class BenutzerInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlBenutzer.setNummer( iNummer );
-		pnlBenutzer.setVorname( sVorname );
-		pnlBenutzer.setNachname( sNachname );
-		pnlBenutzer.setInitialen( sInitialen );
-		pnlBenutzer.setLogin( sLogin );
-		pnlBenutzer.setPasswort( sPasswort );
-		pnlBenutzer.setGesperrt( bGesperrt );
-		pnlBenutzer.setBenutzergruppe( iBenutzergruppe );
-	}
 	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlBenutzer.getNummer() );
@@ -173,27 +157,22 @@ public class BenutzerInfo {
 		bGesperrt = false;
 		iBenutzergruppe = 0;
 		iBenutzergruppeID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -214,9 +193,6 @@ public class BenutzerInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
 	
 	public void drucken() {
 		JOptionPane.showMessageDialog(
@@ -276,19 +252,11 @@ public class BenutzerInfo {
 	
 	public void ersterDatensatzDB() {
 		//String sql = "SELECT * from benutzer WHERE ID=1";
-			try{
+		try{
       PreparedStatement pst = conn.prepareStatement( "SELECT * from benutzer WHERE ID=1;" );
       //pst.setString( 1, tmp);
       ResultSet rs = pst.executeQuery();
       if(rs.next()){
-							/*
-							if (rs.next()){
-							String add1 = rs.getString( "ID");
-							txt_id.setText(add1);
-							*/
-				
-				
-				
 				iNummer  = rs.getInt("Nummer");
 					//pnlBenutzer.setNummer(iNummer);
 				sVorname = rs.getString("Vorname");	
@@ -305,8 +273,6 @@ public class BenutzerInfo {
 					//pnlBenutzer.setGesperrt(bGesperrt);
 				iBenutzergruppe = rs.getInt("BenutzergruppeID");
 					//pnlBenutzer.setBenutzergruppe(iBenutzergruppeID);
-				
-	
       }
     }
 
