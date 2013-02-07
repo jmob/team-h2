@@ -1,12 +1,20 @@
-/*
+      /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -26,6 +34,14 @@ public class BenutzerInfo {
 	private String sLogin;
 	private String sPasswort;
 	private boolean bGesperrt;
+	private final Connection conn;
+	boolean hasNext = false;
+	//ResultSet rs = null;
+	//PreparedStatement pst=null;
+	
+		public BenutzerInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public int getiID() {
 		return iID;
@@ -107,9 +123,10 @@ public class BenutzerInfo {
 		this.iBenutzergruppe = iBenutzergruppe;
 	}
 	
-	public BenutzerInfo() {
+/*	public BenutzerInfo() {
 
 	}
+*/
 	
 	public void show( JPanel pnlMain ) {
 		pnlBenutzer = new pnlBenutzer();
@@ -228,8 +245,76 @@ public class BenutzerInfo {
 	}
 	
 	
-	public void ersterDatensatzDB() {
+	
+	public ArrayList<String> holeerstendatensatz( String sPersonen, String sFlugdatum, String sFlugdatumEnde ) {
 		
+		System.out.println("holeerstendatensatz " + sPersonen + " " + sFlugdatum + " " + sFlugdatumEnde);
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			PreparedStatement pst = conn.prepareStatement("SELECT * from benutzer WHERE ID=1");
+			
+			/*pst.setString( 1, sVorname);
+			pst.setString( 2, sNachname);
+			pst.setString( 3, sInitialen);
+			*/
+			
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				result.add(rs.getString( "Vorname" ) + rs.getString( "Nachname") );
+			}
+		}
+		catch( SQLException ex ) {
+			Logger.getLogger( BenutzerInfo.class.getName() ).log( Level.SEVERE, null, ex );
+		}
+		
+		
+		
+		return result;
+	}
+	
+	
+	
+	public void ersterDatensatzDB() {
+		//String sql = "SELECT * from benutzer WHERE ID=1";
+			try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from benutzer WHERE ID=1;" );
+      //pst.setString( 1, tmp);
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+							/*
+							if (rs.next()){
+							String add1 = rs.getString( "ID");
+							txt_id.setText(add1);
+							*/
+				
+				
+				
+				iNummer  = rs.getInt("Nummer");
+					//pnlBenutzer.setNummer(iNummer);
+				sVorname = rs.getString("Vorname");	
+					//pnlBenutzer.setVorname(sVorname);
+				sNachname = rs.getString("Nachname");
+					//pnlBenutzer.setNachname(sNachname);
+				sInitialen = rs.getString("Initialen");
+					//pnlBenutzer.setInitialen(sInitialen);
+				sLogin = rs.getString("Login");
+					//pnlBenutzer.setLogin(sLogin);
+				sPasswort = rs.getString("Passwort");
+					//pnlBenutzer.setPasswort(sPasswort);
+				bGesperrt = rs.getBoolean( "Gesperrt");
+					//pnlBenutzer.setGesperrt(bGesperrt);
+				iBenutzergruppe = rs.getInt("BenutzergruppeID");
+					//pnlBenutzer.setBenutzergruppe(iBenutzergruppeID);
+				
+	
+      }
+    }
+
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+
+    }
 	}
 	
 	public void vorherigerdatensatzDB() {
@@ -244,11 +329,54 @@ public class BenutzerInfo {
 		
 	}
 	
-	public boolean istDatensatzVorhanden( int iNummer ) {
-		//ToDo Abfrage in DB ob Datensatz mit übergebener Nummer vorhanden ist und ggf. Variablen füllen
-		if( iNummer == 10 )
+
+		
+	public boolean istDatensatzVorhanden( int iNummer) {
+		try {
+			//Suche nach ID
+			String sql = "select * from benutzer where ID = ?";
+			PreparedStatement pst=conn.prepareStatement(sql);
+			
+			pst.setString( 1, Integer.toString(iNummer));
+			ResultSet rs = pst.executeQuery();
+			
+			
+			 boolean hasNext = rs.next();
+			//if(rs.next()){
+				/*String add1= rs.getString("Nachname");
+				pnlBenutzer.jTextField4.setText( add1 );
+					String add2= rsget.String("Login");
+					txt_login.setText( add2 );
+					String add3= rs.getString("Passwort");
+					txt_pass.setText( add3);
+					String add4= rs.getString("Vorname");
+					txt_vorname.setText( add4 );
+					* return true;
+	*/		
+		
+	
+		}
+			
+		
+			
+		catch( Exception e ) {
+			JOptionPane.showMessageDialog( null, e);
+		}	
+		
+	
+		/*if( iNummer == 10 )
 			return true;
 		else
 			return false;
+			* 
+			*/
+	
+		if( hasNext == true ) {
+			return true;
+		}
+		else {
+			return false;
+		} 
+		
 	}
 }
