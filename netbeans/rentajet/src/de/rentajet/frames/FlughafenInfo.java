@@ -69,13 +69,7 @@ public class FlughafenInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlFlughafen.setNummer( iNummer );
-		pnlFlughafen.setBezeichnung( sBezeichnung );
-		pnlFlughafen.setKuerzel( sKuerzel );
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlFlughafen.getNummer() );
 		sBezeichnung = pnlFlughafen.getBezeichnung();
@@ -86,27 +80,22 @@ public class FlughafenInfo {
 		iNummer = 0;
 		sBezeichnung = "";
 		sKuerzel = "";
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -125,10 +114,6 @@ public class FlughafenInfo {
 	public void loeschen() {
 		loescheDB();
 		aktualisiereAnzeige();
-	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
 	}
 	
 	public void drucken() {

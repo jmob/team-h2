@@ -79,13 +79,7 @@ public class OrtInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlOrt.setPLZ( iPLZ );
-		pnlOrt.setBezeichnung( sBezeichnung );
-		pnlOrt.setStaat( sStaat );
-	}
-	
+
 	private void leseausAnzeige() {
 		iPLZ = Util.statischStringNachInt( pnlOrt.getPLZ() );
 		sBezeichnung = pnlOrt.getBezeichnung();
@@ -97,27 +91,22 @@ public class OrtInfo {
 		sBezeichnung = "";
 		sStaat = "";
 		iStaatID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -137,11 +126,7 @@ public class OrtInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

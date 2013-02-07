@@ -151,20 +151,7 @@ public class KundenberaterInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlKundenberater.setNummer( iNummer );
-		pnlKundenberater.setAnrede( sAnrede );
-		pnlKundenberater.setVorname( sVorname );
-		pnlKundenberater.setNachname( sNachname );
-		pnlKundenberater.setStrasse( sStrasse );
-		pnlKundenberater.setOrt( sOrt );
-		pnlKundenberater.setPLZ( sPLZ );
-		pnlKundenberater.setTelefon( sTelefon );
-		pnlKundenberater.setTelefax( sTelefax );
-		pnlKundenberater.setMobil( sMobil );
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlKundenberater.getNummer() );
 		sAnrede = pnlKundenberater.getAnrede();
@@ -191,27 +178,22 @@ public class KundenberaterInfo {
 		sMobil = "";
 		iAnredeID = 0;
 		iOrtID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -230,10 +212,6 @@ public class KundenberaterInfo {
 	public void loeschen() {
 		loescheDB();
 		aktualisiereAnzeige();
-	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
 	}
 	
 	public void drucken() {

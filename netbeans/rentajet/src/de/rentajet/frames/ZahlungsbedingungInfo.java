@@ -96,17 +96,7 @@ public class ZahlungsbedingungInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlZahlungsbedingung.setNummer( iNummer );
-		pnlZahlungsbedingung.setBezeichnung( sBezeichnung );
-		pnlZahlungsbedingung.setBelegtext( sBelegtext );
-		pnlZahlungsbedingung.setValuta( iValuta );
-		pnlZahlungsbedingung.setSkontoValuta( iSkontoValuta );
-		pnlZahlungsbedingung.setSkontosatz( dSkontosatz );
-		
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlZahlungsbedingung.getNummer() );
 		sBezeichnung = pnlZahlungsbedingung.getBezeichnung();
@@ -124,27 +114,22 @@ public class ZahlungsbedingungInfo {
 		iValuta = 0;
 		iSkontoValuta = 0;
 		dSkontosatz = 0.0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -164,11 +149,7 @@ public class ZahlungsbedingungInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

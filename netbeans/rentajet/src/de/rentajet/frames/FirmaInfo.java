@@ -34,6 +34,67 @@ public class FirmaInfo {
 	private String sOrt;
 	private String sPLZ;
 
+
+	public int getiID() {
+		return iID;
+	}
+
+	public int getiOrtID() {
+		return iOrtID;
+	}
+
+	public String getsBezeichnung() {
+		return sBezeichnung;
+	}
+
+	public String getsName1() {
+		return sName1;
+	}
+
+	public String getsName2() {
+		return sName2;
+	}
+
+	public String getsName3() {
+		return sName3;
+	}
+
+	public String getsStrasse() {
+		return sStrasse;
+	}
+
+	public String getsSteuernummer() {
+		return sSteuernummer;
+	}
+
+	public String getsBetriebsnummer() {
+		return sBetriebsnummer;
+	}
+
+	public String getsUSTIdentNummer() {
+		return sUSTIdentNummer;
+	}
+
+	public String getsTelefon() {
+		return sTelefon;
+	}
+
+	public String getsTelefax() {
+		return sTelefax;
+	}
+
+	public String getsLogo() {
+		return sLogo;
+	}
+
+	public String getsOrt() {
+		return sOrt;
+	}
+
+	public String getsPLZ() {
+		return sPLZ;
+	}
+
 	public void setiID( int iID ) {
 		this.iID = iID;
 	}
@@ -122,22 +183,6 @@ public class FirmaInfo {
 		}
 	}
 	
-	private void setzeAnzeige() {
-		pnlFirma.setBezeichnung( sBezeichnung );
-		pnlFirma.setName1( sName1 );
-		pnlFirma.setName2( sName2 );
-		pnlFirma.setName3( sName3 );
-		pnlFirma.setStrasse( sStrasse );
-		pnlFirma.setPLZ( sPLZ );
-		pnlFirma.setOrt( sOrt );
-		pnlFirma.setSteuernummer( sSteuernummer );
-		pnlFirma.setBetriebsnummer( sBetriebsnummer );
-		pnlFirma.setUSTIdentNummer( sUSTIdentNummer );
-		pnlFirma.setTelefon( sTelefon );
-		pnlFirma.setTelefax( sTelefax );
-		pnlFirma.setLogo( sLogo );
-	}
-	
 	private void leseausAnzeige() {
 		sBezeichnung = pnlFirma.getBezeichnung();
 		sName1 = pnlFirma.getName1();
@@ -169,27 +214,22 @@ public class FirmaInfo {
 		sTelefax = "";
 		sLogo = "";
 		iOrtID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -208,10 +248,6 @@ public class FirmaInfo {
 	public void loeschen() {
 		loescheDB();
 		aktualisiereAnzeige();
-	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
 	}
 	
 	public void drucken() {

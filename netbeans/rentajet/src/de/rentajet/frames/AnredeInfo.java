@@ -66,11 +66,6 @@ public class AnredeInfo {
 		}
 	}	
 	
-	private void setzeAnzeige() {
-		pnlAnrede.setNummer( iNummer );
-		pnlAnrede.setBezeichnung( sBezeichnung );
-	}
-	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlAnrede.getNummer() );
 		sBezeichnung = pnlAnrede.getBezeichnung();
@@ -79,32 +74,22 @@ public class AnredeInfo {
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
-		main.setFrame( "Anrede" );
-		JOptionPane.showMessageDialog(
-			null, "Erster Datensatz", "Yippi", 
-			JOptionPane.OK_OPTION
-		);	
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -123,10 +108,6 @@ public class AnredeInfo {
 	public void loeschen() {
 		loescheDB();
 		aktualisiereAnzeige();
-	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
 	}
 	
 	public void drucken() {

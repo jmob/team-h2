@@ -2144,38 +2144,46 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
   private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
     main.ersterDatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton18ActionPerformed
 
   private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
     main.vorherigerdatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton19ActionPerformed
 
   private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
     main.naechsterDatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton20ActionPerformed
 
   private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
     main.letzterDatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton21ActionPerformed
 
   private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
     main.sucheDatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
     main.speichern();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
   private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
     main.abbrechen();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
     main.loeschen();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
   private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-    main.aktualisieren();
+    setzeAnzeige();
   }//GEN-LAST:event_jButton26ActionPerformed
 
   private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -2426,6 +2434,71 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		return 0;
 	}
 	
+	private void setzeAnzeige() {
+		setNummer( main.getiNummer () );
+		setDatum( main.getsDatum () );
+		setVorgArt( main.getiVorgArt () );
+		setRechnungsdatum( main.getsRechnungsdatum () );
+		setKunde( main.getiKunde () );
+		setName1( main.getsName1 () );
+		setName2( main.getsName2 () );
+		setName3( main.getsName3 () );
+		setStrasse( main.getsStrasse () );
+		setPLZ( main.getiPLZ () );
+		setOrt( main.getsOrt () );
+		setMitarbKunde( main.getiMitarbKunde () );
+		setMitarbKundeVorname( main.getsMitarbKundeVorname () );
+		setMitarbKundeName( main.getsMitarbKundeName () );
+		setKundenberater( main.getiKundenberater () );
+		setFlugdatum( main.getsFlugdatum () );
+		setUhrzeit( main.getsUhrzeit () );           
+		setFlugdatumEnde( main.getsFlugdatumEnde () );
+		setUhrzeitEnde( main.getsUhrzeitEnde () );
+		setStart( main.getiStart () );
+		setZiel( main.getiZiel () );
+		setKilometer( main.getiKilometer () );
+		setPersonen( main.getiPersonen () );
+		setStops( main.getiStops () );
+		setErsterStop( main.getiErsterStop () );
+		setZweiterStop( main.getiZweiterStop () );
+		setDritterStop( main.getiDritterStop () );       
+		setVierterStop( main.getiVierterStop () );
+		setFuenfterStop( main.getiFuenfterStop () );
+		setSechsterStop( main.getiSechsterStop () );
+		setErsterStopAufenthalt( main.getiErsterStopAufenthalt () );
+		setZweiterStopAufenthalt( main.getiZweiterStopAufenthalt () );
+		setDritterStopAufenthalt( main.getiDritterStopAufenthalt () );
+		setVierterStopAufenthalt( main.getiVierterStopAufenthalt () );
+		setFuenfterStopAufenthalt( main.getiFuenfterStopAufenthalt () );
+		setSechsterStopAufenthalt( main.getiSechsterStopAufenthalt () );
+		setFlugzeit( main.getiFlugzeit () );
+		setFlightcrew( main.getiFlightcrew () );
+		setCabincrew( main.getiCabincrew () );
+		setCatering( main.getiCatering () );
+		setKostenFlug( main.getdKostenFlug () );
+		setKostenStop( main.getdKostenStop () );
+		setKostenFlightcrew( main.getdKostenFlightcrew () );
+		setKostenCabincrew( main.getdKostenCabincrew () );
+		setKostenCatering( main.getdKostenCatering () );
+		setKostenFlugGesamt( main.getdKostenFlugGesamt () );
+		setKostenStopGesamt( main.getdKostenStopGesamt () );
+		setKostenFlightcrewGesamt( main.getdKostenFlightcrewGesamt () );
+		setKostenCabincrewGesamt( main.getdKostenCabincrewGesamt () );
+		setKostenCateringGesamt( main.getdKostenCateringGesamt () );
+		setNetto( main.getdNetto () );
+		setRabattProzent( main.getdRabattProzent () );
+		setRabatt( main.getdRabatt () );
+		setMwSt( main.getdMwSt () );
+		setBrutto( main.getdBrutto () );
+		setZahlungsbedingung( main.getiZahlungsbedingung () );
+		setValuta( main.getiValuta () );
+		setSkontoValuta( main.getiSkontoValuta () );
+		setSkontosatz( main.getdSkontosatz () );
+		setKostenFlugVar( main.getdKostenFlugVar () );
+		setKostenFlugVarGesamt( main.getdKostenFlugVarGesamt () );
+		setChaterdauer( main.getiCharterdauer () );
+	}
+		
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private java.util.List<de.rentajet.entity.Flugzeug> flugzeugList;
   private java.util.List<de.rentajet.entity.Flugzeug> flugzeugList1;

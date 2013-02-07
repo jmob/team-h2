@@ -664,78 +664,7 @@ public class AuftragInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlAuftrag.setNummer( iNummer );
-		pnlAuftrag.setDatum( sDatum );
-		pnlAuftrag.setVorgArt( iVorgArt );
-		pnlAuftrag.setRechnungsdatum( sRechnungsdatum );
-		pnlAuftrag.setKunde( iKunde );
-		pnlAuftrag.setName1( sName1 );
-		pnlAuftrag.setName2( sName2 );
-		pnlAuftrag.setName3( sName3 );
-		pnlAuftrag.setStrasse( sStrasse );
-		pnlAuftrag.setPLZ( iPLZ );
-		pnlAuftrag.setOrt( sOrt );
-		pnlAuftrag.setMitarbKunde( iMitarbKunde );
-		pnlAuftrag.setMitarbKundeVorname( sMitarbKundeVorname );
-		pnlAuftrag.setMitarbKundeName( sMitarbKundeName );
-		pnlAuftrag.setKundenberater( iKundenberater );
-		pnlAuftrag.setFlugdatum( sFlugdatum );
-		pnlAuftrag.setUhrzeit( sUhrzeit );           
-		pnlAuftrag.setFlugdatumEnde( sFlugdatumEnde );
-		pnlAuftrag.setUhrzeitEnde( sUhrzeitEnde );
-		pnlAuftrag.setStart( iStart );
-		pnlAuftrag.setZiel( iZiel );
-		pnlAuftrag.setKilometer( iKilometer );
-		pnlAuftrag.setPersonen( iPersonen );
-		pnlAuftrag.setStops( iStops );
-		pnlAuftrag.setErsterStop( iErsterStop );
-		pnlAuftrag.setZweiterStop( iZweiterStop );
-		pnlAuftrag.setDritterStop( iDritterStop );       
-		pnlAuftrag.setVierterStop( iVierterStop );
-		pnlAuftrag.setFuenfterStop( iFuenfterStop );
-		pnlAuftrag.setSechsterStop( iSechsterStop );
-		pnlAuftrag.setErsterStopAufenthalt( iErsterStopAufenthalt );
-		pnlAuftrag.setZweiterStopAufenthalt( iZweiterStopAufenthalt );
-		pnlAuftrag.setDritterStopAufenthalt( iDritterStopAufenthalt );
-		pnlAuftrag.setVierterStopAufenthalt( iVierterStopAufenthalt );
-		pnlAuftrag.setFuenfterStopAufenthalt( iFuenfterStopAufenthalt );
-		pnlAuftrag.setSechsterStopAufenthalt( iSechsterStopAufenthalt );
-		pnlAuftrag.setFlugzeit( iFlugzeit );
-		pnlAuftrag.setFlightcrew( iFlightcrew );
-		pnlAuftrag.setCabincrew( iCabincrew );
-		pnlAuftrag.setCatering( iCatering );
-		pnlAuftrag.setKostenFlug( dKostenFlug );
-		pnlAuftrag.setKostenStop( dKostenStop );
-		pnlAuftrag.setKostenFlightcrew( dKostenFlightcrew );
-		pnlAuftrag.setKostenCabincrew( dKostenCabincrew );
-		pnlAuftrag.setKostenCatering( dKostenCatering );
-		pnlAuftrag.setKostenFlugGesamt( dKostenFlugGesamt );
-		pnlAuftrag.setKostenStopGesamt( dKostenStopGesamt );
-		pnlAuftrag.setKostenFlightcrewGesamt( dKostenFlightcrewGesamt );
-		pnlAuftrag.setKostenCabincrewGesamt( dKostenCabincrewGesamt );
-		pnlAuftrag.setKostenCateringGesamt( dKostenCateringGesamt );
-		pnlAuftrag.setNetto( dNetto );
-		pnlAuftrag.setRabattProzent( dRabattProzent );
-		pnlAuftrag.setRabatt( dRabatt );
-		pnlAuftrag.setMwSt( dMwSt );
-		pnlAuftrag.setBrutto( dBrutto );
-		pnlAuftrag.setZahlungsbedingung( iZahlungsbedingung );
-		pnlAuftrag.setValuta( iValuta );
-		pnlAuftrag.setSkontoValuta( iSkontoValuta );
-		pnlAuftrag.setSkontosatz( dSkontosatz );
-		pnlAuftrag.setKostenFlugVar( dKostenFlugVar );
-		pnlAuftrag.setKostenFlugVarGesamt( dKostenFlugVarGesamt );
-		pnlAuftrag.setChaterdauer( iCharterdauer );
-		
-//		FlugzeugID
-//		CaptainID
-//		OfficerID
-//		FlugbegleiterEinsID
-//		FlugbegleiterZweiID
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlAuftrag.getNummer() );
 		sDatum = pnlAuftrag.getDatum();
@@ -803,27 +732,22 @@ public class AuftragInfo {
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -843,11 +767,7 @@ public class AuftragInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

@@ -126,17 +126,6 @@ public class FlugzeugkostenInfo {
 		}
 	}
 	
-	private void setzeAnzeige() {
-		pnlFlugzeugkosten.setNummer( iNummer );
-		pnlFlugzeugkosten.setBezeichnung( sBezeichnung );
-		pnlFlugzeugkosten.setFixkosten( dFixkosten );
-		pnlFlugzeugkosten.setRentabilitaetStd( iRentabilitaetStd );
-		pnlFlugzeugkosten.setFixkostenStd( dFixkostenStd );
-		pnlFlugzeugkosten.setStundensatz( dStundensatz );
-		pnlFlugzeugkosten.setFlugzeugtypnummer( iFlugzeugtypnummer );
-		pnlFlugzeugkosten.setFlugzeugtyp( sFlugzeugtyp );
-	}
-	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlFlugzeugkosten.getNummer() );
 		sBezeichnung = pnlFlugzeugkosten.getBezeichnung();
@@ -156,27 +145,22 @@ public class FlugzeugkostenInfo {
 		dStundensatz = 0.0;
 		iFlugzeugtypnummer = 0;
 		iFlugzeugtypID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -196,11 +180,7 @@ public class FlugzeugkostenInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

@@ -24,6 +24,25 @@ public class PersonalkostenInfo {
 	private double dJahresgehalt;
 	private double dStundenlohn;
 	private double dStundensatz;
+	
+	private int iPersonaltypnummer;
+	private String sPersonaltyp;
+
+	public String getsPersonaltyp() {
+		return sPersonaltyp;
+	}
+
+	public void setsPersonaltyp( String sPersonaltyp ) {
+		this.sPersonaltyp = sPersonaltyp;
+	}
+
+	public int getiPersonaltypnummer() {
+		return iPersonaltypnummer;
+	}
+
+	public void setiPersonaltypnummer( int iPersonaltypnummer ) {
+		this.iPersonaltypnummer = iPersonaltypnummer;
+	}
 
 	public int getiArbeitsstunden() {
 		return iArbeitsstunden;
@@ -56,9 +75,6 @@ public class PersonalkostenInfo {
 	public void setdStundensatz( double dStundensatz ) {
 		this.dStundensatz = dStundensatz;
 	}
-	
-	private int iPersonaltypnummer;
-	private String sPersonaltyp;
 	
 	public int getiID() {
 		return iID;
@@ -100,18 +116,7 @@ public class PersonalkostenInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlPersonalkosten.setNummer( iNummer );
-		pnlPersonalkosten.setBezeichnung( sBezeichnung );
-		pnlPersonalkosten.setJahresgehalt( dJahresgehalt );
-		pnlPersonalkosten.setArbeitsstunden( iArbeitsstunden );
-		pnlPersonalkosten.setStundenlohn( dStundenlohn );
-		pnlPersonalkosten.setStundensatz( dStundensatz );
-		pnlPersonalkosten.setPersonaltypnummer( iPersonaltypnummer );
-		pnlPersonalkosten.setPersonaltyp( sPersonaltyp );
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlPersonalkosten.getNummer() );
 		sBezeichnung = pnlPersonalkosten.getBezeichnung();
@@ -130,27 +135,22 @@ public class PersonalkostenInfo {
 		dStundenlohn = 0;
 		dStundensatz = 0;
 		iPersonaltypnummer = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -169,10 +169,6 @@ public class PersonalkostenInfo {
 	public void loeschen() {
 		loescheDB();
 		aktualisiereAnzeige();
-	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
 	}
 	
 	public void drucken() {

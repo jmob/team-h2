@@ -61,11 +61,6 @@ public class TriebwerkartInfo {
 		}
 	}	
 	
-	private void setzeAnzeige() {
-		pnlTriebwerkart.setNummer( iNummer );
-		pnlTriebwerkart.setBezeichnung( sBezeichnung );
-	}
-	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlTriebwerkart.getNummer() );
 		sBezeichnung = pnlTriebwerkart.getBezeichnung();
@@ -74,27 +69,22 @@ public class TriebwerkartInfo {
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -114,11 +104,7 @@ public class TriebwerkartInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

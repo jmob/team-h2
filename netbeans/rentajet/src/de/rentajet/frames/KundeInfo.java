@@ -214,25 +214,6 @@ public class KundeInfo {
 		}
 	}
 	
-	private void setzeAnzeige() {
-		pnlKunde.setNummer( iNummer );
-		pnlKunde.setAnrede( sAnrede );
-		pnlKunde.setMatchcode( sMatchcode );
-		pnlKunde.setName1( sName1 );
-		pnlKunde.setName2( sName2 );
-		pnlKunde.setName3( sName3 );
-		pnlKunde.setStrasse( sStrasse );
-		pnlKunde.setPLZ( sPLZ );
-		pnlKunde.setOrt( sOrt );
-		pnlKunde.setTelefon( sTelefon );
-		pnlKunde.setTelefax( sTelefax );
-		pnlKunde.setMobil( sMobil );
-		pnlKunde.setKundenberater( iKundenberater );
-		pnlKunde.setKreditlimit( dKreditlimit );
-		pnlKunde.setSteuernummer( sSteuernummer );
-		pnlKunde.setGesperrt( bGesperrt );
-	}
-	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlKunde.getNummer() );
 		sAnrede = pnlKunde.getAnrede();
@@ -272,27 +253,22 @@ public class KundeInfo {
 		iAnredeID = 0;
 		iOrtID = 0;
 		iKundenberaterID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -312,11 +288,7 @@ public class KundeInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

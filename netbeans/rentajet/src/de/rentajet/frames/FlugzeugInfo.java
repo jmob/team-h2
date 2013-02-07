@@ -99,14 +99,7 @@ public class FlugzeugInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlFlugzeug.setNummer( iNummer );
-		pnlFlugzeug.setBezeichnung( sBezeichnung );
-		pnlFlugzeug.setFlugzeugtyp( iFlugzeugtyp );
-		pnlFlugzeug.setFoto( sFoto );
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlFlugzeug.getNummer() );
 		sBezeichnung = pnlFlugzeug.getBezeichnung();
@@ -120,27 +113,22 @@ public class FlugzeugInfo {
 		iFlugzeugtyp = 0;
 		sFoto = "";
 		iFlugzeugtypID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -159,10 +147,6 @@ public class FlugzeugInfo {
 	public void loeschen() {
 		loescheDB();
 		aktualisiereAnzeige();
-	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
 	}
 	
 	public void drucken() {

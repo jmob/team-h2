@@ -124,17 +124,7 @@ public class PersonalInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlPersonal.setNummer( iNummer );
-		pnlPersonal.setVorname( sVorname );
-		pnlPersonal.setNachname( sNachname );
-		pnlPersonal.setInfo( sInfo );
-		pnlPersonal.setTelefon( sTelefon );
-		pnlPersonal.setTelefax( sTelefax );
-		pnlPersonal.setMobil( sMobil );
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlPersonal.getNummer() );
 		sVorname = pnlPersonal.getVorname();
@@ -154,27 +144,22 @@ public class PersonalInfo {
 		sTelefon = "";
 		sTelefax = "";
 		sMobil = "";
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -194,11 +179,7 @@ public class PersonalInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

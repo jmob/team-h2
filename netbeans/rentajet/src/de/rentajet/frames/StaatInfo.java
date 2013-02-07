@@ -87,15 +87,7 @@ public class StaatInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlStaat.setNummer( iNummer );
-		pnlStaat.setBezeichnung( sBezeichnung );
-		pnlStaat.setLaendercode( sLaendercode );
-		pnlStaat.setPostKuerzel( sPostKuerzel );
-		pnlStaat.setPostName( sPostName );
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlStaat.getNummer() );
 		sBezeichnung = pnlStaat.getBezeichnung();
@@ -110,27 +102,22 @@ public class StaatInfo {
 		sLaendercode = "";
 		sPostKuerzel = "";
 		sPostName = "";	
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -150,11 +137,7 @@ public class StaatInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

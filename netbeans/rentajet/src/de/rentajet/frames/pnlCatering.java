@@ -297,44 +297,59 @@ public class pnlCatering extends javax.swing.JPanel {
 
   private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
     main.ersterDatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton18ActionPerformed
 
   private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
     main.vorherigerdatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton19ActionPerformed
 
   private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
     main.naechsterDatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton20ActionPerformed
 
   private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
     main.letzterDatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton21ActionPerformed
 
   private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
     main.sucheDatensatz();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
     main.speichern();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
   private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
     main.abbrechen();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
     main.loeschen();
+		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
   private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-    main.aktualisieren();
+    setzeAnzeige();
   }//GEN-LAST:event_jButton26ActionPerformed
 
   private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
     main.zeigeArchiv();
   }//GEN-LAST:event_jButton27ActionPerformed
-
+	
+	private void setzeAnzeige() {
+		setNummer( main.getiNummer() );
+		setBezeichnung( main.getsBezeichnung() );
+		setPreis( main.getdPreis() );
+		setBeschreibung( main.getsBeschreibung() );
+	}
+	
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton17;
   private javax.swing.JButton jButton18;

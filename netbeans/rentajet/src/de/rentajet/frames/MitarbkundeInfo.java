@@ -151,20 +151,7 @@ public class MitarbkundeInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlMitarbkunde.setNummer( iNummer );
-		pnlMitarbkunde.setAnrede( sAnrede );
-		pnlMitarbkunde.setKundenummer( iKundenummer );
-		pnlMitarbkunde.setKunde( sKunde );
-		pnlMitarbkunde.setVorname( sVorname );
-		pnlMitarbkunde.setNachname( sNachname );
-		pnlMitarbkunde.setInfo( sInfo );
-		pnlMitarbkunde.setTelefon( sTelefon );
-		pnlMitarbkunde.setTelefax( sTelefax );
-		pnlMitarbkunde.setMobil( sMobil );
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlMitarbkunde.getNummer() );
 		sAnrede = pnlMitarbkunde.getAnrede();
@@ -189,27 +176,22 @@ public class MitarbkundeInfo {
 		sMobil = "";
 		iAnredeID = 0;
 		iKundeID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -229,11 +211,7 @@ public class MitarbkundeInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 

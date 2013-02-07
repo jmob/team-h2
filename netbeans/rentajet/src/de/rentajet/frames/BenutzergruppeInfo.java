@@ -61,12 +61,6 @@ public class BenutzergruppeInfo {
 		}
 	}	
 	
-	private void setzeAnzeige() {
-		pnlBenutzergruppe.setNummer( iNummer );
-		pnlBenutzergruppe.setBezeichnung( sBezeichnung );
-		
-	}
-	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlBenutzergruppe.getNummer() );
 		sBezeichnung = pnlBenutzergruppe.getBezeichnung();
@@ -75,27 +69,22 @@ public class BenutzergruppeInfo {
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -114,10 +103,6 @@ public class BenutzergruppeInfo {
 	public void loeschen() {
 		loescheDB();
 		aktualisiereAnzeige();
-	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
 	}
 	
 	public void drucken() {

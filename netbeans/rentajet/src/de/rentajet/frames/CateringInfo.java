@@ -79,13 +79,6 @@ public class CateringInfo {
 		}
 	}	
 	
-	private void setzeAnzeige() {
-		pnlCatering.setNummer( iNummer );
-		pnlCatering.setBezeichnung( sBezeichnung );
-		pnlCatering.setPreis( dPreis );
-		pnlCatering.setBeschreibung( sBeschreibung );
-	}
-	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlCatering.getNummer() );
 		sBezeichnung = pnlCatering.getBezeichnung();
@@ -98,27 +91,22 @@ public class CateringInfo {
 		sBezeichnung = "";
 		dPreis = 0.0;
 		sBeschreibung = "";
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -137,10 +125,6 @@ public class CateringInfo {
 	public void loeschen() {
 		loescheDB();
 		aktualisiereAnzeige();
-	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
 	}
 	
 	public void drucken() {

@@ -142,20 +142,7 @@ public class FlugzeugtypInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-	
-	private void setzeAnzeige() {
-		pnlFlugzeugtyp.setNummer( iNummer );
-		pnlFlugzeugtyp.setBezeichnung( sBezeichnung );
-		pnlFlugzeugtyp.setHersteller( sHersteller );
-		pnlFlugzeugtyp.setFlightcrew( iFlightcrew );
-		pnlFlugzeugtyp.setCabincrew( iCabincrew );
-		pnlFlugzeugtyp.setReichweite( iReichweite );
-		pnlFlugzeugtyp.setSitzplaetze( iSitzplaetze );
-		pnlFlugzeugtyp.setReisegeschwindigkeit( iReisegeschwindigkeit );
-		pnlFlugzeugtyp.setTriebwerke( iTriebwerke );
-		pnlFlugzeugtyp.setTriebwerkart( iTriebwerkart );
-	}
-	
+
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlFlugzeugtyp.getNummer() );
 		sBezeichnung = pnlFlugzeugtyp.getBezeichnung();
@@ -181,27 +168,22 @@ public class FlugzeugtypInfo {
 		iTriebwerke = 0;
 		iTriebwerkart = 0;
 		iTriebwerkartID = 0;
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -221,11 +203,7 @@ public class FlugzeugtypInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
