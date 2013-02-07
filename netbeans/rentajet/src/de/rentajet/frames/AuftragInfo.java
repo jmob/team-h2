@@ -891,9 +891,9 @@ public class AuftragInfo {
 		
 	}
 	
-	public ArrayList<String> holeVerfügbareFlugzeuge( String sPersonen, String sDatum, String sFlugdatumEnde ) {
+	public ArrayList<String> holeVerfügbareFlugzeuge( String sPersonen, String sFlugdatum, String sFlugdatumEnde ) {
 		
-		System.out.println("holeVerfügbareFlugzeuge " + sPersonen + " " + sDatum + " " + sFlugdatumEnde);
+		System.out.println("holeVerfügbareFlugzeuge " + sPersonen + " " + sFlugdatum + " " + sFlugdatumEnde);
 		ArrayList<String> result = new ArrayList<String>();
 		try {
 			PreparedStatement pst = conn.prepareStatement("select flugzeug.Bezeichnung, flugzeug.ID from buchung, flugzeug, flugzeugtyp "
@@ -903,7 +903,7 @@ public class AuftragInfo {
 				+ "and not buchung.BuchungEnde = ?");
 			
 			pst.setString( 1, sPersonen);
-			pst.setString( 2, sDatum);
+			pst.setString( 2, sFlugdatum);
 			pst.setString( 3, sFlugdatumEnde);
 			
 			ResultSet rs = pst.executeQuery();
@@ -920,31 +920,137 @@ public class AuftragInfo {
 		return result;
 	}
 	
-	public String[] holeVerfuegbareCaptain( String sDatum, String sFlugdatumEnde ) {
+	public ArrayList<String> holeVerfuegbareCaptain( String sFlugdatum, String sFlugdatumEnde ) {
 		// Verfügbarkeitsprüfung
-		String[] sa = new String[3];
-		sa[0] = "1. Captain";
-		sa[1] = "2. Captain";
-		sa[2] = "3. Captain";	
-		return sa;  
+	System.out.println("holeVerfuegbareCaptain " + sFlugdatum + " " + sFlugdatumEnde);
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			PreparedStatement pst = conn.prepareStatement("select personal.Bezeichnung, personal.Nachname from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Pilot'"
+				+ "and not buchungpersonal.BuchungStart = ? "
+				+ "and not buchungpersonal.BuchungEnde = ? ");
+			
+			pst.setString( 1, sFlugdatum);
+			pst.setString( 2, sFlugdatumEnde);
+			
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				result.add(rs.getString( "Nachname" ) + rs.getString( "Bezeichnung") );
+			}
+		}
+		catch( SQLException ex ) {
+			Logger.getLogger( AuftragInfo.class.getName() ).log( Level.SEVERE, null, ex );
+		}
+		
+		
+		
+		return result;
+	 
 	}
 	
-	public String[] holeVerfuegbareOfficer( String sDatum, String sFlugdatumEnde ) {
+	public ArrayList<String> holeVerfuegbareOfficer( String sFlugdatum, String sFlugdatumEnde ) {
 		// Verfügbarkeitsprüfung
-		String[] sa = new String[3];
-		sa[0] = "1. Officer";
-		sa[1] = "2. Officer";
-		sa[2] = "3. Officer";	
-		return sa;  
+		System.out.println("holeVerfuegbareOffizier " + sFlugdatum + " " + sFlugdatumEnde);
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			PreparedStatement pst = conn.prepareStatement("select personal.Bezeichnung, personal.nachname from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Offizier'"
+				+ "and not buchungpersonal.BuchungStart = ? "
+				+ "and not buchungpersonal.BuchungEnde = ? ");
+			
+			pst.setString( 1, sFlugdatum);
+			pst.setString( 2, sFlugdatumEnde);
+			
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				result.add(rs.getString( "Nachname" ) + rs.getString( "Bezeichnung") );
+			}
+		}
+		catch( SQLException ex ) {
+			Logger.getLogger( AuftragInfo.class.getName() ).log( Level.SEVERE, null, ex );
+		}
+		
+		
+		
+		return result;
+	 
 	}
 	
-	public String[] holeVerfuegbareFlugbegleiter( String sDatum, String sFlugdatumEnde ) {
+	public ArrayList<String> holeVerfuegbareFlugbegleiter( String sFlugdatum, String sFlugdatumEnde ) {
 		// Verfügbarkeitsprüfung
-		String[] sa = new String[3];
-		sa[0] = "1. Flugbegeliter";
-		sa[1] = "2. Flugbegleiter";
-		sa[2] = "3. Flugbegleiter";	
-		return sa;  
+		System.out.println("holeVerfuegbareFlugbegleiter " + sFlugdatum + " " + sFlugdatumEnde);
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			PreparedStatement pst = conn.prepareStatement("select personal.Bezeichnung, personal.nachname from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Flugbegleiter'"
+				+ "and not buchungpersonal.BuchungStart = ? "
+				+ "and not buchungpersonal.BuchungEnde = ? ");
+			
+			pst.setString( 1, sFlugdatum);
+			pst.setString( 2, sFlugdatumEnde);
+			
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				result.add(rs.getString( "Nachname" ) + rs.getString( "Bezeichnung") );
+			}
+		}
+		catch( SQLException ex ) {
+			Logger.getLogger( AuftragInfo.class.getName() ).log( Level.SEVERE, null, ex );
+		}
+		
+		
+		
+		return result; 
+	}
+	
+	public ArrayList<String> buchePersonal( String sFlugdatum, String sFlugdatumEnde ) {
+		// Verfügbarkeitsprüfung
+		System.out.println("buchePersonal " + sFlugdatum + " " + sFlugdatumEnde);
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			PreparedStatement pst = conn.prepareStatement("INSERT INTO buchungpersonal (ID, PersonalID, PersonaltypID, BuchungStart, BuchungEnde) VALUES (?, ?, ?, ?, ?)");
+			pst.setString( 1, sFlugdatum);
+			pst.setString( 2, sFlugdatumEnde);
+			pst.setString( 3, sFlugdatumEnde);
+			pst.setString( 4, sFlugdatum);
+			pst.setString( 5, sFlugdatumEnde);
+			
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				result.add(rs.getString( "Nachname" ) + rs.getString( "Bezeichnung") );
+			}
+		}
+		catch( SQLException ex ) {
+			Logger.getLogger( AuftragInfo.class.getName() ).log( Level.SEVERE, null, ex );
+		}
+		
+		
+		
+		return result; 
+	}
+	
+	public ArrayList<String> bucheFlugzeug( String sFlugdatum, String sFlugdatumEnde ) {
+		// Verfügbarkeitsprüfung
+		System.out.println("bucheFlugzeug" + sFlugdatum + " " + sFlugdatumEnde);
+		ArrayList<String> result = new ArrayList<String>();
+		try {
+			PreparedStatement pst = conn.prepareStatement("INSERT INTO buchung (ID, Nummer, FlugzeugID, FlugzeugtypID, BuchungStart, BuchungEnde) VALUES (?, ?, ?, ?, ?, ?)");
+			pst.setString( 1, sFlugdatum);
+			pst.setString( 2, sFlugdatumEnde);
+			pst.setString( 3, sFlugdatumEnde);
+			pst.setString( 4, sFlugdatum);
+			pst.setString( 5, sFlugdatum);
+			pst.setString( 6, sFlugdatumEnde);
+			
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				result.add(rs.getString( "Nachname" ) + rs.getString( "Bezeichnung") );
+			}
+		}
+		catch( SQLException ex ) {
+			Logger.getLogger( AuftragInfo.class.getName() ).log( Level.SEVERE, null, ex );
+		}
+		
+		
+		
+		return result; 
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {
