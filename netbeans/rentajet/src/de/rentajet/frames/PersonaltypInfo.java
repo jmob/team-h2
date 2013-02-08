@@ -66,11 +66,6 @@ public class PersonaltypInfo {
 		}
 	}	
 	
-	private void setzeAnzeige() {
-		pnlPersonaltyp.setNummer( iNummer );
-		pnlPersonaltyp.setBezeichnung( sBezeichnung );
-	}
-	
 	private void leseausAnzeige() {
 		iNummer = Util.statischStringNachInt( pnlPersonaltyp.getNummer() );
 		sBezeichnung = pnlPersonaltyp.getBezeichnung();
@@ -79,27 +74,22 @@ public class PersonaltypInfo {
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
-		setzeAnzeige();
 	}
 	
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void vorherigerdatensatz() {
 		vorherigerdatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void naechsterDatensatz() {
 		naechsterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void letzterDatensatz() {
 		letzterDatensatzDB();
-		setzeAnzeige();
 	}
 	
 	public void sucheDatensatz() {
@@ -119,11 +109,7 @@ public class PersonaltypInfo {
 		loescheDB();
 		aktualisiereAnzeige();
 	}
-	
-	public void aktualisieren() {
-		setzeAnzeige();
-	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
@@ -152,7 +138,7 @@ public class PersonaltypInfo {
 	
 	
 	public void ersterDatensatzDB() {
-			try{
+		try{
       PreparedStatement pst = conn.prepareStatement( "SELECT * from personaltyp WHERE ID=1;" );
       ResultSet rs = pst.executeQuery();
       if(rs.next()){

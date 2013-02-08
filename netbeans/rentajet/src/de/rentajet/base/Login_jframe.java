@@ -169,6 +169,7 @@ public class Login_jframe extends javax.swing.JFrame {
 			pst.close();
 			//Login_info s= new Login_info();
 			FrmMain s= new FrmMain();
+			s.setSize( 1280, 770 );
 			s.setVisible(true);
 			close();
 			}
