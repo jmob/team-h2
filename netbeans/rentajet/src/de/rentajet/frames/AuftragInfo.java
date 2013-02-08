@@ -982,7 +982,7 @@ public class AuftragInfo {
 			
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				result.add(rs.getString( "ID" ) + rs.getString( "Bezeichnung") );
+				result.add(rs.getString( "ID" ) + (" ") + rs.getString( "Bezeichnung") );
 			}
 		}
 		catch( SQLException ex ) {
@@ -999,7 +999,7 @@ public class AuftragInfo {
 	System.out.println("holeVerfuegbareCaptain " + sFlugdatum + " " + sFlugdatumEnde);
 		ArrayList<String> result = new ArrayList<String>();
 		try {
-			PreparedStatement pst = conn.prepareStatement("select personal.Bezeichnung, personal.Nachname from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Pilot'"
+			PreparedStatement pst = conn.prepareStatement("select personal.ID, personal.Nachname, personal.Bezeichnung from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Pilot'"
 				+ "and not buchungpersonal.BuchungStart = ? "
 				+ "and not buchungpersonal.BuchungEnde = ? ");
 			
@@ -1008,7 +1008,7 @@ public class AuftragInfo {
 			
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				result.add(rs.getString( "Nachname" ) + rs.getString( "Bezeichnung") );
+				result.add(rs.getString("ID") + (" ") +rs.getString( "Nachname" ) + (" (") + rs.getString( "Bezeichnung") +(")"));
 			}
 		}
 		catch( SQLException ex ) {
@@ -1026,7 +1026,7 @@ public class AuftragInfo {
 		System.out.println("holeVerfuegbareOffizier " + sFlugdatum + " " + sFlugdatumEnde);
 		ArrayList<String> result = new ArrayList<String>();
 		try {
-			PreparedStatement pst = conn.prepareStatement("select personal.Bezeichnung, personal.nachname from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Offizier'"
+			PreparedStatement pst = conn.prepareStatement("select personal.ID, personal.Nachname, personal.Bezeichnung from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Offizier'"
 				+ "and not buchungpersonal.BuchungStart = ? "
 				+ "and not buchungpersonal.BuchungEnde = ? ");
 			
@@ -1035,7 +1035,7 @@ public class AuftragInfo {
 			
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				result.add(rs.getString( "Nachname" ) + rs.getString( "Bezeichnung") );
+				result.add(rs.getString("ID") + (" ") +rs.getString( "Nachname" ) + (" (") + rs.getString( "Bezeichnung") +(")"));
 			}
 		}
 		catch( SQLException ex ) {
@@ -1053,7 +1053,7 @@ public class AuftragInfo {
 		System.out.println("holeVerfuegbareFlugbegleiter " + sFlugdatum + " " + sFlugdatumEnde);
 		ArrayList<String> result = new ArrayList<String>();
 		try {
-			PreparedStatement pst = conn.prepareStatement("select personal.Bezeichnung, personal.nachname from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Flugbegleiter'"
+			PreparedStatement pst = conn.prepareStatement("select personal.ID, personal.Nachname, personal.Bezeichnung from buchungpersonal, personal where personal.ID=buchungpersonal.PersonalID and personal.bezeichnung='Flugbegleiter'"
 				+ "and not buchungpersonal.BuchungStart = ? "
 				+ "and not buchungpersonal.BuchungEnde = ? ");
 			
@@ -1062,7 +1062,7 @@ public class AuftragInfo {
 			
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				result.add(rs.getString( "Nachname" ) + rs.getString( "Bezeichnung") );
+				result.add(rs.getString("ID") + (" ") +rs.getString( "Nachname" ) + (" (") + rs.getString( "Bezeichnung") +(")"));
 			}
 		}
 		catch( SQLException ex ) {
