@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -20,9 +24,10 @@ public class FlughafenInfo {
 	private int iNummer;
 	private String sBezeichnung;
 	private String sKuerzel;
-	
-	public FlughafenInfo() {
-		
+	private final Connection conn;
+
+		public FlughafenInfo() {
+		conn=javaconnect.ConnectDb();
 	}
 
 	public int getiID() {
@@ -144,6 +149,20 @@ public class FlughafenInfo {
 	
 	
 	public void ersterDatensatzDB() {
+		try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from flughafen WHERE ID=1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sBezeichnung = rs.getString("Bezeichnung");
+				sKuerzel = rs.getString("Kuerzel");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 		
 	}
 	
@@ -156,8 +175,22 @@ public class FlughafenInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
-	}
+	try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from flughafen ORDER BY ID DESC LIMIT 1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sBezeichnung = rs.getString("Bezeichnung");
+				sKuerzel = rs.getString("Kuerzel");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
+	}	
+	
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {
 		//ToDo Abfrage in DB ob Datensatz mit übergebener Nummer vorhanden ist und ggf. Variablen füllen

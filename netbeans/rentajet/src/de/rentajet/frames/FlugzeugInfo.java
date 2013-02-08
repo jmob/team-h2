@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,6 +27,11 @@ public class FlugzeugInfo {
 	private int iFlugzeugtyp;
 	private String sBezeichnung;
 	private String sFoto;
+	private final Connection conn;
+	
+		public FlugzeugInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public int getiID() {
 		return iID;
@@ -71,11 +80,7 @@ public class FlugzeugInfo {
 	public void setiFlugzeugtyp( int iFlugzeugtyp ) {
 		this.iFlugzeugtyp = iFlugzeugtyp;
 	}
-	
-	public FlugzeugInfo() {
-		
-	}
-	
+
 	public String sucheBild() {
 		JFileChooser chooser = new JFileChooser();
     int rueckgabeWert = chooser.showOpenDialog(null);
@@ -177,6 +182,22 @@ public class FlugzeugInfo {
 	
 	
 	public void ersterDatensatzDB() {
+		try{
+      //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung WHERE ID=1;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM flugzeug AS t1, flugzeugtyp AS t2 WHERE t1.ID=1 AND t1.FlugzeugtypID= t2.ID;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iFlugzeugtypID  = rs.getInt("FlugzeugtypID");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				sFoto  = rs.getString("Foto");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 		
 	}
 	
@@ -189,6 +210,21 @@ public class FlugzeugInfo {
 	}
 	
 	public void letzterDatensatzDB() {
+		try{    
+			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM flugzeug AS t1, flugzeugtyp AS t2 WHERE t1.FlugzeugtypID= t2.ID ORDER BY t1.ID DESC LIMIT 1");
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iFlugzeugtypID  = rs.getInt("FlugzeugtypID");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				sFoto  = rs.getString("Foto");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 		
 	}
 	

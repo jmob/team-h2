@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -28,7 +32,13 @@ public class FlugzeugtypInfo {
 	private int iTriebwerkart;
 	private String sBezeichnung;
 	private String sHersteller;
-
+	private final Connection conn;
+	
+		public FlugzeugtypInfo() {
+		conn=javaconnect.ConnectDb();
+	}
+	
+	
 	public int getiID() {
 		return iID;
 	}
@@ -125,11 +135,6 @@ public class FlugzeugtypInfo {
 		this.iTriebwerkart = iTriebwerkart;
 	}
 
-	
-	public FlugzeugtypInfo() {
-		
-	}
-	
 	public void show( JPanel pnlMain ) {
 		pnlFlugzeugtyp = new pnlFlugzeugtyp();
 		H2InternalFrame frmFlugzeugtyp = new H2InternalFrame( "Flugzeugtyp" );
@@ -232,6 +237,27 @@ public class FlugzeugtypInfo {
 	
 	
 	public void ersterDatensatzDB() {
+		try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM flugzeugtyp AS t1, triebwerkartid AS t2 WHERE t1.ID=1 AND t1.TriebwerkartID= t2.ID;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iTriebwerkartID  = rs.getInt("TriebwerkartID");
+				iFlightcrew  = rs.getInt("Flightcrew");
+				iCabincrew  = rs.getInt("Cabincrew");
+				iReichweite  = rs.getInt("Reichweite");
+				iSitzplaetze  = rs.getInt("Sitzplätze");
+				iReisegeschwindigkeit  = rs.getInt("Reisegeschwindigkeit");
+				iTriebwerke  = rs.getInt("Triebwerke");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				sHersteller  = rs.getString("Hersteller");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 		
 	}
 	
@@ -244,7 +270,27 @@ public class FlugzeugtypInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+				try{    
+			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM flugzeugtyp AS t1, triebwerkartid AS t2 WHERE t1.TriebwerkartID= t2.ID ORDER BY t1.ID DESC LIMIT 1");
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iTriebwerkartID  = rs.getInt("TriebwerkartID");
+				iFlightcrew  = rs.getInt("Flightcrew");
+				iCabincrew  = rs.getInt("Cabincrew");
+				iReichweite  = rs.getInt("Reichweite");
+				iSitzplaetze  = rs.getInt("Sitzplätze");
+				iReisegeschwindigkeit  = rs.getInt("Reisegeschwindigkeit");
+				iTriebwerke  = rs.getInt("Triebwerke");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				sHersteller  = rs.getString("Hersteller");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {

@@ -324,8 +324,9 @@ public class KundeInfo {
 	
 	public void ersterDatensatzDB() {
 		try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung WHERE ID=1;" );
-      ResultSet rs = pst.executeQuery();
+      //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung WHERE ID=1;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE t1.ID=1 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ;" );
+			ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");
 				iNummer  = rs.getInt("Nummer");
@@ -361,8 +362,9 @@ public class KundeInfo {
 	
 	public void letzterDatensatzDB() {
 		try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung ORDER BY ID DESC LIMIT 1;" );
-      ResultSet rs = pst.executeQuery();
+      //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung ORDER BY ID DESC LIMIT 1;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE  t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ORDER BY t1.ID DESC LIMIT 1");
+			ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");
 				iNummer  = rs.getInt("Nummer");
