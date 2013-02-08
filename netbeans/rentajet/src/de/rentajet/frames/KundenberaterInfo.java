@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -29,7 +33,12 @@ public class KundenberaterInfo {
 	
 	private String sAnrede;
 	private String sOrt;
-	private String sPLZ;
+	private String sPLZ;	
+	private final Connection conn;
+
+		public KundenberaterInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public int getiID() {
 		return iID;
@@ -135,10 +144,6 @@ public class KundenberaterInfo {
 		this.sPLZ = sPLZ;
 	}
 	
-	public KundenberaterInfo() {
-		
-	}
-	
 	public void show( JPanel pnlMain ) {
 		pnlKundenberater = new pnlKundenberater();
 		H2InternalFrame frmKundenberater = new H2InternalFrame( "Kundenberater" );
@@ -242,6 +247,31 @@ public class KundenberaterInfo {
 	
 	
 	public void ersterDatensatzDB() {
+				try{
+      //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung WHERE ID=1;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.* FROM kundenberater AS t1, anrede AS t2, ort AS t3 WHERE t1.ID=1 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID ;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iAnredeID  = rs.getInt("AnredeID");
+				iOrtID  = rs.getInt("OrtID");
+				sVorname = rs.getString("Vorname");
+				sNachname = rs.getString("Nachname");
+				sStrasse = rs.getString("Strasse");
+				sTelefon = rs.getString("Telefon");	
+				sTelefax = rs.getString("Telefax");	
+				sMobil  = rs.getString("Mobil");
+				
+				//sAnrede  = rs.getString("");
+				//sOrt = rs.getString("Bezeichnung");
+				//sPLZ = rs.getString("PLZ");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 		
 	}
 	
@@ -254,7 +284,30 @@ public class KundenberaterInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+			try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.* FROM kundenberater AS t1, anrede AS t2, ort AS t3 WHERE  t1.AnredeID= t2.ID AND t1.OrtID= t3.ID ORDER BY t1.ID DESC LIMIT 1");
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iAnredeID  = rs.getInt("AnredeID");
+				iOrtID  = rs.getInt("OrtID");
+				sVorname = rs.getString("Vorname");
+				sNachname = rs.getString("Nachname");
+				sStrasse = rs.getString("Strasse");
+				sTelefon = rs.getString("Telefon");	
+				sTelefax = rs.getString("Telefax");	
+				sMobil  = rs.getString("Mobil");
+				
+				//sAnrede  = rs.getString("");
+				//sOrt = rs.getString("Bezeichnung");
+				//sPLZ = rs.getString("PLZ");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }		
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {

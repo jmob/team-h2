@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -25,6 +29,11 @@ public class PersonalInfo {
 	private String sMobil;
 	private String sInfo;
 	private int iPersonaltypID;
+	private final Connection conn;
+	
+		public PersonalInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public int getiPersonaltypID() {
 		return iPersonaltypID;
@@ -106,10 +115,6 @@ public class PersonalInfo {
 
 	public void setsAnrede( String sAnrede ) {
 		this.sAnrede = sAnrede;
-	}
-	
-	public PersonalInfo() {
-		
 	}
 	
 	public void show( JPanel pnlMain ) {
@@ -208,6 +213,25 @@ public class PersonalInfo {
 	
 	
 	public void ersterDatensatzDB() {
+			try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM personal AS t1, personaltyp AS t2 WHERE t1.ID=1 AND t1.PersonaltypID= t2.ID;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sVorname  = rs.getString("Vorname");
+				sNachname  = rs.getString("Nachname");
+				sTelefon  = rs.getString("Telefon");
+				sTelefax  = rs.getString("Telefax");
+				sMobil  = rs.getString("Mobil");
+				sInfo  = rs.getString("Info");
+				iPersonaltypID  = rs.getInt("PersonaltypID");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 		
 	}
 	
@@ -220,6 +244,25 @@ public class PersonalInfo {
 	}
 	
 	public void letzterDatensatzDB() {
+		try{    
+			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM personal AS t1, personaltyp AS t2 WHERE t1.PersonaltypID= t2.ID ORDER BY t1.ID DESC LIMIT 1");
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sVorname  = rs.getString("Vorname");
+				sNachname  = rs.getString("Nachname");
+				sTelefon  = rs.getString("Telefon");
+				sTelefax  = rs.getString("Telefax");
+				sMobil  = rs.getString("Mobil");
+				sInfo  = rs.getString("Info");
+				iPersonaltypID  = rs.getInt("PersonaltypID"); 	
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 		
 	}
 	

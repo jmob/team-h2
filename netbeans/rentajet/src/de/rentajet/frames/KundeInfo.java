@@ -387,10 +387,7 @@ public class KundeInfo {
     catch(Exception e)
     {
       JOptionPane.showMessageDialog(null, e);
-    }	
-	
-
-		
+    }		
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {

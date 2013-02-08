@@ -5,7 +5,11 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -33,6 +37,11 @@ public class FirmaInfo {
 	
 	private String sOrt;
 	private String sPLZ;
+	private final Connection conn;
+	
+		public FirmaInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 
 	public int getiID() {
@@ -154,11 +163,7 @@ public class FirmaInfo {
 	public void setsPLZ( String sPLZ ) {
 		this.sPLZ = sPLZ;
 	}
-	
-	public FirmaInfo() {
-		
-	}
-	
+
 	public String sucheLogo() {
 		JFileChooser chooser = new JFileChooser();
     int rueckgabeWert = chooser.showOpenDialog(null);
@@ -278,7 +283,32 @@ public class FirmaInfo {
 	
 	
 	public void ersterDatensatzDB() {
-		
+			try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM firma AS t1, ort AS t2 WHERE t1.ID=1 AND t1.OrtID= t2.ID;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iOrtID  = rs.getInt("OrtID");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				sName1  = rs.getString("Name1");
+				sName2  = rs.getString("Name2");
+				sName3  = rs.getString("Name3");
+				sStrasse  = rs.getString("Strasse");
+				sSteuernummer  = rs.getString("Steuernummer");
+				
+				sBetriebsnummer  = rs.getString("Betriebsnummer");
+				sUSTIdentNummer  = rs.getString("USTIdentNummer");
+				sTelefon  = rs.getString("Telefon");
+				sTelefax  = rs.getString("Telefax");
+				sLogo  = rs.getString("Logo");
+				//sOrt  = rs.getString("Ort");
+				//sPLZ  = rs.getString("PLZ");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 	}
 	
 	public void vorherigerdatensatzDB() {
@@ -290,7 +320,32 @@ public class FirmaInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+			try{    
+			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM firma AS t1, ort AS t2 WHERE t1.OrtID= t2.ID ORDER BY t1.ID DESC LIMIT 1");
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iOrtID  = rs.getInt("OrtID");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				sName1  = rs.getString("Name1");
+				sName2  = rs.getString("Name2");
+				sName3  = rs.getString("Name3");
+				sStrasse  = rs.getString("Strasse");
+				sSteuernummer  = rs.getString("Steuernummer");
+				
+				sBetriebsnummer  = rs.getString("Betriebsnummer");
+				sUSTIdentNummer  = rs.getString("USTIdentNummer");
+				sTelefon  = rs.getString("Telefon");
+				sTelefax  = rs.getString("Telefax");
+				sLogo  = rs.getString("Logo");
+				//sOrt  = rs.getString("Ort");
+				//sPLZ  = rs.getString("PLZ");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {
