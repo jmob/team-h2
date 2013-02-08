@@ -165,7 +165,6 @@ public class PersonaltypInfo {
     {
       JOptionPane.showMessageDialog(null, e);
     }
-		
 	}
 	
 	public void vorherigerdatensatzDB() {
