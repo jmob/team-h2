@@ -258,7 +258,6 @@ public class FlugzeugtypInfo {
     {
       JOptionPane.showMessageDialog(null, e);
     }
-		
 	}
 	
 	public void vorherigerdatensatzDB() {

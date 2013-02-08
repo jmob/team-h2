@@ -163,7 +163,6 @@ public class FlughafenInfo {
     {
       JOptionPane.showMessageDialog(null, e);
     }
-		
 	}
 	
 	public void vorherigerdatensatzDB() {

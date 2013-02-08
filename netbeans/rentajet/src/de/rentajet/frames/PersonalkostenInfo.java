@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -27,6 +31,11 @@ public class PersonalkostenInfo {
 	
 	private int iPersonaltypnummer;
 	private String sPersonaltyp;
+	private final Connection conn;
+	
+		public PersonalkostenInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public String getsPersonaltyp() {
 		return sPersonaltyp;
@@ -99,11 +108,7 @@ public class PersonalkostenInfo {
 	public void setsBezeichnung( String sBezeichnung ) {
 		this.sBezeichnung = sBezeichnung;
 	}
-	
-	public PersonalkostenInfo() {
-		
-	}
-	
+
 	public void show( JPanel pnlMain ) {
 		pnlPersonalkosten = new pnlPersonalkosten();
 		H2InternalFrame frmPersonalkosten = new H2InternalFrame( "Personalkosten" );
@@ -199,7 +204,26 @@ public class PersonalkostenInfo {
 	
 	
 	public void ersterDatensatzDB() {
-		
+				try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM personalkosten AS t1, personaltyp AS t2 WHERE t1.ID=1 AND t1.PersonaltypID= t2.ID;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				iPersonaltypID  = rs.getInt("PersonaltypID");
+				iArbeitsstunden  = rs.getInt("Arbeitsstunden");
+				dJahresgehalt  = rs.getDouble("Jahresgehalt");
+				dStundenlohn  = rs.getDouble("Stundenlohn");
+				dStundensatz  = rs.getDouble("Stundensatz");	
+	//private int iPersonaltypnummer;
+	//private String sPersonaltyp;
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 	}
 	
 	public void vorherigerdatensatzDB() {
@@ -211,7 +235,24 @@ public class PersonalkostenInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+					try{    
+			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM personalkosten AS t1, personaltyp AS t2 WHERE t1.PersonaltypID= t2.ID ORDER BY t1.ID DESC LIMIT 1");
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				iPersonaltypID  = rs.getInt("PersonaltypID");
+				iArbeitsstunden  = rs.getInt("Arbeitsstunden");
+				dJahresgehalt  = rs.getDouble("Jahresgehalt");
+				dStundenlohn  = rs.getDouble("Stundenlohn");
+				dStundensatz  = rs.getDouble("Stundensatz"); 	
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {

@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -21,6 +25,11 @@ public class CateringInfo {
 	private String sBezeichnung;
 	private double dPreis;
 	private String sBeschreibung;
+	private final Connection conn;
+	
+		public CateringInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public int getiID() {
 		return iID;
@@ -61,11 +70,7 @@ public class CateringInfo {
 	public void setsBeschreibung( String sBeschreibung ) {
 		this.sBeschreibung = sBeschreibung;
 	}
-	
-	public CateringInfo() {
-		
-	}
-	
+
 	public void show( JPanel pnlMain ) {
 		pnlCatering = new pnlCatering();
 		H2InternalFrame frmCatering = new H2InternalFrame( "Catering" );
@@ -155,7 +160,21 @@ public class CateringInfo {
 	
 	
 	public void ersterDatensatzDB() {
-		
+		try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from catering WHERE ID=1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sBezeichnung = rs.getString("Bezeichnung");
+				dPreis  = rs.getDouble("Kosten");
+				sBeschreibung = rs.getString("Beschreibung");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 	}
 	
 	public void vorherigerdatensatzDB() {
@@ -167,7 +186,21 @@ public class CateringInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+			try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from catering ORDER BY ID DESC LIMIT 1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sBezeichnung = rs.getString("Bezeichnung");
+				dPreis  = rs.getDouble("Kosten");
+				sBeschreibung = rs.getString("Beschreibung");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {

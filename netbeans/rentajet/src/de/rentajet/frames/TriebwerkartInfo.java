@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -19,6 +23,11 @@ public class TriebwerkartInfo {
 	private int iID;
 	private int iNummer;
 	private String sBezeichnung;
+	private final Connection conn;
+	
+		public TriebwerkartInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public int getiID() {
 		return iID;
@@ -43,11 +52,7 @@ public class TriebwerkartInfo {
 	public void setsBezeichnung( String sBezeichnung ) {
 		this.sBezeichnung = sBezeichnung;
 	}
-	
-	public TriebwerkartInfo() {
-		
-	}
-	
+
 	public void show( JPanel pnlMain ) {
 		pnlTriebwerkart = new pnlTriebwerkart();
 		H2InternalFrame frmTriebwerkart = new H2InternalFrame( "Triebwerkart" );
@@ -133,7 +138,19 @@ public class TriebwerkartInfo {
 	
 	
 	public void ersterDatensatzDB() {
-		
+			try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from triebwerkartid WHERE ID=1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sBezeichnung = rs.getString("Bezeichnung");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 	}
 	
 	public void vorherigerdatensatzDB() {
@@ -145,7 +162,19 @@ public class TriebwerkartInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+		try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from triebwerkartid ORDER BY ID DESC LIMIT 1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				sBezeichnung = rs.getString("Bezeichnung");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {
