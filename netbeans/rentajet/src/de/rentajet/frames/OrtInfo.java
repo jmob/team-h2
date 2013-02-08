@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -22,6 +26,11 @@ public class OrtInfo {
 	private String sBezeichnung;
 	
 	private String sStaat;
+	private final Connection conn;
+	
+		public OrtInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public int getiID() {
 		return iID;
@@ -62,11 +71,7 @@ public class OrtInfo {
 	public void setsStaat( String sStaat ) {
 		this.sStaat = sStaat;
 	}
-	
-	public OrtInfo() {
-		
-	}
-	
+
 	public void show( JPanel pnlMain ) {
 		pnlOrt = new pnlOrt();
 		H2InternalFrame frmOrt = new H2InternalFrame( "Ort" );
@@ -155,7 +160,21 @@ public class OrtInfo {
 	
 	
 	public void ersterDatensatzDB() {
-		
+						try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM ort AS t1, staat AS t2 WHERE t1.ID=1 AND t1.StaatID= t2.ID;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iPLZ  = rs.getInt("PLZ");
+				iStaatID  = rs.getInt("StaatID");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				sStaat  = rs.getString("Bezeichnung");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 	}
 	
 	public void vorherigerdatensatzDB() {
@@ -167,6 +186,20 @@ public class OrtInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+					try{    
+			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM ort AS t1, staat AS t2 WHERE t1.StaatID= t2.ID ORDER BY t1.ID DESC LIMIT 1");
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iPLZ  = rs.getInt("PLZ");
+				iStaatID  = rs.getInt("StaatID");
+				sBezeichnung  = rs.getString("Bezeichnung");
+				sStaat  = rs.getString("Bezeichnung");	
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 }

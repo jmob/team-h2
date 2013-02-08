@@ -796,7 +796,84 @@ public class AuftragInfo {
 	
 	
 	public void ersterDatensatzDB() {
-		
+			try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM auftrag AS t1, flugzeug AS t2 WHERE t1.ID=1 AND t1.FlugzeugID= t2.ID;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer = rs.getInt("Nummer");
+				iVorgArt = rs.getInt("VorgArt");
+				iKunde = rs.getInt("Kunde");
+				iPLZ  = rs.getInt("PLZ");
+				iKundenberater  = rs.getInt("Kundenberater");
+				sDatum  = rs.getString("Datum");
+				sRechnungsdatum  = rs.getString("Rechnungsdatum");
+				sName1  = rs.getString("Name1");
+				sName2  = rs.getString("Name2");
+				sName3  = rs.getString("Name3");
+				sStrasse  = rs.getString("Strasse");
+				sOrt  = rs.getString("Ort");
+				sMitarbKundeVorname  = rs.getString("MitarbKundeVorname");
+				iMitarbKunde  = rs.getInt("MitarbKunde");		
+				sMitarbKundeName  = rs.getString("MitarbKundeName");	
+				sFlugdatum  = rs.getString("Flugdatum");
+				sUhrzeit  = rs.getString("Uhrzeit");
+				sFlugdatumEnde  = rs.getString("FlugdatumEnde");
+				sUhrzeitEnde  = rs.getString("UhrzeitEnde");
+				iStart  = rs.getInt("Start");	
+				iZiel  = rs.getInt("Ziel");	
+				iKilometer  = rs.getInt("Kilometer");	
+				iPersonen  = rs.getInt("Personen");	
+				iStops  = rs.getInt("Stops");	
+				iErsterStop  = rs.getInt("ErsterStop");	
+				iZweiterStop  = rs.getInt("ZweiterStop");	
+				iDritterStop  = rs.getInt("DritterStop");	
+				iVierterStop  = rs.getInt("VierterStop");	
+				iFuenfterStop  = rs.getInt("FuenfterStop");	
+				iSechsterStop  = rs.getInt("SechsterStop");	
+				iErsterStopAufenthalt  = rs.getInt("ErsterStopAufenthalt");	
+				iZweiterStopAufenthalt  = rs.getInt("ZweiterStopAufenthalt");	
+				iDritterStopAufenthalt  = rs.getInt("DritterStopAufenthalt");	
+				iVierterStopAufenthalt  = rs.getInt("VierterStopAufenthalt");	
+				iFuenfterStopAufenthalt  = rs.getInt("FuenfterStopAufenthalt");	
+				iSechsterStopAufenthalt  = rs.getInt("SechsterStopAufenthalt");	
+				iFlugzeit  = rs.getInt("Flugzeit");	
+				iFlightcrew  = rs.getInt("Flightcrew");	
+				iCabincrew  = rs.getInt("Cabincrew");	
+				iCatering  = rs.getInt("Catering");	
+				dKostenFlug  = rs.getDouble("KostenFlug");
+				dKostenStop  = rs.getDouble("KostenStop");				
+				dKostenFlightcrew  = rs.getDouble("KostenFlightcrew");
+				dKostenCabincrew  = rs.getDouble("KostenCabincrew");
+				dKostenCatering  = rs.getDouble("KostenCatering");
+				dKostenFlugGesamt  = rs.getDouble("KostenFlugGesamt");
+				dKostenStopGesamt  = rs.getDouble("KostenStopGesamt");
+				dKostenFlightcrewGesamt  = rs.getDouble("KostenFlightcrewGesamt");
+				dKostenCabincrewGesamt  = rs.getDouble("KostenCabincrewGesamt");
+				dKostenCateringGesamt  = rs.getDouble("KostenCateringGesamt");
+				dNetto  = rs.getDouble("Netto");
+				dRabattProzent  = rs.getDouble("RabattProzent");			
+				dRabatt  = rs.getDouble("Rabatt");
+				dMwSt  = rs.getDouble("MwSt");
+				dBrutto  = rs.getDouble("Brutto");
+				dSkontosatz  = rs.getDouble("Skontosatz");
+				dKostenFlugVar  = rs.getDouble("KostenFlugVar");
+				dKostenFlugVarGesamt  = rs.getDouble("KostenFlugVarGesamt");
+				iZahlungsbedingung  = rs.getInt("Zahlungsbedingung");	
+				iValuta  = rs.getInt("Valuta");	
+				iSkontoValuta  = rs.getInt("SkontoValuta");	
+				//iCharterdauer  = rs.getInt("Charterdauer");
+				iFlugzeugID  = rs.getInt("FlugzeugID");
+				iCaptainID  = rs.getInt("CaptainID");
+				iOfficerID  = rs.getInt("OfficerID");
+				iFlugbegleiterEinsID  = rs.getInt("FlugbegleiterEinsID");
+				iFlugbegleiterZweiID  = rs.getInt("FlugbegleiterZweiID");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 	}
 	
 	public void vorherigerdatensatzDB() {
@@ -808,7 +885,84 @@ public class AuftragInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+			try{    
+			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM auftrag AS t1, flugzeug AS t2 WHERE t1.FlugzeugID= t2.ID ORDER BY t1.ID DESC LIMIT 1");
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer = rs.getInt("Nummer");
+				iVorgArt = rs.getInt("VorgArt");
+				iKunde = rs.getInt("Kunde");
+				iPLZ  = rs.getInt("PLZ");
+				iKundenberater  = rs.getInt("Kundenberater");
+				sDatum  = rs.getString("Datum");
+				sRechnungsdatum  = rs.getString("Rechnungsdatum");
+				sName1  = rs.getString("Name1");
+				sName2  = rs.getString("Name2");
+				sName3  = rs.getString("Name3");
+				sStrasse  = rs.getString("Strasse");
+				sOrt  = rs.getString("Ort");
+				sMitarbKundeVorname  = rs.getString("MitarbKundeVorname");
+				iMitarbKunde  = rs.getInt("MitarbKunde");		
+				sMitarbKundeName  = rs.getString("MitarbKundeName");	
+				sFlugdatum  = rs.getString("Flugdatum");
+				sUhrzeit  = rs.getString("Uhrzeit");
+				sFlugdatumEnde  = rs.getString("FlugdatumEnde");
+				sUhrzeitEnde  = rs.getString("UhrzeitEnde");
+				iStart  = rs.getInt("Start");	
+				iZiel  = rs.getInt("Ziel");	
+				iKilometer  = rs.getInt("Kilometer");	
+				iPersonen  = rs.getInt("Personen");	
+				iStops  = rs.getInt("Stops");	
+				iErsterStop  = rs.getInt("ErsterStop");	
+				iZweiterStop  = rs.getInt("ZweiterStop");	
+				iDritterStop  = rs.getInt("DritterStop");	
+				iVierterStop  = rs.getInt("VierterStop");	
+				iFuenfterStop  = rs.getInt("FuenfterStop");	
+				iSechsterStop  = rs.getInt("SechsterStop");	
+				iErsterStopAufenthalt  = rs.getInt("ErsterStopAufenthalt");	
+				iZweiterStopAufenthalt  = rs.getInt("ZweiterStopAufenthalt");	
+				iDritterStopAufenthalt  = rs.getInt("DritterStopAufenthalt");	
+				iVierterStopAufenthalt  = rs.getInt("VierterStopAufenthalt");	
+				iFuenfterStopAufenthalt  = rs.getInt("FuenfterStopAufenthalt");	
+				iSechsterStopAufenthalt  = rs.getInt("SechsterStopAufenthalt");	
+				iFlugzeit  = rs.getInt("Flugzeit");	
+				iFlightcrew  = rs.getInt("Flightcrew");	
+				iCabincrew  = rs.getInt("Cabincrew");	
+				iCatering  = rs.getInt("Catering");	
+				dKostenFlug  = rs.getDouble("KostenFlug");
+				dKostenStop  = rs.getDouble("KostenStop");				
+				dKostenFlightcrew  = rs.getDouble("KostenFlightcrew");
+				dKostenCabincrew  = rs.getDouble("KostenCabincrew");
+				dKostenCatering  = rs.getDouble("KostenCatering");
+				dKostenFlugGesamt  = rs.getDouble("KostenFlugGesamt");
+				dKostenStopGesamt  = rs.getDouble("KostenStopGesamt");
+				dKostenFlightcrewGesamt  = rs.getDouble("KostenFlightcrewGesamt");
+				dKostenCabincrewGesamt  = rs.getDouble("KostenCabincrewGesamt");
+				dKostenCateringGesamt  = rs.getDouble("KostenCateringGesamt");
+				dNetto  = rs.getDouble("Netto");
+				dRabattProzent  = rs.getDouble("RabattProzent");			
+				dRabatt  = rs.getDouble("Rabatt");
+				dMwSt  = rs.getDouble("MwSt");
+				dBrutto  = rs.getDouble("Brutto");
+				dSkontosatz  = rs.getDouble("Skontosatz");
+				dKostenFlugVar  = rs.getDouble("KostenFlugVar");
+				dKostenFlugVarGesamt  = rs.getDouble("KostenFlugVarGesamt");
+				iZahlungsbedingung  = rs.getInt("Zahlungsbedingung");	
+				iValuta  = rs.getInt("Valuta");	
+				iSkontoValuta  = rs.getInt("SkontoValuta");	
+				//iCharterdauer  = rs.getInt("Charterdauer");
+				iFlugzeugID  = rs.getInt("FlugzeugID");
+				iCaptainID  = rs.getInt("CaptainID");
+				iOfficerID  = rs.getInt("OfficerID");
+				iFlugbegleiterEinsID  = rs.getInt("FlugbegleiterEinsID");
+				iFlugbegleiterZweiID  = rs.getInt("FlugbegleiterZweiID");
+			}
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 	
 	public ArrayList<String> holeVerfügbareFlugzeuge( String sPersonen, String sFlugdatum, String sFlugdatumEnde ) {
