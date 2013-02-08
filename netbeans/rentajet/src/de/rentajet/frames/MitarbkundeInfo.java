@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -30,6 +34,11 @@ public class MitarbkundeInfo {
 	private String sAnrede;
 	private int iKundenummer;
 	private String sKunde;
+	private final Connection conn;
+	
+		public MitarbkundeInfo() {
+		conn=javaconnect.ConnectDb();
+	}
 
 	public int getiID() {
 		return iID;
@@ -135,10 +144,6 @@ public class MitarbkundeInfo {
 		this.sKunde = sKunde;
 	}
 	
-	public MitarbkundeInfo() {
-		
-	}
-	
 	public void show( JPanel pnlMain ) {
 		pnlMitarbkunde = new pnlMitarbkunde();
 		H2InternalFrame frmMitarbkunde = new H2InternalFrame( "Mitarbkunde" );
@@ -240,6 +245,30 @@ public class MitarbkundeInfo {
 	
 	
 	public void ersterDatensatzDB() {
+		try{
+      //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung WHERE ID=1;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.* FROM mitarbkunde AS t1, kunde AS t2, anrede AS t3  WHERE t1.ID=1 AND t1.KundeID= t2.ID AND t1.AnredeID= t3.ID;" );
+			ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iKundeID  = rs.getInt("KundeID");
+				sVorname  = rs.getString("Vorname");
+				sNachname  = rs.getString("Nachname");
+				sTelefon = rs.getString("Telefon");
+				sTelefax = rs.getString("Telefax");
+				
+				sMobil  = rs.getString("Mobil");
+				sInfo  = rs.getString("Info");
+				iAnredeID = rs.getInt("AnredeID");
+				//iKundenummer = rs.getInt("Kundenummer");
+				//sKunde = rs.getString("Kunde");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 		
 	}
 	
@@ -252,7 +281,30 @@ public class MitarbkundeInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+	try{
+      //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung ORDER BY ID DESC LIMIT 1;" );
+			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.* FROM mitarbkunde AS t1, kunde AS t2, anrede AS t3  WHERE  t1.KundeID= t2.ID AND t1.AnredeID= t3.ID ORDER BY t1.ID DESC LIMIT 1");
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iKundeID  = rs.getInt("KundeID");
+				sVorname  = rs.getString("Vorname");
+				sNachname  = rs.getString("Nachname");
+				sTelefon = rs.getString("Telefon");
+				sTelefax = rs.getString("Telefax");
+				
+				sMobil  = rs.getString("Mobil");
+				sInfo  = rs.getString("Info");
+				iAnredeID = rs.getInt("AnredeID");
+				//iKundenummer = rs.getInt("Kundenummer");
+				//sKunde = rs.getString("Kunde");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {

@@ -36,8 +36,6 @@ public class BenutzerInfo {
 	private boolean bGesperrt;
 	private final Connection conn;
 	boolean hasNext = false;
-	//ResultSet rs = null;
-	//PreparedStatement pst=null;
 	
 	public BenutzerInfo() {
 		conn=javaconnect.ConnectDb();
@@ -220,69 +218,29 @@ public class BenutzerInfo {
 		
 	}
 	
-	
-	
-	public ArrayList<String> holeerstendatensatz( String sPersonen, String sFlugdatum, String sFlugdatumEnde ) {
-		
-		System.out.println("holeerstendatensatz " + sPersonen + " " + sFlugdatum + " " + sFlugdatumEnde);
-		ArrayList<String> result = new ArrayList<String>();
-		try {
-			PreparedStatement pst = conn.prepareStatement("SELECT * from benutzer WHERE ID=1");
-			
-			/*pst.setString( 1, sVorname);
-			pst.setString( 2, sNachname);
-			pst.setString( 3, sInitialen);
-			*/
-			
-			ResultSet rs = pst.executeQuery();
-			while (rs.next()) {
-				result.add(rs.getString( "Vorname" ) + rs.getString( "Nachname") );
-			}
-		}
-		catch( SQLException ex ) {
-			Logger.getLogger( BenutzerInfo.class.getName() ).log( Level.SEVERE, null, ex );
-		}
-		
-		
-		
-		return result;
-	}
-	
-	
+
 	
 	public void ersterDatensatzDB() {
-		//String sql = "SELECT * from benutzer WHERE ID=1";
 		try{
       PreparedStatement pst = conn.prepareStatement( "SELECT * from benutzer WHERE ID=1;" );
-      //pst.setString( 1, tmp);
       ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iNummer  = rs.getInt("Nummer");
-					//pnlBenutzer.setNummer(iNummer);
 				sVorname = rs.getString("Vorname");	
-					//pnlBenutzer.setVorname(sVorname);
 				sNachname = rs.getString("Nachname");
-					//pnlBenutzer.setNachname(sNachname);
 				sInitialen = rs.getString("Initialen");
-					//pnlBenutzer.setInitialen(sInitialen);
 				sLogin = rs.getString("Login");
-					//pnlBenutzer.setLogin(sLogin);
 				sPasswort = rs.getString("Passwort");
-					//pnlBenutzer.setPasswort(sPasswort);
 				bGesperrt = rs.getBoolean( "Gesperrt");
-					//pnlBenutzer.setGesperrt(bGesperrt);
 				iBenutzergruppe = rs.getInt("BenutzergruppeID");
-					//pnlBenutzer.setBenutzergruppe(iBenutzergruppeID);
       }
     }
-
     catch(Exception e)
     {
       JOptionPane.showMessageDialog(null, e);
-
     }
 	}
-	
+		
 	public void vorherigerdatensatzDB() {
 		
 	}
@@ -292,7 +250,24 @@ public class BenutzerInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+	try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from benutzer ORDER BY ID DESC LIMIT 1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iNummer  = rs.getInt("Nummer");
+				sVorname = rs.getString("Vorname");	
+				sNachname = rs.getString("Nachname");
+				sInitialen = rs.getString("Initialen");
+				sLogin = rs.getString("Login");
+				sPasswort = rs.getString("Passwort");
+				bGesperrt = rs.getBoolean( "Gesperrt");
+				iBenutzergruppe = rs.getInt("BenutzergruppeID");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 	
 

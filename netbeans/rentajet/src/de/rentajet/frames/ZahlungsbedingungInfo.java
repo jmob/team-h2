@@ -5,8 +5,12 @@
 package de.rentajet.frames;
 
 import de.rentajet.base.H2InternalFrame;
+import de.rentajet.base.javaconnect;
 import de.rentajet.uti.Util;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -23,7 +27,12 @@ public class ZahlungsbedingungInfo {
 	private double dSkontosatz;
 	private String sBezeichnung;
 	private String sBelegtext;
+	private final Connection conn;
 
+		public ZahlungsbedingungInfo() {
+		conn=javaconnect.ConnectDb();
+	}
+	
 	public int getiID() {
 		return iID;
 	}
@@ -78,10 +87,6 @@ public class ZahlungsbedingungInfo {
 
 	public void setsBelegtext( String sBelegtext ) {
 		this.sBelegtext = sBelegtext;
-	}
-
-	public ZahlungsbedingungInfo() {
-		
 	}
 	
 	public void show( JPanel pnlMain ) {
@@ -178,7 +183,23 @@ public class ZahlungsbedingungInfo {
 	
 	
 	public void ersterDatensatzDB() {
-		
+		try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung WHERE ID=1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iValuta  = rs.getInt("Valuta");
+				iSkontoValuta  = rs.getInt("SkontoValuta");
+				dSkontosatz  = rs.getInt("Skontosatz");
+				sBezeichnung = rs.getString("Bezeichnung");
+				sBelegtext = rs.getString("Belegtext");
+		  }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }
 	}
 	
 	public void vorherigerdatensatzDB() {
@@ -190,7 +211,23 @@ public class ZahlungsbedingungInfo {
 	}
 	
 	public void letzterDatensatzDB() {
-		
+			try{
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung ORDER BY ID DESC LIMIT 1;" );
+      ResultSet rs = pst.executeQuery();
+      if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iValuta  = rs.getInt("Valuta");
+				iSkontoValuta  = rs.getInt("SkontoValuta");
+				dSkontosatz  = rs.getInt("Skontosatz");
+				sBezeichnung = rs.getString("Bezeichnung");
+				sBelegtext = rs.getString("Belegtext");
+      }
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
+    }	
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {
