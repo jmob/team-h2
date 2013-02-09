@@ -369,7 +369,7 @@ public class FrmMain extends javax.swing.JFrame {
 
     jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("Stammdaten");
+    jLabel1.setText("Systemdaten");
     jPanel5.add(jLabel1);
 
     jButton18.setText("Ort");
@@ -401,7 +401,7 @@ public class FrmMain extends javax.swing.JFrame {
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel2.setText("Allgemein");
+    jLabel2.setText("Stammdaten");
     jPanel5.add(jLabel2);
 
     jButton20.setText("Firmenparameter");
@@ -458,7 +458,7 @@ public class FrmMain extends javax.swing.JFrame {
 
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel3.setText("Flugzeuge");
+    jLabel3.setText("Flugdaten");
     jPanel5.add(jLabel3);
 
     jButton24.setText("Triebwerkart");

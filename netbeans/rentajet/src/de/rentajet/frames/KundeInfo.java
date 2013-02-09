@@ -41,9 +41,9 @@ public class KundeInfo {
 	private String sAnrede;
 	private int iKundenberater;
 	
-		private final Connection conn;
+	private final Connection conn;
 
-		public KundeInfo() {
+	public KundeInfo() {
 		conn=javaconnect.ConnectDb();
 	}
 		
@@ -281,8 +281,8 @@ public class KundeInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -309,7 +309,24 @@ public class KundeInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+				PreparedStatement pst = conn.prepareStatement( 
+					"UPDATE Kunde ( ID, Nummer, AnredeID, Matchcode, Name1, Name2, Name3, Strasse, OrtID,"
+					+ "KundenberaterID, Telefon, Telefax, Mobil, Gesperrt, Kreditlimit, Steuernummer ) VALUE ("
+					+ iID + "," + sMatchcode + "," + iAnredeID + "," + sMatchcode + "," + sName1 + "," + sName2 + "," + sName3 + "," + sStrasse + "," + iOrtID + "," 
+					+	iKundenberaterID + "," + sTelefon + "," + sTelefax + "," + sMobil + "," + bGesperrt + "," + dKreditlimit + "," + sSteuernummer + ")" );
+				ResultSet rs = pst.executeQuery();
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+//			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE t1.ID=1 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ;" );
+//			ResultSet rs = pst.executeQuery();			
+		}
 		
 	}
 	
@@ -328,22 +345,6 @@ public class KundeInfo {
       PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE t1.ID=1 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ;" );
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){
-				iID = rs.getInt("ID");
-				iNummer  = rs.getInt("Nummer");
-				iAnredeID  = rs.getInt("AnredeID");
-				iOrtID  = rs.getInt("OrtID");
-				iKundenberaterID  = rs.getInt("KundenberaterID");
-				sMatchcode = rs.getString("Matchcode");
-				sName1 = rs.getString("Name1");
-				sName2 = rs.getString("Name2");
-				sName3 = rs.getString("Name3");		
-				sStrasse = rs.getString("Strasse");
-				sTelefon = rs.getString("Telefon");	
-				sTelefax = rs.getString("Telefax");	
-				sMobil  = rs.getString("Mobil");
-				sSteuernummer  = rs.getString("Steuernummer");
-				bGesperrt = rs.getBoolean("Gesperrt");
-				dKreditlimit = rs.getInt("Kreditlimit");
 		  }
     }
     catch(Exception e)
@@ -363,7 +364,7 @@ public class KundeInfo {
 	public void letzterDatensatzDB() {
 		try{
       //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung ORDER BY ID DESC LIMIT 1;" );
-      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE  t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ORDER BY t1.ID DESC LIMIT 1");
+       PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE  t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ORDER BY t1.ID DESC LIMIT 1");
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");
@@ -391,10 +392,39 @@ public class KundeInfo {
 	}
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {
-		//ToDo Abfrage in DB ob Datensatz mit übergebener Nummer vorhanden ist und ggf. Variablen füllen
-		if( iNummer == 10 )
-			return true;
-		else
+		try{
+      PreparedStatement pst = conn.prepareStatement( 
+				"SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, "
+				+ "kundenberater AS t4  WHERE  t1.AnredeID= t2.ID AND t1.OrtID= t3.ID "
+				+ "AND t1.KundenberaterID= t4.ID AND t1.ID = " + iNummer );
+			ResultSet rs = pst.executeQuery();
+      if( rs.next() ) {
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iAnredeID  = rs.getInt("AnredeID");
+				iOrtID  = rs.getInt("OrtID");
+				iKundenberaterID  = rs.getInt("KundenberaterID");
+				sMatchcode = rs.getString("Matchcode");
+				sName1 = rs.getString("Name1");
+				sName2 = rs.getString("Name2");
+				sName3 = rs.getString("Name3");		
+				sStrasse = rs.getString("Strasse");
+				sTelefon = rs.getString("Telefon");	
+				sTelefax = rs.getString("Telefax");	
+				sMobil  = rs.getString("Mobil");
+				sSteuernummer  = rs.getString("Steuernummer");
+				bGesperrt = rs.getBoolean("Gesperrt");
+				dKreditlimit = rs.getInt("Kreditlimit");
+				return true;
+      }
+			else 
+				aktualisiereAnzeige();
+				return false;
+    }
+    catch(Exception e)
+    {
+      JOptionPane.showMessageDialog(null, e);
 			return false;
+    }
 	}
 }

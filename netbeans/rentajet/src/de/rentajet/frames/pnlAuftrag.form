@@ -1695,16 +1695,12 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField30">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField30FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField31">
               <Properties>
-                <Property name="editable" type="boolean" value="false"/>
                 <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="jTextField32"/>
                 </Property>

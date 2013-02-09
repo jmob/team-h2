@@ -1,3 +1,4 @@
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.  XXXX
@@ -654,7 +655,7 @@ public class AuftragInfo {
 	
 	public void show( JPanel pnlMain ) {
 		pnlAuftrag = new pnlAuftrag();
-		H2InternalFrame frmAuftrag = new H2InternalFrame( "Anrede" );
+		H2InternalFrame frmAuftrag = new H2InternalFrame( "Auftrag" );
 		frmAuftrag.add( pnlAuftrag, BorderLayout.CENTER );
 		frmAuftrag.setVisible( true );
 		pnlMain.add( frmAuftrag );

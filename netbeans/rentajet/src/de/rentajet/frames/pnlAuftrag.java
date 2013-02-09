@@ -1134,14 +1134,12 @@ public class pnlAuftrag extends javax.swing.JPanel {
 
     jTextField29.setNextFocusableComponent(jTextField31);
 
-    jTextField30.setEditable(false);
     jTextField30.addFocusListener(new java.awt.event.FocusAdapter() {
       public void focusLost(java.awt.event.FocusEvent evt) {
         jTextField30FocusLost(evt);
       }
     });
 
-    jTextField31.setEditable(false);
     jTextField31.setNextFocusableComponent(jTextField32);
     jTextField31.addFocusListener(new java.awt.event.FocusAdapter() {
       public void focusLost(java.awt.event.FocusEvent evt) {

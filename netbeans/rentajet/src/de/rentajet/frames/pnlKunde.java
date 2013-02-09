@@ -632,9 +632,8 @@ public class pnlKunde extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton2ActionPerformed
 
   private void jTextField10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusLost
-    if( main.istDatensatzVorhanden( Util.statischStringNachInt( jTextField10.getText())) ) {
-			jTextField10.setEnabled( false );
-		}
+    main.istDatensatzVorhanden( Util.statischStringNachInt( jTextField10.getText()));
+		setzeAnzeige();
   }//GEN-LAST:event_jTextField10FocusLost
 
   private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -667,7 +666,7 @@ public class pnlKunde extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    main.speichern( Util.statischStringNachInt( getMatchcode() ) );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
