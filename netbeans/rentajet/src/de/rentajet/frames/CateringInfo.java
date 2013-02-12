@@ -84,13 +84,6 @@ public class CateringInfo {
 		}
 	}	
 	
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlCatering.getNummer() );
-		sBezeichnung = pnlCatering.getBezeichnung();
-		dPreis = Util.statischStringNachDouble( pnlCatering.getPreis(), 2);
-		sBeschreibung = pnlCatering.getBeschreibung();
-	}
-	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
@@ -118,8 +111,8 @@ public class CateringInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -127,11 +120,11 @@ public class CateringInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
@@ -146,18 +139,43 @@ public class CateringInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 		try{

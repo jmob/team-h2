@@ -93,14 +93,6 @@ public class StaatInfo {
 		}
 	}	
 
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlStaat.getNummer() );
-		sBezeichnung = pnlStaat.getBezeichnung();
-		sLaendercode = pnlStaat.getLaendercode();
-		sPostKuerzel = pnlStaat.getPostKuerzel();
-		sPostName = pnlStaat.getPostName();
-	}
-	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
@@ -129,8 +121,9 @@ public class StaatInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -138,8 +131,8 @@ public class StaatInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
 
@@ -157,18 +150,43 @@ public class StaatInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 			try{

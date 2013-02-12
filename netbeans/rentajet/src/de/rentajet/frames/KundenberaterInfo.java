@@ -156,19 +156,6 @@ public class KundenberaterInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlKundenberater.getNummer() );
-		sAnrede = pnlKundenberater.getAnrede();
-		sVorname = pnlKundenberater.getVorname();
-		sNachname = pnlKundenberater.getNachname();
-		sStrasse = pnlKundenberater.getStrasse();
-		sPLZ = pnlKundenberater.getPLZ();
-		sOrt = pnlKundenberater.getOrt();
-		sTelefax = pnlKundenberater.getTelefax();
-		sTelefon = pnlKundenberater.getTelefon();
-		sMobil = pnlKundenberater.getMobil();
-	}
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
@@ -205,8 +192,9 @@ public class KundenberaterInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -214,11 +202,11 @@ public class KundenberaterInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
@@ -233,18 +221,43 @@ public class KundenberaterInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 				try{

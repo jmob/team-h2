@@ -665,71 +665,6 @@ public class AuftragInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlAuftrag.getNummer() );
-		sDatum = pnlAuftrag.getDatum();
-		iVorgArt = Util.statischStringNachInt( pnlAuftrag.getVorgArt() );
-		sRechnungsdatum = pnlAuftrag.getRechnungsdatum();
-		iKunde = Util.statischStringNachInt( pnlAuftrag.getKunde() );
-		sName1 = pnlAuftrag.getName1();
-		sName2 = pnlAuftrag.getName2();
-		sName3 = pnlAuftrag.getName3();
-		sStrasse = pnlAuftrag.getStrasse();
-		iPLZ = Util.statischStringNachInt( pnlAuftrag.getPLZ() );
-		sOrt = pnlAuftrag.getOrt();
-		iMitarbKunde = Util.statischStringNachInt( pnlAuftrag.getMitarbKunde() );
-		sMitarbKundeVorname = pnlAuftrag.getMitarbKundeVorname();
-		sMitarbKundeName = pnlAuftrag.getMitarbKundeName();
-		iKundenberater = Util.statischStringNachInt( pnlAuftrag.getKundenberater() );
-		sFlugdatum = pnlAuftrag.getFlugdatum();
-		sUhrzeit = pnlAuftrag.getUhrzeit();
-		sFlugdatumEnde = pnlAuftrag.getFlugdatumEnde();
-		sUhrzeitEnde = pnlAuftrag.getUhrzeitEnde();
-		iStart = Util.statischStringNachInt( pnlAuftrag.getStart() );
-		iZiel = Util.statischStringNachInt( pnlAuftrag.getZiel() );
-		iKilometer = Util.statischStringNachInt( pnlAuftrag.getKilometer() );
-		iPersonen = Util.statischStringNachInt( pnlAuftrag.getPersonen() );
-		iStops = Util.statischStringNachInt( pnlAuftrag.getStops() );
-		iErsterStop = Util.statischStringNachInt( pnlAuftrag.getErsterStop() );
-		iZweiterStop = Util.statischStringNachInt( pnlAuftrag.getZweiterStop() );
-		iDritterStop = Util.statischStringNachInt( pnlAuftrag.getDritterStop() );
-		iVierterStop = Util.statischStringNachInt( pnlAuftrag.getVierterStop() );
-		iFuenfterStop = Util.statischStringNachInt( pnlAuftrag.getFuenfterStop() );
-		iSechsterStop = Util.statischStringNachInt( pnlAuftrag.getSechsterStop() );
-		iErsterStopAufenthalt = Util.statischStringNachInt( pnlAuftrag.getErsterStopAufenthalt() );
-		iZweiterStopAufenthalt = Util.statischStringNachInt( pnlAuftrag.getZweiterStopAufenthalt() );
-		iDritterStopAufenthalt = Util.statischStringNachInt( pnlAuftrag.getDritterStopAufenthalt() );
-		iVierterStopAufenthalt = Util.statischStringNachInt( pnlAuftrag.getVierterStopAufenthalt() );
-		iFuenfterStopAufenthalt = Util.statischStringNachInt( pnlAuftrag.getFuenfterStopAufenthalt() );
-		iSechsterStopAufenthalt = Util.statischStringNachInt( pnlAuftrag.getSechsterStopAufenthalt() );
-		iFlugzeit = Util.statischStringNachInt( pnlAuftrag.getFlugzeit() );
-		iFlightcrew = Util.statischStringNachInt( pnlAuftrag.getFlightcrew() );
-		iCabincrew = Util.statischStringNachInt( pnlAuftrag.getCabincrew() );
-		iCatering = Util.statischStringNachInt( pnlAuftrag.getCatering() );
-		dKostenFlug = Util.statischStringNachDouble( pnlAuftrag.getKostenFlug(), 2 );
-		dKostenStop = Util.statischStringNachDouble( pnlAuftrag.getKostenStop(), 2 );
-		dKostenFlightcrew = Util.statischStringNachDouble( pnlAuftrag.getKostenFlightcrew(), 2 );
-		dKostenCabincrew = Util.statischStringNachDouble( pnlAuftrag.getKostenCabincrew(), 2 );
-		dKostenCatering = Util.statischStringNachDouble( pnlAuftrag.getKostenCatering(), 2 );
-		dKostenFlugGesamt = Util.statischStringNachDouble( pnlAuftrag.getKostenFlugGesamt(), 2 );
-		dKostenStopGesamt = Util.statischStringNachDouble( pnlAuftrag.getKostenStopGesamt(), 2 );
-		dKostenFlightcrewGesamt = Util.statischStringNachDouble( pnlAuftrag.getKostenFlightcrewGesamt(), 2 );
-		dKostenCabincrewGesamt = Util.statischStringNachDouble( pnlAuftrag.getKostenCabincrewGesamt(), 2 );
-		dKostenCateringGesamt = Util.statischStringNachDouble( pnlAuftrag.getKostenCateringGesamt(), 2 );
-		dNetto = Util.statischStringNachDouble( pnlAuftrag.getNetto(), 2 );
-		dRabattProzent = Util.statischStringNachDouble( pnlAuftrag.getRabattProzent(), 2 );
-		dRabatt = Util.statischStringNachDouble( pnlAuftrag.getRabatt(), 2 );
-		dMwSt = Util.statischStringNachDouble( pnlAuftrag.getMwSt(), 2 );
-		dBrutto = Util.statischStringNachDouble( pnlAuftrag.getBrutto(), 2 );
-		iZahlungsbedingung = Util.statischStringNachInt( pnlAuftrag.getZahlungsbedingung() );
-		iValuta = Util.statischStringNachInt( pnlAuftrag.getValuta() );
-		iSkontoValuta = Util.statischStringNachInt( pnlAuftrag.getSkontoValuta() );
-		dSkontosatz = Util.statischStringNachDouble( pnlAuftrag.getSkontosatz(), 2 );
-		dKostenFlugVar = Util.statischStringNachDouble( pnlAuftrag.getKostenFlugVar(), 2 );
-		dKostenFlugVarGesamt = Util.statischStringNachDouble( pnlAuftrag.getKostenFlugVarGesamt(), 2);
-		iCharterdauer = Util.statischStringNachInt( pnlAuftrag.getCharterdauer() );
-	}
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
@@ -755,8 +690,8 @@ public class AuftragInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -764,8 +699,8 @@ public class AuftragInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
 
@@ -783,18 +718,43 @@ public class AuftragInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 			try{

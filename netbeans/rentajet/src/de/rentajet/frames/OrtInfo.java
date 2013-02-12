@@ -85,12 +85,6 @@ public class OrtInfo {
 		}
 	}	
 
-	private void leseausAnzeige() {
-		iPLZ = Util.statischStringNachInt( pnlOrt.getPLZ() );
-		sBezeichnung = pnlOrt.getBezeichnung();
-		sStaat = pnlOrt.getStaat();
-	}
-	
 	private void aktualisiereAnzeige() {
 		iPLZ = 0;
 		sBezeichnung = "";
@@ -118,8 +112,9 @@ public class OrtInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -127,8 +122,8 @@ public class OrtInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
 
@@ -146,18 +141,32 @@ public class OrtInfo {
 		);	
 	}
 
-	public void speichereDB() {
-		
+	public void speichereDB( int iNummer ) {
+		try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+		}
+		catch (Exception e) {
+
+		}
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 						try{

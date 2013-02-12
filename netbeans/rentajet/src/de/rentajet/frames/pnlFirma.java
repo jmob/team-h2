@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -497,7 +498,6 @@ public class pnlFirma extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -507,7 +507,6 @@ public class pnlFirma extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -535,6 +534,22 @@ public class pnlFirma extends javax.swing.JPanel {
 		setLogo( main.getsLogo() );
 	}
 	
+	private void leseausAnzeige() {
+		main.setsBezeichnung( getBezeichnung() );
+		main.setsName1( getName1() );
+		main.setsName2( getName2() );
+		main.setsName3( getName3() );
+		main.setsStrasse( getStrasse() );
+		main.setsOrt( getOrt() );
+		main.setsPLZ( getPLZ() );
+		main.setsSteuernummer( getSteuernummer() );
+		main.setsBetriebsnummer( getBetriebsnummer() );
+		main.setsUSTIdentNummer( getUSTIdentNummer() );
+		main.setsTelefon( getTelefon() );
+		main.setsTelefax( getTelefax() );
+		main.setsLogo( getLogo() );
+	}
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton17;

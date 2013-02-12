@@ -632,8 +632,10 @@ public class pnlKunde extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton2ActionPerformed
 
   private void jTextField10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusLost
-    main.istDatensatzVorhanden( Util.statischStringNachInt( jTextField10.getText()));
+    int iNummer = Util.statischStringNachInt( jTextField10.getText());
+		main.istDatensatzVorhanden( iNummer );
 		setzeAnzeige();
+		setNummer( iNummer );
   }//GEN-LAST:event_jTextField10FocusLost
 
   private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -666,7 +668,9 @@ public class pnlKunde extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern( Util.statischStringNachInt( getMatchcode() ) );
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -676,7 +680,8 @@ public class pnlKunde extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -705,6 +710,26 @@ public class pnlKunde extends javax.swing.JPanel {
 		setKreditlimit( main.getdKreditlimit() );
 		setSteuernummer( main.getsSteuernummer() );
 		setGesperrt( main.isbGesperrt() );
+	}
+	
+		
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getMatchcode() ));
+		main.setsAnrede( getAnrede() );
+		main.setsMatchcode( getMatchcode() );
+		main.setsName1( getName1() );
+		main.setsName2( getName2() );
+		main.setsName3( getName3() );
+		main.setsStrasse( getStrasse() );
+		main.setsPLZ( getPLZ() );
+		main.setsOrt( getOrt() );
+		main.setsTelefon( getTelefon() );
+		main.setsTelefax( getTelefax() );
+		main.setsMobil( getMobil() );
+//		main.setiKundenberaterID( Util.statischStringNachInt( getKundenberater() ));
+		main.setdKreditlimit( Util.statischStringNachDouble( getKreditlimit(), 2 ));
+		main.setsSteuernummer( getSteuernummer() );
+		main.setbGesperrt( isGesperrt() );		
 	}
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables

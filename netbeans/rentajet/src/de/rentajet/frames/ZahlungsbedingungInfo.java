@@ -101,16 +101,6 @@ public class ZahlungsbedingungInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlZahlungsbedingung.getNummer() );
-		sBezeichnung = pnlZahlungsbedingung.getBezeichnung();
-		sBelegtext = pnlZahlungsbedingung.getBelegtext();
-		iValuta = Util.statischStringNachInt( pnlZahlungsbedingung.getValuta() );
-		iSkontoValuta = Util.statischStringNachInt( pnlZahlungsbedingung.getSkontoValuta() );
-		dSkontosatz = Util.statischStringNachDouble( pnlZahlungsbedingung.getSkontosatz(), 1);
-	}
-	
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
@@ -141,8 +131,9 @@ public class ZahlungsbedingungInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -150,8 +141,8 @@ public class ZahlungsbedingungInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
 
@@ -169,18 +160,43 @@ public class ZahlungsbedingungInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 		try{

@@ -351,7 +351,9 @@ public class pnlStaat extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -361,7 +363,8 @@ public class pnlStaat extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -379,6 +382,14 @@ public class pnlStaat extends javax.swing.JPanel {
 		setLaendercode( main.getsLaendercode() );
 		setPostKuerzel( main.getsPostKuerzel() );
 		setPostName( main.getsPostName() );
+	}
+	
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getNummer() ) );
+		main.setsBezeichnung( getBezeichnung() );
+		main.setsLaendercode( getLaendercode() );
+		main.setsPostKuerzel( getPostKuerzel() );
+		main.setsPostName( getPostName() );
 	}
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables

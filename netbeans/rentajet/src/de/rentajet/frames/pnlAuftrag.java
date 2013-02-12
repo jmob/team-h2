@@ -725,6 +725,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     jLabel20.setText("Anzahl Personen");
 
     jTextField18.setNextFocusableComponent(jButton5);
+    jTextField18.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField18FocusLost(evt);
+      }
+    });
 
     jButton5.setText("...");
     jButton5.setNextFocusableComponent(jTextField19);
@@ -735,6 +740,11 @@ public class pnlAuftrag extends javax.swing.JPanel {
     });
 
     jTextField19.setNextFocusableComponent(jButton6);
+    jTextField19.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        jTextField19FocusLost(evt);
+      }
+    });
 
     jButton6.setText("...");
     jButton6.setNextFocusableComponent(jTextField20);
@@ -2166,7 +2176,9 @@ public class pnlAuftrag extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -2176,7 +2188,8 @@ public class pnlAuftrag extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -2208,6 +2221,17 @@ public class pnlAuftrag extends javax.swing.JPanel {
   private void jCheckBox3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCheckBox3PropertyChange
     // TODO add your handling code here:
   }//GEN-LAST:event_jCheckBox3PropertyChange
+
+  private void jTextField18FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField18FocusLost
+    main.istDatensatzVorhanden( Util.statischStringNachInt( getStart() ) );
+		jLabel21.setText( "München" );
+  }//GEN-LAST:event_jTextField18FocusLost
+
+  private void jTextField19FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField19FocusLost
+    main.istDatensatzVorhanden( Util.statischStringNachInt( getZiel() ) );
+		jLabel22.setText( "Hamburg" );
+		
+  }//GEN-LAST:event_jTextField19FocusLost
 	   
 
 	private void ermittleVerfügbarkeitFlugzeug() {
@@ -2497,6 +2521,72 @@ public class pnlAuftrag extends javax.swing.JPanel {
 		setChaterdauer( main.getiCharterdauer () );
 	}
 		
+
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getNummer() ) );
+		main.setsDatum( getDatum() );
+		main.setiVorgArt( Util.statischStringNachInt( getVorgArt() ) );
+		main.setsRechnungsdatum( getRechnungsdatum() );
+		main.setiKunde( Util.statischStringNachInt( getKunde() ) );
+		main.setsName1( getName1() );
+		main.setsName2( getName2() );
+		main.setsName3( getName3() );
+		main.setsStrasse( getStrasse() );
+		main.setiPLZ( Util.statischStringNachInt( getPLZ() ) );
+		main.setsOrt( getOrt() );
+		main.setiMitarbKunde( Util.statischStringNachInt( getMitarbKunde() ) );
+		main.setsMitarbKundeVorname( getMitarbKundeVorname() );
+		main.setsMitarbKundeName( getMitarbKundeName() );
+		main.setiKundenberater( Util.statischStringNachInt( getKundenberater() ) );
+		main.setsFlugdatum( getFlugdatum() );
+		main.setsUhrzeit( getUhrzeit() );
+		main.setsFlugdatumEnde( getFlugdatumEnde() );
+		main.setsUhrzeitEnde( getUhrzeitEnde() );
+		main.setiStart( Util.statischStringNachInt( getStart() ) );
+		main.setiZiel( Util.statischStringNachInt( getZiel() ) );
+		main.setiKilometer( Util.statischStringNachInt( getKilometer() ) );
+		main.setiPersonen( Util.statischStringNachInt( getPersonen() ) );
+		main.setiStops( Util.statischStringNachInt( getStops() ) );
+		main.setiErsterStop( Util.statischStringNachInt( getErsterStop() ) );
+		main.setiZweiterStop( Util.statischStringNachInt( getZweiterStop() ) );
+		main.setiDritterStop( Util.statischStringNachInt( getDritterStop() ) );
+		main.setiVierterStop( Util.statischStringNachInt( getVierterStop() ) );
+		main.setiFuenfterStop( Util.statischStringNachInt( getFuenfterStop() ) );
+		main.setiSechsterStop( Util.statischStringNachInt( getSechsterStop() ) );
+		main.setiErsterStopAufenthalt( Util.statischStringNachInt( getErsterStopAufenthalt() ) );
+		main.setiZweiterStopAufenthalt( Util.statischStringNachInt( getZweiterStopAufenthalt() ) );
+		main.setiDritterStopAufenthalt( Util.statischStringNachInt( getDritterStopAufenthalt() ) );
+		main.setiVierterStopAufenthalt( Util.statischStringNachInt( getVierterStopAufenthalt() ) );
+		main.setiFuenfterStopAufenthalt( Util.statischStringNachInt( getFuenfterStopAufenthalt() ) );
+		main.setiSechsterStopAufenthalt( Util.statischStringNachInt( getSechsterStopAufenthalt() ) );
+		main.setiFlugzeit( Util.statischStringNachInt( getFlugzeit() ) );
+		main.setiFlightcrew( Util.statischStringNachInt( getFlightcrew() ) );
+		main.setiCabincrew( Util.statischStringNachInt( getCabincrew() ) );
+		main.setiCatering( Util.statischStringNachInt( getCatering() ) );
+		main.setdKostenFlug( Util.statischStringNachDouble( getKostenFlug(), 2 ) );
+		main.setdKostenStop( Util.statischStringNachDouble( getKostenStop(), 2 ) );
+		main.setdKostenFlightcrew( Util.statischStringNachDouble( getKostenFlightcrew(), 2 ) );
+		main.setdKostenCabincrew( Util.statischStringNachDouble( getKostenCabincrew(), 2 ) );
+		main.setdKostenCatering( Util.statischStringNachDouble( getKostenCatering(), 2 ) );
+		main.setdKostenFlugGesamt( Util.statischStringNachDouble( getKostenFlugGesamt(), 2 ) );
+		main.setdKostenStopGesamt( Util.statischStringNachDouble( getKostenStopGesamt(), 2 ) );
+		main.setdKostenFlightcrewGesamt( Util.statischStringNachDouble( getKostenFlightcrewGesamt(), 2 ) );
+		main.setdKostenCabincrewGesamt( Util.statischStringNachDouble( getKostenCabincrewGesamt(), 2 ) );
+		main.setdKostenCateringGesamt( Util.statischStringNachDouble( getKostenCateringGesamt(), 2 ) );
+		main.setdNetto( Util.statischStringNachDouble( getNetto(), 2 ) );
+		main.setdRabattProzent( Util.statischStringNachDouble( getRabattProzent(), 2 ) );
+		main.setdRabatt( Util.statischStringNachDouble( getRabatt(), 2 ) );
+		main.setdMwSt( Util.statischStringNachDouble( getMwSt(), 2 ) );
+		main.setdBrutto( Util.statischStringNachDouble( getBrutto(), 2 ) );
+		main.setiZahlungsbedingung( Util.statischStringNachInt( getZahlungsbedingung() ) );
+		main.setiValuta( Util.statischStringNachInt( getValuta() ) );
+		main.setiSkontoValuta( Util.statischStringNachInt( getSkontoValuta() ) );
+		main.setdSkontosatz( Util.statischStringNachDouble( getSkontosatz(), 2 ) );
+		main.setdKostenFlugVar( Util.statischStringNachDouble( getKostenFlugVar(), 2 ) );
+		main.setdKostenFlugVarGesamt( Util.statischStringNachDouble( getKostenFlugVarGesamt(), 2) );
+		main.setiCharterdauer( Util.statischStringNachInt( getCharterdauer() ) );
+	}
+	
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private java.util.List<de.rentajet.entity.Flugzeug> flugzeugList;
   private java.util.List<de.rentajet.entity.Flugzeug> flugzeugList1;

@@ -4,6 +4,7 @@
  */
 package de.rentajet.frames;
 
+import de.rentajet.uti.Util;
 import javax.swing.JOptionPane;
 
 /**
@@ -332,7 +333,9 @@ public class pnlOrt extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getPLZ() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -342,7 +345,8 @@ public class pnlOrt extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getPLZ() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -358,6 +362,12 @@ public class pnlOrt extends javax.swing.JPanel {
 		setPLZ( main.getiPLZ() );
 		setBezeichnung( main.getsBezeichnung() );
 		setStaat( main.getsStaat() );
+	}
+
+	private void leseausAnzeige() {
+		main.setiPLZ( Util.statischStringNachInt( getPLZ() ) );
+		main.setsBezeichnung( getBezeichnung() );
+		main.setsStaat( getStaat() );
 	}
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables

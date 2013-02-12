@@ -468,7 +468,9 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -478,7 +480,8 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -502,6 +505,19 @@ public class pnlMitarbkunde extends javax.swing.JPanel {
 		setTelefax( main.getsTelefax() );
 		setMobil( main.getsMobil() );
 	}
+	
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getNummer() ) );
+		main.setsAnrede( getAnrede() );
+		main.setiKundenummer( Util.statischStringNachInt( getKundenummer() ) );
+		main.setsVorname( getVorname() );
+		main.setsNachname( getNachname() );
+		main.setsInfo( getInfo() );
+		main.setsTelefon( getTelefon() );
+		main.setsTelefax( getTelefax() );
+		main.setsMobil( getMobil() );
+	}
+	
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private java.util.List<de.rentajet.entity.Anrede> anredeList;

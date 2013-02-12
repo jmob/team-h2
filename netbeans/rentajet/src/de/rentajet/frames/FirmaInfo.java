@@ -188,22 +188,6 @@ public class FirmaInfo {
 		}
 	}
 	
-	private void leseausAnzeige() {
-		sBezeichnung = pnlFirma.getBezeichnung();
-		sName1 = pnlFirma.getName1();
-		sName2 = pnlFirma.getName2();
-		sName3 = pnlFirma.getName3();
-		sStrasse = pnlFirma.getStrasse();
-		sOrt = pnlFirma.getOrt();
-		sPLZ = pnlFirma.getPLZ();
-		sSteuernummer = pnlFirma.getSteuernummer();
-		sBetriebsnummer = pnlFirma.getBetriebsnummer();
-		sUSTIdentNummer = pnlFirma.getUSTIdentNummer();
-		sTelefon = pnlFirma.getTelefon();
-		sTelefax = pnlFirma.getTelefax();
-		sLogo = pnlFirma.getLogo();
-	}
-	
 	private void aktualisiereAnzeige() {
 		sBezeichnung = "";
 		sName1 = "";
@@ -241,8 +225,8 @@ public class FirmaInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -250,11 +234,11 @@ public class FirmaInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
@@ -269,18 +253,43 @@ public class FirmaInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 			try{

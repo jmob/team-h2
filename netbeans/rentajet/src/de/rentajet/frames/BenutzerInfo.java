@@ -134,17 +134,7 @@ public class BenutzerInfo {
 		}
 	}	
 	
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlBenutzer.getNummer() );
-		sVorname = pnlBenutzer.getVorname();
-		sNachname = pnlBenutzer.getNachname();
-		sInitialen = pnlBenutzer.getInitialen();
-		sLogin = pnlBenutzer.getLogin();
-		sPasswort = pnlBenutzer.getPasswort();
-		bGesperrt = pnlBenutzer.isGesperrt();
-		iBenutzergruppe = Util.statischStringNachInt( pnlBenutzer.getBenutzergruppe() );
-	}
-	
+
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sVorname = "";
@@ -177,8 +167,8 @@ public class BenutzerInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -186,12 +176,11 @@ public class BenutzerInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
-	
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
@@ -206,19 +195,43 @@ public class BenutzerInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
-
 	
 	public void ersterDatensatzDB() {
 		try{

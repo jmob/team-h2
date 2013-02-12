@@ -157,18 +157,6 @@ public class MitarbkundeInfo {
 		}
 	}	
 
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlMitarbkunde.getNummer() );
-		sAnrede = pnlMitarbkunde.getAnrede();
-		iKundenummer = Util.statischStringNachInt( pnlMitarbkunde.getKundenummer() );
-		sVorname = pnlMitarbkunde.getVorname();
-		sNachname = pnlMitarbkunde.getNachname();
-		sInfo = pnlMitarbkunde.getInfo();
-		sTelefon = pnlMitarbkunde.getTelefon();
-		sTelefax = pnlMitarbkunde.getTelefax();
-		sMobil = pnlMitarbkunde.getMobil();
-	}
-	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sAnrede = "";
@@ -203,8 +191,9 @@ public class MitarbkundeInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -212,8 +201,8 @@ public class MitarbkundeInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
 
@@ -231,18 +220,43 @@ public class MitarbkundeInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 		try{

@@ -412,7 +412,9 @@ public class pnlPersonal extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -422,7 +424,8 @@ public class pnlPersonal extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -442,6 +445,16 @@ public class pnlPersonal extends javax.swing.JPanel {
 		setTelefon( main.getsTelefon() );
 		setTelefax( main.getsTelefax() );
 		setMobil( main.getsMobil() );
+	}
+
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getNummer() ) );
+		main.setsVorname( getVorname() );
+		main.setsNachname( getNachname() );
+		main.setsInfo( getInfo() );
+		main.setsTelefon( getTelefon() );
+		main.setsTelefax( getTelefax() );
+		main.setsMobil( getMobil() );
 	}
 	
   // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -162,7 +162,7 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
     jLabel8.setText(" ");
 
     jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-    jLabel3.setText("Flugzeugtyp");
+    jLabel3.setText("Personaltyp");
 
     jToolBar1.setRollover(true);
 
@@ -348,7 +348,7 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
           .addComponent(jButton1)
           .addComponent(jLabel8))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+        .addComponent(jTabbedPane1)
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
@@ -411,7 +411,9 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -421,7 +423,8 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -442,6 +445,16 @@ public class pnlPersonalkosten extends javax.swing.JPanel {
 		setStundensatz( main.getdStundensatz() );
 		setPersonaltypnummer( main.getiPersonaltypnummer() );
 		setPersonaltyp( main.getsPersonaltyp() );
+	}
+	
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getNummer() ) );
+		main.setsBezeichnung( getBezeichnung() );
+		main.setdJahresgehalt( Util.statischStringNachDouble( getJahresgehalt(), 2 ) );
+		main.setiArbeitsstunden( Util.statischStringNachInt( getArbeitsstunden() ) );
+		main.setdStundenlohn( Util.statischStringNachDouble( getStundenlohn(), 2 ) );
+		main.setdStundensatz( Util.statischStringNachDouble( getStundensatz(), 2 ) );
+		main.setiPersonaltypnummer( Util.statischStringNachInt( getPersonaltypnummer() ) );
 	}
 	
 	private void ermittleKostenFix() {

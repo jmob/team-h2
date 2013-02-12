@@ -74,12 +74,6 @@ public class FlughafenInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlFlughafen.getNummer() );
-		sBezeichnung = pnlFlughafen.getBezeichnung();
-		sKuerzel = pnlFlughafen.getKuerzel();
-	}
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
@@ -107,8 +101,8 @@ public class FlughafenInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -116,11 +110,11 @@ public class FlughafenInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
@@ -135,18 +129,43 @@ public class FlughafenInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 		try{
@@ -193,8 +212,14 @@ public class FlughafenInfo {
 	
 	public boolean istDatensatzVorhanden( int iNummer ) {
 		//ToDo Abfrage in DB ob Datensatz mit übergebener Nummer vorhanden ist und ggf. Variablen füllen
-		if( iNummer == 10 )
+		if( iNummer == 10 ) {
+			sBezeichnung = "München";
 			return true;
+		}
+		else if( iNummer == 11 ) {
+			sBezeichnung = "Hamburg";
+			return true;
+		}
 		else
 			return false;
 	}

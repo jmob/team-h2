@@ -130,17 +130,7 @@ public class FlugzeugkostenInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}
-	
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlFlugzeugkosten.getNummer() );
-		sBezeichnung = pnlFlugzeugkosten.getBezeichnung();
-		dFixkosten = Util.statischStringNachDouble( pnlFlugzeugkosten.getFixkosten(), 2 );
-		iRentabilitaetStd = Util.statischStringNachInt( pnlFlugzeugkosten.getRentabilitaetStd() );
-		dFixkostenStd = Util.statischStringNachDouble( pnlFlugzeugkosten.getFixkostenStd(), 2 );
-		dStundensatz = Util.statischStringNachDouble( pnlFlugzeugkosten.getStundensatz(), 2 );
-		iFlugzeugtypnummer = Util.statischStringNachInt( pnlFlugzeugkosten.getFlugzeugtypnummer() );
-	}
-	
+
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sBezeichnung = "";
@@ -172,8 +162,9 @@ public class FlugzeugkostenInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -181,8 +172,8 @@ public class FlugzeugkostenInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
 
@@ -200,18 +191,43 @@ public class FlugzeugkostenInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 		try{

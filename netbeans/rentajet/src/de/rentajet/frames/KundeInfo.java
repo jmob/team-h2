@@ -220,25 +220,6 @@ public class KundeInfo {
 		}
 	}
 	
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlKunde.getNummer() );
-		sAnrede = pnlKunde.getAnrede();
-		sMatchcode = pnlKunde.getMatchcode();
-		sName1 = pnlKunde.getName1();
-		sName2 = pnlKunde.getName2();
-		sName3 = pnlKunde.getName3();
-		sStrasse = pnlKunde.getStrasse();
-		sPLZ = pnlKunde.getPLZ();
-		sOrt = pnlKunde.getOrt();
-		sTelefon = pnlKunde.getTelefon();
-		sTelefax = pnlKunde.getTelefax();
-		sMobil = pnlKunde.getMobil();
-		iKundenberater = Util.statischStringNachInt( pnlKunde.getKundenberater() );
-		dKreditlimit = Util.statischStringNachDouble( pnlKunde.getKreditlimit(), 2 );
-		sSteuernummer = pnlKunde.getSteuernummer();
-		bGesperrt = pnlKunde.isGesperrt();		
-	}
-	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
 		sAnrede = "";
@@ -260,7 +241,7 @@ public class KundeInfo {
 		iOrtID = 0;
 		iKundenberaterID = 0;
 	}
-	
+
 	public void ersterDatensatz() {
 		ersterDatensatzDB();
 	}
@@ -278,7 +259,7 @@ public class KundeInfo {
 	}
 	
 	public void sucheDatensatz() {
-		// ToDo: Erstellung eines Suchfensters
+
 	}
 	
 	public void speichern( int iNummer ) {
@@ -290,8 +271,8 @@ public class KundeInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
 
@@ -312,36 +293,43 @@ public class KundeInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-				PreparedStatement pst = conn.prepareStatement( 
-					"UPDATE Kunde ( ID, Nummer, AnredeID, Matchcode, Name1, Name2, Name3, Strasse, OrtID,"
-					+ "KundenberaterID, Telefon, Telefax, Mobil, Gesperrt, Kreditlimit, Steuernummer ) VALUE ("
-					+ iID + "," + sMatchcode + "," + iAnredeID + "," + sMatchcode + "," + sName1 + "," + sName2 + "," + sName3 + "," + sStrasse + "," + iOrtID + "," 
-					+	iKundenberaterID + "," + sTelefon + "," + sTelefax + "," + sMobil + "," + bGesperrt + "," + dKreditlimit + "," + sSteuernummer + ")" );
-				ResultSet rs = pst.executeQuery();
+//				PreparedStatement pst = conn.prepareStatement( "" );
 			}
 			catch (Exception e) {
 				
 			}
 		}
 		else {
-//			PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE t1.ID=1 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ;" );
-//			ResultSet rs = pst.executeQuery();			
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 		try{
-      //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung WHERE ID=1;" );
       PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE t1.ID=1 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ;" );
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){
@@ -363,7 +351,6 @@ public class KundeInfo {
 	
 	public void letzterDatensatzDB() {
 		try{
-      //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung ORDER BY ID DESC LIMIT 1;" );
        PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE  t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ORDER BY t1.ID DESC LIMIT 1");
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){

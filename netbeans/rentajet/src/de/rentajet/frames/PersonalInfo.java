@@ -129,16 +129,6 @@ public class PersonalInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlPersonal.getNummer() );
-		sVorname = pnlPersonal.getVorname();
-		sNachname = pnlPersonal.getNachname();
-		sInfo = pnlPersonal.getInfo();
-		sTelefon = pnlPersonal.getTelefon();
-		sTelefax = pnlPersonal.getTelefax();
-		sMobil = pnlPersonal.getMobil();
-	}
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
@@ -171,8 +161,9 @@ public class PersonalInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -180,8 +171,8 @@ public class PersonalInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
 
@@ -199,18 +190,43 @@ public class PersonalInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 			try{

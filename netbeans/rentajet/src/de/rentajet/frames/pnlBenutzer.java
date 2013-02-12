@@ -434,7 +434,9 @@ public class pnlBenutzer extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -444,7 +446,8 @@ public class pnlBenutzer extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -467,6 +470,17 @@ public class pnlBenutzer extends javax.swing.JPanel {
 		setBenutzergruppe( main.getiBenutzergruppe() );
 	}
 
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getNummer() ) );
+		main.setsVorname( getVorname() );
+		main.setsNachname( getNachname() );
+		main.setsInitialen( getInitialen() );
+		main.setsLogin( getLogin() );
+		main.setsPasswort( getPasswort() );
+		main.setbGesperrt( isGesperrt() );
+		main.setiBenutzergruppe( Util.statischStringNachInt( getBenutzergruppe() ) );
+	}
+	
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton17;

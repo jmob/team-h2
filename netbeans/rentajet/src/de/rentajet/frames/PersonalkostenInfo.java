@@ -121,16 +121,6 @@ public class PersonalkostenInfo {
 		catch (java.beans.PropertyVetoException e) {
 		}
 	}	
-
-	private void leseausAnzeige() {
-		iNummer = Util.statischStringNachInt( pnlPersonalkosten.getNummer() );
-		sBezeichnung = pnlPersonalkosten.getBezeichnung();
-		dJahresgehalt = Util.statischStringNachDouble( pnlPersonalkosten.getJahresgehalt(), 2 );
-		iArbeitsstunden = Util.statischStringNachInt( pnlPersonalkosten.getArbeitsstunden() );
-		dStundenlohn = Util.statischStringNachDouble( pnlPersonalkosten.getStundenlohn(), 2 );
-		dStundensatz = Util.statischStringNachDouble( pnlPersonalkosten.getStundensatz(), 2 );
-		iPersonaltypnummer = Util.statischStringNachInt( pnlPersonalkosten.getPersonaltypnummer() );
-	}
 	
 	private void aktualisiereAnzeige() {
 		iNummer = 0;
@@ -162,8 +152,9 @@ public class PersonalkostenInfo {
 		// ToDo: Erstellung eines Suchfensters
 	}
 	
-	public void speichern() {
-		speichereDB();
+	
+	public void speichern( int iNummer ) {
+		speichereDB( iNummer );
 		aktualisiereAnzeige();
 	}
 	
@@ -171,11 +162,11 @@ public class PersonalkostenInfo {
 		aktualisiereAnzeige();
 	}
 	
-	public void loeschen() {
-		loescheDB();
+	public void loeschen( int iNummer ) {
+		loescheDB( iNummer );
 		aktualisiereAnzeige();
 	}
-	
+
 	public void drucken() {
 		JOptionPane.showMessageDialog(
 			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
@@ -190,18 +181,43 @@ public class PersonalkostenInfo {
 		);	
 	}
 
-	public void speichereDB() {
+	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
+		}
+		else {
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
+		}
 		
 	}
 	
-	public void ladeDB(){
-		
+	public void ladeDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}		
 	}
 	
-	public void loescheDB(){
-		
+	public void loescheDB( int iNummer ){
+			try {
+//				PreparedStatement pst = conn.prepareStatement( "" );
+			}
+			catch (Exception e) {
+				
+			}
 	}
-	
 	
 	public void ersterDatensatzDB() {
 				try{

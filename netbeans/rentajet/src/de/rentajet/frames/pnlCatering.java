@@ -321,7 +321,9 @@ public class pnlCatering extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -331,7 +333,8 @@ public class pnlCatering extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -349,7 +352,14 @@ public class pnlCatering extends javax.swing.JPanel {
 		setPreis( main.getdPreis() );
 		setBeschreibung( main.getsBeschreibung() );
 	}
-	
+		
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getNummer() ) );
+		main.setsBezeichnung( getBezeichnung() );
+		main.setdPreis( Util.statischStringNachDouble( getPreis(), 2) );
+		main.setsBeschreibung( getBeschreibung() );
+	}
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton17;
   private javax.swing.JButton jButton18;

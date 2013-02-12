@@ -437,7 +437,9 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton22ActionPerformed
 
   private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    main.speichern();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		leseausAnzeige();
+		main.speichern( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton23ActionPerformed
 
@@ -447,7 +449,8 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
   }//GEN-LAST:event_jButton24ActionPerformed
 
   private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-    main.loeschen();
+    int iNummer = Util.statischStringNachInt( getNummer() );
+		main.loeschen( iNummer );
 		setzeAnzeige();
   }//GEN-LAST:event_jButton25ActionPerformed
 
@@ -472,6 +475,19 @@ public class pnlFlugzeugtyp extends javax.swing.JPanel {
 		setTriebwerkart( main.getiTriebwerkart() );
 	}
 	
+	private void leseausAnzeige() {
+		main.setiNummer( Util.statischStringNachInt( getNummer() ) );
+		main.setsBezeichnung( getBezeichnung() );
+		main.setsHersteller( getHersteller() );
+		main.setiFlightcrew( Util.statischStringNachInt( getFlightcrew() ) );
+		main.setiCabincrew( Util.statischStringNachInt( getCabincrew() ) );
+		main.setiReichweite( Util.statischStringNachInt( getReichweite() ) );
+		main.setiSitzplaetze( Util.statischStringNachInt( getSitzplaetze() ) );
+		main.setiReisegeschwindigkeit( Util.statischStringNachInt( getReisegeschwindigkeit() ) );
+		main.setiTriebwerke( Util.statischStringNachInt( getTriebwerke() ) );
+		main.setiTriebwerkart( Util.statischStringNachInt( getTriebwerkart() ) );
+	}
+
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
   private javax.swing.JButton jButton17;
