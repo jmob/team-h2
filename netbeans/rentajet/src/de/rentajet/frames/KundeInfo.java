@@ -330,9 +330,25 @@ public class KundeInfo {
 	
 	public void ersterDatensatzDB() {
 		try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE t1.ID=1 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.*,t4.* FROM kunde AS t1, anrede AS t2, ort AS t3, kundenberater AS t4  WHERE t1.ID=0 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID AND t1.KundenberaterID= t4.ID ;" );
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){
+				iID = rs.getInt("ID");
+				iNummer  = rs.getInt("Nummer");
+				iAnredeID  = rs.getInt("AnredeID");
+				iOrtID  = rs.getInt("OrtID");
+				iKundenberaterID  = rs.getInt("KundenberaterID");
+				sMatchcode = rs.getString("Matchcode");
+				sName1 = rs.getString("Name1");
+				sName2 = rs.getString("Name2");
+				sName3 = rs.getString("Name3");		
+				sStrasse = rs.getString("Strasse");
+				sTelefon = rs.getString("Telefon");	
+				sTelefax = rs.getString("Telefax");	
+				sMobil  = rs.getString("Mobil");
+				sSteuernummer  = rs.getString("Steuernummer");
+				bGesperrt = rs.getBoolean("Gesperrt");
+				dKreditlimit = rs.getInt("Kreditlimit");
 		  }
     }
     catch(Exception e)
