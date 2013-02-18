@@ -179,7 +179,7 @@ public class CateringInfo {
 	
 	public void ersterDatensatzDB() {
 		try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT * from catering WHERE ID=1;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from catering WHERE ID=0;" );
       ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");

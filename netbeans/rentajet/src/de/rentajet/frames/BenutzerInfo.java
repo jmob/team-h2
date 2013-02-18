@@ -198,7 +198,18 @@ public class BenutzerInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+				PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  VALUES (" + iNummer + ") ON DUPLICATE KEY update col = col+1 " );
+				ResultSet rs = pst.executeQuery();
+				if(rs.next()){
+					iNummer  = rs.getInt("Nummer");
+					sVorname = rs.getString("Vorname");	
+					sNachname = rs.getString("Nachname");
+					sInitialen = rs.getString("Initialen");
+					sLogin = rs.getString("Login");
+					sPasswort = rs.getString("Passwort");
+					bGesperrt = rs.getBoolean( "Gesperrt");
+					iBenutzergruppe = rs.getInt("BenutzergruppeID");
+				}
 			}
 			catch (Exception e) {
 				
@@ -235,7 +246,7 @@ public class BenutzerInfo {
 	
 	public void ersterDatensatzDB() {
 		try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT * from benutzer WHERE ID=1;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from benutzer WHERE ID=0;" );
       ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iNummer  = rs.getInt("Nummer");

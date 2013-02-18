@@ -262,7 +262,7 @@ public class KundenberaterInfo {
 	public void ersterDatensatzDB() {
 				try{
       //PreparedStatement pst = conn.prepareStatement( "SELECT * from zahlungsbedingung WHERE ID=1;" );
-      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.* FROM kundenberater AS t1, anrede AS t2, ort AS t3 WHERE t1.ID=1 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID ;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.*,t3.* FROM kundenberater AS t1, anrede AS t2, ort AS t3 WHERE t1.ID=0 AND t1.AnredeID= t2.ID AND t1.OrtID= t3.ID ;" );
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");

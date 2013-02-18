@@ -170,7 +170,7 @@ public class OrtInfo {
 	
 	public void ersterDatensatzDB() {
 						try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM ort AS t1, staat AS t2 WHERE t1.ID=1 AND t1.StaatID= t2.ID;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM ort AS t1, staat AS t2 WHERE t1.ID=0 AND t1.StaatID= t2.ID;" );
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");

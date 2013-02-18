@@ -758,7 +758,7 @@ public class AuftragInfo {
 	
 	public void ersterDatensatzDB() {
 			try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM auftrag AS t1, flugzeug AS t2 WHERE t1.ID=1 AND t1.FlugzeugID= t2.ID;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM auftrag AS t1, flugzeug AS t2 WHERE t1.ID=0 AND t1.FlugzeugID= t2.ID;" );
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");
