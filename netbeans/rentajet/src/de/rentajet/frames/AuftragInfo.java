@@ -5,8 +5,9 @@
  */
 package de.rentajet.frames;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Font;
 import de.rentajet.base.H2InternalFrame;
-import de.rentajet.uti.Util;
 import de.rentajet.base.javaconnect;
 import java.awt.BorderLayout;
 import java.sql.Connection;
@@ -96,7 +97,17 @@ public class AuftragInfo {
 	private int iFlugbegleiterEinsID;
 	private int iFlugbegleiterZweiID;
 	private final Connection conn;
+	private String FILE = "C:/Users/" + System.getProperty("user.name") + "/Documents/GitHub/team-h2/netbeans/rentajet/myreport.pdf";
+	private Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
+      Font.BOLD);
+  private Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+      Font.NORMAL, BaseColor.RED);
+  private Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,
+      Font.BOLD);
+  private Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+      Font.BOLD);
 
+  
 	public AuftragInfo() {
 		conn=javaconnect.ConnectDb();
 	}
@@ -702,13 +713,7 @@ public class AuftragInfo {
 	public void loeschen( int iNummer ) {
 		loescheDB( iNummer );
 		aktualisiereAnzeige();
-	}
 
-	public void drucken() {
-		JOptionPane.showMessageDialog(
-			null, "Es stehen keine Druckdaten zur Verfügung", "Drucken", 
-			JOptionPane.OK_OPTION
-		);	
 	}
 		
 	public void zeigeArchiv() {
@@ -1095,4 +1100,6 @@ public class AuftragInfo {
 		else
 			return false;
 	}
+
+
 }
