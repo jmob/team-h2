@@ -117,7 +117,6 @@ public class FrmMain extends javax.swing.JFrame {
     jLabel1 = new javax.swing.JLabel();
     jButton18 = new javax.swing.JButton();
     jButton19 = new javax.swing.JButton();
-    jButton16 = new javax.swing.JButton();
     jLabel2 = new javax.swing.JLabel();
     jButton20 = new javax.swing.JButton();
     jButton21 = new javax.swing.JButton();
@@ -390,14 +389,6 @@ public class FrmMain extends javax.swing.JFrame {
       }
     });
     jPanel5.add(jButton19);
-
-    jButton16.setText("Anrede");
-    jButton16.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButton16ActionPerformed(evt);
-      }
-    });
-    jPanel5.add(jButton16);
 
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
     jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1136,11 +1127,6 @@ public class FrmMain extends javax.swing.JFrame {
     main.letzterDatensatz();
   }//GEN-LAST:event_jMenuItem12ActionPerformed
 
-  private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-		AnredeInfo anrede = new AnredeInfo();
-		anrede.show( jPanel3 );
-  }//GEN-LAST:event_jButton16ActionPerformed
-
   private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
 		PersonalInfo personal = new PersonalInfo();
 		personal.show( jPanel3 );
@@ -1199,7 +1185,6 @@ public class FrmMain extends javax.swing.JFrame {
   private javax.swing.JButton jButton13;
   private javax.swing.JButton jButton14;
   private javax.swing.JButton jButton15;
-  private javax.swing.JButton jButton16;
   private javax.swing.JButton jButton17;
   private javax.swing.JButton jButton18;
   private javax.swing.JButton jButton19;

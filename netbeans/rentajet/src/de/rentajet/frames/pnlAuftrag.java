@@ -52,7 +52,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	PreparedStatement pst=null;
 	
 	
-	private String FILE = "C:/Users/" + System.getProperty("user.name") + "/Documents/GitHub/team-h2/netbeans/rentajet/myreport.pdf";
+	private String FILE;
 	private Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
       Font.BOLD);
   private Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
@@ -64,6 +64,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
 	
 	public void drucken() {
     try {
+			FILE = "D:/Dropbox/Dropbox/Studium/4. Semester/Semesterprojekt/rentajet/Angebot_" + getNummer() + ".pdf";
       Document document = new Document();
       PdfWriter.getInstance(document, new FileOutputStream(FILE));
       document.open();
@@ -80,11 +81,29 @@ public class pnlAuftrag extends javax.swing.JPanel {
   // Reader
   // under File -> Properties
   private void addMetaData(Document document) {
-    document.addTitle("Rechnung");
-    document.addSubject("RentCenter");
-    document.addKeywords("Java, PDF, iText");
-    document.addAuthor("Mathias Bachhuber");
-    document.addCreator("Mathias Bachhuber");
+		if( jCheckBox1.isSelected() ) {
+			document.addTitle("Angebot");
+			document.addSubject("RentCenter");
+			document.addKeywords("Java, PDF, iText");
+			document.addAuthor("Mathias Bachhuber");
+			return;
+		}
+		else if( jCheckBox2.isSelected() ) {
+			document.addTitle("Auftragsbestätigung");
+			document.addSubject("RentCenter");
+			document.addKeywords("Java, PDF, iText");
+			document.addAuthor("Mathias Bachhuber");
+			document.addCreator("Mathias Bachhuber");  
+			return;
+		}
+		else if( jCheckBox3.isSelected() ) {
+			document.addTitle("Rechnung");
+			document.addSubject("RentCenter");
+			document.addKeywords("Java, PDF, iText");
+			document.addAuthor("Mathias Bachhuber");
+			document.addCreator("Mathias Bachhuber");
+			return;
+		}
   }
 
   private void addTitlePage(Document document)
@@ -100,7 +119,7 @@ public class pnlAuftrag extends javax.swing.JPanel {
     preface.add(new Paragraph("Rechnung erzeugt von: " + System.getProperty("user.name") + ", am " + new Date(), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         smallBold));
     addEmptyLine(preface, 3);
-    preface.add(new Paragraph("Dies ist die Rechnung für Kunde mit der Auftragsnummer X",
+    preface.add(new Paragraph("Dies ist die Rechnung für Kunde mit der Auftragsnummer " + getNummer(),
         smallBold));
 
     addEmptyLine(preface, 8);
