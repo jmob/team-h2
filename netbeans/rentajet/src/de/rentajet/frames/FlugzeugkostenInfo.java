@@ -33,6 +33,7 @@ public class FlugzeugkostenInfo {
 	private int iFlugzeugtypnummer;
 	private String sFlugzeugtyp;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	
 		public FlugzeugkostenInfo() {
 		conn=javaconnect.ConnectDb();
@@ -194,7 +195,21 @@ public class FlugzeugkostenInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugkosten (ID, Nummer, Bezeichnung, FlugzeugtypID, Fixkosten, RentabilitaetStd, FixkostenStd, Stundensatz )"
+						+	"VALUES (iID, iNummer, sBezeichnung, iFlugzeugtypID, dFixkosten, iRentabilitaetStd, dFixkostenStd, dStundensatz )"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', FlugzeugtypID = 'iFlugzeugtypID', Fixkosten='dFixkosten', RentabilitaetStd='iRentabilitaetStd', FixkostenStd='dFixkostenStd', Stundensatz='dStundensatz'" );
+				
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setInt( 4, iFlugzeugtypID);
+			pst.setDouble( 5, dFixkosten);
+			pst.setInt( 6, iRentabilitaetStd);
+			pst.setDouble( 7, dFixkostenStd);
+			pst.setDouble( 8, dStundensatz);
+			
+			pst.execute(); 
 			}
 			catch (Exception e) {
 				
@@ -202,7 +217,21 @@ public class FlugzeugkostenInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugkosten (ID, Nummer, Bezeichnung, FlugzeugtypID, Fixkosten, RentabilitaetStd, FixkostenStd, Stundensatz )"
+						+	"VALUES (iID, iNummer, sBezeichnung, iFlugzeugtypID, dFixkosten, iRentabilitaetStd, dFixkostenStd, dStundensatz )"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', FlugzeugtypID = 'iFlugzeugtypID', Fixkosten='dFixkosten', RentabilitaetStd='iRentabilitaetStd', FixkostenStd='dFixkostenStd', Stundensatz='dStundensatz'" );
+				
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setInt( 4, iFlugzeugtypID);
+			pst.setDouble( 5, dFixkosten);
+			pst.setInt( 6, iRentabilitaetStd);
+			pst.setDouble( 7, dFixkostenStd);
+			pst.setDouble( 8, dStundensatz);
+			
+			pst.execute();
 			}
 			catch (Exception e) {
 				
@@ -242,7 +271,7 @@ public class FlugzeugkostenInfo {
 				sBezeichnung  = rs.getString("Bezeichnung");
 				dFixkosten  = rs.getDouble("Fixkosten");
 				dFixkostenStd  = rs.getDouble("FixkostenStd");
-				dStundensatz = rs.getInt("Stundensatz");
+				dStundensatz = rs.getDouble("Stundensatz");
 				//private int iFlugzeugtypnummer;
 				//private String sFlugzeugtyp;
 		  }

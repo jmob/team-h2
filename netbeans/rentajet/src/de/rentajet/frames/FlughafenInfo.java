@@ -25,6 +25,7 @@ public class FlughafenInfo {
 	private String sBezeichnung;
 	private String sKuerzel;
 	private final Connection conn;
+	PreparedStatement pst=null;
 
 		public FlughafenInfo() {
 		conn=javaconnect.ConnectDb();
@@ -132,7 +133,17 @@ public class FlughafenInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flughafen  (ID, Nummer, Bezeichnung, Kuerzel)"
+																											+	"VALUES (iID, iNummer, sBezeichnung, sKuerzel)"
+																											+	" ON DUPLICATE KEY UPDATE "
+																											+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Kuerzel = 'sKuerzel'" );
+			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setString( 4, sKuerzel);
+			
+			pst.execute(); 
 			}
 			catch (Exception e) {
 				
@@ -140,7 +151,17 @@ public class FlughafenInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flughafen  (ID, Nummer, Bezeichnung, Kuerzel)"
+																											+	"VALUES (iID, iNummer, sBezeichnung, sKuerzel)"
+																											+	" ON DUPLICATE KEY UPDATE "
+																											+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Kuerzel = 'sKuerzel'" );
+			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setString( 4, sKuerzel);
+			
+			pst.execute(); 
 			}
 			catch (Exception e) {
 				
