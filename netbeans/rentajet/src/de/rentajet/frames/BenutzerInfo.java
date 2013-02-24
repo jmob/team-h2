@@ -198,8 +198,11 @@ public class BenutzerInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-				PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  VALUES (" + iNummer + ") ON DUPLICATE KEY update col = col+1 " );
-				ResultSet rs = pst.executeQuery();
+				PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  (Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
+																											+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
+																											+	" ON DUPLICATE KEY UPDATE "
+																											+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
+				/*ResultSet rs = pst.executeQuery();
 				if(rs.next()){
 					iNummer  = rs.getInt("Nummer");
 					sVorname = rs.getString("Vorname");	
@@ -209,7 +212,7 @@ public class BenutzerInfo {
 					sPasswort = rs.getString("Passwort");
 					bGesperrt = rs.getBoolean( "Gesperrt");
 					iBenutzergruppe = rs.getInt("BenutzergruppeID");
-				}
+				}*/
 			}
 			catch (Exception e) {
 				

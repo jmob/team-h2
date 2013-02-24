@@ -24,6 +24,7 @@ public class BenutzergruppeInfo {
 	private int iNummer;
 	private String sBezeichnung;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	
 		public BenutzergruppeInfo() {
 		conn=javaconnect.ConnectDb();
@@ -122,7 +123,19 @@ public class BenutzergruppeInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzergruppe  (ID, Nummer, Bezeichnung)"
+																											//+	"VALUES ('iID', 'iNummer', 'sBezeichnung')"			//funktioniert auch
+																											+	"VALUES (iID, iNummer, sBezeichnung)"
+																											+	" ON DUPLICATE KEY UPDATE "
+																											+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung'" );
+			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+
+			
+			pst.execute(); 
+			//ResultSet rs = pst.executeQuery();
 			}
 			catch (Exception e) {
 				
@@ -130,7 +143,18 @@ public class BenutzergruppeInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+		PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzergruppe  (ID, Nummer, Bezeichnung)"
+																											//+	"VALUES ('iID', 'iNummer', 'sBezeichnung')"
+																											+	"VALUES (iID, iNummer, sBezeichnung)"
+																											+	" ON DUPLICATE KEY UPDATE "
+																											+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung'" );
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+
+			
+			pst.execute(); 
+			//ResultSet rs = pst.executeQuery();
 			}
 			catch (Exception e) {
 				
