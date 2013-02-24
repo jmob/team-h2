@@ -35,6 +35,7 @@ public class BenutzerInfo {
 	private String sPasswort;
 	private boolean bGesperrt;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	boolean hasNext = false;
 	
 	public BenutzerInfo() {
@@ -202,17 +203,18 @@ public class BenutzerInfo {
 																											+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
 																											+	" ON DUPLICATE KEY UPDATE "
 																											+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
-				/*ResultSet rs = pst.executeQuery();
-				if(rs.next()){
-					iNummer  = rs.getInt("Nummer");
-					sVorname = rs.getString("Vorname");	
-					sNachname = rs.getString("Nachname");
-					sInitialen = rs.getString("Initialen");
-					sLogin = rs.getString("Login");
-					sPasswort = rs.getString("Passwort");
-					bGesperrt = rs.getBoolean( "Gesperrt");
-					iBenutzergruppe = rs.getInt("BenutzergruppeID");
-				}*/
+			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sVorname);
+			pst.setString( 4, sNachname);
+			pst.setString( 5, sInitialen);
+			pst.setString( 6, sLogin);
+			pst.setString( 7, sPasswort);
+			pst.setBoolean( 8, bGesperrt);
+			pst.setInt( 1, iBenutzergruppe);
+			
+			pst.execute(); 
 			}
 			catch (Exception e) {
 				
@@ -220,7 +222,22 @@ public class BenutzerInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  (Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
+																											+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
+																											+	" ON DUPLICATE KEY UPDATE "
+																											+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
+			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sVorname);
+			pst.setString( 4, sNachname);
+			pst.setString( 5, sInitialen);
+			pst.setString( 6, sLogin);
+			pst.setString( 7, sPasswort);
+			pst.setBoolean( 8, bGesperrt);
+			pst.setInt( 1, iBenutzergruppe);
+			
+			pst.execute(); 
 			}
 			catch (Exception e) {
 				

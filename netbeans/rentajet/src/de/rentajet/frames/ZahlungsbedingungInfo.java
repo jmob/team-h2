@@ -28,6 +28,7 @@ public class ZahlungsbedingungInfo {
 	private String sBezeichnung;
 	private String sBelegtext;
 	private final Connection conn;
+	PreparedStatement pst=null;
 
 		public ZahlungsbedingungInfo() {
 		conn=javaconnect.ConnectDb();
@@ -163,7 +164,22 @@ public class ZahlungsbedingungInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO zahlungsbedingung  (ID, Nummer, Valuta, SkontoValuta, Skontosatz, Bezeichnung, Belegtext)"
+																											+	"VALUES ('iID', 'iNummer', 'iValuta', 'iSkontoValuta', 'dSkontosatz', 'sBezeichnung', 'sBelegtext')" 
+																											+	" ON DUPLICATE KEY UPDATE "
+																											+ "ID= 'iID',Nummer = 'iNummer', Valuta = 'iValuta', SkontoValuta = 'iSkontoValuta', Skontosatz ='dSkontosatz', Bezeichnung= 'sBezeichnung', Belegtext= 'sBelegtext'" );
+
+			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setInt( 3, iValuta);
+			pst.setInt( 4, iSkontoValuta);
+			pst.setDouble( 5, dSkontosatz);
+			pst.setString( 6, sBezeichnung);
+			pst.setString( 7, sBelegtext);
+
+			
+			pst.execute(); 
 			}
 			catch (Exception e) {
 				
@@ -171,7 +187,22 @@ public class ZahlungsbedingungInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO zahlungsbedingung  (ID, Nummer, Valuta, SkontoValuta, Skontosatz, Bezeichnung, Belegtext)"
+																											+	"VALUES ('iID', 'iNummer', 'iValuta', 'iSkontoValuta', 'dSkontosatz', 'sBezeichnung', 'sBelegtext')" 
+																											+	" ON DUPLICATE KEY UPDATE "
+																											+ "ID= 'iID',Nummer = 'iNummer', Valuta = 'iValuta', SkontoValuta = 'iSkontoValuta', Skontosatz ='dSkontosatz', Bezeichnung= 'sBezeichnung', Belegtext= 'sBelegtext'" );
+
+			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setInt( 3, iValuta);
+			pst.setInt( 4, iSkontoValuta);
+			pst.setDouble( 5, dSkontosatz);
+			pst.setString( 6, sBezeichnung);
+			pst.setString( 7, sBelegtext);
+
+			
+			pst.execute(); 
 			}
 			catch (Exception e) {
 				
