@@ -33,6 +33,7 @@ public class FlugzeugtypInfo {
 	private String sBezeichnung;
 	private String sHersteller;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	
 		public FlugzeugtypInfo() {
 		conn=javaconnect.ConnectDb();
@@ -214,7 +215,24 @@ public class FlugzeugtypInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+		PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugtyp (ID, Nummer, Bezeichnung, Hersteller, Flightcrew, Cabincrew, Reichweite, Sitzplaetze, Reisegeschwindigkeit, Triebwerke, TriebwerkartID )"
+						+	"VALUES (iID, iNummer, sBezeichnung, sHersteller, iFlightcrew, iCabincrew, iReichweite, iSitzplaetze, iReisegeschwindigkeit, iTriebwerke, iTriebwerkartID)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Hersteller = 'sHersteller', Flightcrew='iFlightcrew', Cabincrew='iCabincrew', Reichweite='iReichweite', Sitzplaetze='iSitzplaetze', Reisegeschwindigkeit='iReisegeschwindigkeit', Triebwerke='iTriebwerke', TriebwerkartID='iTriebwerkartID'" );
+		
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setString( 4, sHersteller);
+			pst.setInt( 5, iFlightcrew);
+			pst.setInt( 6, iCabincrew);
+			pst.setInt( 7, iReichweite);
+			pst.setInt( 8, iSitzplaetze);
+			pst.setInt( 9, iReisegeschwindigkeit);
+			pst.setInt( 10, iTriebwerke);
+			pst.setInt( 11, iTriebwerkartID);
+			
+			pst.execute();
 			}
 			catch (Exception e) {
 				
@@ -222,7 +240,24 @@ public class FlugzeugtypInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugtyp (ID, Nummer, Bezeichnung, Hersteller, Flightcrew, Cabincrew, Reichweite, Sitzplaetze, Reisegeschwindigkeit, Triebwerke, TriebwerkartID )"
+						+	"VALUES (iID, iNummer, sBezeichnung, sHersteller, iFlightcrew, iCabincrew, iReichweite, iSitzplaetze, iReisegeschwindigkeit, iTriebwerke, iTriebwerkartID)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Hersteller = 'sHersteller', Flightcrew='iFlightcrew', Cabincrew='iCabincrew', Reichweite='iReichweite', Sitzplaetze='iSitzplaetze', Reisegeschwindigkeit='iReisegeschwindigkeit', Triebwerke='iTriebwerke', TriebwerkartID='iTriebwerkartID'" );
+		
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setString( 4, sHersteller);
+			pst.setInt( 5, iFlightcrew);
+			pst.setInt( 6, iCabincrew);
+			pst.setInt( 7, iReichweite);
+			pst.setInt( 8, iSitzplaetze);
+			pst.setInt( 9, iReisegeschwindigkeit);
+			pst.setInt( 10, iTriebwerke);
+			pst.setInt( 11, iTriebwerkartID);
+			
+			pst.execute();
 			}
 			catch (Exception e) {
 				

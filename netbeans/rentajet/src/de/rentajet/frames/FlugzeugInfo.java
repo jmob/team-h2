@@ -28,6 +28,7 @@ public class FlugzeugInfo {
 	private String sBezeichnung;
 	private String sFoto;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	
 		public FlugzeugInfo() {
 		conn=javaconnect.ConnectDb();
@@ -165,7 +166,18 @@ public class FlugzeugInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeug (ID, Nummer, Bezeichnung, FlugzeugtypID, Foto)"
+						+	"VALUES (iID, iNummer, sBezeichnung, iFlugzeugtypID, sFoto)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', FlugzeugtypID = 'iFlugzeugtypID', Foto='sFoto'" );
+	
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setInt( 4, iFlugzeugtypID);
+			pst.setString( 5, sFoto);
+
+			pst.execute();
 			}
 			catch (Exception e) {
 				
@@ -173,7 +185,18 @@ public class FlugzeugInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeug (ID, Nummer, Bezeichnung, FlugzeugtypID, Foto)"
+						+	"VALUES (iID, iNummer, sBezeichnung, iFlugzeugtypID, sFoto)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', FlugzeugtypID = 'iFlugzeugtypID', Foto='sFoto'" );
+	
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setInt( 4, iFlugzeugtypID);
+			pst.setString( 5, sFoto);
+
+			pst.execute();
 			}
 			catch (Exception e) {
 				
