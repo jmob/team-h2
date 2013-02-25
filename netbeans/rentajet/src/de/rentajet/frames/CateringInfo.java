@@ -26,6 +26,7 @@ public class CateringInfo {
 	private double dPreis;
 	private String sBeschreibung;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	
 		public CateringInfo() {
 		conn=javaconnect.ConnectDb();
@@ -142,7 +143,16 @@ public class CateringInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO catering (ID, Nummer, Bezeichnung, Beschreibung, Kosten)"
+						+	"VALUES (iID, iNummer, sBezeichnung, sBeschreibung, dPreis)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Beschreibung = 'sBeschreibung', Kosten='dPreis'" );			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setString( 4, sBeschreibung);
+			pst.setDouble( 5, dPreis);	
+			pst.execute();
 			}
 			catch (Exception e) {
 				
@@ -150,7 +160,16 @@ public class CateringInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO catering (ID, Nummer, Bezeichnung, Beschreibung, Kosten)"
+						+	"VALUES (iID, iNummer, sBezeichnung, sBeschreibung, dPreis)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Beschreibung = 'sBeschreibung', Kosten='dPreis'" );			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setString( 4, sBeschreibung);
+			pst.setDouble( 5, dPreis);	
+			pst.execute();
 			}
 			catch (Exception e) {
 				

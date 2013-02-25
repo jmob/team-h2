@@ -215,7 +215,7 @@ public class FlugzeugtypInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-		PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugtyp (ID, Nummer, Bezeichnung, Hersteller, Flightcrew, Cabincrew, Reichweite, Sitzplaetze, Reisegeschwindigkeit, Triebwerke, TriebwerkartID )"
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugtyp (ID, Nummer, Bezeichnung, Hersteller, Flightcrew, Cabincrew, Reichweite, Sitzplaetze, Reisegeschwindigkeit, Triebwerke, TriebwerkartID )"
 						+	"VALUES (iID, iNummer, sBezeichnung, sHersteller, iFlightcrew, iCabincrew, iReichweite, iSitzplaetze, iReisegeschwindigkeit, iTriebwerke, iTriebwerkartID)"
 						+	" ON DUPLICATE KEY UPDATE "
 						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Hersteller = 'sHersteller', Flightcrew='iFlightcrew', Cabincrew='iCabincrew', Reichweite='iReichweite', Sitzplaetze='iSitzplaetze', Reisegeschwindigkeit='iReisegeschwindigkeit', Triebwerke='iTriebwerke', TriebwerkartID='iTriebwerkartID'" );

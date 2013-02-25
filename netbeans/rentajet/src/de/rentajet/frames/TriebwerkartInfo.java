@@ -24,6 +24,7 @@ public class TriebwerkartInfo {
 	private int iNummer;
 	private String sBezeichnung;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	
 		public TriebwerkartInfo() {
 		conn=javaconnect.ConnectDb();
@@ -123,7 +124,15 @@ public class TriebwerkartInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO triebwerkartid (ID, Nummer, Bezeichnung)"
+						+	"VALUES (iID, iNummer, sBezeichnung)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung'" );
+	
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);	
+			pst.execute();
 			}
 			catch (Exception e) {
 				
@@ -131,7 +140,15 @@ public class TriebwerkartInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO triebwerkartid (ID, Nummer, Bezeichnung)"
+						+	"VALUES (iID, iNummer, sBezeichnung)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung'" );
+	
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);	
+			pst.execute();
 			}
 			catch (Exception e) {
 				
