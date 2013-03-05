@@ -200,10 +200,11 @@ public class BenutzerInfo {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
 				PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  (Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
-																											+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
+																											//+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
+																													+ "VALUES ( '" + iID +"', '" + iNummer + "')"
 																											+	" ON DUPLICATE KEY UPDATE "
-																											+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
-			
+																											//+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
+																											+ "(ID = '" + iID + "', Nummer = '" + iNummer + "')");
 			pst.setInt( 1, iID);
 			pst.setInt( 2, iNummer);
 			pst.setString( 3, sVorname);
@@ -222,11 +223,12 @@ public class BenutzerInfo {
 		}
 		else {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  (Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
-																											+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
+				PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  (Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
+																											//+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
+																													+ "VALUES ( '" + iID +"', '" + iNummer + "')"
 																											+	" ON DUPLICATE KEY UPDATE "
-																											+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
-			
+																											//+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
+																											+ "(ID = '" + iID + "', Nummer = '" + iNummer + "')");
 			pst.setInt( 1, iID);
 			pst.setInt( 2, iNummer);
 			pst.setString( 3, sVorname);

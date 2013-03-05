@@ -143,7 +143,16 @@ public class OrtInfo {
 
 	public void speichereDB( int iNummer ) {
 		try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO ort (ID, Nummer, Bezeichnung, Laendercode, PostKuerzel, PostName)"
+						+	"VALUES (iID, iNummer, sBezeichnung, sLaendercode, sPostKuerzel, sPostName)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Laendercode = 'sLaendercode', PostKuerzel='sPostKuerzel', PostName='sPostName'" );				
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setInt( 4, iStaatID);
+			pst.setInt( 5, iPLZ);
+			pst.execute();
 		}
 		catch (Exception e) {
 

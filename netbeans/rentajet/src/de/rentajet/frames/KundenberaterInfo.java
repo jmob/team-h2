@@ -24,7 +24,7 @@ public class KundenberaterInfo {
 	private int iNummer;
 	private int iAnredeID;
 	private int iOrtID;
-	private String sVorname;
+	private String sVorname;	
 	private String sNachname;
 	private String sStrasse;
 	private String sTelefon;
@@ -35,6 +35,7 @@ public class KundenberaterInfo {
 	private String sOrt;
 	private String sPLZ;	
 	private final Connection conn;
+	PreparedStatement pst=null;
 
 		public KundenberaterInfo() {
 		conn=javaconnect.ConnectDb();
@@ -224,7 +225,21 @@ public class KundenberaterInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO kundenberater (ID, Nummer, AnredeID, Vorname, Nachname, Strasse, OrtID, Telefon, Telefax, Mobil)"
+						+	"VALUES (iID, iNummer, iAnredeID, sVorname, sNachname, sStrasse, iOrtID, sTelefon, sTelefax, sMobil)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', AnredeID = 'iAnredeID', Vorname = 'sVorname', Nachname='sNachname', Strasse='sStrasse', OrtID='iOrtID', Telefon='sTelefon', Telefax='sTelefax', Mobil='sMobil'" );			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setInt( 3, iAnredeID);
+			pst.setString( 4, sVorname);
+			pst.setString( 5, sNachname);
+			pst.setString( 6, sStrasse);
+			pst.setInt( 7, iOrtID);
+			pst.setString( 8, sTelefon);
+			pst.setString( 9, sTelefax);
+			pst.setString( 10, sMobil);
+			pst.execute();
 			}
 			catch (Exception e) {
 				
@@ -232,7 +247,21 @@ public class KundenberaterInfo {
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO kundenberater (ID, Nummer, AnredeID, Vorname, Nachname, Strasse, OrtID, Telefon, Telefax, Mobil)"
+						+	"VALUES (iID, iNummer, iAnredeID, sVorname, sNachname, sStrasse, iOrtID, sTelefon, sTelefax, sMobil)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', AnredeID = 'iAnredeID', Vorname = 'sVorname', Nachname='sNachname', Strasse='sStrasse', OrtID='iOrtID', Telefon='sTelefon', Telefax='sTelefax', Mobil='sMobil'" );			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setInt( 3, iAnredeID);
+			pst.setString( 4, sVorname);
+			pst.setString( 5, sNachname);
+			pst.setString( 6, sStrasse);
+			pst.setInt( 7, iOrtID);
+			pst.setString( 8, sTelefon);
+			pst.setString( 9, sTelefax);
+			pst.setString( 10, sMobil);
+			pst.execute();
 			}
 			catch (Exception e) {
 				

@@ -27,6 +27,7 @@ public class StaatInfo {
 	private String sPostKuerzel;
 	private String sPostName;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	
 		public StaatInfo() {
 		conn=javaconnect.ConnectDb();
@@ -153,15 +154,34 @@ public class StaatInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO staat (ID, Nummer, Bezeichnung, Laendercode, PostKuerzel, PostName)"
+						+	"VALUES (iID, iNummer, sBezeichnung, sLaendercode, sPostKuerzel, sPostName)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Laendercode = 'sLaendercode', PostKuerzel='sPostKuerzel', PostName='sPostName'" );			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setString( 4, sLaendercode);
+			pst.setString( 5, sPostKuerzel);
+			pst.setString( 6, sPostName);
+			pst.execute();
 			}
-			catch (Exception e) {
-				
+			catch (Exception e) {		
 			}
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			PreparedStatement pst = conn.prepareStatement( "INSERT INTO staat (ID, Nummer, Bezeichnung, Laendercode, PostKuerzel, PostName)"
+						+	"VALUES (iID, iNummer, sBezeichnung, sLaendercode, sPostKuerzel, sPostName)"
+						+	" ON DUPLICATE KEY UPDATE "
+						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Laendercode = 'sLaendercode', PostKuerzel='sPostKuerzel', PostName='sPostName'" );			
+			pst.setInt( 1, iID);
+			pst.setInt( 2, iNummer);
+			pst.setString( 3, sBezeichnung);
+			pst.setString( 4, sLaendercode);
+			pst.setString( 5, sPostKuerzel);
+			pst.setString( 6, sPostName);
+			pst.execute();
 			}
 			catch (Exception e) {
 				
