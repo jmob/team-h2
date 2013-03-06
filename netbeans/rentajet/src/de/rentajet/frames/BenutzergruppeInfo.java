@@ -24,7 +24,7 @@ public class BenutzergruppeInfo {
 	private int iNummer;
 	private String sBezeichnung;
 	private final Connection conn;
-	//PreparedStatement pst=null;
+	PreparedStatement pst=null;
 	
 		public BenutzergruppeInfo() {
 		conn=javaconnect.ConnectDb();
@@ -123,49 +123,30 @@ public class BenutzergruppeInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-		PreparedStatement pst = conn.prepareStatement("INSERT INTO benutzergruppe  (ID, Nummer, Bezeichnung)"
-																											//+	"VALUES ('iID', 'iNummer', 'sBezeichnung')"
-																											//	+ "VALUES ( " + iID + ", " + iNummer + "," + sBezeichnung + ")"
-																												//	+ "VALUES ( " + iID + ", " + sBezeichnung + ")"
-																														+ "VALUES ( " + iID + ", " + iNummer + "," + sBezeichnung + ")");
-																											//+	"VALUES (iID, iNummer, sBezeichnung)"															//keine Variablen
-																							//				+	" ON DUPLICATE KEY UPDATE "
-																											//+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung'" );	//keine Variablen
-																												//+ "(ID = '" + iID + "', Nummer = '" + iNummer + "', Bezeichnung = '" + sBezeichnung + "')" );
-																							//							+ "(ID = '" + iID + "', Bezeichnung = '" + sBezeichnung + "')");
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.execute(); 
-			//ResultSet rs = pst.executeQuery();
+			String sql = ("INSERT INTO benutzergruppe (ID, Nummer, Bezeichnung)"
+																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+sBezeichnung+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Bezeichnung = '"+ sBezeichnung +"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}
 		}
 		else {
 			try {
-		PreparedStatement pst = conn.prepareStatement("INSERT INTO benutzergruppe  (ID, Nummer, Bezeichnung)"
-																											//+	"VALUES ('iID', 'iNummer', 'sBezeichnung')"
-																											//	+ "VALUES ( " + iID + ", " + iNummer + "," + sBezeichnung + ")"
-																												//	+ "VALUES ( " + iID + ", " + sBezeichnung + ")"
-																														+ "VALUES ( " + iID + ", " + iNummer + "," + sBezeichnung + ")");
-																											//+	"VALUES (iID, iNummer, sBezeichnung)"															//keine Variablen
-																							//				+	" ON DUPLICATE KEY UPDATE "
-																											//+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung'" );	//keine Variablen
-																												//+ "(ID = '" + iID + "', Nummer = '" + iNummer + "', Bezeichnung = '" + sBezeichnung + "')" );
-																							//							+ "(ID = '" + iID + "', Bezeichnung = '" + sBezeichnung + "')");
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.execute(); 
-			//ResultSet rs = pst.executeQuery();
+			String sql = ("INSERT INTO benutzergruppe (ID, Nummer, Bezeichnung)"
+																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+sBezeichnung+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Bezeichnung = '"+ sBezeichnung +"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}		
-		}
-		
+		}	
 	}
 	
 	public void ladeDB( int iNummer ){

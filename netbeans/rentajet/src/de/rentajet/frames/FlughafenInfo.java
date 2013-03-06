@@ -133,20 +133,12 @@ public class FlughafenInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			String sql = "Update flughafen  set(ID='" + iID + "', Nummer'" + iNummer + "', Bezeichnung= '" + sBezeichnung + "', Kuerzel= '" + sKuerzel + "')";
-																										
+			String sql = ("INSERT INTO flughafen (ID, Nummer, Bezeichnung, Kuerzel)"
+																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+sBezeichnung+"', '"+sKuerzel+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Bezeichnung = '"+ sBezeichnung +"', Kuerzel = '"+sKuerzel+"'");				
 			pst=conn.prepareStatement( sql );
 			pst.execute();
-			JOptionPane.showMessageDialog( null, "Aktualisiert");
-			
-			
-			/*pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setString( 4, sKuerzel);
-			
-			pst.execute(); 
-			*/
 			}
 			catch (Exception e) {
 				JOptionPane.showMessageDialog( null, e);
@@ -160,11 +152,10 @@ public class FlughafenInfo {
 																					+ "ID = '"+ iID +"', Nummer = '" + iNummer + "', Bezeichnung = '" + sBezeichnung + "', Kuerzel = '"+sKuerzel+"'");				
 			pst=conn.prepareStatement( sql );
 			pst.execute();
-			JOptionPane.showMessageDialog( null, "Gespeichert");
 			}
 			catch (Exception e) {
 						JOptionPane.showMessageDialog( null, e);
-			}		
+			}	
 		}
 		
 	}
