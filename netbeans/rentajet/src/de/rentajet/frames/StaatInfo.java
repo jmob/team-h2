@@ -210,7 +210,7 @@ public class StaatInfo {
 	
 	public void ersterDatensatzDB() {
 			try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT * from staat WHERE ID=0;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from staat WHERE ID=1;" );
       ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");

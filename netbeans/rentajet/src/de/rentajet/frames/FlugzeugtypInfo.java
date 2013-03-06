@@ -286,7 +286,7 @@ public class FlugzeugtypInfo {
 	
 	public void ersterDatensatzDB() {
 		try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM flugzeugtyp AS t1, triebwerkartid AS t2 WHERE t1.ID=0 AND t1.TriebwerkartID= t2.ID;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT t1.*,t2.* FROM flugzeugtyp AS t1, triebwerkartid AS t2 WHERE t1.ID=1 AND t1.TriebwerkartID= t2.ID;" );
 			ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iID = rs.getInt("ID");

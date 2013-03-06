@@ -246,7 +246,7 @@ public class BenutzerInfo {
 	
 	public void ersterDatensatzDB() {
 		try{
-      PreparedStatement pst = conn.prepareStatement( "SELECT * from benutzer WHERE ID=0;" );
+      PreparedStatement pst = conn.prepareStatement( "SELECT * from benutzer WHERE ID=1;" );
       ResultSet rs = pst.executeQuery();
       if(rs.next()){
 				iNummer  = rs.getInt("Nummer");
