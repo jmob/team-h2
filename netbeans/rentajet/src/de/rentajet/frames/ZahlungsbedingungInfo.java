@@ -164,48 +164,28 @@ public class ZahlungsbedingungInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO zahlungsbedingung  (ID, Nummer, Valuta, SkontoValuta, Skontosatz, Bezeichnung, Belegtext)"
-																											+	"VALUES ('iID', 'iNummer', 'iValuta', 'iSkontoValuta', 'dSkontosatz', 'sBezeichnung', 'sBelegtext')" 
-																											+	" ON DUPLICATE KEY UPDATE "
-																											+ "ID= 'iID',Nummer = 'iNummer', Valuta = 'iValuta', SkontoValuta = 'iSkontoValuta', Skontosatz ='dSkontosatz', Bezeichnung= 'sBezeichnung', Belegtext= 'sBelegtext'" );
-
-			
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setInt( 3, iValuta);
-			pst.setInt( 4, iSkontoValuta);
-			pst.setDouble( 5, dSkontosatz);
-			pst.setString( 6, sBezeichnung);
-			pst.setString( 7, sBelegtext);
-
-			
-			pst.execute(); 
+			String sql = ("INSERT INTO zahlungsbedingung (ID, Nummer, Valuta, SkontoValuta, Skontosatz, Bezeichnung, Belegtext)"
+																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+iValuta+"', '"+iSkontoValuta+"','"+dSkontosatz+"','"+sBezeichnung+"','"+sBelegtext+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID = '"+iID+"', Nummer = '"+iNummer+"', Valuta = '"+iValuta+"', SkontoValuta = '"+iSkontoValuta+"', Skontosatz = '"+dSkontosatz+"', Bezeichnung = '"+sBezeichnung+"', Belegtext = '"+sBelegtext+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}
 		}
 		else {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO zahlungsbedingung  (ID, Nummer, Valuta, SkontoValuta, Skontosatz, Bezeichnung, Belegtext)"
-																											+	"VALUES ('iID', 'iNummer', 'iValuta', 'iSkontoValuta', 'dSkontosatz', 'sBezeichnung', 'sBelegtext')" 
-																											+	" ON DUPLICATE KEY UPDATE "
-																											+ "ID= 'iID',Nummer = 'iNummer', Valuta = 'iValuta', SkontoValuta = 'iSkontoValuta', Skontosatz ='dSkontosatz', Bezeichnung= 'sBezeichnung', Belegtext= 'sBelegtext'" );
-
-			
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setInt( 3, iValuta);
-			pst.setInt( 4, iSkontoValuta);
-			pst.setDouble( 5, dSkontosatz);
-			pst.setString( 6, sBezeichnung);
-			pst.setString( 7, sBelegtext);
-
-			
-			pst.execute(); 
+			String sql = ("INSERT INTO zahlungsbedingung (ID, Nummer, Valuta, SkontoValuta, Skontosatz, Bezeichnung, Belegtext)"
+																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+iValuta+"', '"+iSkontoValuta+"','"+dSkontosatz+"','"+sBezeichnung+"','"+sBelegtext+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID = '"+iID+"', Nummer = '"+iNummer+"', Valuta = '"+iValuta+"', SkontoValuta = '"+iSkontoValuta+"', Skontosatz = '"+dSkontosatz+"', Bezeichnung = '"+sBezeichnung+"', Belegtext = '"+sBelegtext+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}		
 		}
 		

@@ -199,51 +199,29 @@ public class BenutzerInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-				PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  (Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
-																											//+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
-																													+ "VALUES ( '" + iID +"', '" + iNummer + "')"
-																											+	" ON DUPLICATE KEY UPDATE "
-																											//+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
-																											+ "(ID = '" + iID + "', Nummer = '" + iNummer + "')");
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sVorname);
-			pst.setString( 4, sNachname);
-			pst.setString( 5, sInitialen);
-			pst.setString( 6, sLogin);
-			pst.setString( 7, sPasswort);
-			pst.setBoolean( 8, bGesperrt);
-			pst.setInt( 1, iBenutzergruppe);
-			
-			pst.execute(); 
+			String sql = ("INSERT INTO benutzer (ID, Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
+																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+sVorname+"', '"+sNachname+"','"+sInitialen+"','"+sLogin+"','"+sPasswort+"','"+bGesperrt+"','"+iBenutzergruppe+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Vorname = '"+sVorname+"', Nachname = '"+sNachname+"', Initialen = '"+sInitialen+"', Login = '"+sLogin+"', Passwort = '"+sPasswort+"', Gesperrt = '"+bGesperrt+"', Benutzergruppe = '"+iBenutzergruppe+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}
 		}
 		else {
 			try {
-				PreparedStatement pst = conn.prepareStatement( "INSERT INTO benutzer  (Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
-																											//+	"VALUES ('iNummer', 'sVorname', 'sNachname', 'sInitialen', 'sLogin', 'sPasswort', 'bGesperrt', 'iBenutzergruppe')" 
-																													+ "VALUES ( '" + iID +"', '" + iNummer + "')"
-																											+	" ON DUPLICATE KEY UPDATE "
-																											//+ "Nummer = 'iNummer', Vorname = 'sVorname', Nachname = 'sNachname', Initialen ='sInitialen', Login= 'sLogin', Passwort= 'sPasswort', Gesperrt= 'bGesperrt',BenutzergruppeID= 'iBenutzergruppe'   " );
-																											+ "(ID = '" + iID + "', Nummer = '" + iNummer + "')");
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sVorname);
-			pst.setString( 4, sNachname);
-			pst.setString( 5, sInitialen);
-			pst.setString( 6, sLogin);
-			pst.setString( 7, sPasswort);
-			pst.setBoolean( 8, bGesperrt);
-			pst.setInt( 1, iBenutzergruppe);
-			
-			pst.execute(); 
+			String sql = ("INSERT INTO benutzer (ID, Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
+																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+sVorname+"', '"+sNachname+"','"+sInitialen+"','"+sLogin+"','"+sPasswort+"','"+bGesperrt+"','"+iBenutzergruppe+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Vorname = '"+sVorname+"', Nachname = '"+sNachname+"', Initialen = '"+sInitialen+"', Login = '"+sLogin+"', Passwort = '"+sPasswort+"', Gesperrt = '"+bGesperrt+"', Benutzergruppe = '"+iBenutzergruppe+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}		
+				JOptionPane.showMessageDialog( null, e);
+			}	
 		}
 		
 	}
