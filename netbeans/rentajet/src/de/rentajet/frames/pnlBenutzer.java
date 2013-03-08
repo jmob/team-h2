@@ -573,7 +573,7 @@ public class pnlBenutzer extends javax.swing.JPanel {
 	}
 	
 	public String getBenutzergruppe() {
-		return jTextField6.getName();
+		return jTextField6.getText();
 	}
 
 	public void setGesperrt( boolean bGesperrt ) {
