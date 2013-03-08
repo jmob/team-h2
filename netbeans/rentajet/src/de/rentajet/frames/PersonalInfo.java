@@ -195,49 +195,30 @@ public class PersonalInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO personal (ID, Nummer, Bezeichnung, PersonaltypID, Nachname, Vorname, Info, Telefon, Telefax, Mobil )"
-						+	"VALUES (iID, iNummer, sBezeichnung, iPersonaltypID, sNachname, sVorname, sInfo, sTelefon, sTelefax, sMobil)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', PersonaltypID = 'iPersonaltypID', Nachname='sNachname', Vorname='sVorname', Info='sInfo', Telefon='sTelefon', Telefax='sTelefax', Mobil='sMobil'" );
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setInt( 4, iPersonaltypID);
-			pst.setString( 5, sNachname);
-			pst.setString( 6, sVorname);
-			pst.setString( 7, sInfo);
-			pst.setString( 8, sTelefon);
-			pst.setString( 9, sTelefax);
-			pst.setString( 10, sMobil);
+			String sql = ("INSERT INTO personal (ID, Nummer, Bezeichnung, PersonaltypID, Nachname, Vorname, Info, Telefon, Telefax, Mobil)"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+iPersonaltypID+"','"+sNachname+"','"+sVorname+"','"+sInfo+"','"+sTelefon+"','"+sTelefax+"','"+sMobil+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',PersonaltypID='"+iPersonaltypID+"',Nachname='"+sNachname+"',Vorname='"+sVorname+"',Info='"+sInfo+"',Telefon='"+sTelefon+"',Telefax='"+sTelefax+"',Mobil='"+sMobil+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}
+				JOptionPane.showMessageDialog( null, e);
+			}	
 		}
 		else {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO personal (ID, Nummer, Bezeichnung, PersonaltypID, Nachname, Vorname, Info, Telefon, Telefax, Mobil )"
-						+	"VALUES (iID, iNummer, sBezeichnung, iPersonaltypID, sNachname, sVorname, sInfo, sTelefon, sTelefax, sMobil)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', PersonaltypID = 'iPersonaltypID', Nachname='sNachname', Vorname='sVorname', Info='sInfo', Telefon='sTelefon', Telefax='sTelefax', Mobil='sMobil'" );
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setInt( 4, iPersonaltypID);
-			pst.setString( 5, sNachname);
-			pst.setString( 6, sVorname);
-			pst.setString( 7, sInfo);
-			pst.setString( 8, sTelefon);
-			pst.setString( 9, sTelefax);
-			pst.setString( 10, sMobil);
+			String sql = ("INSERT INTO personal (ID, Nummer, Bezeichnung, PersonaltypID, Nachname, Vorname, Info, Telefon, Telefax, Mobil)"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+iPersonaltypID+"','"+sNachname+"','"+sVorname+"','"+sInfo+"','"+sTelefon+"','"+sTelefax+"','"+sMobil+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',PersonaltypID='"+iPersonaltypID+"',Nachname='"+sNachname+"',Vorname='"+sVorname+"',Info='"+sInfo+"',Telefon='"+sTelefon+"',Telefax='"+sTelefax+"',Mobil='"+sMobil+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}		
+				JOptionPane.showMessageDialog( null, e);
+			}			
 		}
-		
 	}
 	
 	public void ladeDB( int iNummer ){

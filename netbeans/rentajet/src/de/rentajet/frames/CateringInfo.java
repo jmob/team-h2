@@ -143,39 +143,30 @@ public class CateringInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO catering (ID, Nummer, Bezeichnung, Beschreibung, Kosten)"
-						+	"VALUES (iID, iNummer, sBezeichnung, sBeschreibung, dPreis)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Beschreibung = 'sBeschreibung', Kosten='dPreis'" );			
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setString( 4, sBeschreibung);
-			pst.setDouble( 5, dPreis);	
+			String sql = ("INSERT INTO catering (ID, Nummer, Bezeichnung,  Beschreibung, Kosten)"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+sBeschreibung+"','"+dPreis+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',Beschreibung='"+sBeschreibung+"',Kosten='"+dPreis+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}
 		}
 		else {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO catering (ID, Nummer, Bezeichnung, Beschreibung, Kosten)"
-						+	"VALUES (iID, iNummer, sBezeichnung, sBeschreibung, dPreis)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Beschreibung = 'sBeschreibung', Kosten='dPreis'" );			
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setString( 4, sBeschreibung);
-			pst.setDouble( 5, dPreis);	
+			String sql = ("INSERT INTO catering (ID, Nummer, Bezeichnung,  Beschreibung, Kosten)"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+sBeschreibung+"','"+dPreis+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',Beschreibung='"+sBeschreibung+"',Kosten='"+dPreis+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}		
 		}
-		
 	}
 	
 	public void ladeDB( int iNummer ){

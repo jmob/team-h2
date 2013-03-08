@@ -185,42 +185,28 @@ public class PersonalkostenInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO personalkosten (ID, Nummer, Arbeitsstunden, Jahresgehalt, Stundenlohn, Stundensatz, PersonaltypID, Bezeichnung)"
-						+	"VALUES (iID, iNummer, iArbeitsstunden, dJahresgehalt, dStundenlohn, dStundensatz, iPersonaltypID, sBezeichnung)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Arbeitsstunden = 'iArbeitsstunden', Jahresgehalt = 'dJahresgehalt', Stundenlohn='dStundenlohn', Stundensatz='dStundensatz', PersonaltypID='iPersonaltypID', Bezeichnung='sBezeichnung'" );
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setInt( 3, iArbeitsstunden);
-			pst.setDouble( 4, dJahresgehalt);
-			pst.setDouble( 5, dStundenlohn);
-			pst.setDouble( 6, dStundensatz);
-			pst.setInt( 7, iPersonaltypID);
-			pst.setString( 8, sBezeichnung);
+			String sql = ("INSERT INTO personalkosten (ID, Nummer, Arbeitsstunden, Jahresgehalt, Stundenlohn, Stundensatz, PersonaltypID, Bezeichnung)"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+iArbeitsstunden+"','"+dJahresgehalt+"','"+dStundenlohn+"','"+dStundensatz+"','"+iPersonaltypID+"','"+sBezeichnung+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Arbeitsstunden='"+iArbeitsstunden+"',Jahresgehalt='"+dJahresgehalt+"',Stundenlohn='"+dStundenlohn+"',Stundensatz='"+dStundensatz+"',PersonaltypID='"+iPersonaltypID+"',Bezeichnung='"+sBezeichnung+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}
 		}
 		else {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO personalkosten (ID, Nummer, Arbeitsstunden, Jahresgehalt, Stundenlohn, Stundensatz, PersonaltypID, Bezeichnung)"
-						+	"VALUES (iID, iNummer, iArbeitsstunden, dJahresgehalt, dStundenlohn, dStundensatz, iPersonaltypID, sBezeichnung)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Arbeitsstunden = 'iArbeitsstunden', Jahresgehalt = 'dJahresgehalt', Stundenlohn='dStundenlohn', Stundensatz='dStundensatz', PersonaltypID='iPersonaltypID', Bezeichnung='sBezeichnung'" );
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setInt( 3, iArbeitsstunden);
-			pst.setDouble( 4, dJahresgehalt);
-			pst.setDouble( 5, dStundenlohn);
-			pst.setDouble( 6, dStundensatz);
-			pst.setInt( 7, iPersonaltypID);
-			pst.setString( 8, sBezeichnung);
+			String sql = ("INSERT INTO personalkosten (ID, Nummer, Arbeitsstunden, Jahresgehalt, Stundenlohn, Stundensatz, PersonaltypID, Bezeichnung)"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+iArbeitsstunden+"','"+dJahresgehalt+"','"+dStundenlohn+"','"+dStundensatz+"','"+iPersonaltypID+"','"+sBezeichnung+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Arbeitsstunden='"+iArbeitsstunden+"',Jahresgehalt='"+dJahresgehalt+"',Stundenlohn='"+dStundenlohn+"',Stundensatz='"+dStundensatz+"',PersonaltypID='"+iPersonaltypID+"',Bezeichnung='"+sBezeichnung+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}		
 		}
 		
