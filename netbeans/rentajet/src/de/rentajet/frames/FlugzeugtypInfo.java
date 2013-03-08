@@ -215,53 +215,29 @@ public class FlugzeugtypInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugtyp (ID, Nummer, Bezeichnung, Hersteller, Flightcrew, Cabincrew, Reichweite, Sitzplaetze, Reisegeschwindigkeit, Triebwerke, TriebwerkartID )"
-						+	"VALUES (iID, iNummer, sBezeichnung, sHersteller, iFlightcrew, iCabincrew, iReichweite, iSitzplaetze, iReisegeschwindigkeit, iTriebwerke, iTriebwerkartID)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Hersteller = 'sHersteller', Flightcrew='iFlightcrew', Cabincrew='iCabincrew', Reichweite='iReichweite', Sitzplaetze='iSitzplaetze', Reisegeschwindigkeit='iReisegeschwindigkeit', Triebwerke='iTriebwerke', TriebwerkartID='iTriebwerkartID'" );
-		
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setString( 4, sHersteller);
-			pst.setInt( 5, iFlightcrew);
-			pst.setInt( 6, iCabincrew);
-			pst.setInt( 7, iReichweite);
-			pst.setInt( 8, iSitzplaetze);
-			pst.setInt( 9, iReisegeschwindigkeit);
-			pst.setInt( 10, iTriebwerke);
-			pst.setInt( 11, iTriebwerkartID);
-			
+			String sql = ("INSERT INTO flugzeugtyp (ID, Nummer, Bezeichnung, Hersteller, Flightcrew, Cabincrew, Reichweite, Sitzplätze, Reisegeschwindigkeit, Triebwerke, TriebwerkartID )"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+sHersteller+"','"+iFlightcrew+"','"+iCabincrew+"','"+iReichweite+"','"+iSitzplaetze+"','"+iReisegeschwindigkeit+"','"+iTriebwerke+"','"+iTriebwerkartID+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',Hersteller='"+sHersteller+"',Flightcrew='"+iFlightcrew+"',Cabincrew='"+iCabincrew+"',Reichweite='"+iReichweite+"',Sitzplätze='"+iSitzplaetze+"',Reisegeschwindigkeit='"+iReisegeschwindigkeit+"',Triebwerke='"+iTriebwerke+"',TriebwerkartID='"+iTriebwerkartID+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}
 		}
 		else {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugtyp (ID, Nummer, Bezeichnung, Hersteller, Flightcrew, Cabincrew, Reichweite, Sitzplaetze, Reisegeschwindigkeit, Triebwerke, TriebwerkartID )"
-						+	"VALUES (iID, iNummer, sBezeichnung, sHersteller, iFlightcrew, iCabincrew, iReichweite, iSitzplaetze, iReisegeschwindigkeit, iTriebwerke, iTriebwerkartID)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Hersteller = 'sHersteller', Flightcrew='iFlightcrew', Cabincrew='iCabincrew', Reichweite='iReichweite', Sitzplaetze='iSitzplaetze', Reisegeschwindigkeit='iReisegeschwindigkeit', Triebwerke='iTriebwerke', TriebwerkartID='iTriebwerkartID'" );
-		
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setString( 4, sHersteller);
-			pst.setInt( 5, iFlightcrew);
-			pst.setInt( 6, iCabincrew);
-			pst.setInt( 7, iReichweite);
-			pst.setInt( 8, iSitzplaetze);
-			pst.setInt( 9, iReisegeschwindigkeit);
-			pst.setInt( 10, iTriebwerke);
-			pst.setInt( 11, iTriebwerkartID);
-			
+			String sql = ("INSERT INTO flugzeugtyp (ID, Nummer, Bezeichnung, Hersteller, Flightcrew, Cabincrew, Reichweite, Sitzplätze, Reisegeschwindigkeit, Triebwerke, TriebwerkartID )"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+sHersteller+"','"+iFlightcrew+"','"+iCabincrew+"','"+iReichweite+"','"+iSitzplaetze+"','"+iReisegeschwindigkeit+"','"+iTriebwerke+"','"+iTriebwerkartID+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',Hersteller='"+sHersteller+"',Flightcrew='"+iFlightcrew+"',Cabincrew='"+iCabincrew+"',Reichweite='"+iReichweite+"',Sitzplätze='"+iSitzplaetze+"',Reisegeschwindigkeit='"+iReisegeschwindigkeit+"',Triebwerke='"+iTriebwerke+"',TriebwerkartID='"+iTriebwerkartID+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}		
+				JOptionPane.showMessageDialog( null, e);
+			}	
 		}
 		
 	}

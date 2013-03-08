@@ -202,7 +202,7 @@ public class BenutzerInfo {
 			String sql = ("INSERT INTO benutzer (ID, Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
 																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+sVorname+"', '"+sNachname+"','"+sInitialen+"','"+sLogin+"','"+sPasswort+"','"+bGesperrt+"','"+iBenutzergruppe+"')"
 																					+	" ON DUPLICATE KEY UPDATE "
-																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Vorname = '"+sVorname+"', Nachname = '"+sNachname+"', Initialen = '"+sInitialen+"', Login = '"+sLogin+"', Passwort = '"+sPasswort+"', Gesperrt = '"+bGesperrt+"', Benutzergruppe = '"+iBenutzergruppe+"'");				
+																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Vorname = '"+sVorname+"', Nachname = '"+sNachname+"', Initialen = '"+sInitialen+"', Login = '"+sLogin+"', Passwort = '"+sPasswort+"', Gesperrt = '"+bGesperrt+"', BenutzergruppeID='"+iBenutzergruppe+"'");				
 			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
@@ -215,7 +215,7 @@ public class BenutzerInfo {
 			String sql = ("INSERT INTO benutzer (ID, Nummer, Vorname, Nachname, Initialen, Login, Passwort, Gesperrt, BenutzergruppeID)"
 																					+ "VALUES('"+ iID +"', '"+ iNummer +"', '"+sVorname+"', '"+sNachname+"','"+sInitialen+"','"+sLogin+"','"+sPasswort+"','"+bGesperrt+"','"+iBenutzergruppe+"')"
 																					+	" ON DUPLICATE KEY UPDATE "
-																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Vorname = '"+sVorname+"', Nachname = '"+sNachname+"', Initialen = '"+sInitialen+"', Login = '"+sLogin+"', Passwort = '"+sPasswort+"', Gesperrt = '"+bGesperrt+"', Benutzergruppe = '"+iBenutzergruppe+"'");				
+																					+ "ID = '"+ iID +"', Nummer = '"+ iNummer +"', Vorname = '"+sVorname+"', Nachname = '"+sNachname+"', Initialen = '"+sInitialen+"', Login = '"+sLogin+"', Passwort = '"+sPasswort+"', Gesperrt = '"+bGesperrt+"', BenutzergruppeID='"+iBenutzergruppe+"'");				
 			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
