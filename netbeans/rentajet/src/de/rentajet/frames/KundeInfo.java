@@ -294,60 +294,32 @@ public class KundeInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO kunde (ID, Nummer, AnredeID, Matchcode, Name1, Name2, Name3, OrtID, KundenberaterID, Telefon, Telefax, Mobil, Gesperrt, Kreditlimit, Steuernummer)"
-					+	"VALUES (iID, iNummer, iAnredeID, sMatchcode, sName1, sName2, sName3, iOrtID, iKundenberaterID, sTelefon, sTelefax, sMobil, bGesperrt, dKreditlimit, sSteuernummer )" 
-					+	"ON DUPLICATE KEY UPDATE "
-					+ "ID= 'iID', Nummer = 'iNummer', AnredeID='iAnredeID', Matchcode='sMatchcode', Name1='sName1', Name2='sName2', Name3 = 'sName3', OrtID = 'iOrtID', KundenberaterID= 'iKundenberaterID', Telefon= 'sTelefon', Telefax='sTelefax' Mobil ='sMobil', Gesperrt='bGesperrt', Kreditlimit='dKreditlimit', Steuernummer='sSteuernummer'" );
-
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setInt( 3, iAnredeID);
-			pst.setString( 4, sMatchcode);
-			pst.setString( 5, sName1);
-			pst.setString( 6, sName2);
-			pst.setString( 7, sName3);
-			pst.setInt( 8, iOrtID);
-			pst.setInt( 9, iKundenberaterID);
-			pst.setString(10, sTelefon);
-			pst.setString(11, sTelefax);
-			pst.setString(12, sMobil);	
-			pst.setBoolean(13, bGesperrt);
-			pst.setDouble(14, dKreditlimit);
-			pst.setString(15, sSteuernummer);
-
-			pst.execute(); 
+			String sql = ("INSERT INTO kunde (ID, Nummer, AnredeID, Matchcode, Name1, Name2, Name3, OrtID, KundenberaterID, Telefon, Telefax, Mobil, Gesperrt, Kreditlimit, Steuernummer)"
+				//+ "VALUES('"+iID+"','"+iNummer+"','"+iAnredeID+"','"+sMatchcode+"','"+sName1+"','"+sName2+"','"+sName3+"','"+iOrtID+"','"+iKundenberaterID+"','"+sTelefon+"','"+sTelefax+"','"+sMobil+"','"+dKreditlimit+"','"+sSteuernummer+"', CASE '"+bGesperrt+"' WHEN 'true' THEN 1 ELSE 0 END)"
+				+ "VALUES('"+iID+"','"+iNummer+"','"+iAnredeID+"','"+sMatchcode+"','"+sName1+"','"+sName2+"','"+sName3+"','"+iOrtID+"','"+iKundenberaterID+"','"+sTelefon+"','"+sTelefax+"','"+sMobil+"','"+dKreditlimit+"','"+sSteuernummer+"','"+bGesperrt+"')"
+				+	" ON DUPLICATE KEY UPDATE "
+				+ "ID='"+iID+"',Nummer ='"+iNummer+"',AnredeID = '"+iAnredeID+"', Matchcode ='"+sMatchcode+"',Name1 ='"+sName1+"', Name2 ='"+sName2+"', Name3='"+sName3+"',OrtID='"+iOrtID+"',KundenberaterID='"+iKundenberaterID+"', Telefon ='"+sTelefon+"', Telefax ='"+sTelefax+"',Mobil ='"+sMobil+"',Kreditlimit ='"+dKreditlimit+"',Steuernummer ='"+sSteuernummer+"',Gesperrt ='"+bGesperrt+"'");
+				//+ "ID='"+iID+"',Nummer ='"+iNummer+"',AnredeID = '"+iAnredeID+"', Matchcode ='"+sMatchcode+"',Name1 ='"+sName1+"', Name2 ='"+sName2+"', Name3='"+sName3+"',OrtID='"+iOrtID+"',KundenberaterID='"+iKundenberaterID+"', Telefon ='"+sTelefon+"', Telefax ='"+sTelefax+"',Mobil ='"+sMobil+"',Kreditlimit ='"+dKreditlimit+"',Steuernummer ='"+sSteuernummer+"',Gesperrt = CASE '"+bGesperrt+"' WHEN 'true' THEN 1 ELSE 0 END");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}
+				JOptionPane.showMessageDialog( null, e);
+			}		
 		}
 		else {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO kunde (ID, Nummer, AnredeID, Matchcode, Name1, Name2, Name3, OrtID, KundenberaterID, Telefon, Telefax, Mobil, Gesperrt, Kreditlimit, Steuernummer)"
-					+	"VALUES (iID, iNummer, iAnredeID, sMatchcode, sName1, sName2, sName3, iOrtID, iKundenberaterID, sTelefon, sTelefax, sMobil, bGesperrt, dKreditlimit, sSteuernummer )" 
-					+	"ON DUPLICATE KEY UPDATE "
-					+ "ID= 'iID', Nummer = 'iNummer', AnredeID='iAnredeID', Matchcode='sMatchcode', Name1='sName1', Name2='sName2', Name3 = 'sName3', OrtID = 'iOrtID', KundenberaterID= 'iKundenberaterID', Telefon= 'sTelefon', Telefax='sTelefax' Mobil ='sMobil', Gesperrt='bGesperrt', Kreditlimit='dKreditlimit', Steuernummer='sSteuernummer'" );
-
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setInt( 3, iAnredeID);
-			pst.setString( 4, sMatchcode);
-			pst.setString( 5, sName1);
-			pst.setString( 6, sName2);
-			pst.setString( 7, sName3);
-			pst.setInt( 8, iOrtID);
-			pst.setInt( 9, iKundenberaterID);
-			pst.setString(10, sTelefon);
-			pst.setString(11, sTelefax);
-			pst.setString(12, sMobil);	
-			pst.setBoolean(13, bGesperrt);
-			pst.setDouble(14, dKreditlimit);
-			pst.setString(15, sSteuernummer);
-
-			pst.execute(); 
+			String sql = ("INSERT INTO kunde (ID, Nummer, AnredeID, Matchcode, Name1, Name2, Name3, OrtID, KundenberaterID, Telefon, Telefax, Mobil, Gesperrt, Kreditlimit, Steuernummer)"
+				//+ "VALUES('"+iID+"','"+iNummer+"','"+iAnredeID+"','"+sMatchcode+"','"+sName1+"','"+sName2+"','"+sName3+"','"+iOrtID+"','"+iKundenberaterID+"','"+sTelefon+"','"+sTelefax+"','"+sMobil+"','"+dKreditlimit+"','"+sSteuernummer+"', CASE '"+bGesperrt+"' WHEN 'true' THEN 1 ELSE 0 END)"
+				+ "VALUES('"+iID+"','"+iNummer+"','"+iAnredeID+"','"+sMatchcode+"','"+sName1+"','"+sName2+"','"+sName3+"','"+iOrtID+"','"+iKundenberaterID+"','"+sTelefon+"','"+sTelefax+"','"+sMobil+"','"+dKreditlimit+"','"+sSteuernummer+"','"+bGesperrt+"')"
+				+	" ON DUPLICATE KEY UPDATE "
+				+ "ID='"+iID+"',Nummer ='"+iNummer+"',AnredeID = '"+iAnredeID+"', Matchcode ='"+sMatchcode+"',Name1 ='"+sName1+"', Name2 ='"+sName2+"', Name3='"+sName3+"',OrtID='"+iOrtID+"',KundenberaterID='"+iKundenberaterID+"', Telefon ='"+sTelefon+"', Telefax ='"+sTelefax+"',Mobil ='"+sMobil+"',Kreditlimit ='"+dKreditlimit+"',Steuernummer ='"+sSteuernummer+"',Gesperrt ='"+bGesperrt+"'");
+				//+ "ID='"+iID+"',Nummer ='"+iNummer+"',AnredeID = '"+iAnredeID+"', Matchcode ='"+sMatchcode+"',Name1 ='"+sName1+"', Name2 ='"+sName2+"', Name3='"+sName3+"',OrtID='"+iOrtID+"',KundenberaterID='"+iKundenberaterID+"', Telefon ='"+sTelefon+"', Telefax ='"+sTelefax+"',Mobil ='"+sMobil+"',Kreditlimit ='"+dKreditlimit+"',Steuernummer ='"+sSteuernummer+"',Gesperrt = CASE '"+bGesperrt+"' WHEN 'true' THEN 1 ELSE 0 END");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}		
 		}
 		

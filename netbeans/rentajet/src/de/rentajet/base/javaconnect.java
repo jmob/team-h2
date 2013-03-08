@@ -19,7 +19,10 @@ public class javaconnect {
 	
 	try{
 	Class.forName("com.mysql.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/teamh2", "root", "1234");
+	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/teamh2?transformedBitIsBoolean=false&tinyInt1isBit=false", "root", "1234");
+	//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/teamh2?tinyInt1isBit=false", "root", "1234");
+	//Connection conn = DriverManager.getConnection("jdbc:mysql:t//localhost/teamh2", "root", "1234" &tinyInt1isBit=" + "tinyInt1isBit"); transformedBitIsBoolean  ?transformedBitIsBoolean=false , "tinyInt1isBit= 'true'
+	//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/teamh2", "root", "1234");
 	//JOptionPane.showMessageDialog( null, "Verbindung zur Datenbank ist hergestellt" );
 	return conn;
 	}catch (Exception e){

@@ -195,47 +195,29 @@ public class FlugzeugkostenInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugkosten (ID, Nummer, Bezeichnung, FlugzeugtypID, Fixkosten, RentabilitaetStd, FixkostenStd, Stundensatz )"
-						+	"VALUES (iID, iNummer, sBezeichnung, iFlugzeugtypID, dFixkosten, iRentabilitaetStd, dFixkostenStd, dStundensatz )"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', FlugzeugtypID = 'iFlugzeugtypID', Fixkosten='dFixkosten', RentabilitaetStd='iRentabilitaetStd', FixkostenStd='dFixkostenStd', Stundensatz='dStundensatz'" );
-				
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setInt( 4, iFlugzeugtypID);
-			pst.setDouble( 5, dFixkosten);
-			pst.setInt( 6, iRentabilitaetStd);
-			pst.setDouble( 7, dFixkostenStd);
-			pst.setDouble( 8, dStundensatz);
-			
-			pst.execute(); 
+			String sql = ("INSERT INTO flugzeugkosten (ID, Nummer, Bezeichnung, FlugzeugtypID, Fixkosten, RentabilitaetStd, FixkostenStd, Stundensatz )"
+																					+ "VALUES('"+ iID +"','"+iNummer+"','"+sBezeichnung+"','"+iFlugzeugtypID+"','"+dFixkosten+"','"+iRentabilitaetStd+"','"+dFixkostenStd+"','"+dStundensatz+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',FlugzeugtypID='"+iFlugzeugtypID+"',Fixkosten='"+dFixkosten+"',RentabilitaetStd='"+iRentabilitaetStd+"',FixkostenStd='"+dFixkostenStd+"',Stundensatz='"+dStundensatz+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
+				JOptionPane.showMessageDialog( null, e);
 			}
 		}
 		else {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO flugzeugkosten (ID, Nummer, Bezeichnung, FlugzeugtypID, Fixkosten, RentabilitaetStd, FixkostenStd, Stundensatz )"
-						+	"VALUES (iID, iNummer, sBezeichnung, iFlugzeugtypID, dFixkosten, iRentabilitaetStd, dFixkostenStd, dStundensatz )"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', FlugzeugtypID = 'iFlugzeugtypID', Fixkosten='dFixkosten', RentabilitaetStd='iRentabilitaetStd', FixkostenStd='dFixkostenStd', Stundensatz='dStundensatz'" );
-				
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setInt( 4, iFlugzeugtypID);
-			pst.setDouble( 5, dFixkosten);
-			pst.setInt( 6, iRentabilitaetStd);
-			pst.setDouble( 7, dFixkostenStd);
-			pst.setDouble( 8, dStundensatz);
-			
+			String sql = ("INSERT INTO flugzeugkosten (ID, Nummer, Bezeichnung, FlugzeugtypID, Fixkosten, RentabilitaetStd, FixkostenStd, Stundensatz )"
+																					+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+iFlugzeugtypID+"','"+dFixkosten+"','"+iRentabilitaetStd+"','"+dFixkostenStd+"','"+dStundensatz+"')"
+																					+	" ON DUPLICATE KEY UPDATE "
+																					+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',FlugzeugtypID='"+iFlugzeugtypID+"',Fixkosten='"+dFixkosten+"',RentabilitaetStd='"+iRentabilitaetStd+"',FixkostenStd='"+dFixkostenStd+"',Stundensatz='"+dStundensatz+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}		
+				JOptionPane.showMessageDialog( null, e);
+			}	
 		}
 		
 	}
