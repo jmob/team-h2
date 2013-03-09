@@ -37,6 +37,7 @@ public class FirmaInfo {
 	
 	private String sOrt;
 	private String sPLZ;
+	private int iNummer;
 	private final Connection conn;
 	PreparedStatement pst=null;
 	
@@ -47,6 +48,10 @@ public class FirmaInfo {
 
 	public int getiID() {
 		return iID;
+	}
+	
+		public int getiNummer() {
+		return iNummer;
 	}
 
 	public int getiOrtID() {
@@ -107,6 +112,10 @@ public class FirmaInfo {
 
 	public void setiID( int iID ) {
 		this.iID = iID;
+	}
+	
+	public void setiNummer( int iNummer ) {
+		this.iNummer = iNummer;
 	}
 
 	public void setiOrtID( int iOrtID ) {
@@ -204,6 +213,7 @@ public class FirmaInfo {
 		sTelefax = "";
 		sLogo = "";
 		iOrtID = 0;
+		iNummer = 0;
 	}
 	
 	public void ersterDatensatz() {
@@ -257,34 +267,29 @@ public class FirmaInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO kundenberater (ID, Nummer, AnredeID, Vorname, Nachname, Strasse, OrtID, Telefon, Telefax, Mobil)"
-						+	"VALUES (iID, iNummer, iAnredeID, sVorname, sNachname, sStrasse, iOrtID, sTelefon, sTelefax, sMobil)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', AnredeID = 'iAnredeID', Vorname = 'sVorname', Nachname='sNachname', Strasse='sStrasse', OrtID='iOrtID', Telefon='sTelefon', Telefax='sTelefax', Mobil='sMobil'" );			
-		/*	pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setInt( 3, iAnredeID);
-			pst.setString( 4, sVorname);
-			pst.setString( 5, sNachname);
-			pst.setString( 6, sStrasse);
-			pst.setInt( 7, iOrtID);
-			pst.setString( 8, sTelefon);
-			pst.setString( 9, sTelefax);
-			pst.setString( 10, sMobil);
-			*/
+			String sql = ("INSERT INTO firma (ID, Nummer OrtID, Bezeichnung, Name1, Name2, Name3, Strasse, Steuernummer, Betriebsnummer, USTIdentNummer Telefon, Telefax, Logo)"
+				+ "VALUES('"+iID+"','"+iNummer+"','"+iOrtID+"','"+sBezeichnung+"','"+sName1+"','"+sName2+"','"+sName3+"','"+sStrasse+"','"+sSteuernummer+"','"+sBetriebsnummer+"','"+sUSTIdentNummer+"','"+sTelefon+"','"+sTelefax+"','"+sLogo+"')"
+				+	" ON DUPLICATE KEY UPDATE "
+				+ "ID='"+iID+"',Nummer='"+iNummer+"',OrtID ='"+iOrtID+"',Bezeichnung = '"+sBezeichnung+"', Name1 ='"+sName1+"', Name2 ='"+sName2+"', Name3='"+sName3+"',Strasse='"+sStrasse+"',Steuernummer='"+sSteuernummer+"',Betriebsnummer='"+sBetriebsnummer+"',USTIdentNummer='"+sUSTIdentNummer+"', Telefon ='"+sTelefon+"', Telefax ='"+sTelefax+"',Logo ='"+sLogo+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}
+				JOptionPane.showMessageDialog( null, e);
+			}		
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			String sql = ("INSERT INTO firma (ID, Nummer OrtID, Bezeichnung, Name1, Name2, Name3, Strasse, Steuernummer, Betriebsnummer, USTIdentNummer Telefon, Telefax, Logo)"
+				+ "VALUES('"+iID+"','"+iNummer+"','"+iOrtID+"','"+sBezeichnung+"','"+sName1+"','"+sName2+"','"+sName3+"','"+sStrasse+"','"+sSteuernummer+"','"+sBetriebsnummer+"','"+sUSTIdentNummer+"','"+sTelefon+"','"+sTelefax+"','"+sLogo+"')"
+				+	" ON DUPLICATE KEY UPDATE "
+				+ "ID='"+iID+"',Nummer='"+iNummer+"',OrtID ='"+iOrtID+"',Bezeichnung = '"+sBezeichnung+"', Name1 ='"+sName1+"', Name2 ='"+sName2+"', Name3='"+sName3+"',Strasse='"+sStrasse+"',Steuernummer='"+sSteuernummer+"',Betriebsnummer='"+sBetriebsnummer+"',USTIdentNummer='"+sUSTIdentNummer+"', Telefon ='"+sTelefon+"', Telefax ='"+sTelefax+"',Logo ='"+sLogo+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}		
+				JOptionPane.showMessageDialog( null, e);
+			}	
 		}
 		
 	}

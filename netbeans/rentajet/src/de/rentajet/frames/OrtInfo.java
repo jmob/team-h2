@@ -27,6 +27,7 @@ public class OrtInfo {
 	
 	private String sStaat;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	
 		public OrtInfo() {
 		conn=javaconnect.ConnectDb();
@@ -142,20 +143,31 @@ public class OrtInfo {
 	}
 
 	public void speichereDB( int iNummer ) {
+		if( istDatensatzVorhanden( iNummer ) ) {
 		try {
-			PreparedStatement pst = conn.prepareStatement( "INSERT INTO ort (ID, Nummer, Bezeichnung, Laendercode, PostKuerzel, PostName)"
-						+	"VALUES (iID, iNummer, sBezeichnung, sLaendercode, sPostKuerzel, sPostName)"
-						+	" ON DUPLICATE KEY UPDATE "
-						+ "ID = 'iID', Nummer = 'iNummer', Bezeichnung = 'sBezeichnung', Laendercode = 'sLaendercode', PostKuerzel='sPostKuerzel', PostName='sPostName'" );				
-			pst.setInt( 1, iID);
-			pst.setInt( 2, iNummer);
-			pst.setString( 3, sBezeichnung);
-			pst.setInt( 4, iStaatID);
-			pst.setInt( 5, iPLZ);
+			String sql = ("INSERT INTO ort (ID, Nummer, Bezeichnung, PLZ, StaatID)"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+iPLZ+"','"+iStaatID+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',PLZ='"+iPLZ+"',StaatID='"+iStaatID+"'");				
+			pst=conn.prepareStatement( sql );
 			pst.execute();
+			}
+			catch (Exception e) {
+				JOptionPane.showMessageDialog( null, e);
+			}	
 		}
-		catch (Exception e) {
-
+		else {
+			try {
+			String sql = ("INSERT INTO ort (ID, Nummer, Bezeichnung, PLZ, StaatID)"
+										+ "VALUES('"+iID+"','"+iNummer+"','"+sBezeichnung+"','"+iPLZ+"','"+iStaatID+"')"
+										+	" ON DUPLICATE KEY UPDATE "
+										+ "ID ='"+iID+"',Nummer='"+iNummer+"',Bezeichnung='"+sBezeichnung+"',PLZ='"+iPLZ+"',StaatID='"+iStaatID+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
+			}
+			catch (Exception e) {
+				JOptionPane.showMessageDialog( null, e);
+			}		
 		}
 	}
 	
@@ -186,7 +198,7 @@ public class OrtInfo {
 				iPLZ  = rs.getInt("PLZ");
 				iStaatID  = rs.getInt("StaatID");
 				sBezeichnung  = rs.getString("Bezeichnung");
-				sStaat  = rs.getString("Bezeichnung");
+				sStaat  = rs.getString("t2.Bezeichnung");
 		  }
     }
     catch(Exception e)
@@ -212,12 +224,20 @@ public class OrtInfo {
 				iPLZ  = rs.getInt("PLZ");
 				iStaatID  = rs.getInt("StaatID");
 				sBezeichnung  = rs.getString("Bezeichnung");
-				sStaat  = rs.getString("Bezeichnung");	
+				sStaat  = rs.getString("t2.Bezeichnung");	
       }
     }
     catch(Exception e)
     {
       JOptionPane.showMessageDialog(null, e);
     }	
+	}
+	
+		public boolean istDatensatzVorhanden( int iNummer ) {
+		//ToDo Abfrage in DB ob Datensatz mit übergebener Nummer vorhanden ist und ggf. Variablen füllen
+		if( iNummer == 10 )
+			return true;
+		else
+			return false;
 	}
 }
