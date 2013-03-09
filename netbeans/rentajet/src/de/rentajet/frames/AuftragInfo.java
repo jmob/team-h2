@@ -97,6 +97,7 @@ public class AuftragInfo {
 	private int iFlugbegleiterEinsID;
 	private int iFlugbegleiterZweiID;
 	private final Connection conn;
+	PreparedStatement pst=null;
 	private String FILE = "C:/Users/" + System.getProperty("user.name") + "/Documents/GitHub/team-h2/netbeans/rentajet/myreport.pdf";
 	private Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
       Font.BOLD);
@@ -726,19 +727,87 @@ public class AuftragInfo {
 	public void speichereDB( int iNummer ) {
 		if( istDatensatzVorhanden( iNummer ) ) {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			String sql = ("INSERT INTO auftrag "
+				+ "(ID, Nummer, VorgArt, Kunde, PLZ, Kundenberater, Datum, Rechnungsdatum, Name1, Name2, Name3, "
+				+ "Strasse, Ort, MitarbKundeVorname, MitarbKunde, MitarbKundeName, Flugdatum, Uhrzeit, FlugdatumEnde,"
+				+ "UhrzeitEnde, Start, Ziel, Kilometer, Personen, Stops, ErsterStop, ZweiterStop, DritterStop, VierterStop,"
+				+ "FuenfterStop, SechsterStop, ErsterStopAufenthalt, ZweiterStopAufenthalt, DritterStopAufenthalt, VierterStopAufenthalt,"
+				+ "FuenfterStopAufenthalt, SechsterStopAufenthalt, Flugzeit, Flightcrew, Cabincrew,"
+				+ "Catering, KostenFlug, KostenStop, KostenFlightcrew, KostenCabincrew,"
+				+ "KostenCatering, KostenFlugGesamt, KostenStopGesamt, KostenFlightcrewGesamt, KostenCabincrewGesamt, KostenCateringGesamt,"
+				+ "Netto, RabattProzent, Rabatt, MwSt, Brutto, Skontosatz, KostenFlugVar, KostenFlugVarGesamt, Zahlungsbedingung, Valuta,"
+				+ "SkontoValuta, FlugzeugID, CaptainID, OfficerID, FlugbegleiterEinsID, FlugbegleiterZweiID)"
+				+ "VALUES('"+iID+"','"+iNummer+"','"+iVorgArt+"','"+iKunde+"','"+iPLZ+"','"+iKundenberater+"','"+sDatum+"',"
+				+ "'"+sRechnungsdatum+"','"+sName1+"','"+sName2+"','"+sName3+"','"+sStrasse+"','"+sOrt+"','"+sMitarbKundeVorname+"',"
+				+ "'"+iMitarbKunde+"','"+sMitarbKundeName+"','"+sFlugdatum+"','"+sUhrzeit+"','"+sFlugdatumEnde+"',"
+				+ "'"+sUhrzeitEnde+"','"+iStart+"','"+iZiel+"','"+iKilometer+"','"+iPersonen+"','"+iStops+"','"+iErsterStop+"','"+iZweiterStop+"',"
+				+ "'"+iDritterStop+"','"+iVierterStop+"','"+iFuenfterStop+"','"+iSechsterStop+"','"+iErsterStopAufenthalt+"','"+iZweiterStopAufenthalt+"','"+iDritterStopAufenthalt+"',"
+				+ "'"+iVierterStopAufenthalt+"','"+iFuenfterStopAufenthalt+"','"+iSechsterStopAufenthalt+"','"+iFlugzeit+"',"
+				+ "'"+iFlightcrew+"','"+iCabincrew+"','"+iCatering+"','"+dKostenFlug+"','"+dKostenStop+"','"+dKostenFlightcrew+"','"+dKostenCabincrew+"',"
+				+ "'"+dKostenCatering+"','"+dKostenFlugGesamt+"','"+dKostenStopGesamt+"',,'"+dKostenFlightcrewGesamt+"','"+dKostenCabincrewGesamt+"','"+dKostenCateringGesamt+"'"
+				+ "'"+dNetto+"','"+dRabattProzent+"','"+dRabatt+"','"+dMwSt+"','"+dBrutto+"','"+dSkontosatz+"','"+dKostenFlugVar+"'"
+				+ ",'"+dKostenFlugVarGesamt+"','"+iZahlungsbedingung+"','"+iValuta+"','"+iSkontoValuta+"','"+iFlugzeugID+"',"
+				+ "'"+iCaptainID+"','"+iOfficerID+"','"+iFlugbegleiterEinsID+"','"+iFlugbegleiterZweiID+"'"
+				+	" ON DUPLICATE KEY UPDATE "
+				+ "ID ='"+iID+"',Nummer='"+iNummer+"',VorgArt='"+iVorgArt+"',Kunde='"+iKunde+"',PLZ='"+iPLZ+"',Kundenberater='"+iKundenberater+"',Datum='"+sDatum+"',"
+				+ "Rechnungsdatum='"+sRechnungsdatum+"',Name1='"+sName1+"',Name2='"+sName2+"',Name3='"+sName3+"',Strasse='"+sStrasse+"',Ort='"+sOrt+"',MitarbKundeVorname='"+sMitarbKundeVorname+"',"
+				+ "MitarbKunde='"+iMitarbKunde+"',MitarbKundeName='"+sMitarbKundeName+"',Flugdatum='"+sFlugdatum+"',Uhrzeit='"+sUhrzeit+"',FlugdatumEnde='"+sFlugdatumEnde+"',"
+				+ "UhrzeitEnde='"+sUhrzeitEnde+"',Start='"+iStart+"',Ziel='"+iZiel+"',Kilometer='"+iKilometer+"',Personen='"+iPersonen+"',Stops='"+iStops+"',ErsterStop='"+iErsterStop+"',ZweiterStop='"+iZweiterStop+"',"
+				+ "DritterStop='"+iDritterStop+"',VierterStop='"+iVierterStop+"',FuenfterStop='"+iFuenfterStop+"',SechsterStop='"+iSechsterStop+"',ErsterStopAufenthalt='"+iErsterStopAufenthalt+"',ZweiterStopAufenthalt='"+iZweiterStopAufenthalt+"',DritterStopAufenthalt='"+iDritterStopAufenthalt+"',"
+				+ "VierterStopAufenthalt='"+iVierterStopAufenthalt+"',FuenfterStopAufenthalt='"+iFuenfterStopAufenthalt+"',SechsterStopAufenthalt='"+iSechsterStopAufenthalt+"',Flugzeit='"+iFlugzeit+"',"
+				+ "Flightcrew='"+iFlightcrew+"',Cabincrew='"+iCabincrew+"',Catering='"+iCatering+"',KostenFlug='"+dKostenFlug+"',KostenStop='"+dKostenStop+"',KostenFlightcrew='"+dKostenFlightcrew+"',KostenCabincrew='"+dKostenCabincrew+"',"
+				+ "KostenCatering='"+dKostenCatering+"',KostenFlugGesamt='"+dKostenFlugGesamt+"',KostenStopGesamt='"+dKostenStopGesamt+"',KostenFlightcrewGesamt='"+dKostenFlightcrewGesamt+"',KostenCabincrewGesamt='"+dKostenCabincrewGesamt+"',KostenCateringGesam='"+dKostenCateringGesamt+"'"
+				+ "Netto='"+dNetto+"',RabattProzent='"+dRabattProzent+"',Rabatt='"+dRabatt+"',MwSt='"+dMwSt+"',Brutto='"+dBrutto+"',Skontosatz='"+dSkontosatz+"',KostenFlugVar='"+dKostenFlugVar+"'"
+				+ ",KostenFlugVarGesamt='"+dKostenFlugVarGesamt+"',Zahlungsbedingung='"+iZahlungsbedingung+"',Valuta='"+iValuta+"',SkontoValuta='"+iSkontoValuta+"',FlugzeugID='"+iFlugzeugID+"',"
+				+ "CaptainID='"+iCaptainID+"',OfficerID='"+iOfficerID+"',FlugbegleiterEinsID='"+iFlugbegleiterEinsID+"',FlugbegleiterZweiID='"+iFlugbegleiterZweiID+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}
+				JOptionPane.showMessageDialog( null, e);
+			}			
 		}
 		else {
 			try {
-//				PreparedStatement pst = conn.prepareStatement( "" );
+			String sql = ("INSERT INTO auftrag "
+				+ "(ID, Nummer, VorgArt, Kunde, PLZ, Kundenberater, Datum, Rechnungsdatum, Name1, Name2, Name3, "
+				+ "Strasse, Ort, MitarbKundeVorname, MitarbKunde, MitarbKundeName, Flugdatum, Uhrzeit, FlugdatumEnde,"
+				+ "UhrzeitEnde, Start, Ziel, Kilometer, Personen, Stops, ErsterStop, ZweiterStop, DritterStop, VierterStop,"
+				+ "FuenfterStop, SechsterStop, ErsterStopAufenthalt, ZweiterStopAufenthalt, DritterStopAufenthalt, VierterStopAufenthalt,"
+				+ "FuenfterStopAufenthalt, SechsterStopAufenthalt, Flugzeit, Flightcrew, Cabincrew,"
+				+ "Catering, KostenFlug, KostenStop, KostenFlightcrew, KostenCabincrew,"
+				+ "KostenCatering, KostenFlugGesamt, KostenStopGesamt, KostenFlightcrewGesamt, KostenCabincrewGesamt, KostenCateringGesamt,"
+				+ "Netto, RabattProzent, Rabatt, MwSt, Brutto, Skontosatz, KostenFlugVar, KostenFlugVarGesamt, Zahlungsbedingung, Valuta,"
+				+ "SkontoValuta, FlugzeugID, CaptainID, OfficerID, FlugbegleiterEinsID, FlugbegleiterZweiID)"
+				+ "VALUES('"+iID+"','"+iNummer+"','"+iVorgArt+"','"+iKunde+"','"+iPLZ+"','"+iKundenberater+"','"+sDatum+"',"
+				+ "'"+sRechnungsdatum+"','"+sName1+"','"+sName2+"','"+sName3+"','"+sStrasse+"','"+sOrt+"','"+sMitarbKundeVorname+"',"
+				+ "'"+iMitarbKunde+"','"+sMitarbKundeName+"','"+sFlugdatum+"','"+sUhrzeit+"','"+sFlugdatumEnde+"',"
+				+ "'"+sUhrzeitEnde+"','"+iStart+"','"+iZiel+"','"+iKilometer+"','"+iPersonen+"','"+iStops+"','"+iErsterStop+"','"+iZweiterStop+"',"
+				+ "'"+iDritterStop+"','"+iVierterStop+"','"+iFuenfterStop+"','"+iSechsterStop+"','"+iErsterStopAufenthalt+"','"+iZweiterStopAufenthalt+"','"+iDritterStopAufenthalt+"',"
+				+ "'"+iVierterStopAufenthalt+"','"+iFuenfterStopAufenthalt+"','"+iSechsterStopAufenthalt+"','"+iFlugzeit+"',"
+				+ "'"+iFlightcrew+"','"+iCabincrew+"','"+iCatering+"','"+dKostenFlug+"','"+dKostenStop+"','"+dKostenFlightcrew+"','"+dKostenCabincrew+"',"
+				+ "'"+dKostenCatering+"','"+dKostenFlugGesamt+"','"+dKostenStopGesamt+"',,'"+dKostenFlightcrewGesamt+"','"+dKostenCabincrewGesamt+"','"+dKostenCateringGesamt+"'"
+				+ "'"+dNetto+"','"+dRabattProzent+"','"+dRabatt+"','"+dMwSt+"','"+dBrutto+"','"+dSkontosatz+"','"+dKostenFlugVar+"'"
+				+ ",'"+dKostenFlugVarGesamt+"','"+iZahlungsbedingung+"','"+iValuta+"','"+iSkontoValuta+"','"+iFlugzeugID+"',"
+				+ "'"+iCaptainID+"','"+iOfficerID+"','"+iFlugbegleiterEinsID+"','"+iFlugbegleiterZweiID+"'"
+				+	" ON DUPLICATE KEY UPDATE "
+				+ "ID ='"+iID+"',Nummer='"+iNummer+"',VorgArt='"+iVorgArt+"',Kunde='"+iKunde+"',PLZ='"+iPLZ+"',Kundenberater='"+iKundenberater+"',Datum='"+sDatum+"',"
+				+ "Rechnungsdatum='"+sRechnungsdatum+"',Name1='"+sName1+"',Name2='"+sName2+"',Name3='"+sName3+"',Strasse='"+sStrasse+"',Ort='"+sOrt+"',MitarbKundeVorname='"+sMitarbKundeVorname+"',"
+				+ "MitarbKunde='"+iMitarbKunde+"',MitarbKundeName='"+sMitarbKundeName+"',Flugdatum='"+sFlugdatum+"',Uhrzeit='"+sUhrzeit+"',FlugdatumEnde='"+sFlugdatumEnde+"',"
+				+ "UhrzeitEnde='"+sUhrzeitEnde+"',Start='"+iStart+"',Ziel='"+iZiel+"',Kilometer='"+iKilometer+"',Personen='"+iPersonen+"',Stops='"+iStops+"',ErsterStop='"+iErsterStop+"',ZweiterStop='"+iZweiterStop+"',"
+				+ "DritterStop='"+iDritterStop+"',VierterStop='"+iVierterStop+"',FuenfterStop='"+iFuenfterStop+"',SechsterStop='"+iSechsterStop+"',ErsterStopAufenthalt='"+iErsterStopAufenthalt+"',ZweiterStopAufenthalt='"+iZweiterStopAufenthalt+"',DritterStopAufenthalt='"+iDritterStopAufenthalt+"',"
+				+ "VierterStopAufenthalt='"+iVierterStopAufenthalt+"',FuenfterStopAufenthalt='"+iFuenfterStopAufenthalt+"',SechsterStopAufenthalt='"+iSechsterStopAufenthalt+"',Flugzeit='"+iFlugzeit+"',"
+				+ "Flightcrew='"+iFlightcrew+"',Cabincrew='"+iCabincrew+"',Catering='"+iCatering+"',KostenFlug='"+dKostenFlug+"',KostenStop='"+dKostenStop+"',KostenFlightcrew='"+dKostenFlightcrew+"',KostenCabincrew='"+dKostenCabincrew+"',"
+				+ "KostenCatering='"+dKostenCatering+"',KostenFlugGesamt='"+dKostenFlugGesamt+"',KostenStopGesamt='"+dKostenStopGesamt+"',KostenFlightcrewGesamt='"+dKostenFlightcrewGesamt+"',KostenCabincrewGesamt='"+dKostenCabincrewGesamt+"',KostenCateringGesam='"+dKostenCateringGesamt+"'"
+				+ "Netto='"+dNetto+"',RabattProzent='"+dRabattProzent+"',Rabatt='"+dRabatt+"',MwSt='"+dMwSt+"',Brutto='"+dBrutto+"',Skontosatz='"+dSkontosatz+"',KostenFlugVar='"+dKostenFlugVar+"'"
+				+ ",KostenFlugVarGesamt='"+dKostenFlugVarGesamt+"',Zahlungsbedingung='"+iZahlungsbedingung+"',Valuta='"+iValuta+"',SkontoValuta='"+iSkontoValuta+"',FlugzeugID='"+iFlugzeugID+"',"
+				+ "CaptainID='"+iCaptainID+"',OfficerID='"+iOfficerID+"',FlugbegleiterEinsID='"+iFlugbegleiterEinsID+"',FlugbegleiterZweiID='"+iFlugbegleiterZweiID+"'");				
+			pst=conn.prepareStatement( sql );
+			pst.execute();
 			}
 			catch (Exception e) {
-				
-			}		
+				JOptionPane.showMessageDialog( null, e);
+			}			
 		}
 		
 	}
